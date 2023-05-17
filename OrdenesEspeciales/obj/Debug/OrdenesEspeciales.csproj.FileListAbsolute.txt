@@ -1,0 +1,17 @@
+C:\Users\Datamine\source\repos\OrdenesEspeciales\OrdenesEspeciales\bin\Debug\OrdenesEspeciales.exe.config
+C:\Users\Datamine\source\repos\OrdenesEspeciales\OrdenesEspeciales\bin\Debug\OrdenesEspeciales.exe
+C:\Users\Datamine\source\repos\OrdenesEspeciales\OrdenesEspeciales\bin\Debug\OrdenesEspeciales.pdb
+C:\Users\Datamine\source\repos\OrdenesEspeciales\OrdenesEspeciales\obj\Debug\OrdenesEspeciales.Properties.Resources.resources
+C:\Users\Datamine\source\repos\OrdenesEspeciales\OrdenesEspeciales\obj\Debug\OrdenesEspeciales.csproj.GenerateResource.cache
+C:\Users\Datamine\source\repos\OrdenesEspeciales\OrdenesEspeciales\obj\Debug\OrdenesEspeciales.csproj.CoreCompileInputs.cache
+C:\Users\Datamine\source\repos\OrdenesEspeciales\OrdenesEspeciales\obj\Debug\OrdenesEspeciales.exe
+C:\Users\Datamine\source\repos\OrdenesEspeciales\OrdenesEspeciales\obj\Debug\OrdenesEspeciales.pdb
+C:\Users\Datamine\source\repos\OrdenesEspeciales\OrdenesEspeciales\obj\Debug\OrdenesEspeciales.Login.resources
+C:\Users\Datamine\source\repos\OrdenesEspeciales\OrdenesEspeciales\obj\Debug\OrdenesEspeciales.Form2cs.resources
+C:\Users\Datamine\source\repos\OrdenesEspeciales\OrdenesEspeciales\bin\Debug\OrdenesEspeciales.exe.manifest
+C:\Users\Datamine\source\repos\OrdenesEspeciales\OrdenesEspeciales\bin\Debug\OrdenesEspeciales.application
+C:\Users\Datamine\source\repos\OrdenesEspeciales\OrdenesEspeciales\obj\Debug\OrdenesEspeciales.exe.manifest
+C:\Users\Datamine\source\repos\OrdenesEspeciales\OrdenesEspeciales\obj\Debug\OrdenesEspeciales.application
+C:\Users\Datamine\source\repos\OrdenesEspeciales\OrdenesEspeciales\obj\Debug\OrdenesEspeciales.form_Compo.resources
+C:\Users\Datamine\source\repos\OrdenesEspeciales\OrdenesEspeciales\obj\Debug\OrdenesEspeciales.Menu.resources
+C:\Users\Datamine\source\repos\OrdenesEspeciales\OrdenesEspeciales\obj\Debug\OrdenesEspeciales.csproj.AssemblyReference.cache

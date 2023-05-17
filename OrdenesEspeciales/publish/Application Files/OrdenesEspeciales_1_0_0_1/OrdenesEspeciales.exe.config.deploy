@@ -1,0 +1,18 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<configuration>
+    <configSections>
+    </configSections>
+    <startup> 
+        <supportedRuntime version="v4.0" sku=".NETFramework,Version=v4.6.1" />
+    </startup>
+
+	<connectionStrings>
+  <add name="sql" connectionString="server=DM-LT69;integrated security=true;database=GDMS_ANTAPACCAY" />
+  <add name="cnn" connectionString="Dsn=CENTRAL;uid=admin;pwd=century2000"
+   providerName="System.Data.Odbc" />
+  <add name="Consulta_y_Importacion_de_Muestas.Properties.Settings.GDMS_ANTAPACCAYConnectionString"
+   connectionString="Data Source=DM-LT69;Initial Catalog=GDMS_ANTAPACCAY;Integrated Security=True"
+   providerName="System.Data.SqlClient" />
+
+ </connectionStrings>
+</configuration>

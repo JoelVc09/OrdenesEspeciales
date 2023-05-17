@@ -1,0 +1,16 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="Current" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <PublishUrlHistory>C:\Users\Datamine\OneDrive - Datamine Software Ltd\Desktop\120922\|C:\Users\Datamine\OneDrive - Datamine Software Ltd\Desktop\080922-App\|C:\Users\Datamine\OneDrive - Datamine Software Ltd\Desktop\APP_02092022\|C:\Users\Datamine\OneDrive - Datamine Software Ltd\Desktop\framework3.5\|C:\Users\Datamine\OneDrive - Datamine Software Ltd\Desktop\Demo15-08-22\</PublishUrlHistory>
+    <InstallUrlHistory />
+    <SupportUrlHistory />
+    <UpdateUrlHistory />
+    <BootstrapperUrlHistory />
+    <ErrorReportUrlHistory />
+    <FallbackCulture>es-ES</FallbackCulture>
+    <VerifyUploadedFiles>false</VerifyUploadedFiles>
+  </PropertyGroup>
+  <PropertyGroup>
+    <EnableSecurityDebugging>false</EnableSecurityDebugging>
+  </PropertyGroup>
+</Project>

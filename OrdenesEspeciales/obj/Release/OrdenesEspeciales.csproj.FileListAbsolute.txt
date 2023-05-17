@@ -1,0 +1,15 @@
+C:\Users\Datamine\source\repos\OrdenesEspeciales\OrdenesEspeciales\bin\Release\OrdenesEspeciales.exe.config
+C:\Users\Datamine\source\repos\OrdenesEspeciales\OrdenesEspeciales\bin\Release\OrdenesEspeciales.exe.manifest
+C:\Users\Datamine\source\repos\OrdenesEspeciales\OrdenesEspeciales\bin\Release\OrdenesEspeciales.application
+C:\Users\Datamine\source\repos\OrdenesEspeciales\OrdenesEspeciales\bin\Release\OrdenesEspeciales.exe
+C:\Users\Datamine\source\repos\OrdenesEspeciales\OrdenesEspeciales\bin\Release\OrdenesEspeciales.pdb
+C:\Users\Datamine\source\repos\OrdenesEspeciales\OrdenesEspeciales\obj\Release\OrdenesEspeciales.Form2cs.resources
+C:\Users\Datamine\source\repos\OrdenesEspeciales\OrdenesEspeciales\obj\Release\OrdenesEspeciales.Login.resources
+C:\Users\Datamine\source\repos\OrdenesEspeciales\OrdenesEspeciales\obj\Release\OrdenesEspeciales.Properties.Resources.resources
+C:\Users\Datamine\source\repos\OrdenesEspeciales\OrdenesEspeciales\obj\Release\OrdenesEspeciales.csproj.GenerateResource.cache
+C:\Users\Datamine\source\repos\OrdenesEspeciales\OrdenesEspeciales\obj\Release\OrdenesEspeciales.csproj.CoreCompileInputs.cache
+C:\Users\Datamine\source\repos\OrdenesEspeciales\OrdenesEspeciales\obj\Release\OrdenesEspeciales.exe.manifest
+C:\Users\Datamine\source\repos\OrdenesEspeciales\OrdenesEspeciales\obj\Release\OrdenesEspeciales.application
+C:\Users\Datamine\source\repos\OrdenesEspeciales\OrdenesEspeciales\obj\Release\OrdenesEspeciales.exe
+C:\Users\Datamine\source\repos\OrdenesEspeciales\OrdenesEspeciales\obj\Release\OrdenesEspeciales.pdb
+C:\Users\Datamine\source\repos\OrdenesEspeciales\OrdenesEspeciales\obj\Release\OrdenesEspeciales.csproj.AssemblyReference.cache
