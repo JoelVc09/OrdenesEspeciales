@@ -30,15 +30,15 @@ namespace OrdenesEspeciales
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle9 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle14 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle10 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle11 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle12 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle13 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form2cs));
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle15 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle16 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
             this.CboDup2 = new System.Windows.Forms.ComboBox();
             this.cboMod = new System.Windows.Forms.ComboBox();
             this.label9 = new System.Windows.Forms.Label();
@@ -56,17 +56,6 @@ namespace OrdenesEspeciales
             this.label2 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.chk1 = new System.Windows.Forms.DataGridViewCheckBoxColumn();
-            this.Hole = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Depth_From = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Depth_to = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Sample_Original = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Sample_New = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.TypeNew = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Estado = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Module_Name = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Dispatch = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ParentSample = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.cboSType = new System.Windows.Forms.ComboBox();
             this.comboBox3 = new System.Windows.Forms.ComboBox();
             this.comboBox2 = new System.Windows.Forms.ComboBox();
@@ -96,6 +85,17 @@ namespace OrdenesEspeciales
             this.button3 = new System.Windows.Forms.Button();
             this.BtnBlancos = new System.Windows.Forms.Button();
             this.pictureBox3 = new System.Windows.Forms.PictureBox();
+            this.chk1 = new System.Windows.Forms.DataGridViewCheckBoxColumn();
+            this.Hole = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Depth_From = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Depth_to = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Sample_Original = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Sample_New = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.TypeNew = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Estado = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Module_Name = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Dispatch = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ParentSample = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.hOLEASSAYSAMPLESTATUSBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gDMS_ANTAPACCAYDataSet)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
@@ -276,14 +276,14 @@ namespace OrdenesEspeciales
             this.dataGridView1.AllowUserToDeleteRows = false;
             this.dataGridView1.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dataGridView1.BackgroundColor = System.Drawing.Color.White;
-            dataGridViewCellStyle9.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle9.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle9.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle9.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle9.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle9.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle9.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dataGridView1.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle9;
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dataGridView1.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.chk1,
@@ -297,14 +297,14 @@ namespace OrdenesEspeciales
             this.Module_Name,
             this.Dispatch,
             this.ParentSample});
-            dataGridViewCellStyle14.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle14.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle14.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle14.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle14.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle14.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle14.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dataGridView1.DefaultCellStyle = dataGridViewCellStyle14;
+            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle6.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle6.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle6.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle6.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle6.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle6.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dataGridView1.DefaultCellStyle = dataGridViewCellStyle6;
             this.dataGridView1.Location = new System.Drawing.Point(5, 79);
             this.dataGridView1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.dataGridView1.Name = "dataGridView1";
@@ -314,89 +314,6 @@ namespace OrdenesEspeciales
             this.dataGridView1.Size = new System.Drawing.Size(1261, 289);
             this.dataGridView1.TabIndex = 68;
             this.dataGridView1.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick);
-            // 
-            // chk1
-            // 
-            this.chk1.FillWeight = 48.12834F;
-            this.chk1.HeaderText = "";
-            this.chk1.MinimumWidth = 6;
-            this.chk1.Name = "chk1";
-            // 
-            // Hole
-            // 
-            dataGridViewCellStyle10.BackColor = System.Drawing.SystemColors.ActiveCaption;
-            this.Hole.DefaultCellStyle = dataGridViewCellStyle10;
-            this.Hole.FillWeight = 106.484F;
-            this.Hole.HeaderText = "Hole";
-            this.Hole.MinimumWidth = 6;
-            this.Hole.Name = "Hole";
-            // 
-            // Depth_From
-            // 
-            dataGridViewCellStyle11.BackColor = System.Drawing.SystemColors.ActiveCaption;
-            this.Depth_From.DefaultCellStyle = dataGridViewCellStyle11;
-            this.Depth_From.FillWeight = 106.484F;
-            this.Depth_From.HeaderText = "Depth_From";
-            this.Depth_From.MinimumWidth = 6;
-            this.Depth_From.Name = "Depth_From";
-            // 
-            // Depth_to
-            // 
-            dataGridViewCellStyle12.BackColor = System.Drawing.SystemColors.ActiveCaption;
-            this.Depth_to.DefaultCellStyle = dataGridViewCellStyle12;
-            this.Depth_to.FillWeight = 106.484F;
-            this.Depth_to.HeaderText = "Depth_to";
-            this.Depth_to.MinimumWidth = 6;
-            this.Depth_to.Name = "Depth_to";
-            // 
-            // Sample_Original
-            // 
-            dataGridViewCellStyle13.BackColor = System.Drawing.SystemColors.ActiveCaption;
-            this.Sample_Original.DefaultCellStyle = dataGridViewCellStyle13;
-            this.Sample_Original.FillWeight = 106.484F;
-            this.Sample_Original.HeaderText = "Sample_Original";
-            this.Sample_Original.MinimumWidth = 6;
-            this.Sample_Original.Name = "Sample_Original";
-            // 
-            // Sample_New
-            // 
-            this.Sample_New.FillWeight = 106.484F;
-            this.Sample_New.HeaderText = "Sample_New";
-            this.Sample_New.MinimumWidth = 6;
-            this.Sample_New.Name = "Sample_New";
-            // 
-            // TypeNew
-            // 
-            this.TypeNew.FillWeight = 106.484F;
-            this.TypeNew.HeaderText = "TypeNew";
-            this.TypeNew.MinimumWidth = 6;
-            this.TypeNew.Name = "TypeNew";
-            // 
-            // Estado
-            // 
-            this.Estado.FillWeight = 106.484F;
-            this.Estado.HeaderText = "Estado";
-            this.Estado.MinimumWidth = 6;
-            this.Estado.Name = "Estado";
-            // 
-            // Module_Name
-            // 
-            this.Module_Name.HeaderText = "Module_Name";
-            this.Module_Name.MinimumWidth = 6;
-            this.Module_Name.Name = "Module_Name";
-            // 
-            // Dispatch
-            // 
-            this.Dispatch.HeaderText = "Dispatch";
-            this.Dispatch.MinimumWidth = 6;
-            this.Dispatch.Name = "Dispatch";
-            // 
-            // ParentSample
-            // 
-            this.ParentSample.FillWeight = 106.484F;
-            this.ParentSample.HeaderText = "ParentSample";
-            this.ParentSample.MinimumWidth = 6;
-            this.ParentSample.Name = "ParentSample";
             // 
             // cboSType
             // 
@@ -592,25 +509,25 @@ namespace OrdenesEspeciales
             this.DgvSondajes.AllowUserToDeleteRows = false;
             this.DgvSondajes.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.DgvSondajes.BackgroundColor = System.Drawing.Color.White;
-            dataGridViewCellStyle15.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle15.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle15.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle15.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle15.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle15.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle15.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.DgvSondajes.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle15;
+            dataGridViewCellStyle7.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle7.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle7.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle7.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle7.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle7.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle7.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.DgvSondajes.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle7;
             this.DgvSondajes.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.DgvSondajes.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.chk});
-            dataGridViewCellStyle16.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle16.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle16.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle16.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle16.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle16.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle16.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.DgvSondajes.DefaultCellStyle = dataGridViewCellStyle16;
+            dataGridViewCellStyle8.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle8.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle8.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle8.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle8.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle8.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle8.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.DgvSondajes.DefaultCellStyle = dataGridViewCellStyle8;
             this.DgvSondajes.Location = new System.Drawing.Point(60, 142);
             this.DgvSondajes.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.DgvSondajes.Name = "DgvSondajes";
@@ -708,7 +625,7 @@ namespace OrdenesEspeciales
             this.BtnExcelCsv.ForeColor = System.Drawing.Color.Black;
             this.BtnExcelCsv.Image = ((System.Drawing.Image)(resources.GetObject("BtnExcelCsv.Image")));
             this.BtnExcelCsv.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
-            this.BtnExcelCsv.Location = new System.Drawing.Point(1283, 131);
+            this.BtnExcelCsv.Location = new System.Drawing.Point(1283, 141);
             this.BtnExcelCsv.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.BtnExcelCsv.Name = "BtnExcelCsv";
             this.BtnExcelCsv.Size = new System.Drawing.Size(110, 73);
@@ -757,7 +674,7 @@ namespace OrdenesEspeciales
             this.button2.ForeColor = System.Drawing.Color.Black;
             this.button2.Image = ((System.Drawing.Image)(resources.GetObject("button2.Image")));
             this.button2.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
-            this.button2.Location = new System.Drawing.Point(1283, 51);
+            this.button2.Location = new System.Drawing.Point(1283, 57);
             this.button2.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(104, 76);
@@ -791,10 +708,10 @@ namespace OrdenesEspeciales
             this.button3.ForeColor = System.Drawing.Color.Black;
             this.button3.Image = ((System.Drawing.Image)(resources.GetObject("button3.Image")));
             this.button3.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
-            this.button3.Location = new System.Drawing.Point(1283, 208);
+            this.button3.Location = new System.Drawing.Point(1283, 227);
             this.button3.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(110, 81);
+            this.button3.Size = new System.Drawing.Size(110, 68);
             this.button3.TabIndex = 93;
             this.button3.Text = "LIMPIAR";
             this.button3.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
@@ -827,6 +744,92 @@ namespace OrdenesEspeciales
             this.pictureBox3.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pictureBox3.TabIndex = 95;
             this.pictureBox3.TabStop = false;
+            // 
+            // chk1
+            // 
+            this.chk1.FillWeight = 48.12834F;
+            this.chk1.HeaderText = "";
+            this.chk1.MinimumWidth = 6;
+            this.chk1.Name = "chk1";
+            // 
+            // Hole
+            // 
+            dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.ActiveCaption;
+            this.Hole.DefaultCellStyle = dataGridViewCellStyle2;
+            this.Hole.FillWeight = 106.484F;
+            this.Hole.HeaderText = "Hole";
+            this.Hole.MinimumWidth = 6;
+            this.Hole.Name = "Hole";
+            // 
+            // Depth_From
+            // 
+            dataGridViewCellStyle3.BackColor = System.Drawing.SystemColors.ActiveCaption;
+            this.Depth_From.DefaultCellStyle = dataGridViewCellStyle3;
+            this.Depth_From.FillWeight = 106.484F;
+            this.Depth_From.HeaderText = "Depth_From";
+            this.Depth_From.MinimumWidth = 6;
+            this.Depth_From.Name = "Depth_From";
+            // 
+            // Depth_to
+            // 
+            dataGridViewCellStyle4.BackColor = System.Drawing.SystemColors.ActiveCaption;
+            this.Depth_to.DefaultCellStyle = dataGridViewCellStyle4;
+            this.Depth_to.FillWeight = 106.484F;
+            this.Depth_to.HeaderText = "Depth_to";
+            this.Depth_to.MinimumWidth = 6;
+            this.Depth_to.Name = "Depth_to";
+            // 
+            // Sample_Original
+            // 
+            dataGridViewCellStyle5.BackColor = System.Drawing.SystemColors.ActiveCaption;
+            this.Sample_Original.DefaultCellStyle = dataGridViewCellStyle5;
+            this.Sample_Original.FillWeight = 106.484F;
+            this.Sample_Original.HeaderText = "Sample_Original";
+            this.Sample_Original.MinimumWidth = 6;
+            this.Sample_Original.Name = "Sample_Original";
+            // 
+            // Sample_New
+            // 
+            this.Sample_New.FillWeight = 106.484F;
+            this.Sample_New.HeaderText = "Sample_New";
+            this.Sample_New.MinimumWidth = 6;
+            this.Sample_New.Name = "Sample_New";
+            // 
+            // TypeNew
+            // 
+            this.TypeNew.FillWeight = 106.484F;
+            this.TypeNew.HeaderText = "TypeNew";
+            this.TypeNew.MinimumWidth = 6;
+            this.TypeNew.Name = "TypeNew";
+            // 
+            // Estado
+            // 
+            this.Estado.FillWeight = 106.484F;
+            this.Estado.HeaderText = "Estado";
+            this.Estado.MinimumWidth = 6;
+            this.Estado.Name = "Estado";
+            this.Estado.Visible = false;
+            // 
+            // Module_Name
+            // 
+            this.Module_Name.HeaderText = "Module_Name";
+            this.Module_Name.MinimumWidth = 6;
+            this.Module_Name.Name = "Module_Name";
+            this.Module_Name.Visible = false;
+            // 
+            // Dispatch
+            // 
+            this.Dispatch.HeaderText = "Dispatch";
+            this.Dispatch.MinimumWidth = 6;
+            this.Dispatch.Name = "Dispatch";
+            this.Dispatch.Visible = false;
+            // 
+            // ParentSample
+            // 
+            this.ParentSample.FillWeight = 106.484F;
+            this.ParentSample.HeaderText = "ParentSample";
+            this.ParentSample.MinimumWidth = 6;
+            this.ParentSample.Name = "ParentSample";
             // 
             // Form2cs
             // 
@@ -909,6 +912,7 @@ namespace OrdenesEspeciales
         private System.Windows.Forms.GroupBox groupBox2;
         private System.Windows.Forms.Button BtnNewSam2;
         private System.Windows.Forms.Button BtnEliDis2;
+        private System.Windows.Forms.Button BtnExcelCsv;
         private System.Windows.Forms.DataGridViewCheckBoxColumn chk1;
         private System.Windows.Forms.DataGridViewTextBoxColumn Hole;
         private System.Windows.Forms.DataGridViewTextBoxColumn Depth_From;
@@ -920,7 +924,6 @@ namespace OrdenesEspeciales
         private System.Windows.Forms.DataGridViewTextBoxColumn Module_Name;
         private System.Windows.Forms.DataGridViewTextBoxColumn Dispatch;
         private System.Windows.Forms.DataGridViewTextBoxColumn ParentSample;
-        private System.Windows.Forms.Button BtnExcelCsv;
     }
 }
 
