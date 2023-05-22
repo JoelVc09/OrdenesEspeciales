@@ -42,24 +42,24 @@
     </dependentAssembly>
   </dependency>
   <dependency>
-    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="OrdenesEspeciales.exe" size="971200">
+    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="OrdenesEspeciales.exe" size="1082304">
       <assemblyIdentity name="OrdenesEspeciales" version="1.0.0.0" language="neutral" processorArchitecture="msil" />
       <hash>
         <dsig:Transforms>
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-        <dsig:DigestValue>ECDZ/Wygiz0rnAn8cEWVmDlz2v6KIlWiBVJBPYMcRrQ=</dsig:DigestValue>
+        <dsig:DigestValue>LUHluo/Y66LnUmr4cfhUGvBungnU1W8cSvSt4EUZEBo=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>
-  <file name="OrdenesEspeciales.exe.config" size="700">
+  <file name="OrdenesEspeciales.exe.config" size="234">
     <hash>
       <dsig:Transforms>
         <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
       </dsig:Transforms>
       <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-      <dsig:DigestValue>gKg80YnleaB+upPEIroTomqkRep8taMiVj0QGXpc7QE=</dsig:DigestValue>
+      <dsig:DigestValue>BzVKUtGRecJ8AmSOv8Jtdr/pMl4fs9llyqve6EPkXqg=</dsig:DigestValue>
     </hash>
   </file>
 </asmv1:assembly>

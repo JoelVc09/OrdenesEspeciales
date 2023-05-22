@@ -248,5 +248,11 @@
   <ItemGroup>
     <None Include="Resources\borrar %283%29.png" />
   </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\archivo-excel.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\archivo-excel %281%29.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

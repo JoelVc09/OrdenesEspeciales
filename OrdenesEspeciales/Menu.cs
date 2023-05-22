@@ -7,28 +7,18 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Data.Odbc;
 
 namespace OrdenesEspeciales
 {
     public partial class Menu : Form
     {
-        public Menu(string pUsua)
+        public Menu()
         {
+            
 
             InitializeComponent();
-            Nom_Usua.Text = pUsua;
-            //BtnReassay.FlatAppearance.BorderColor = Color.FromArgb(0, 255, 255, 255); //Cambiar el color del borde
-            //BtnReassay.BackColor = Color.FromArgb(255, 0, 128, 128); //Cambiar el color de fondo
-            //BtnReassay.FlatAppearance.BorderSize = 2; //Cambiar el ancho del borde
-            // Crear un nuevo botón
-
-            // Personalizar el texto del botón
-            //BtnReassay.Text = "Mi botón personalizado";
-
-            // Personalizar el color de fondo del botón
-            //BtnReassay.BackColor = Color.FromArgb(64, 64, 64);
-
-            // Personalizar el color del texto del botón
+            
             BtnReassay.ForeColor = Color.Black;
 
             // Personalizar la fuente del texto del botón
@@ -64,6 +54,7 @@ namespace OrdenesEspeciales
         {
             Form2cs frm_reassay = new Form2cs(Nom_Usua.Text);
             frm_reassay.ShowDialog();
+            //this.Hide();
         }
 
         private void BtnCompositos_Click(object sender, EventArgs e)
@@ -71,7 +62,27 @@ namespace OrdenesEspeciales
             form_Compo frm3 = new form_Compo(Nom_Usua.Text);
 
             frm3.ShowDialog();
-            
+            //this.Hide();
+
+        }
+        private bool confirmacionCierre = false;
+        private void Menu_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            if (!confirmacionCierre)
+            {
+                // Mostrar el cuadro de diálogo de confirmación solo una vez
+                DialogResult result = MessageBox.Show("¿Estás seguro de que quieres cerrar el formulario?", "Confirmar cierre", MessageBoxButtons.YesNo);
+                if (result == DialogResult.No)
+                {
+                    e.Cancel = true; // Cancelar el cierre del formulario
+                }
+                else
+                {
+                    ConexionODBC.CerrarConexion();
+                    confirmacionCierre = true; // Indicar que ya se mostró la confirmación de cierre
+                    Application.Exit(); // Finalizar la aplicaciónad
+                }
+            }
         }
     }
 }

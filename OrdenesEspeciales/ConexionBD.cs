@@ -13,14 +13,19 @@ namespace OrdenesEspeciales
 
         public static void Conectar(string usuario, string clave)
         {
-            string connectionString = $"DSN=CENTRAL;UID={usuario};PWD={clave};MultipleActiveResultSets=true;";
+            string connectionString = $"DSN=CENTRAL;UID={usuario};PWD={clave};";
             connection = new OdbcConnection(connectionString);
             connection.Open();
         }
 
         public static void CerrarConexion()
         {
-            connection.Close();
+            // Cerrar la conexión si está abierta
+            if (connection != null && connection.State == System.Data.ConnectionState.Open)
+            {
+                connection.Close();
+            }
+            //connection.Close();
         }
 
     }

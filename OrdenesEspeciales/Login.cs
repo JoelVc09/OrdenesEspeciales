@@ -38,53 +38,45 @@ namespace OrdenesEspeciales
         {
             string usuario = txtusuario.Text;
             string contraseña = txtpass.Text;
-            ConexionODBC.Conectar(usuario, contraseña);
+
+            bool conexionExitosa = false;
 
             try
             {
-                //Form2cs frm2 = new Form2cs(txtusuario.Text);
-                Menu frm_menu = new Menu(txtusuario.Text);
-                //var conn = new OdbcConnection();
-                //conn.ConnectionString =
-                //              "Dsn=CENTRAL;" +
-                //              "Uid=" + txtusuario.Text + ";" +
-                //              "Pwd=" + txtpass.Text + ";";
-                //conn.Open();
-                //string cnn = ConfigurationManager.ConnectionStrings["prueba"].ConnectionString;
-                using (OdbcConnection connection = ConexionODBC.connection)
-                {   
-                    
-                    using (OdbcCommand cmd = new OdbcCommand("select a.userid from pfuser as a inner join pfuser_prof as b on a.userid = b.userid where a.userid='" + txtusuario.Text + "' and b.[profile] in ('QC MANAGER')", connection))
-                    {
-                        OdbcDataReader dr = cmd.ExecuteReader();
-
-
-                        if (dr.Read())
-                        {
-                            DialogResult r = MessageBox.Show("Inicio de Sesión con el Usuario:  " + txtusuario.Text, "Confirmar", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                            this.Hide();
-                            //frm2.ShowDialog();
-                            frm_menu.ShowDialog();
-                            this.Close();
-                        }
-                        else
-                        {
-                            MessageBox.Show("");
-                        }
-                    }
-                }
+                ConexionODBC.Conectar(usuario, contraseña);
+                conexionExitosa = true;
             }
-
-            catch (Exception ex)
+            catch (OdbcException ex)
             {
-                DialogResult r2 = MessageBox.Show("Error al eliminar el Dispatch: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                // Ocurrió un error al establecer la conexión
+                MessageBox.Show("Error de conexión: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
-            
+
+            if (conexionExitosa)
+            {
+                // La conexión se estableció correctamente
+                MessageBox.Show("Conexión exitosa", "Éxito", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+                // Abrir el nuevo formulario
+                Menu frm_menu = new Menu();
+                frm_menu.Show();
+                this.Hide(); // Opcional: Oculta el formulario de inicio de sesión
+            }
+            else
+            {
+                // Limpiar las cajas de texto de usuario y contraseña
+                txtusuario.Text = string.Empty;
+                txtpass.Text = string.Empty;
+
+                // Establecer el enfoque en la caja de texto de usuario
+                txtusuario.Focus();
+            }
+           
         }
 
         private void btncancelar_Click(object sender, EventArgs e)
         {
-            this.Close();   
+            this.Close();
         }
 
         private void txtpass_KeyPress(object sender, KeyPressEventArgs e)
@@ -93,51 +85,43 @@ namespace OrdenesEspeciales
             {
                 string usuario = txtusuario.Text;
                 string contraseña = txtpass.Text;
-                ConexionODBC.Conectar(usuario, contraseña);
+
+                bool conexionExitosa = false;
 
                 try
                 {
-                    //Form2cs frm2 = new Form2cs(txtusuario.Text);
-                    Menu frm_menu = new Menu(txtusuario.Text);
-                    //var conn = new OdbcConnection();
-                    //conn.ConnectionString =
-                    //              "Dsn=CENTRAL;" +
-                    //              "Uid=" + txtusuario.Text + ";" +
-                    //              "Pwd=" + txtpass.Text + ";";
-                    //conn.Open();
-                    //string cnn = ConfigurationManager.ConnectionStrings["prueba"].ConnectionString;
-                    using (OdbcConnection connection = ConexionODBC.connection)
-                    {   //select a.userid from pfuser as a inner join pfuser_prof as b on a.userid = b.userid where a.userid='"+ txtusuario.Text +"' and b.[profile] in ('QC MANAGER')
-                        //"select userid from pfuser where userid='" + txtusuario.Text + "'"
-                        //using (OdbcCommand cmd = new OdbcCommand("select userid from pfuser"))
-                        using (OdbcCommand cmd = new OdbcCommand("select a.userid from pfuser as a inner join pfuser_prof as b on a.userid = b.userid where a.userid='" + txtusuario.Text + "' and b.[profile] in ('QC MANAGER')", connection))
-                        {
-                            OdbcDataReader dr = cmd.ExecuteReader();
-
-
-                            if (dr.Read())
-                            {
-                              DialogResult r =  MessageBox.Show("Inicio de Sesión con el Usuario:  " + txtusuario.Text, "Confirmar", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                                this.Hide();
-                                //frm2.ShowDialog();
-                                frm_menu.ShowDialog();
-                                this.Close();
-                            }
-                            else
-                            {
-                                MessageBox.Show("");
-                            }
-                        }
-                    }
+                    ConexionODBC.Conectar(usuario, contraseña);
+                    conexionExitosa = true;
                 }
-
-                catch (Exception ex)
+                catch (OdbcException ex)
                 {
-                    DialogResult r2 = MessageBox.Show("Error al eliminar el Dispatch: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    // Ocurrió un error al establecer la conexión
+                    MessageBox.Show("Verificar Usuario o Contraseña: ", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
+
+                if (conexionExitosa)
+                {
+                    // La conexión se estableció correctamente
+                    MessageBox.Show("Conexión exitosa", "Éxito", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+                    // Abrir el nuevo formulario
+                    Menu frm_menu = new Menu();
+                    frm_menu.Show();
+                    this.Hide(); // Opcional: Oculta el formulario de inicio de sesión
+                }
+                else
+                {
+                    // Limpiar las cajas de texto de usuario y contraseña
+                    txtusuario.Text = string.Empty;
+                    txtpass.Text = string.Empty;
+
+                    // Establecer el enfoque en la caja de texto de usuario
+                    txtusuario.Focus();
+                }
+
             }
         }
 
-     
+
     }
 }

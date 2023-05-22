@@ -30,15 +30,15 @@ namespace OrdenesEspeciales
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle9 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle14 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle10 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle11 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle12 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle13 = new System.Windows.Forms.DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form2cs));
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle15 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle16 = new System.Windows.Forms.DataGridViewCellStyle();
             this.CboDup2 = new System.Windows.Forms.ComboBox();
             this.cboMod = new System.Windows.Forms.ComboBox();
             this.label9 = new System.Windows.Forms.Label();
@@ -87,14 +87,15 @@ namespace OrdenesEspeciales
             this.lblcant = new System.Windows.Forms.Label();
             this.label12 = new System.Windows.Forms.Label();
             this.label13 = new System.Windows.Forms.Label();
-            this.pictureBox3 = new System.Windows.Forms.PictureBox();
+            this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.BtnExcelCsv = new System.Windows.Forms.Button();
+            this.BtnNewSam2 = new System.Windows.Forms.Button();
+            this.BtnTipDup = new System.Windows.Forms.Button();
+            this.button2 = new System.Windows.Forms.Button();
             this.button4 = new System.Windows.Forms.Button();
             this.button3 = new System.Windows.Forms.Button();
-            this.button2 = new System.Windows.Forms.Button();
             this.BtnBlancos = new System.Windows.Forms.Button();
-            this.BtnTipDup = new System.Windows.Forms.Button();
-            this.groupBox2 = new System.Windows.Forms.GroupBox();
-            this.BtnNewSam2 = new System.Windows.Forms.Button();
+            this.pictureBox3 = new System.Windows.Forms.PictureBox();
             ((System.ComponentModel.ISupportInitialize)(this.hOLEASSAYSAMPLESTATUSBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gDMS_ANTAPACCAYDataSet)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
@@ -102,8 +103,8 @@ namespace OrdenesEspeciales
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.DgvSondajes)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
             this.groupBox2.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
             this.SuspendLayout();
             // 
             // CboDup2
@@ -180,7 +181,6 @@ namespace OrdenesEspeciales
             this.txtDispatch.Size = new System.Drawing.Size(118, 22);
             this.txtDispatch.TabIndex = 80;
             this.txtDispatch.TextChanged += new System.EventHandler(this.txtDispatch_TextChanged);
-            
             // 
             // label8
             // 
@@ -276,14 +276,14 @@ namespace OrdenesEspeciales
             this.dataGridView1.AllowUserToDeleteRows = false;
             this.dataGridView1.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dataGridView1.BackgroundColor = System.Drawing.Color.White;
-            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dataGridView1.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle9.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle9.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle9.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle9.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle9.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle9.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle9.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dataGridView1.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle9;
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.chk1,
@@ -297,14 +297,14 @@ namespace OrdenesEspeciales
             this.Module_Name,
             this.Dispatch,
             this.ParentSample});
-            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle6.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle6.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle6.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle6.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle6.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle6.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dataGridView1.DefaultCellStyle = dataGridViewCellStyle6;
+            dataGridViewCellStyle14.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle14.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle14.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle14.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle14.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle14.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle14.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dataGridView1.DefaultCellStyle = dataGridViewCellStyle14;
             this.dataGridView1.Location = new System.Drawing.Point(5, 79);
             this.dataGridView1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.dataGridView1.Name = "dataGridView1";
@@ -324,8 +324,8 @@ namespace OrdenesEspeciales
             // 
             // Hole
             // 
-            dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.ActiveCaption;
-            this.Hole.DefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle10.BackColor = System.Drawing.SystemColors.ActiveCaption;
+            this.Hole.DefaultCellStyle = dataGridViewCellStyle10;
             this.Hole.FillWeight = 106.484F;
             this.Hole.HeaderText = "Hole";
             this.Hole.MinimumWidth = 6;
@@ -333,8 +333,8 @@ namespace OrdenesEspeciales
             // 
             // Depth_From
             // 
-            dataGridViewCellStyle3.BackColor = System.Drawing.SystemColors.ActiveCaption;
-            this.Depth_From.DefaultCellStyle = dataGridViewCellStyle3;
+            dataGridViewCellStyle11.BackColor = System.Drawing.SystemColors.ActiveCaption;
+            this.Depth_From.DefaultCellStyle = dataGridViewCellStyle11;
             this.Depth_From.FillWeight = 106.484F;
             this.Depth_From.HeaderText = "Depth_From";
             this.Depth_From.MinimumWidth = 6;
@@ -342,8 +342,8 @@ namespace OrdenesEspeciales
             // 
             // Depth_to
             // 
-            dataGridViewCellStyle4.BackColor = System.Drawing.SystemColors.ActiveCaption;
-            this.Depth_to.DefaultCellStyle = dataGridViewCellStyle4;
+            dataGridViewCellStyle12.BackColor = System.Drawing.SystemColors.ActiveCaption;
+            this.Depth_to.DefaultCellStyle = dataGridViewCellStyle12;
             this.Depth_to.FillWeight = 106.484F;
             this.Depth_to.HeaderText = "Depth_to";
             this.Depth_to.MinimumWidth = 6;
@@ -351,8 +351,8 @@ namespace OrdenesEspeciales
             // 
             // Sample_Original
             // 
-            dataGridViewCellStyle5.BackColor = System.Drawing.SystemColors.ActiveCaption;
-            this.Sample_Original.DefaultCellStyle = dataGridViewCellStyle5;
+            dataGridViewCellStyle13.BackColor = System.Drawing.SystemColors.ActiveCaption;
+            this.Sample_Original.DefaultCellStyle = dataGridViewCellStyle13;
             this.Sample_Original.FillWeight = 106.484F;
             this.Sample_Original.HeaderText = "Sample_Original";
             this.Sample_Original.MinimumWidth = 6;
@@ -378,21 +378,18 @@ namespace OrdenesEspeciales
             this.Estado.HeaderText = "Estado";
             this.Estado.MinimumWidth = 6;
             this.Estado.Name = "Estado";
-            this.Estado.Visible = false;
             // 
             // Module_Name
             // 
             this.Module_Name.HeaderText = "Module_Name";
             this.Module_Name.MinimumWidth = 6;
             this.Module_Name.Name = "Module_Name";
-            this.Module_Name.Visible = false;
             // 
             // Dispatch
             // 
             this.Dispatch.HeaderText = "Dispatch";
             this.Dispatch.MinimumWidth = 6;
             this.Dispatch.Name = "Dispatch";
-            this.Dispatch.Visible = false;
             // 
             // ParentSample
             // 
@@ -511,7 +508,7 @@ namespace OrdenesEspeciales
             // BtnEliDis2
             // 
             this.BtnEliDis2.BackColor = System.Drawing.Color.Transparent;
-            this.BtnEliDis2.BackgroundImage = global::OrdenesEspeciales.Properties.Resources.borrar__3_;
+            this.BtnEliDis2.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("BtnEliDis2.BackgroundImage")));
             this.BtnEliDis2.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.BtnEliDis2.FlatAppearance.BorderSize = 0;
             this.BtnEliDis2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
@@ -537,7 +534,7 @@ namespace OrdenesEspeciales
             // button9
             // 
             this.button9.BackColor = System.Drawing.Color.Transparent;
-            this.button9.BackgroundImage = global::OrdenesEspeciales.Properties.Resources.icons8_añadir_96;
+            this.button9.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("button9.BackgroundImage")));
             this.button9.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.button9.FlatAppearance.BorderSize = 0;
             this.button9.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
@@ -555,7 +552,7 @@ namespace OrdenesEspeciales
             this.btnConsultar.BackColor = System.Drawing.Color.SeaGreen;
             this.btnConsultar.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnConsultar.ForeColor = System.Drawing.Color.White;
-            this.btnConsultar.Image = global::OrdenesEspeciales.Properties.Resources.icons8_filtrar_24;
+            this.btnConsultar.Image = ((System.Drawing.Image)(resources.GetObject("btnConsultar.Image")));
             this.btnConsultar.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
             this.btnConsultar.Location = new System.Drawing.Point(1055, 71);
             this.btnConsultar.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
@@ -569,7 +566,7 @@ namespace OrdenesEspeciales
             // 
             // pictureBox4
             // 
-            this.pictureBox4.Image = global::OrdenesEspeciales.Properties.Resources.zzzzzz;
+            this.pictureBox4.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox4.Image")));
             this.pictureBox4.Location = new System.Drawing.Point(1227, 141);
             this.pictureBox4.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.pictureBox4.Name = "pictureBox4";
@@ -580,7 +577,7 @@ namespace OrdenesEspeciales
             // 
             // pictureBox1
             // 
-            this.pictureBox1.Image = global::OrdenesEspeciales.Properties.Resources.da_icon;
+            this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
             this.pictureBox1.Location = new System.Drawing.Point(1227, 16);
             this.pictureBox1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.pictureBox1.Name = "pictureBox1";
@@ -595,25 +592,25 @@ namespace OrdenesEspeciales
             this.DgvSondajes.AllowUserToDeleteRows = false;
             this.DgvSondajes.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.DgvSondajes.BackgroundColor = System.Drawing.Color.White;
-            dataGridViewCellStyle7.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle7.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle7.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle7.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle7.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle7.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle7.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.DgvSondajes.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle7;
+            dataGridViewCellStyle15.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle15.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle15.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle15.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle15.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle15.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle15.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.DgvSondajes.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle15;
             this.DgvSondajes.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.DgvSondajes.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.chk});
-            dataGridViewCellStyle8.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle8.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle8.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle8.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle8.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle8.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle8.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.DgvSondajes.DefaultCellStyle = dataGridViewCellStyle8;
+            dataGridViewCellStyle16.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle16.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle16.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle16.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle16.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle16.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle16.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.DgvSondajes.DefaultCellStyle = dataGridViewCellStyle16;
             this.DgvSondajes.Location = new System.Drawing.Point(60, 142);
             this.DgvSondajes.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.DgvSondajes.Name = "DgvSondajes";
@@ -634,7 +631,7 @@ namespace OrdenesEspeciales
             this.btnPasar.BackColor = System.Drawing.Color.SeaGreen;
             this.btnPasar.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnPasar.ForeColor = System.Drawing.Color.White;
-            this.btnPasar.Image = global::OrdenesEspeciales.Properties.Resources.icons8_down_16;
+            this.btnPasar.Image = ((System.Drawing.Image)(resources.GetObject("btnPasar.Image")));
             this.btnPasar.ImageAlign = System.Drawing.ContentAlignment.BottomCenter;
             this.btnPasar.Location = new System.Drawing.Point(477, 424);
             this.btnPasar.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
@@ -678,25 +675,106 @@ namespace OrdenesEspeciales
             this.label13.TabIndex = 107;
             this.label13.Text = "Nuevo Tipo: *";
             // 
-            // pictureBox3
+            // groupBox2
             // 
-            this.pictureBox3.Image = global::OrdenesEspeciales.Properties.Resources.Datamine_rgb_11;
-            this.pictureBox3.Location = new System.Drawing.Point(1130, 877);
-            this.pictureBox3.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.pictureBox3.Name = "pictureBox3";
-            this.pictureBox3.Size = new System.Drawing.Size(319, 46);
-            this.pictureBox3.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pictureBox3.TabIndex = 95;
-            this.pictureBox3.TabStop = false;
+            this.groupBox2.BackColor = System.Drawing.Color.LightSteelBlue;
+            this.groupBox2.Controls.Add(this.BtnExcelCsv);
+            this.groupBox2.Controls.Add(this.BtnNewSam2);
+            this.groupBox2.Controls.Add(this.label13);
+            this.groupBox2.Controls.Add(this.cbo2);
+            this.groupBox2.Controls.Add(this.BtnTipDup);
+            this.groupBox2.Controls.Add(this.label1);
+            this.groupBox2.Controls.Add(this.button2);
+            this.groupBox2.Controls.Add(this.label8);
+            this.groupBox2.Controls.Add(this.cboNewType);
+            this.groupBox2.Controls.Add(this.button4);
+            this.groupBox2.Controls.Add(this.button3);
+            this.groupBox2.Controls.Add(this.label9);
+            this.groupBox2.Controls.Add(this.txt_newsample);
+            this.groupBox2.Controls.Add(this.CboDup2);
+            this.groupBox2.Controls.Add(this.BtnBlancos);
+            this.groupBox2.Controls.Add(this.dataGridView1);
+            this.groupBox2.Location = new System.Drawing.Point(30, 497);
+            this.groupBox2.Name = "groupBox2";
+            this.groupBox2.Size = new System.Drawing.Size(1419, 375);
+            this.groupBox2.TabIndex = 108;
+            this.groupBox2.TabStop = false;
+            this.groupBox2.Text = "Sample Dispatch";
+            // 
+            // BtnExcelCsv
+            // 
+            this.BtnExcelCsv.BackColor = System.Drawing.Color.SeaGreen;
+            this.BtnExcelCsv.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.BtnExcelCsv.ForeColor = System.Drawing.Color.Black;
+            this.BtnExcelCsv.Image = ((System.Drawing.Image)(resources.GetObject("BtnExcelCsv.Image")));
+            this.BtnExcelCsv.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
+            this.BtnExcelCsv.Location = new System.Drawing.Point(1283, 131);
+            this.BtnExcelCsv.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.BtnExcelCsv.Name = "BtnExcelCsv";
+            this.BtnExcelCsv.Size = new System.Drawing.Size(110, 73);
+            this.BtnExcelCsv.TabIndex = 109;
+            this.BtnExcelCsv.Text = "CSV";
+            this.BtnExcelCsv.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
+            this.BtnExcelCsv.UseVisualStyleBackColor = false;
+            this.BtnExcelCsv.Click += new System.EventHandler(this.BtnExcelCsv_Click);
+            // 
+            // BtnNewSam2
+            // 
+            this.BtnNewSam2.BackColor = System.Drawing.Color.Transparent;
+            this.BtnNewSam2.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("BtnNewSam2.BackgroundImage")));
+            this.BtnNewSam2.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.BtnNewSam2.FlatAppearance.BorderSize = 0;
+            this.BtnNewSam2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.BtnNewSam2.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.BtnNewSam2.Location = new System.Drawing.Point(432, 38);
+            this.BtnNewSam2.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.BtnNewSam2.Name = "BtnNewSam2";
+            this.BtnNewSam2.Size = new System.Drawing.Size(45, 37);
+            this.BtnNewSam2.TabIndex = 108;
+            this.BtnNewSam2.UseVisualStyleBackColor = false;
+            this.BtnNewSam2.Click += new System.EventHandler(this.BtnNewSam2_Click);
+            // 
+            // BtnTipDup
+            // 
+            this.BtnTipDup.BackColor = System.Drawing.Color.Transparent;
+            this.BtnTipDup.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("BtnTipDup.BackgroundImage")));
+            this.BtnTipDup.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.BtnTipDup.FlatAppearance.BorderSize = 0;
+            this.BtnTipDup.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.BtnTipDup.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.BtnTipDup.Location = new System.Drawing.Point(1105, 36);
+            this.BtnTipDup.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.BtnTipDup.Name = "BtnTipDup";
+            this.BtnTipDup.Size = new System.Drawing.Size(45, 37);
+            this.BtnTipDup.TabIndex = 76;
+            this.BtnTipDup.UseVisualStyleBackColor = false;
+            this.BtnTipDup.Click += new System.EventHandler(this.button7_Click_1);
+            // 
+            // button2
+            // 
+            this.button2.BackColor = System.Drawing.Color.RoyalBlue;
+            this.button2.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button2.ForeColor = System.Drawing.Color.Black;
+            this.button2.Image = ((System.Drawing.Image)(resources.GetObject("button2.Image")));
+            this.button2.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
+            this.button2.Location = new System.Drawing.Point(1283, 51);
+            this.button2.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.button2.Name = "button2";
+            this.button2.Size = new System.Drawing.Size(104, 76);
+            this.button2.TabIndex = 92;
+            this.button2.Text = "ENVIAR BD";
+            this.button2.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
+            this.button2.UseVisualStyleBackColor = false;
+            this.button2.Click += new System.EventHandler(this.button2_Click);
             // 
             // button4
             // 
             this.button4.BackColor = System.Drawing.Color.IndianRed;
             this.button4.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button4.ForeColor = System.Drawing.Color.Black;
-            this.button4.Image = global::OrdenesEspeciales.Properties.Resources.anto4;
+            this.button4.Image = ((System.Drawing.Image)(resources.GetObject("button4.Image")));
             this.button4.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
-            this.button4.Location = new System.Drawing.Point(1292, 305);
+            this.button4.Location = new System.Drawing.Point(1283, 305);
             this.button4.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.button4.Name = "button4";
             this.button4.Size = new System.Drawing.Size(110, 63);
@@ -711,39 +789,22 @@ namespace OrdenesEspeciales
             this.button3.BackColor = System.Drawing.Color.Gray;
             this.button3.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button3.ForeColor = System.Drawing.Color.Black;
-            this.button3.Image = global::OrdenesEspeciales.Properties.Resources.anto2;
+            this.button3.Image = ((System.Drawing.Image)(resources.GetObject("button3.Image")));
             this.button3.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
-            this.button3.Location = new System.Drawing.Point(1292, 193);
+            this.button3.Location = new System.Drawing.Point(1283, 208);
             this.button3.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(110, 65);
+            this.button3.Size = new System.Drawing.Size(110, 81);
             this.button3.TabIndex = 93;
             this.button3.Text = "LIMPIAR";
             this.button3.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
             this.button3.UseVisualStyleBackColor = false;
             this.button3.Click += new System.EventHandler(this.button3_Click_1);
             // 
-            // button2
-            // 
-            this.button2.BackColor = System.Drawing.Color.SeaGreen;
-            this.button2.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button2.ForeColor = System.Drawing.Color.Black;
-            this.button2.Image = global::OrdenesEspeciales.Properties.Resources.anto1;
-            this.button2.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
-            this.button2.Location = new System.Drawing.Point(1292, 75);
-            this.button2.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(110, 67);
-            this.button2.TabIndex = 92;
-            this.button2.Text = "ENVIAR BD";
-            this.button2.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
-            this.button2.UseVisualStyleBackColor = false;
-            this.button2.Click += new System.EventHandler(this.button2_Click);
-            // 
             // BtnBlancos
             // 
             this.BtnBlancos.BackColor = System.Drawing.Color.Transparent;
-            this.BtnBlancos.BackgroundImage = global::OrdenesEspeciales.Properties.Resources.icons8_add_67;
+            this.BtnBlancos.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("BtnBlancos.BackgroundImage")));
             this.BtnBlancos.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.BtnBlancos.FlatAppearance.BorderSize = 0;
             this.BtnBlancos.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
@@ -756,62 +817,16 @@ namespace OrdenesEspeciales
             this.BtnBlancos.UseVisualStyleBackColor = false;
             this.BtnBlancos.Click += new System.EventHandler(this.button5_Click_1);
             // 
-            // BtnTipDup
+            // pictureBox3
             // 
-            this.BtnTipDup.BackColor = System.Drawing.Color.Transparent;
-            this.BtnTipDup.BackgroundImage = global::OrdenesEspeciales.Properties.Resources.icons8_add_67__1_;
-            this.BtnTipDup.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.BtnTipDup.FlatAppearance.BorderSize = 0;
-            this.BtnTipDup.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.BtnTipDup.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.BtnTipDup.Location = new System.Drawing.Point(1105, 36);
-            this.BtnTipDup.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.BtnTipDup.Name = "BtnTipDup";
-            this.BtnTipDup.Size = new System.Drawing.Size(45, 37);
-            this.BtnTipDup.TabIndex = 76;
-            this.BtnTipDup.UseVisualStyleBackColor = false;
-            this.BtnTipDup.Click += new System.EventHandler(this.button7_Click_1);
-            // 
-            // groupBox2
-            // 
-            this.groupBox2.BackColor = System.Drawing.Color.LightSteelBlue;
-            this.groupBox2.Controls.Add(this.BtnNewSam2);
-            this.groupBox2.Controls.Add(this.label13);
-            this.groupBox2.Controls.Add(this.cbo2);
-            this.groupBox2.Controls.Add(this.BtnTipDup);
-            this.groupBox2.Controls.Add(this.label1);
-            this.groupBox2.Controls.Add(this.label8);
-            this.groupBox2.Controls.Add(this.cboNewType);
-            this.groupBox2.Controls.Add(this.button4);
-            this.groupBox2.Controls.Add(this.button3);
-            this.groupBox2.Controls.Add(this.label9);
-            this.groupBox2.Controls.Add(this.button2);
-            this.groupBox2.Controls.Add(this.txt_newsample);
-            this.groupBox2.Controls.Add(this.CboDup2);
-            this.groupBox2.Controls.Add(this.BtnBlancos);
-            this.groupBox2.Controls.Add(this.dataGridView1);
-            this.groupBox2.Location = new System.Drawing.Point(30, 497);
-            this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(1419, 375);
-            this.groupBox2.TabIndex = 108;
-            this.groupBox2.TabStop = false;
-            this.groupBox2.Text = "Sample Dispatch";
-            // 
-            // BtnNewSam2
-            // 
-            this.BtnNewSam2.BackColor = System.Drawing.Color.Transparent;
-            this.BtnNewSam2.BackgroundImage = global::OrdenesEspeciales.Properties.Resources.boton_agregar__2_;
-            this.BtnNewSam2.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.BtnNewSam2.FlatAppearance.BorderSize = 0;
-            this.BtnNewSam2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.BtnNewSam2.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.BtnNewSam2.Location = new System.Drawing.Point(432, 38);
-            this.BtnNewSam2.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.BtnNewSam2.Name = "BtnNewSam2";
-            this.BtnNewSam2.Size = new System.Drawing.Size(45, 37);
-            this.BtnNewSam2.TabIndex = 108;
-            this.BtnNewSam2.UseVisualStyleBackColor = false;
-            this.BtnNewSam2.Click += new System.EventHandler(this.BtnNewSam2_Click);
+            this.pictureBox3.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox3.Image")));
+            this.pictureBox3.Location = new System.Drawing.Point(1130, 877);
+            this.pictureBox3.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.pictureBox3.Name = "pictureBox3";
+            this.pictureBox3.Size = new System.Drawing.Size(319, 46);
+            this.pictureBox3.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pictureBox3.TabIndex = 95;
+            this.pictureBox3.TabStop = false;
             // 
             // Form2cs
             // 
@@ -839,9 +854,9 @@ namespace OrdenesEspeciales
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.DgvSondajes)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();
             this.groupBox2.ResumeLayout(false);
             this.groupBox2.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -883,17 +898,6 @@ namespace OrdenesEspeciales
         private System.Windows.Forms.BindingSource hOLEASSAYSAMPLESTATUSBindingSource;
         private GDMS_ANTAPACCAYDataSetTableAdapters.HOLE_ASSAY_SAMPLE_STATUSTableAdapter hOLE_ASSAY_SAMPLE_STATUSTableAdapter;
         private System.Windows.Forms.TextBox txtStatusDisp;
-        private System.Windows.Forms.DataGridViewCheckBoxColumn chk1;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Hole;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Depth_From;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Depth_to;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Sample_Original;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Sample_New;
-        private System.Windows.Forms.DataGridViewTextBoxColumn TypeNew;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Estado;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Module_Name;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Dispatch;
-        private System.Windows.Forms.DataGridViewTextBoxColumn ParentSample;
         private System.Windows.Forms.TextBox txt_newsample;
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.Label lblUsu;
@@ -905,6 +909,18 @@ namespace OrdenesEspeciales
         private System.Windows.Forms.GroupBox groupBox2;
         private System.Windows.Forms.Button BtnNewSam2;
         private System.Windows.Forms.Button BtnEliDis2;
+        private System.Windows.Forms.DataGridViewCheckBoxColumn chk1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Hole;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Depth_From;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Depth_to;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Sample_Original;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Sample_New;
+        private System.Windows.Forms.DataGridViewTextBoxColumn TypeNew;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Estado;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Module_Name;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Dispatch;
+        private System.Windows.Forms.DataGridViewTextBoxColumn ParentSample;
+        private System.Windows.Forms.Button BtnExcelCsv;
     }
 }
 

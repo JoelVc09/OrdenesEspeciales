@@ -9,13 +9,16 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Data.SqlClient;
 using System.Configuration;
+using System.Data.Odbc;
 
 namespace OrdenesEspeciales
 {
     public partial class form_Compo : Form
     {
-        string connectionString = @"Data Source=DM-LT69; Initial Catalog=GDMS_ANTAPACCAY; Integrated Security=True;";
-        SqlConnection con = new SqlConnection(ConfigurationManager.ConnectionStrings["sql"].ConnectionString);
+        OdbcConnection con = ConexionODBC.connection;
+        //string connectionString = @"Data Source=DM-LT69; Initial Catalog=GDMS_ANTAPACCAY; Integrated Security=True;";
+        //SqlConnection con = new SqlConnection(ConfigurationManager.ConnectionStrings["sql"].ConnectionString);
+
         public form_Compo(string pUsua3)
         {
             InitializeComponent();
@@ -31,18 +34,18 @@ namespace OrdenesEspeciales
             txtStatusDisp.Text = "NEW";
             this.WindowState = FormWindowState.Maximized;
             this.StartPosition = FormStartPosition.CenterScreen;
-            btnPasar.Enabled = false;
+            //btnPasar.Enabled = false;
         }
 
         //CARGA DE COMBOBOX//
         public void cargar_datos()
         {
-            con.Open();
-            SqlCommand cmd = new SqlCommand("select original_business_unit from DRILL_HOLE where HOLE_NUMBER not like '@%' and original_business_unit not like '%RELOG%' group by original_business_unit", con);
-            SqlDataAdapter da = new SqlDataAdapter(cmd);
+
+            string query = "select original_business_unit from DRILL_HOLE where HOLE_NUMBER not like '@%' and original_business_unit not like '%RELOG%' group by original_business_unit";
+            OdbcCommand cmd = new OdbcCommand(query, con);
+            OdbcDataAdapter da = new OdbcDataAdapter(cmd);
             DataTable dt = new DataTable();
             da.Fill(dt);
-            con.Close();
 
             DataRow fila = dt.NewRow();
             fila["original_business_unit"] = "Selecciona un Business Unit";
@@ -56,13 +59,15 @@ namespace OrdenesEspeciales
         public void cargar_proyectos(string original)
         {
 
-            con.Open();
-            SqlCommand cmd = new SqlCommand("select b.REFERENCE_CODE_ID,a.PROJECT_NUMBER,a.original_business_unit from DRILL_HOLE a inner join PROJECT b on a.PROJECT_NUMBER = b.PROJECT_NUMBER where a.original_business_unit = @original_business_unit group by  a.PROJECT_NUMBER,original_business_unit,b.REFERENCE_CODE_ID", con);
-            cmd.Parameters.AddWithValue("original_business_unit", original);
-            SqlDataAdapter da = new SqlDataAdapter(cmd);
+            string query = "select b.REFERENCE_CODE_ID,a.PROJECT_NUMBER,a.original_business_unit from DRILL_HOLE a inner join PROJECT b on a.PROJECT_NUMBER = b.PROJECT_NUMBER where a.original_business_unit = ? group by  a.PROJECT_NUMBER,original_business_unit,b.REFERENCE_CODE_ID";
+            OdbcCommand cmd = new OdbcCommand(query, con);
+            OdbcParameter param1 = new OdbcParameter("@param1", OdbcType.VarChar);
+            param1.Value = original;
+            cmd.Parameters.Add(param1);
+
+            OdbcDataAdapter da = new OdbcDataAdapter(cmd);
             DataTable dt = new DataTable();
             da.Fill(dt);
-            con.Close();
 
             DataRow dr = dt.NewRow();
             dr["PROJECT_NUMBER"] = "Selecciona un proyecto";
@@ -75,13 +80,15 @@ namespace OrdenesEspeciales
 
         public void cargar_sondajes(string PROJECT_NUMBER)
         {
-            con.Open();
-            SqlCommand cmd = new SqlCommand("select trim(a.HOLE_NUMBER)as HOLE_NUMBER,b.original_business_unit,b.PROJECT_NUMBER from HOLE_ASSAY_SAMPLE a inner join DRILL_HOLE b on a.HOLE_NUMBER = b.HOLE_NUMBER where a.HOLE_NUMBER not like '@%' and PROJECT_NUMBER = @PROJECT_NUMBER Group by a.HOLE_NUMBER,b.PROJECT_NUMBER,b.original_business_unit order by HOLE_NUMBER asc", con);
-            cmd.Parameters.AddWithValue("PROJECT_NUMBER", PROJECT_NUMBER);
-            SqlDataAdapter da = new SqlDataAdapter(cmd);
+            string query = "select trim(a.HOLE_NUMBER)as HOLE_NUMBER,b.original_business_unit,b.PROJECT_NUMBER from HOLE_ASSAY_SAMPLE a inner join DRILL_HOLE b on a.HOLE_NUMBER = b.HOLE_NUMBER where a.HOLE_NUMBER not like '@%' and b.is_master='Y' and PROJECT_NUMBER = ? Group by a.HOLE_NUMBER,b.PROJECT_NUMBER,b.original_business_unit order by HOLE_NUMBER asc";
+            OdbcCommand cmd = new OdbcCommand(query, con);
+            OdbcParameter param2 = new OdbcParameter("@param2", OdbcType.VarChar);
+            param2.Value = PROJECT_NUMBER;
+            cmd.Parameters.Add(param2);
+
+            OdbcDataAdapter da = new OdbcDataAdapter(cmd);
             DataTable dt = new DataTable();
             da.Fill(dt);
-            con.Close();
 
             DataRow dr = dt.NewRow();
             dr["HOLE_NUMBER"] = "Selecciona un sondaje";
@@ -93,13 +100,17 @@ namespace OrdenesEspeciales
         }
         public void cargar_tipodatos(string HOLE_NUMBER)
         {
-            con.Open();
-            SqlCommand cmd = new SqlCommand("Select a.ASSAY_SAMPLE_TYPE_CODE from HOLE_ASSAY_SAMPLE as a inner join ASSAY_SAMPLE_TYPE as b on a.ASSAY_SAMPLE_TYPE_CODE = b.ASSAY_SAMPLE_TYPE_CODE where b.assay_sample_type_category = 'original' and a.HOLE_NUMBER=@HOLE_NUMBER Group by a.ASSAY_SAMPLE_TYPE_CODE", con);
+            string query = "Select a.ASSAY_SAMPLE_TYPE_CODE from HOLE_ASSAY_SAMPLE as a inner join ASSAY_SAMPLE_TYPE as b on a.ASSAY_SAMPLE_TYPE_CODE = b.ASSAY_SAMPLE_TYPE_CODE where b.assay_sample_type_category = 'original' and a.HOLE_NUMBER=? Group by a.ASSAY_SAMPLE_TYPE_CODE";
+            OdbcCommand cmd = new OdbcCommand(query, con);
             cmd.Parameters.AddWithValue("HOLE_NUMBER", HOLE_NUMBER);
-            SqlDataAdapter da = new SqlDataAdapter(cmd);
+            OdbcParameter param3 = new OdbcParameter("@param3", OdbcType.VarChar);
+            param3.Value = HOLE_NUMBER;
+            cmd.Parameters.Add(param3);
+
+            OdbcDataAdapter da = new OdbcDataAdapter(cmd);
             DataTable dt = new DataTable();
             da.Fill(dt);
-            con.Close();
+
 
             DataRow fila = dt.NewRow();
             fila["ASSAY_SAMPLE_TYPE_CODE"] = "Select type";
@@ -147,13 +158,16 @@ namespace OrdenesEspeciales
         public void cargar_proyectos1(string original1)
         {
 
-            con.Open();
-            SqlCommand cmd = new SqlCommand("select b.ASSAY_STANDARD_CODE,a.business_unit_name from reference_code_assignments as a  inner join ASSAY_STANDARDS b on a.reference_code_id = b.REFERENCE_CODE_ID where column_name = 'ASSAY_STANDARD_CODE' and a.business_unit_name=@business_unit_name group by b.ASSAY_STANDARD_CODE,a.business_unit_name", con);
-            cmd.Parameters.AddWithValue("business_unit_name", original1);
-            SqlDataAdapter da = new SqlDataAdapter(cmd);
+            string query = "select b.ASSAY_STANDARD_CODE,a.business_unit_name from reference_code_assignments as a  inner join ASSAY_STANDARDS b on a.reference_code_id = b.REFERENCE_CODE_ID where column_name = 'ASSAY_STANDARD_CODE' and a.business_unit_name=? group by b.ASSAY_STANDARD_CODE,a.business_unit_name";
+            OdbcCommand cmd = new OdbcCommand(query, con);
+            cmd.Parameters.AddWithValue("HOLE_NUMBER", original1);
+            OdbcParameter param3 = new OdbcParameter("@param3", OdbcType.VarChar);
+            param3.Value = original1;
+            cmd.Parameters.Add(param3);
+
+            OdbcDataAdapter da = new OdbcDataAdapter(cmd);
             DataTable dt = new DataTable();
             da.Fill(dt);
-            con.Close();
 
             DataRow dr = dt.NewRow();
             dr["ASSAY_STANDARD_CODE"] = "Seleccionar";
@@ -166,14 +180,11 @@ namespace OrdenesEspeciales
 
         public void cargar()
         {
-            using (SqlConnection sqlCon = new SqlConnection(connectionString))
-            {
-                con.Open();
-                SqlCommand cmd = new SqlCommand("select ASSAY_SAMPLE_TYPE_CODE from ASSAY_SAMPLE_TYPE where assay_sample_type_category = 'composite'", con);
-                SqlDataAdapter da = new SqlDataAdapter(cmd);
+                string query = "select ASSAY_SAMPLE_TYPE_CODE from ASSAY_SAMPLE_TYPE where assay_sample_type_category = 'composite'";
+                OdbcCommand cmd = new OdbcCommand(query, con);
+                OdbcDataAdapter da = new OdbcDataAdapter(cmd);
                 DataTable dt = new DataTable();
                 da.Fill(dt);
-                con.Close();
 
                 DataRow fila = dt.NewRow();
                 fila["ASSAY_SAMPLE_TYPE_CODE"] = "Seleccionar";
@@ -183,71 +194,57 @@ namespace OrdenesEspeciales
                 cboNewType.ValueMember = "ASSAY_SAMPLE_TYPE_CODE";
                 cboNewType.DisplayMember = "ASSAY_SAMPLE_TYPE_CODE";
 
-            }
         }
 
         public void CargarModule()
         {
-            using (SqlConnection sqlCon = new SqlConnection(connectionString))
-            {
-                con.Open();
-                SqlCommand cmd = new SqlCommand("select distinct module_name from DHL_SAMPLE_DISPATCH_SAMPLES", con);
-                SqlDataAdapter da = new SqlDataAdapter(cmd);
-                DataTable dt = new DataTable();
-                da.Fill(dt);
-                con.Close();
+            string query = "select distinct module_name from DHL_SAMPLE_DISPATCH_SAMPLES";
+            OdbcCommand cmd = new OdbcCommand(query, con);
+            OdbcDataAdapter da = new OdbcDataAdapter(cmd);
+            DataTable dt = new DataTable();
+            da.Fill(dt);
 
-                DataRow fila = dt.NewRow();
-                fila["module_name"] = "Seleccionar";
-                dt.Rows.InsertAt(fila, 0);
-                //Control del ComboBox
-                cboMod.DataSource = dt;
-                cboMod.ValueMember = "module_name";
-                cboMod.DisplayMember = "module_name";
-            }
+            DataRow fila = dt.NewRow();
+            fila["module_name"] = "Seleccionar";
+            dt.Rows.InsertAt(fila, 0);
+            //Control del ComboBox
+            cboMod.DataSource = dt;
+            cboMod.ValueMember = "module_name";
+            cboMod.DisplayMember = "module_name";
         }
         public void CargarDup()
         {
-            using (SqlConnection sqlCon = new SqlConnection(connectionString))
-            {
-                con.Open();
-                SqlCommand cmd = new SqlCommand("select ASSAY_SAMPLE_TYPE_CODE, assay_sample_type_desc from ASSAY_SAMPLE_TYPE where assay_sample_type_category = 'QC'", con);
-                SqlDataAdapter da = new SqlDataAdapter(cmd);
-                DataTable dt = new DataTable();
-                da.Fill(dt);
-                con.Close();
+            string query = "select ASSAY_SAMPLE_TYPE_CODE, assay_sample_type_desc from ASSAY_SAMPLE_TYPE where assay_sample_type_category = 'QC'";
+            OdbcCommand cmd = new OdbcCommand(query, con);
+            OdbcDataAdapter da = new OdbcDataAdapter(cmd);
+            DataTable dt = new DataTable();
+            da.Fill(dt);
 
-                DataRow fila = dt.NewRow();
-                fila["assay_sample_type_desc"] = "Seleccionar";
-                dt.Rows.InsertAt(fila, 0);
-                //Control del ComboBox
+            DataRow fila = dt.NewRow();
+            fila["assay_sample_type_desc"] = "Seleccionar";
+            dt.Rows.InsertAt(fila, 0);
+            //Control del ComboBox
 
-                CboDup2.ValueMember = "ASSAY_SAMPLE_TYPE_CODE";
-                CboDup2.DisplayMember = "assay_sample_type_desc";
-                CboDup2.DataSource = dt;
-
-            }
+            CboDup2.ValueMember = "ASSAY_SAMPLE_TYPE_CODE";
+            CboDup2.DisplayMember = "assay_sample_type_desc";
+            CboDup2.DataSource = dt;
         }
 
         public void CargarStatus()
         {
-            using (SqlConnection sqlCon = new SqlConnection(connectionString))
-            {
-                con.Open();
-                SqlCommand cmd = new SqlCommand("select STATUS_CODE,status_description from HOLE_ASSAY_SAMPLE_STATUS", con);
-                SqlDataAdapter da = new SqlDataAdapter(cmd);
-                DataTable dt = new DataTable();
-                da.Fill(dt);
-                con.Close();
+            string query = "select STATUS_CODE,status_description from HOLE_ASSAY_SAMPLE_STATUS";
+            OdbcCommand cmd = new OdbcCommand(query, con);
+            OdbcDataAdapter da = new OdbcDataAdapter(cmd);
+            DataTable dt = new DataTable();
+            da.Fill(dt);
 
-                DataRow fila = dt.NewRow();
-                fila["STATUS_CODE"] = "Seleccionar";
-                dt.Rows.InsertAt(fila, 0);
-                //Control del ComboBox
-                cbosta.DataSource = dt;
-                cbosta.ValueMember = "status_description";
-                cbosta.DisplayMember = "STATUS_CODE";
-            }
+            DataRow fila = dt.NewRow();
+            fila["STATUS_CODE"] = "Seleccionar";
+            dt.Rows.InsertAt(fila, 0);
+            //Control del ComboBox
+            cbosta.DataSource = dt;
+            cbosta.ValueMember = "status_description";
+            cbosta.DisplayMember = "STATUS_CODE";
         }
 
         //Listado de datos en DATAGRIDVIEW
@@ -255,16 +252,31 @@ namespace OrdenesEspeciales
         {
             try
             {
-                SqlCommand cmd = new SqlCommand("select trim(a.HOLE_NUMBER)as HOLE_NUMBER,a.ASSAY_SAMPLE_TYPE_CODE as TypeCode , a.SAMPLE_NUMBER,a.depth_from,a.depth_to from HOLE_ASSAY_SAMPLE a inner join ASSAY_SAMPLE_TYPE b on a.ASSAY_SAMPLE_TYPE_CODE = b.ASSAY_SAMPLE_TYPE_CODE where a.HOLE_NUMBER not like '@%' and b.ASSAY_SAMPLE_TYPE_CODE='" + comboBox4.Text + "' and a.HOLE_NUMBER='" + comboBox3.Text + "'  group by a.HOLE_NUMBER,a.ASSAY_SAMPLE_TYPE_CODE , a.SAMPLE_NUMBER,a.depth_from,a.depth_to", con);
-                SqlDataAdapter da = new SqlDataAdapter();
-                da.SelectCommand = cmd;
+                string holeNumber = comboBox3.Text;
+                string assaySampleTypeCode = comboBox4.Text;
+
+                string query = "SELECT TRIM(a.HOLE_NUMBER) AS HOLE_NUMBER, a.ASSAY_SAMPLE_TYPE_CODE AS TypeCode, a.SAMPLE_NUMBER, a.depth_from, a.depth_to " +
+                               "FROM HOLE_ASSAY_SAMPLE a " +
+                               "INNER JOIN ASSAY_SAMPLE_TYPE b ON a.ASSAY_SAMPLE_TYPE_CODE = b.ASSAY_SAMPLE_TYPE_CODE " +
+                               "WHERE a.HOLE_NUMBER NOT LIKE '@%' AND b.ASSAY_SAMPLE_TYPE_CODE = ? AND a.HOLE_NUMBER = ? " +
+                               "GROUP BY a.HOLE_NUMBER, a.ASSAY_SAMPLE_TYPE_CODE, a.SAMPLE_NUMBER, a.depth_from, a.depth_to";
+
+                OdbcCommand command = new OdbcCommand(query, con);
+                command.Parameters.AddWithValue("@assaySampleTypeCode", assaySampleTypeCode);
+                command.Parameters.AddWithValue("@holeNumber", holeNumber);
+
+                OdbcDataAdapter adapter = new OdbcDataAdapter(command);
                 DataTable dt = new DataTable();
-                da.Fill(dt);
+                adapter.Fill(dt);
                 DgvSondajes.DataSource = dt;
+
+                adapter.Dispose();
+                command.Dispose();
+                //connection.Close();
             }
             catch (Exception ex)
             {
-                MessageBox.Show("No se pudo llenar el datagridview" + ex.ToString());
+                MessageBox.Show("No se pudo llenar el datagridview: " + ex.ToString());
             }
         }
         private void btnConsultar_Click(object sender, EventArgs e)
@@ -388,31 +400,53 @@ namespace OrdenesEspeciales
 
         private void select_dup()
         {
-            if (CboDup2.SelectedIndex == 0)
-            {
-                MessageBox.Show("Debe seleccionar un valor del campo 'Duplicado'.");
-                return;
-            }
-            // Validar que exista un new_sample en la tabla
-            bool existeNewSample = false;
-            foreach (DataGridViewRow row in Dgv_Despacho.Rows)
-            {
-                if (!string.IsNullOrEmpty(row.Cells[5].Value?.ToString()))
-                {
-                    existeNewSample = true;
-                    break;
-                }
-            }
-
-            if (!existeNewSample)
-            {
-                MessageBox.Show("Debe crear un new_sample antes de crear un duplicado.");
-                return;
-            }
-            //-----creacion de los duplicados
-           
             try
             {
+                if (CboDup2.SelectedIndex == 0)
+                {
+                    MessageBox.Show("Debe seleccionar un valor del campo 'Duplicado'.");
+                    return;
+                }
+
+                // Validar que exista un new_sample en la tabla
+                bool existeNewSample = false;
+                foreach (DataGridViewRow row in Dgv_Despacho.Rows)
+                {
+                    if (!string.IsNullOrEmpty(row.Cells[5].Value?.ToString()))
+                    {
+                        existeNewSample = true;
+                        break;
+                    }
+                }
+
+                if (!existeNewSample)
+                {
+                    MessageBox.Show("Debe crear un new_sample antes de crear un duplicado.");
+                    return;
+                }
+
+                // Mostrar un MessageBox de opciones para la ubicación del duplicado
+                var dialogResult = MessageBox.Show("¿Dónde desea generar el duplicado?\n\n" +
+                    "Presione 'Yes' para ubicarlo debajo de la fila seleccionada.\n\n" +
+                    "Presione 'No' para ubicarlo al final de la Fila",
+                    "Seleccionar ubicación del duplicado", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+
+                // Establecer el valor de insertAtSelectedRow según la respuesta del usuario
+                bool insertAtSelectedRow = (dialogResult == DialogResult.Yes);
+
+                // Obtener la fila seleccionada
+                DataGridViewRow selectedRow = null;
+                int selectedRowIndex = -1;
+                foreach (DataGridViewRow row in Dgv_Despacho.Rows)
+                {
+                    if (row.Cells[0].Value != null && (bool)row.Cells[0].Value)
+                    {
+                        selectedRow = row;
+                        selectedRowIndex = row.Index;
+                        break;
+                    }
+                }
+
                 long siguiente = 0;
                 foreach (DataGridViewRow row in Dgv_Despacho.Rows)
                 {
@@ -443,7 +477,18 @@ namespace OrdenesEspeciales
                         fila.Cells[8].Value = cboMod.SelectedValue = "DHL";
                         fila.Cells[9].Value = txtDispatch.Text;
                         fila.Cells[5].Value = siguiente.ToString("00000000");
-                        Dgv_Despacho.Rows.Add(fila);
+
+                        if (insertAtSelectedRow)
+                        {
+                            // Se agrega después de la fila seleccionada
+                            Dgv_Despacho.Rows.Insert(selectedRowIndex + 1, fila);
+                        }
+                        else
+                        {
+                            // Se agrega al final del DataGridView
+                            Dgv_Despacho.Rows.Add(fila);
+                        }
+
                         row.Cells[0].Value = false;
                         Dgv_Despacho.Columns[1].ReadOnly = true;
                         Dgv_Despacho.Columns[2].ReadOnly = true;
@@ -459,7 +504,7 @@ namespace OrdenesEspeciales
             }
             catch (Exception ex)
             {
-                MessageBox.Show("Ocurrió un error al generar el Duplicado: " + ex.Message);
+                MessageBox.Show("Ocurrió un error al generar el Consecutivo: " + ex.Message);
             }
         }
 
@@ -467,101 +512,84 @@ namespace OrdenesEspeciales
         {
             try
             {
-                //select distinct top 1 SAMPLE_NUMBER from DHL_SAMPLE_DISPATCH_SAMPLES where SAMPLE_NUMBER like'"+txt_newsample.Text+"%' order by SAMPLE_NUMBER desc SAMPLE_NUMBER like '" + txt_newsample.Text + "%' where SAMPLE_NUMBER like '" + txt_newsample.Text + "%' 
-                con.Open();
 
-                //string consultar = "select SAMPLE_NUMBER from DHL_SAMPLE_DISPATCH_SAMPLES where SAMPLE_NUMBER like ('" + txt_newsample.Text + "%')order by SAMPLE_NUMBER desc";
-                SqlCommand cmd1 = con.CreateCommand();
-                cmd1.CommandType = CommandType.Text;
-                cmd1.CommandText = "SELECT * FROM(SELECT SAMPLE_NUMBER FROM HOLE_ASSAY_SAMPLE WHERE HOLE_NUMBER NOT LIKE '@%'UNION SELECT SAMPLE_NUMBER FROM HOLE_ASSAY_STANDARDS WHERE HOLE_NUMBER NOT LIKE '@%'UNION SELECT sample_number FROM sstn_surface_samples union select sample_number FROM HOLE_COMPOSITE_SAMPLE) AS A WHERE ISNUMERIC(SAMPLE_NUMBER) <> 0 AND SAMPLE_NUMBER like '" + txt_newsample.Text + "%'  GROUP BY SAMPLE_NUMBER";
-                cmd1.ExecuteNonQuery();
-                SqlDataReader dr1 = cmd1.ExecuteReader();
-                while (dr1.Read())
+                string query = "SELECT * FROM(SELECT SAMPLE_NUMBER " +
+                        "FROM HOLE_ASSAY_SAMPLE WHERE HOLE_NUMBER NOT LIKE '@%'" +
+                        "UNION SELECT SAMPLE_NUMBER FROM HOLE_ASSAY_STANDARDS WHERE HOLE_NUMBER NOT LIKE '@%'" +
+                        "UNION SELECT sample_number FROM sstn_surface_samples union select sample_number FROM HOLE_COMPOSITE_SAMPLE) AS A " +
+                        "WHERE ISNUMERIC(SAMPLE_NUMBER) <> 0 AND SAMPLE_NUMBER like '" + txt_newsample.Text + "%'  GROUP BY SAMPLE_NUMBER";
+                OdbcCommand command = new OdbcCommand(query, con);
+                // command.Parameters.AddWithValue("@dispatchNumber", txtDispatch.Text + "%");
+
+                OdbcParameter param2 = new OdbcParameter("@param2", OdbcType.VarChar);
+                param2.Value = txt_newsample.Text + "%";
+                command.Parameters.Add(param2);
+
+
+                OdbcDataReader reader = command.ExecuteReader();
+                var source = new AutoCompleteStringCollection();
+                while (reader.Read())
                 {
-                    //namesCollection.Add(dr1["SAMPLE_NUMBER"].ToString());
-                    cajaTexto.AutoCompleteCustomSource.Add(dr1["SAMPLE_NUMBER"].ToString());
+                    source.Add(reader["SAMPLE_NUMBER"].ToString());
                 }
-                dr1.Close();
+                reader.Close();
+                cajaTexto.AutoCompleteCustomSource = source;
+
+
+                command.Dispose();
+
+
             }
             catch (Exception ex)
             {
                 MessageBox.Show("No se pudo autocompletar el Textbox :" + ex.ToString());
             }
-            finally
-            {
-                con.Close();
-            }
-
         }
         public void autoCompletar1(TextBox cajaTexto1)
         {
             try
             {
-                //select distinct top 1 SAMPLE_NUMBER from DHL_SAMPLE_DISPATCH_SAMPLES where SAMPLE_NUMBER like'"+txt_newsample.Text+"%' order by SAMPLE_NUMBER desc SAMPLE_NUMBER like '" + txt_newsample.Text + "%' where SAMPLE_NUMBER like '" + txt_newsample.Text + "%' 
-                con.Open();
 
-                //string consultar = "select SAMPLE_NUMBER from DHL_SAMPLE_DISPATCH_SAMPLES where SAMPLE_NUMBER like ('" + txt_newsample.Text + "%')order by SAMPLE_NUMBER desc";
-                SqlCommand cmd1 = con.CreateCommand();
-                cmd1.CommandType = CommandType.Text;
-                cmd1.CommandText = "SELECT dispatch_number FROM (SELECT dispatch_number FROM DHL_SAMPLE_DISPATCH_SAMPLES UNION SELECT dispatch_number FROM DHL_SAMPLE_DISPATCH_HEADER) AS A WHERE dispatch_number LIKE '[0-9][0-9][0-9][0-9]-[0-9][0-9][0-9][0-9][0-9][0-9]' AND dispatch_number like '" + txtDispatch.Text + "%'";
-                cmd1.ExecuteNonQuery();
-                SqlDataReader dr1 = cmd1.ExecuteReader();
-                while (dr1.Read())
+                string query = "SELECT dispatch_number FROM " +
+                    "(SELECT dispatch_number FROM DHL_SAMPLE_DISPATCH_SAMPLES " +
+                    "UNION SELECT dispatch_number FROM DHL_SAMPLE_DISPATCH_HEADER) AS A " +
+                    "WHERE dispatch_number LIKE '[0-9][0-9][0-9][0-9]-[0-9][0-9][0-9][0-9][0-9][0-9]'OR" +
+                    " (dispatch_number NOT LIKE '%-%' AND ISNUMERIC(dispatch_number) = 1)order by dispatch_number";
+                OdbcCommand command = new OdbcCommand(query, con);
+                // command.Parameters.AddWithValue("@dispatchNumber", txtDispatch.Text + "%");
+
+                OdbcParameter param1 = new OdbcParameter("@param1", OdbcType.VarChar);
+                param1.Value = txtDispatch.Text + "%";
+                command.Parameters.Add(param1);
+
+
+                OdbcDataReader reader = command.ExecuteReader();
+                var source = new AutoCompleteStringCollection();
+                while (reader.Read())
                 {
-
-                    cajaTexto1.AutoCompleteCustomSource.Add(dr1["dispatch_number"].ToString());
+                    source.Add(reader["dispatch_number"].ToString());
                 }
-                dr1.Close();
+                reader.Close();
+                cajaTexto1.AutoCompleteCustomSource = source;
+
+
+                command.Dispose();
+
             }
             catch (Exception ex)
             {
                 MessageBox.Show("No se pudo autocompletar el Textbox :" + ex.ToString());
             }
-            finally
-            {
-                con.Close();
-            }
 
         }
        
-        public void Insert_comp_raw()
-        {
-            try
-            {
-                foreach (DataGridViewRow row in Dgv_Despacho.Rows)
-                {
-                    string sampleAnterior = (string)row.Cells["SampleAnterior"].Value;
-                    string sampleNuevo = (string)row.Cells["Sample_new"].Value;
-                    string[] valoresAnteriores = sampleAnterior.Split(',');
-
-                    for (int i = 0; i < valoresAnteriores.Length; i++)
-                    {
-                        string valorAnterior = valoresAnteriores[i].Trim();
-
-                        if (string.IsNullOrEmpty(valorAnterior))
-                        {
-                            continue;
-                        }
-
-                        //INSERTAR
-                        SqlCommand cmd1 = new SqlCommand("insert into HOLE_COMPOSITE_SAMPLE_RAW (sample_number_composite,sample_number_raw) values (@SAMPLE_NUEVO, @SAMPLE_ANTERIOR)", con);
-                        cmd1.Parameters.AddWithValue("@SAMPLE_NUEVO", sampleNuevo);
-                        cmd1.Parameters.AddWithValue("@SAMPLE_ANTERIOR", valorAnterior);
-
-                        con.Open();
-                        cmd1.ExecuteNonQuery();
-                        con.Close();
-                    }
-                }
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show("No se pudo Insertar sample_raw :" + ex.ToString());
-            }
-        }
         public void Insert_Sample()
         {  //insert_newsample();
-
+            if (Dgv_Despacho.Rows.Count == 0)
+            {
+                MessageBox.Show("No hay datos para insertar. Verifica y vuelve a intentarlo.", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                return;
+            }
             //ENVIO A LA BD Y A DIFERENTES TABLAS
             foreach (DataGridViewRow row in Dgv_Despacho.Rows)
             {
@@ -570,22 +598,15 @@ namespace OrdenesEspeciales
                 string valor3 = (string)row.Cells["Sample_Original"].Value;
                 string valor4 = (string)row.Cells["Dispatch"].Value;
                 string valor5 = (string)row.Cells["Sample_new"].Value;
-                //string sampleAnterior = (string)row.Cells["SampleAnterior"].Value;
-                //string sampleNuevo = (string)row.Cells["Sample_new"].Value;
-                //string[] valoresAnteriores = sampleAnterior.Split(',');
+
                 string cone = "select SAMPLE_NUMBER,dispatch_number from DHL_SAMPLE_DISPATCH_SAMPLES where SAMPLE_NUMBER ='" + valor5 + "'and dispatch_number ='" + valor4 + "'";
                 try
                 {
                     if (valor != "")
                     {
-
-
                         //INSERT A DISPATCH
-                        string sql = "INSERT INTO DHL_SAMPLE_DISPATCH_SAMPLES(SAMPLE_NUMBER,sample_type,hole_number,dispatch_number,module_name) values(@SampleNumber,@AssayCode,@HoleNumber,@dispatch,@mode)";
-                        con.Open();
-                        SqlCommand cmd = new SqlCommand(cone, con);
-
-
+                        string sql = "INSERT INTO DHL_SAMPLE_DISPATCH_SAMPLES(SAMPLE_NUMBER,sample_type,hole_number,dispatch_number,module_name) values(?,?,?,?,?)";
+                        OdbcCommand cmd = new OdbcCommand(cone, con);
 
                         if (cone == valor5 && cone == valor4)
                         {
@@ -597,23 +618,18 @@ namespace OrdenesEspeciales
                         {
                             try
                             {
-                                SqlCommand cmd1 = new SqlCommand(sql, con);
-                                cmd1.Parameters.AddWithValue("@HoleNumber", row.Cells["Hole"].Value);
+                                OdbcCommand cmd1 = new OdbcCommand(sql, con);
                                 cmd1.Parameters.AddWithValue("@SampleNumber", row.Cells["Sample_new"].Value);
                                 cmd1.Parameters.AddWithValue("@AssayCode", row.Cells["TypeNew"].Value);
+                                cmd1.Parameters.AddWithValue("@HoleNumber", row.Cells["Hole"].Value);
                                 cmd1.Parameters.AddWithValue("@dispatch", row.Cells["Dispatch"].Value);
                                 cmd1.Parameters.AddWithValue("@mode", row.Cells["Module_Name"].Value);
                                 cmd1.ExecuteNonQuery();
                             }
-                            catch (SqlException ex)
+                            catch (OdbcException ex)
                             {
                                 MessageBox.Show("No Pudo Guardar Los Datos Debido A: " + ex.Message);
                             }
-                            finally
-                            {
-                                con.Close();
-                            }
-
                         }
 
                     }
@@ -621,19 +637,21 @@ namespace OrdenesEspeciales
                     if (valor == null)
                     {
                         //INSERT STANDAR
-                        SqlCommand cmd1 = new SqlCommand("insert into HOLE_ASSAY_STANDARDS(SAMPLE_NUMBER,ASSAY_STANDARD_CODE,HOLE_NUMBER) values (@SAMPLE_NUMBER,@ASSAY_STANDARD_CODE,@HOLE_NUMBER)", con);
+                        string sql1 = "insert into HOLE_ASSAY_STANDARDS(SAMPLE_NUMBER,ASSAY_STANDARD_CODE,HOLE_NUMBER) values(?,?,?)";
+
+                        OdbcCommand cmd1 = new OdbcCommand(sql1, con);
                         cmd1.Parameters.AddWithValue("@SAMPLE_NUMBER", row.Cells["Sample_new"].Value);
                         cmd1.Parameters.AddWithValue("@ASSAY_STANDARD_CODE", row.Cells["TypeNew"].Value);
                         cmd1.Parameters.AddWithValue("@HOLE_NUMBER", row.Cells["Hole"].Value);
-
-                        con.Open();
                         cmd1.ExecuteNonQuery();
-                        con.Close();
                     }
                     else if (valor2 == null)
                     {
                         //INSERT NUEVAS MUESTRA TYPE REASSAY
-                        SqlCommand cmd1 = new SqlCommand("INSERT INTO HOLE_COMPOSITE_SAMPLE(SAMPLE_NUMBER, ASSAY_SAMPLE_TYPE_CODE, HOLE_NUMBER, depth_from, depth_to,STATUS_CODE,parent_sample_number) values(@SampleNumber, @AssayCode, @HoleNumber, @depth_from, @depth_to,@Estado,@parent)", con);
+
+                        string sql2 = "INSERT INTO HOLE_COMPOSITE_SAMPLE(SAMPLE_NUMBER, ASSAY_SAMPLE_TYPE_CODE, HOLE_NUMBER, depth_from, depth_to,STATUS_CODE,parent_sample_number) values(?,?,?,?,?,?,?)";
+
+                        OdbcCommand cmd1 = new OdbcCommand(sql2, con);
                         cmd1.Parameters.AddWithValue("@SampleNumber", row.Cells["Sample_new"].Value);
                         cmd1.Parameters.AddWithValue("@AssayCode", row.Cells["TypeNew"].Value);
                         cmd1.Parameters.AddWithValue("@HoleNumber", row.Cells["Hole"].Value);
@@ -641,10 +659,8 @@ namespace OrdenesEspeciales
                         cmd1.Parameters.AddWithValue("@depth_to", row.Cells["Depth_to"].Value);
                         cmd1.Parameters.AddWithValue("@Estado", row.Cells["Estado"].Value);
                         cmd1.Parameters.AddWithValue("@parent", row.Cells["Sample_Original"].Value);
-
-                        con.Open();
                         cmd1.ExecuteNonQuery();
-                        con.Close();
+
 
                         // INSERTAR HOLE_COMPOSITE_SAMPLE_RAW
                         string sampleAnterior = (string)row.Cells["SampleAnterior"].Value;
@@ -659,74 +675,61 @@ namespace OrdenesEspeciales
                             {
                                 continue;
                             }
+                            string sql3 = "insert into HOLE_COMPOSITE_SAMPLE_RAW (sample_number_composite,sample_number_raw) values(?,?)";
 
-                            SqlCommand cmd2 = new SqlCommand("insert into HOLE_COMPOSITE_SAMPLE_RAW (sample_number_composite,sample_number_raw) values (@SAMPLE_NUEVO, @SAMPLE_ANTERIOR)", con);
+                            OdbcCommand cmd2 = new OdbcCommand(sql3, con);
                             cmd2.Parameters.AddWithValue("@SAMPLE_NUEVO", sampleNuevo);
                             cmd2.Parameters.AddWithValue("@SAMPLE_ANTERIOR", valorAnterior);
-
-                            con.Open();
                             cmd2.ExecuteNonQuery();
-                            con.Close();
                         }
 
                     }
                     else if (valor3 == null)
                     {
                         //INSERT DE DUPLICADOS
-                        SqlCommand cmd1 = new SqlCommand("INSERT INTO HOLE_COMPOSITE_SAMPLE(SAMPLE_NUMBER, ASSAY_SAMPLE_TYPE_CODE, HOLE_NUMBER, depth_from, depth_to,STATUS_CODE,parent_sample_number) values(@SampleNumber, @AssayCode, @HoleNumber, @depth_from, @depth_to,@Estado,@parent)", con);
-                        cmd1.Parameters.AddWithValue("@SampleNumber", row.Cells["Sample_new"].Value);
-                        cmd1.Parameters.AddWithValue("@AssayCode", row.Cells["TypeNew"].Value);
-                        cmd1.Parameters.AddWithValue("@HoleNumber", row.Cells["Hole"].Value);
-                        cmd1.Parameters.AddWithValue("@depth_from", row.Cells["Depth_From"].Value);
-                        cmd1.Parameters.AddWithValue("@depth_to", row.Cells["Depth_to"].Value);
-                        cmd1.Parameters.AddWithValue("@Estado", row.Cells["Estado"].Value);
-                        cmd1.Parameters.AddWithValue("@parent", row.Cells["ParentSample"].Value);
-
-                        con.Open();
-                        cmd1.ExecuteNonQuery();
-                        con.Close();
+                        string sql4 = "INSERT INTO HOLE_COMPOSITE_SAMPLE(SAMPLE_NUMBER, ASSAY_SAMPLE_TYPE_CODE, HOLE_NUMBER, depth_from, depth_to,STATUS_CODE,parent_sample_number) values(?,?,?,?,?,?,?)";
+                        OdbcCommand cmd3 = new OdbcCommand(sql4, con);
+                        cmd3.Parameters.AddWithValue("@SampleNumber", row.Cells["Sample_new"].Value);
+                        cmd3.Parameters.AddWithValue("@AssayCode", row.Cells["TypeNew"].Value);
+                        cmd3.Parameters.AddWithValue("@HoleNumber", row.Cells["Hole"].Value);
+                        cmd3.Parameters.AddWithValue("@depth_from", row.Cells["Depth_From"].Value);
+                        cmd3.Parameters.AddWithValue("@depth_to", row.Cells["Depth_to"].Value);
+                        cmd3.Parameters.AddWithValue("@Estado", row.Cells["Estado"].Value);
+                        cmd3.Parameters.AddWithValue("@parent", row.Cells["ParentSample"].Value);
+                        cmd3.ExecuteNonQuery();
                     }
-
-                   
-                
                 }
                 catch (Exception ex)
                 {
                     MessageBox.Show("Ocurrió un error al Insertar Datos: " + ex.Message);
                     //MessageBox.Show("Error Sistema");
                 }
-
-               
             }
             MessageBox.Show("Datos Insertados");
             BtnBlancos.Enabled = true;
-
         }
 
         //Insertar Encabezado de Dispatch
         public void insert()
         {
-            //Instancia de formilario Login
-            
+
             if (string.IsNullOrWhiteSpace(txtDispatch.Text))
             {
                 MessageBox.Show("Digite el Nuevo N° Despacho", "Importante", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                //MessageBox.Show("Digite en Nuevo N° Despacho","");
             }
-            else if (txtDispatch.Text.Length <= 8) // Verifica que el valor tenga más de 8 caracteres
+            else if (txtDispatch.Text.Length < 8) // Verifica que el valor tenga más de 8 caracteres
             {
-                MessageBox.Show("El número de dispatch debe tener al menos 8 caracteres");
+                MessageBox.Show("El número de dispatch debe tener al menos 12 caracteres", "Importante", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
             }
             else
             {
                 try
                 {
-                    con.Open();
 
                     // Consulta SQL para buscar el dispatch_number ingresado por el usuario
                     string consultar = "SELECT dispatch_status FROM DHL_SAMPLE_DISPATCH_HEADER WHERE dispatch_number='" + txtDispatch.Text + "'";
 
-                    SqlCommand cmdConsultar = new SqlCommand(consultar, con);
+                    OdbcCommand cmdConsultar = new OdbcCommand(consultar, con);
                     object result = cmdConsultar.ExecuteScalar();
 
                     // Si la consulta devuelve un resultado, el dispatch ya existe
@@ -734,12 +737,11 @@ namespace OrdenesEspeciales
                     {
                         string dispatchStatus = result.ToString();
 
-                        MessageBox.Show($"Dispatch ya 'EXISTE' con el estado: {dispatchStatus}");
+                        MessageBox.Show($"Dispatch ya existe con el estado: {dispatchStatus}");
                     }
                     else // Si la consulta no devuelve un resultado, el dispatch no existe
                     {
-                        SqlCommand cmdInsertar = new SqlCommand("insert into DHL_SAMPLE_DISPATCH_HEADER(dispatch_number,dispatch_status) " +
-                        $"values('{txtDispatch.Text}','{txtStatusDisp.Text}')", con);
+                        OdbcCommand cmdInsertar = new OdbcCommand("insert into DHL_SAMPLE_DISPATCH_HEADER(dispatch_number,dispatch_status) " + $"values('{txtDispatch.Text}','{txtStatusDisp.Text}')", con);
 
                         cmdInsertar.ExecuteNonQuery();
 
@@ -747,18 +749,12 @@ namespace OrdenesEspeciales
                     }
 
                 }
-                catch (Exception /*ex*/)
+                catch (Exception ex)
                 {
-                    MessageBox.Show($"No se pudo agregar el Dispatch: {txtDispatch.Text}.", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                    MessageBox.Show($"No se pudo agregar el Dispatch: {txtDispatch.Text}.{ex.Message}", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
                 }
-                finally
-                {
-                    con.Close();
-                }
-                btnPasar.Enabled = true;
+                autoCompletar1(txtDispatch);
             }
-
-
         }
        
         private void txt_newsample_TextChanged(object sender, EventArgs e)
@@ -937,13 +933,22 @@ namespace OrdenesEspeciales
             DialogResult result = MessageBox.Show("¿Estás seguro de que deseas eliminar y limpiar todo?", "Confirmar acción", MessageBoxButtons.YesNoCancel, MessageBoxIcon.Question);
             if (result == DialogResult.Yes)
             {
+                //txtDispatch.Clear();
+                ////cboMuestra.SelectedItem = null;
+                //txtStatusDisp.Clear();
+                //Dgv_Despacho.Rows.Clear();
+                //Dgv_Despacho.Refresh();
+                //lblcant.Text = Dgv_Despacho.Rows.Count.ToString();
+                //BtnBlancos.Enabled = true;
                 txtDispatch.Clear();
                 //cboMuestra.SelectedItem = null;
                 txtStatusDisp.Clear();
+                txt_newsample.Clear();
                 Dgv_Despacho.Rows.Clear();
                 Dgv_Despacho.Refresh();
                 lblcant.Text = Dgv_Despacho.Rows.Count.ToString();
                 BtnBlancos.Enabled = true;
+                autoCompletar(txt_newsample);
             }
            
         }
@@ -987,16 +992,17 @@ namespace OrdenesEspeciales
         {
             try
             {
+                string Dispatch = txtDispatch.Text;
                 // Mostrar advertencia al usuario
                 DialogResult result = MessageBox.Show("¿Está seguro de eliminar el Dispatch " + txtDispatch.Text + "?", "Confirmar eliminación", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
 
                 if (result == DialogResult.Yes)
                 {
-                    con.Open();
 
-                    // Consulta SQL para verificar el estado del dispatch_number
-                    SqlCommand cmd2 = new SqlCommand("SELECT dispatch_status FROM DHL_SAMPLE_DISPATCH_HEADER WHERE dispatch_number = @dispatch_number", con);
-                    cmd2.Parameters.AddWithValue("@dispatch_number", txtDispatch.Text);
+                    string query = "SELECT dispatch_status FROM DHL_SAMPLE_DISPATCH_HEADER WHERE dispatch_number = ?";
+
+                    OdbcCommand cmd2 = new OdbcCommand(query, con);
+                    cmd2.Parameters.AddWithValue("@assaySampleTypeCode", Dispatch);
                     string dispatchStatus = cmd2.ExecuteScalar()?.ToString();
 
                     // Si el dispatch_number tiene un estado de "DISPATCHED", mostrar un mensaje al usuario
@@ -1007,9 +1013,13 @@ namespace OrdenesEspeciales
                     else
                     {
                         // Si el dispatch_number no ha sido despachado, eliminarlo
-                        SqlCommand cmd1 = new SqlCommand("DELETE FROM DHL_SAMPLE_DISPATCH_HEADER WHERE dispatch_number = @dispatch_number", con);
-                        cmd1.Parameters.AddWithValue("@dispatch_number", txtDispatch.Text);
-                        int rowsAffected = cmd1.ExecuteNonQuery();
+                        //OdbcCommand cmd1 = new OdbcCommand("DELETE FROM DHL_SAMPLE_DISPATCH_HEADER WHERE dispatch_number = @dispatch_number", con);
+                        string query1 = "DELETE FROM DHL_SAMPLE_DISPATCH_HEADER WHERE dispatch_number = ?";
+
+                        OdbcCommand cmd = new OdbcCommand(query1, con);
+                        cmd.Parameters.AddWithValue("@assaySampleTypeCode1", Dispatch);
+                        //cmd1.Parameters.AddWithValue("@dispatch_number", txtDispatch.Text);
+                        int rowsAffected = cmd.ExecuteNonQuery();
 
                         if (rowsAffected > 0)
                         {
@@ -1027,13 +1037,9 @@ namespace OrdenesEspeciales
             {
                 MessageBox.Show("Error al eliminar el Dispatch: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
-            finally
-            {
-                con.Close();
-            }
-            
+            autoCompletar1(txtDispatch);
         }
-        
+
 
         private void BtnEliDis_Click_1(object sender, EventArgs e)
         {
@@ -1062,12 +1068,11 @@ namespace OrdenesEspeciales
 
                 if (!string.IsNullOrEmpty(valorNuevo) && valorNuevo.Length == 11)
                 {
-                    // Consultar si el nuevo sample ya existe en la BD
-                    con.Open();
-                    string consultar = "SELECT COUNT(*) FROM(SELECT SAMPLE_NUMBER FROM HOLE_ASSAY_SAMPLE WHERE HOLE_NUMBER NOT LIKE '@%'UNION SELECT SAMPLE_NUMBER FROM HOLE_ASSAY_STANDARDS WHERE HOLE_NUMBER NOT LIKE '@%'UNION SELECT sample_number FROM sstn_surface_samples UNION select sample_number FROM HOLE_COMPOSITE_SAMPLE)AS A WHERE ISNUMERIC(SAMPLE_NUMBER) <> 0 AND SAMPLE_NUMBER='" + valorNuevo + "'";
-                    SqlCommand cmdConsultar = new SqlCommand(consultar, con);
+
+                    string consultar = "SELECT COUNT(*) FROM(SELECT SAMPLE_NUMBER FROM HOLE_ASSAY_SAMPLE WHERE HOLE_NUMBER NOT LIKE '@%'UNION SELECT SAMPLE_NUMBER FROM HOLE_ASSAY_STANDARDS WHERE HOLE_NUMBER NOT LIKE '@%'UNION SELECT sample_number FROM sstn_surface_samples UNION SELECT sample_number_raw FROM HOLE_COMPOSITE_SAMPLE_RAW UNION SELECT sample_number FROM HOLE_COMPOSITE_SAMPLE)AS A WHERE ISNUMERIC(SAMPLE_NUMBER) <> 0 AND SAMPLE_NUMBER = '" + valorNuevo + "'";
+                    OdbcCommand cmdConsultar = new OdbcCommand(consultar, con);
                     int result = Convert.ToInt32(cmdConsultar.ExecuteScalar());
-                    con.Close();
+
 
                     // Si el sample ya existe, mostrar mensaje y salir del método sin agregarlo al DataGridView
                     if (result > 0)
@@ -1105,11 +1110,11 @@ namespace OrdenesEspeciales
             }
             catch (Exception ex)
             {
-                MessageBox.Show("Ocurrió un error al generar el nuevo sample: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("Error al generar el Nuevo Sample: " + ex.Message);
             }
 
+            //BtnTipDup.Enabled = true;
             BtnBlancos.Enabled = false;
-            
         }
 
         private void BtnEliDis2_Click(object sender, EventArgs e)
