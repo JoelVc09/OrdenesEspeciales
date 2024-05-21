@@ -19,7 +19,7 @@ namespace OrdenesEspeciales.Properties {
     // a través de una herramienta como ResGen o Visual Studio.
     // Para agregar o quitar un miembro, edite el archivo .ResX y, a continuación, vuelva a ejecutar ResGen
     // con la opción /str o recompile su proyecto de VS.
-    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Resources.Tools.StronglyTypedResourceBuilder", "16.0.0.0")]
+    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Resources.Tools.StronglyTypedResourceBuilder", "17.0.0.0")]
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
     [global::System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
     internal class Resources {
@@ -327,6 +327,42 @@ namespace OrdenesEspeciales.Properties {
             get {
                 object obj = ResourceManager.GetObject("icons8-usuario-501", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap logoAntapaccay {
+            get {
+                object obj = ResourceManager.GetObject("logoAntapaccay", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a &lt;!DOCTYPE html&gt;
+        ///&lt;html xmlns=&quot;http://www.w3.org/1999/xhtml&quot;&gt;
+        ///
+        ///&lt;head&gt;
+        ///    &lt;title&gt;Title of the document&lt;/title&gt;
+        ///    &lt;style&gt;
+        ///        /* Estilo para el tamaño A4 */
+        ///        @page {
+        ///            size: A4;
+        ///            margin: 0;
+        ///        }
+        ///
+        ///        /* Estilo para el cuerpo de la página */
+        ///        body {
+        ///            margin: 1.5cm; /* Margen de 1.5cm en todos los lados */
+        ///            font-family: Arial, sans-serif; /* Cambia Arial por el tipo de letra que desees */
+        ///            font-size: 12px;
+        ///        [resto de la cadena truncado]&quot;;.
+        /// </summary>
+        internal static string plantilla {
+            get {
+                return ResourceManager.GetString("plantilla", resourceCulture);
             }
         }
         

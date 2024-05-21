@@ -32,13 +32,13 @@ namespace OrdenesEspeciales
             this.components = new System.ComponentModel.Container();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form2cs));
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form2cs));
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
             this.CboDup2 = new System.Windows.Forms.ComboBox();
             this.cboMod = new System.Windows.Forms.ComboBox();
             this.label9 = new System.Windows.Forms.Label();
@@ -56,6 +56,17 @@ namespace OrdenesEspeciales
             this.label2 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.chk1 = new System.Windows.Forms.DataGridViewCheckBoxColumn();
+            this.Hole = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Depth_From = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Depth_to = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Sample_Original = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Sample_New = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.TypeNew = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Estado = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Module_Name = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Dispatch = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ParentSample = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.cboSType = new System.Windows.Forms.ComboBox();
             this.comboBox3 = new System.Windows.Forms.ComboBox();
             this.comboBox2 = new System.Windows.Forms.ComboBox();
@@ -85,17 +96,6 @@ namespace OrdenesEspeciales
             this.button3 = new System.Windows.Forms.Button();
             this.BtnBlancos = new System.Windows.Forms.Button();
             this.pictureBox3 = new System.Windows.Forms.PictureBox();
-            this.chk1 = new System.Windows.Forms.DataGridViewCheckBoxColumn();
-            this.Hole = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Depth_From = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Depth_to = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Sample_Original = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Sample_New = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.TypeNew = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Estado = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Module_Name = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Dispatch = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ParentSample = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.hOLEASSAYSAMPLESTATUSBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gDMS_ANTAPACCAYDataSet)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
@@ -116,6 +116,7 @@ namespace OrdenesEspeciales
             this.CboDup2.Name = "CboDup2";
             this.CboDup2.Size = new System.Drawing.Size(137, 24);
             this.CboDup2.TabIndex = 87;
+            this.CboDup2.SelectedIndexChanged += new System.EventHandler(this.CboDup2_SelectedIndexChanged);
             this.CboDup2.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.CboDup2_KeyPress);
             // 
             // cboMod
@@ -213,6 +214,7 @@ namespace OrdenesEspeciales
             this.cbo2.Name = "cbo2";
             this.cbo2.Size = new System.Drawing.Size(119, 24);
             this.cbo2.TabIndex = 75;
+            this.cbo2.SelectedIndexChanged += new System.EventHandler(this.cbo2_SelectedIndexChanged);
             this.cbo2.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.cbo2_KeyPress);
             // 
             // label6
@@ -314,6 +316,92 @@ namespace OrdenesEspeciales
             this.dataGridView1.Size = new System.Drawing.Size(1261, 289);
             this.dataGridView1.TabIndex = 68;
             this.dataGridView1.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick);
+            // 
+            // chk1
+            // 
+            this.chk1.FillWeight = 48.12834F;
+            this.chk1.HeaderText = "";
+            this.chk1.MinimumWidth = 6;
+            this.chk1.Name = "chk1";
+            // 
+            // Hole
+            // 
+            dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.ActiveCaption;
+            this.Hole.DefaultCellStyle = dataGridViewCellStyle2;
+            this.Hole.FillWeight = 106.484F;
+            this.Hole.HeaderText = "Hole";
+            this.Hole.MinimumWidth = 6;
+            this.Hole.Name = "Hole";
+            // 
+            // Depth_From
+            // 
+            dataGridViewCellStyle3.BackColor = System.Drawing.SystemColors.ActiveCaption;
+            this.Depth_From.DefaultCellStyle = dataGridViewCellStyle3;
+            this.Depth_From.FillWeight = 106.484F;
+            this.Depth_From.HeaderText = "Depth_From";
+            this.Depth_From.MinimumWidth = 6;
+            this.Depth_From.Name = "Depth_From";
+            // 
+            // Depth_to
+            // 
+            dataGridViewCellStyle4.BackColor = System.Drawing.SystemColors.ActiveCaption;
+            this.Depth_to.DefaultCellStyle = dataGridViewCellStyle4;
+            this.Depth_to.FillWeight = 106.484F;
+            this.Depth_to.HeaderText = "Depth_to";
+            this.Depth_to.MinimumWidth = 6;
+            this.Depth_to.Name = "Depth_to";
+            // 
+            // Sample_Original
+            // 
+            dataGridViewCellStyle5.BackColor = System.Drawing.SystemColors.ActiveCaption;
+            this.Sample_Original.DefaultCellStyle = dataGridViewCellStyle5;
+            this.Sample_Original.FillWeight = 106.484F;
+            this.Sample_Original.HeaderText = "Sample_Original";
+            this.Sample_Original.MinimumWidth = 6;
+            this.Sample_Original.Name = "Sample_Original";
+            // 
+            // Sample_New
+            // 
+            this.Sample_New.FillWeight = 106.484F;
+            this.Sample_New.HeaderText = "Sample_New";
+            this.Sample_New.MinimumWidth = 6;
+            this.Sample_New.Name = "Sample_New";
+            // 
+            // TypeNew
+            // 
+            this.TypeNew.FillWeight = 106.484F;
+            this.TypeNew.HeaderText = "TypeNew";
+            this.TypeNew.MinimumWidth = 6;
+            this.TypeNew.Name = "TypeNew";
+            // 
+            // Estado
+            // 
+            this.Estado.FillWeight = 106.484F;
+            this.Estado.HeaderText = "Estado";
+            this.Estado.MinimumWidth = 6;
+            this.Estado.Name = "Estado";
+            this.Estado.Visible = false;
+            // 
+            // Module_Name
+            // 
+            this.Module_Name.HeaderText = "Module_Name";
+            this.Module_Name.MinimumWidth = 6;
+            this.Module_Name.Name = "Module_Name";
+            this.Module_Name.Visible = false;
+            // 
+            // Dispatch
+            // 
+            this.Dispatch.HeaderText = "Dispatch";
+            this.Dispatch.MinimumWidth = 6;
+            this.Dispatch.Name = "Dispatch";
+            this.Dispatch.Visible = false;
+            // 
+            // ParentSample
+            // 
+            this.ParentSample.FillWeight = 106.484F;
+            this.ParentSample.HeaderText = "ParentSample";
+            this.ParentSample.MinimumWidth = 6;
+            this.ParentSample.Name = "ParentSample";
             // 
             // cboSType
             // 
@@ -443,7 +531,7 @@ namespace OrdenesEspeciales
             this.lblUsu.AutoSize = true;
             this.lblUsu.Location = new System.Drawing.Point(1249, 287);
             this.lblUsu.Name = "lblUsu";
-            this.lblUsu.Size = new System.Drawing.Size(54, 17);
+            this.lblUsu.Size = new System.Drawing.Size(51, 16);
             this.lblUsu.TabIndex = 103;
             this.lblUsu.Text = "label12";
             this.lblUsu.Visible = false;
@@ -577,7 +665,7 @@ namespace OrdenesEspeciales
             this.label12.ForeColor = System.Drawing.Color.White;
             this.label12.Location = new System.Drawing.Point(32, 889);
             this.label12.Name = "label12";
-            this.label12.Size = new System.Drawing.Size(93, 17);
+            this.label12.Size = new System.Drawing.Size(89, 16);
             this.label12.TabIndex = 105;
             this.label12.Text = "RECUENTO :";
             // 
@@ -744,92 +832,6 @@ namespace OrdenesEspeciales
             this.pictureBox3.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pictureBox3.TabIndex = 95;
             this.pictureBox3.TabStop = false;
-            // 
-            // chk1
-            // 
-            this.chk1.FillWeight = 48.12834F;
-            this.chk1.HeaderText = "";
-            this.chk1.MinimumWidth = 6;
-            this.chk1.Name = "chk1";
-            // 
-            // Hole
-            // 
-            dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.ActiveCaption;
-            this.Hole.DefaultCellStyle = dataGridViewCellStyle2;
-            this.Hole.FillWeight = 106.484F;
-            this.Hole.HeaderText = "Hole";
-            this.Hole.MinimumWidth = 6;
-            this.Hole.Name = "Hole";
-            // 
-            // Depth_From
-            // 
-            dataGridViewCellStyle3.BackColor = System.Drawing.SystemColors.ActiveCaption;
-            this.Depth_From.DefaultCellStyle = dataGridViewCellStyle3;
-            this.Depth_From.FillWeight = 106.484F;
-            this.Depth_From.HeaderText = "Depth_From";
-            this.Depth_From.MinimumWidth = 6;
-            this.Depth_From.Name = "Depth_From";
-            // 
-            // Depth_to
-            // 
-            dataGridViewCellStyle4.BackColor = System.Drawing.SystemColors.ActiveCaption;
-            this.Depth_to.DefaultCellStyle = dataGridViewCellStyle4;
-            this.Depth_to.FillWeight = 106.484F;
-            this.Depth_to.HeaderText = "Depth_to";
-            this.Depth_to.MinimumWidth = 6;
-            this.Depth_to.Name = "Depth_to";
-            // 
-            // Sample_Original
-            // 
-            dataGridViewCellStyle5.BackColor = System.Drawing.SystemColors.ActiveCaption;
-            this.Sample_Original.DefaultCellStyle = dataGridViewCellStyle5;
-            this.Sample_Original.FillWeight = 106.484F;
-            this.Sample_Original.HeaderText = "Sample_Original";
-            this.Sample_Original.MinimumWidth = 6;
-            this.Sample_Original.Name = "Sample_Original";
-            // 
-            // Sample_New
-            // 
-            this.Sample_New.FillWeight = 106.484F;
-            this.Sample_New.HeaderText = "Sample_New";
-            this.Sample_New.MinimumWidth = 6;
-            this.Sample_New.Name = "Sample_New";
-            // 
-            // TypeNew
-            // 
-            this.TypeNew.FillWeight = 106.484F;
-            this.TypeNew.HeaderText = "TypeNew";
-            this.TypeNew.MinimumWidth = 6;
-            this.TypeNew.Name = "TypeNew";
-            // 
-            // Estado
-            // 
-            this.Estado.FillWeight = 106.484F;
-            this.Estado.HeaderText = "Estado";
-            this.Estado.MinimumWidth = 6;
-            this.Estado.Name = "Estado";
-            this.Estado.Visible = false;
-            // 
-            // Module_Name
-            // 
-            this.Module_Name.HeaderText = "Module_Name";
-            this.Module_Name.MinimumWidth = 6;
-            this.Module_Name.Name = "Module_Name";
-            this.Module_Name.Visible = false;
-            // 
-            // Dispatch
-            // 
-            this.Dispatch.HeaderText = "Dispatch";
-            this.Dispatch.MinimumWidth = 6;
-            this.Dispatch.Name = "Dispatch";
-            this.Dispatch.Visible = false;
-            // 
-            // ParentSample
-            // 
-            this.ParentSample.FillWeight = 106.484F;
-            this.ParentSample.HeaderText = "ParentSample";
-            this.ParentSample.MinimumWidth = 6;
-            this.ParentSample.Name = "ParentSample";
             // 
             // Form2cs
             // 

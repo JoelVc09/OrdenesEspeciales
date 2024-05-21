@@ -32,16 +32,17 @@ namespace OrdenesEspeciales
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Menu));
             this.BtnReassay = new System.Windows.Forms.Button();
             this.BtnCompositos = new System.Windows.Forms.Button();
-            this.Nom_Usua = new System.Windows.Forms.Label();
+            this.Btn_Envio_Ordenes = new System.Windows.Forms.Button();
             this.pictureBox3 = new System.Windows.Forms.PictureBox();
+            this.Nom_Usua = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
             this.SuspendLayout();
             // 
             // BtnReassay
             // 
-            this.BtnReassay.Location = new System.Drawing.Point(36, 23);
+            this.BtnReassay.Location = new System.Drawing.Point(26, 49);
             this.BtnReassay.Name = "BtnReassay";
-            this.BtnReassay.Size = new System.Drawing.Size(184, 154);
+            this.BtnReassay.Size = new System.Drawing.Size(133, 98);
             this.BtnReassay.TabIndex = 0;
             this.BtnReassay.Text = "Ord.Especiales";
             this.BtnReassay.UseVisualStyleBackColor = true;
@@ -49,23 +50,23 @@ namespace OrdenesEspeciales
             // 
             // BtnCompositos
             // 
-            this.BtnCompositos.Location = new System.Drawing.Point(327, 23);
+            this.BtnCompositos.Location = new System.Drawing.Point(402, 49);
             this.BtnCompositos.Name = "BtnCompositos";
-            this.BtnCompositos.Size = new System.Drawing.Size(193, 154);
+            this.BtnCompositos.Size = new System.Drawing.Size(123, 100);
             this.BtnCompositos.TabIndex = 1;
             this.BtnCompositos.Text = "Compositos";
             this.BtnCompositos.UseVisualStyleBackColor = true;
             this.BtnCompositos.Click += new System.EventHandler(this.BtnCompositos_Click);
             // 
-            // Nom_Usua
+            // Btn_Envio_Ordenes
             // 
-            this.Nom_Usua.AutoSize = true;
-            this.Nom_Usua.Location = new System.Drawing.Point(246, 119);
-            this.Nom_Usua.Name = "Nom_Usua";
-            this.Nom_Usua.Size = new System.Drawing.Size(46, 17);
-            this.Nom_Usua.TabIndex = 2;
-            this.Nom_Usua.Text = "label1";
-            this.Nom_Usua.Visible = false;
+            this.Btn_Envio_Ordenes.Location = new System.Drawing.Point(209, 49);
+            this.Btn_Envio_Ordenes.Name = "Btn_Envio_Ordenes";
+            this.Btn_Envio_Ordenes.Size = new System.Drawing.Size(137, 100);
+            this.Btn_Envio_Ordenes.TabIndex = 129;
+            this.Btn_Envio_Ordenes.Text = "Ordenes de Analisis BH ";
+            this.Btn_Envio_Ordenes.UseVisualStyleBackColor = true;
+            this.Btn_Envio_Ordenes.Click += new System.EventHandler(this.Btn_Envio_Ordenes_Click);
             // 
             // pictureBox3
             // 
@@ -78,14 +79,24 @@ namespace OrdenesEspeciales
             this.pictureBox3.TabIndex = 128;
             this.pictureBox3.TabStop = false;
             // 
+            // Nom_Usua
+            // 
+            this.Nom_Usua.AutoSize = true;
+            this.Nom_Usua.Location = new System.Drawing.Point(505, 228);
+            this.Nom_Usua.Name = "Nom_Usua";
+            this.Nom_Usua.Size = new System.Drawing.Size(44, 16);
+            this.Nom_Usua.TabIndex = 130;
+            this.Nom_Usua.Text = "label1";
+            // 
             // Menu
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.SlateGray;
             this.ClientSize = new System.Drawing.Size(561, 253);
-            this.Controls.Add(this.pictureBox3);
             this.Controls.Add(this.Nom_Usua);
+            this.Controls.Add(this.Btn_Envio_Ordenes);
+            this.Controls.Add(this.pictureBox3);
             this.Controls.Add(this.BtnCompositos);
             this.Controls.Add(this.BtnReassay);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
@@ -103,7 +114,8 @@ namespace OrdenesEspeciales
 
         private System.Windows.Forms.Button BtnReassay;
         private System.Windows.Forms.Button BtnCompositos;
-        private System.Windows.Forms.Label Nom_Usua;
         private System.Windows.Forms.PictureBox pictureBox3;
+        private System.Windows.Forms.Button Btn_Envio_Ordenes;
+        private System.Windows.Forms.Label Nom_Usua;
     }
 }

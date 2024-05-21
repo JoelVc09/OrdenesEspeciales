@@ -84,5 +84,13 @@ namespace OrdenesEspeciales
                 }
             }
         }
+
+        private void Btn_Envio_Ordenes_Click(object sender, EventArgs e)
+        {
+            
+            Form_Orden frm4 = new Form_Orden();
+            frm4.ShowDialog();
+            //this.Hide();
+        }
     }
 }

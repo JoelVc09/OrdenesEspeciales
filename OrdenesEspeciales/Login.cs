@@ -93,7 +93,7 @@ namespace OrdenesEspeciales
                     ConexionODBC.Conectar(usuario, contraseña);
                     conexionExitosa = true;
                 }
-                catch (OdbcException ex)
+                catch (OdbcException)
                 {
                     // Ocurrió un error al establecer la conexión
                     MessageBox.Show("Verificar Usuario o Contraseña: ", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
@@ -120,8 +120,6 @@ namespace OrdenesEspeciales
                 }
 
             }
-        }
-
-
+       }
     }
 }

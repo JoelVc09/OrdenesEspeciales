@@ -4,17 +4,17 @@
   <description asmv2:publisher="OrdenesEspeciales" asmv2:product="AppOrdenesEspeciales" xmlns="urn:schemas-microsoft-com:asm.v1" />
   <deployment install="true" mapFileExtensions="true" />
   <compatibleFrameworks xmlns="urn:schemas-microsoft-com:clickonce.v2">
-    <framework targetVersion="4.6.1" profile="Full" supportedRuntime="4.0.30319" />
+    <framework targetVersion="4.8" profile="Full" supportedRuntime="4.0.30319" />
   </compatibleFrameworks>
   <dependency>
-    <dependentAssembly dependencyType="install" codebase="OrdenesEspeciales.exe.manifest" size="3585">
+    <dependentAssembly dependencyType="install" codebase="OrdenesEspeciales.exe.manifest" size="7194">
       <assemblyIdentity name="OrdenesEspeciales.exe" version="1.0.0.12" publicKeyToken="0000000000000000" language="neutral" processorArchitecture="msil" type="win32" />
       <hash>
         <dsig:Transforms>
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-        <dsig:DigestValue>1YyMgsUoG4xV4AFWG+P8lrfHoM6VZN8rQBYXVqzJ/qQ=</dsig:DigestValue>
+        <dsig:DigestValue>m8FBA7i4ABiJ4nChcUSg5fP39saxChwrHdHUbPMjBpI=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>

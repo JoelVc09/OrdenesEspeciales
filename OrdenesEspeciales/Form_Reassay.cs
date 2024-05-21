@@ -54,6 +54,8 @@ namespace OrdenesEspeciales
             cboUnidad.DataSource = dt;
         }
 
+
+
         public void cargar_proyectos(string original)
         {
 
@@ -662,6 +664,7 @@ namespace OrdenesEspeciales
         }
 
         //Insertar Encabezado de Dispatch
+
         public void insert()
         {            //Instancia de formilario Login
 
@@ -1083,6 +1086,16 @@ namespace OrdenesEspeciales
                     }
                 }
             }
+        }
+
+        private void cbo2_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void CboDup2_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }
