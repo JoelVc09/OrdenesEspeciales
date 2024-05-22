@@ -331,12 +331,49 @@ namespace OrdenesEspeciales.Properties {
         }
         
         /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Byte[].
+        /// </summary>
+        internal static byte[] IDAutomationHC {
+            get {
+                object obj = ResourceManager.GetObject("IDAutomationHC", resourceCulture);
+                return ((byte[])(obj));
+            }
+        }
+        
+        /// <summary>
         ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
         /// </summary>
         internal static System.Drawing.Bitmap logoAntapaccay {
             get {
                 object obj = ResourceManager.GetObject("logoAntapaccay", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a &lt;!DOCTYPE html&gt;
+        ///&lt;html xmlns=&quot;http://www.w3.org/1999/xhtml&quot;&gt;
+        ///
+        ///&lt;head&gt;
+        ///    &lt;title&gt;Title of the document&lt;/title&gt;
+        ///    &lt;style&gt;
+        ///        /* Estilo para el tamaño A4 */
+        ///
+        ///        @page {
+        ///            size: A4;
+        ///            margin: 0;
+        ///        }
+        ///
+        ///        /* Estilo para el cuerpo de la página */
+        ///        body {
+        ///            margin: 1.5cm; /* Margen de 1.5cm en todos los lados */
+        ///            font-family: Verdana, sans-serif; /* Cambia Arial por el tipo de letra que desees */
+        ///            font-size: 10px;
+        ///    [resto de la cadena truncado]&quot;;.
+        /// </summary>
+        internal static string plantilla {
+            get {
+                return ResourceManager.GetString("plantilla", resourceCulture);
             }
         }
         
@@ -357,12 +394,39 @@ namespace OrdenesEspeciales.Properties {
         ///        body {
         ///            margin: 1.5cm; /* Margen de 1.5cm en todos los lados */
         ///            font-family: Arial, sans-serif; /* Cambia Arial por el tipo de letra que desees */
-        ///            font-size: 12px;
+        ///            font-size: 10px;
         ///        [resto de la cadena truncado]&quot;;.
         /// </summary>
-        internal static string plantilla {
+        internal static string Plantilla2 {
             get {
-                return ResourceManager.GetString("plantilla", resourceCulture);
+                return ResourceManager.GetString("Plantilla2", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a &lt;!DOCTYPE html&gt;
+        ///&lt;html xmlns=&quot;http://www.w3.org/1999/xhtml&quot;&gt;
+        ///
+        ///&lt;head&gt;
+        ///    &lt;title&gt;Title of the document&lt;/title&gt;
+        ///    &lt;style&gt;
+        ///        /* Estilo para el tamaño A4 */
+        ///
+        ///        @page {
+        ///            size: A4;
+        ///            margin: 0;
+        ///        }
+        ///
+        ///        /* Estilo para el cuerpo de la página */
+        ///        body {
+        ///            margin: 1.5cm; /* Margen de 1.5cm en todos los lados */
+        ///            font-family: Verdana, sans-serif; /* Cambia Arial por el tipo de letra que desees */
+        ///            font-size: 10px;
+        ///    [resto de la cadena truncado]&quot;;.
+        /// </summary>
+        internal static string plantilla3 {
+            get {
+                return ResourceManager.GetString("plantilla3", resourceCulture);
             }
         }
         

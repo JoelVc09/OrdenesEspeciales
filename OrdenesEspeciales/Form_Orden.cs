@@ -15,7 +15,7 @@ using iTextSharp.tool.xml;
 using static System.Windows.Forms.VisualStyles.VisualStyleElement;
 using static System.Windows.Forms.VisualStyles.VisualStyleElement.Button;
 using System.Data.SqlClient;
-
+using BarcodeStandard;
 
 namespace OrdenesEspeciales
 {
@@ -268,121 +268,6 @@ namespace OrdenesEspeciales
         }
 
 
-        //AGREGAR LOS ANALITOS 
-        private void AgregarColumnasCheckBoxAdicionales()
-
-        {
-
-
-            // Crear la columna MCtrl
-            DataGridViewTextBoxColumn columnMCtrl = new DataGridViewTextBoxColumn();
-            columnMCtrl.HeaderText = "MCtrl";
-            columnMCtrl.Name = "MCtrl";
-            columnMCtrl.DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
-            columnMCtrl.AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells;
-            Dgv_Orden.Columns.Add(columnMCtrl);
-
-            // Crear la columna MCtrlB
-            DataGridViewTextBoxColumn columnMCtrlB = new DataGridViewTextBoxColumn();
-            columnMCtrlB.HeaderText = "Parent";
-            columnMCtrlB.Name = "Parent";
-            columnMCtrlB.DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
-            columnMCtrlB.AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells;
-            Dgv_Orden.Columns.Add(columnMCtrlB);
-
-
-
-            DataGridViewCheckBoxColumn checkBoxColumn2 = new DataGridViewCheckBoxColumn();
-            checkBoxColumn2.HeaderText = "CuTot";
-            checkBoxColumn2.Name = "CuTot";
-            Dgv_Orden.Columns.Add(checkBoxColumn2);
-            Dgv_Orden.Columns["CuTot"].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
-            Dgv_Orden.Columns["CuTot"].AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells;
-
-
-            DataGridViewCheckBoxColumn checkBoxColumn3 = new DataGridViewCheckBoxColumn();
-            checkBoxColumn3.HeaderText = "CuOx";
-            checkBoxColumn3.Name = "CuOx";
-            Dgv_Orden.Columns.Add(checkBoxColumn3);
-            Dgv_Orden.Columns["CuOx"].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
-            Dgv_Orden.Columns["CuOx"].AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells;
-
-
-            DataGridViewCheckBoxColumn checkBoxColumn4 = new DataGridViewCheckBoxColumn();
-            checkBoxColumn4.HeaderText = "CuSol";
-            checkBoxColumn4.Name = "CuSol";
-            Dgv_Orden.Columns.Add(checkBoxColumn4);
-            Dgv_Orden.Columns["CuSol"].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
-            Dgv_Orden.Columns["CuSol"].AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells;
-
-            // Agregar columna "U"
-            DataGridViewCheckBoxColumn checkBoxColumnU = new DataGridViewCheckBoxColumn();
-            checkBoxColumnU.HeaderText = "Au"; // Encabezado
-            checkBoxColumnU.Name = "Au"; // Nombre único
-            Dgv_Orden.Columns.Add(checkBoxColumnU);
-            Dgv_Orden.Columns["Au"].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
-            Dgv_Orden.Columns["Au"].AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells;
-
-            // Agregar columna "G"
-            DataGridViewCheckBoxColumn checkBoxColumnG = new DataGridViewCheckBoxColumn();
-            checkBoxColumnG.HeaderText = "Ag"; // Encabezado
-            checkBoxColumnG.Name = "Ag"; // Nombre único
-            Dgv_Orden.Columns.Add(checkBoxColumnG);
-            Dgv_Orden.Columns["Ag"].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
-            Dgv_Orden.Columns["Ag"].AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells;
-
-            // Agregar columna "M"
-            DataGridViewCheckBoxColumn checkBoxColumnM = new DataGridViewCheckBoxColumn();
-            checkBoxColumnM.HeaderText = "Mo"; // Encabezado
-            checkBoxColumnM.Name = "Mo"; // Nombre único
-            Dgv_Orden.Columns.Add(checkBoxColumnM);
-            Dgv_Orden.Columns["Mo"].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
-            Dgv_Orden.Columns["Mo"].AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells;
-
-
-            // Agregar columna "C3"
-            DataGridViewCheckBoxColumn checkBoxColumnC3 = new DataGridViewCheckBoxColumn();
-            checkBoxColumnC3.HeaderText = "CO3"; // Encabezado
-            checkBoxColumnC3.Name = "CO3"; // Nombre único
-            Dgv_Orden.Columns.Add(checkBoxColumnC3);
-            Dgv_Orden.Columns["CO3"].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
-            Dgv_Orden.Columns["CO3"].AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells;
-
-            // Agregar columna "CS"
-            DataGridViewCheckBoxColumn checkBoxColumnCS = new DataGridViewCheckBoxColumn();
-            checkBoxColumnCS.HeaderText = "CSAc"; // Encabezado
-            checkBoxColumnCS.Name = "CSAc"; // Nombre único
-            Dgv_Orden.Columns.Add(checkBoxColumnCS);
-            Dgv_Orden.Columns["CSAc"].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
-            Dgv_Orden.Columns["CSAc"].AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells;
-
-            // Agregar columna "CN" (segunda vez)
-            DataGridViewCheckBoxColumn checkBoxColumnCN2 = new DataGridViewCheckBoxColumn();
-            checkBoxColumnCN2.HeaderText = "CSCn"; // Encabezado
-            checkBoxColumnCN2.Name = "CSCn"; // Nombre único
-            Dgv_Orden.Columns.Add(checkBoxColumnCN2);
-            Dgv_Orden.Columns["CSCn"].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
-            Dgv_Orden.Columns["CSCn"].AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells;
-
-            // Agregar columna "CR"
-            DataGridViewCheckBoxColumn checkBoxColumnCR = new DataGridViewCheckBoxColumn();
-            checkBoxColumnCR.HeaderText = "CuRes"; // Encabezado
-            checkBoxColumnCR.Name = "CuRes"; // Nombre único
-            Dgv_Orden.Columns.Add(checkBoxColumnCR);
-            Dgv_Orden.Columns["CuRes"].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
-            Dgv_Orden.Columns["CuRes"].AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells;
-
-            // Agregar columna "CS" (segunda vez)
-            DataGridViewCheckBoxColumn checkBoxColumnCS2 = new DataGridViewCheckBoxColumn();
-            checkBoxColumnCS2.HeaderText = "FeTot"; // Encabezado
-            checkBoxColumnCS2.Name = "FeTot"; // Nombre único
-            Dgv_Orden.Columns.Add(checkBoxColumnCS2);
-            Dgv_Orden.Columns["FeTot"].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
-            Dgv_Orden.Columns["FeTot"].AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells;
-
-
-        }
-
         //CARGAR DATOS  AL COMBOBOX DE DUPLICADO 
 
         public void cargar_duplicado()
@@ -405,7 +290,7 @@ namespace OrdenesEspeciales
 
         //CARGAR DATOS  COMBOBOX DE CONTROLES BLANCOS
 
-
+        
         public void cargar_CBlanco()
         {
             string query = "select b.ASSAY_STANDARD_CODE,a.business_unit_name \r\nfrom reference_code_assignments as \r\na  inner join ASSAY_STANDARDS b on \r\na.reference_code_id = b.REFERENCE_CODE_ID \r\nwhere column_name = 'ASSAY_STANDARD_CODE' and a.business_unit_name='EXPLORACION' group by b.ASSAY_STANDARD_CODE,a.business_unit_name";
@@ -526,8 +411,8 @@ namespace OrdenesEspeciales
             
             recibir_datos1();
             //AgregarColumnasCheckBoxAdicionales();
-            cargar_duplicado();
-            cargar_CBlanco();
+            //cargar_duplicado();
+            //cargar_CBlanco();
 
             lblcount.Text = Dgv_Orden.Rows.Count.ToString();
 
@@ -809,6 +694,8 @@ namespace OrdenesEspeciales
 
         }
 
+        //AGREGAR BLANCOS 
+
         private void BtnBlancos_Click(object sender, EventArgs e)
         {
             try
@@ -829,21 +716,6 @@ namespace OrdenesEspeciales
                     }
                 }
 
-                // Obtener el siguiente número correlativo para la columna "item"
-                long siguiente = 0;
-                foreach (DataGridViewRow row in Dgv_Orden.Rows)
-                {
-                    if (!row.IsNewRow && !string.IsNullOrEmpty(row.Cells["item"].Value?.ToString()))
-                    {
-                        long cadena = Convert.ToInt64(row.Cells["item"].Value.ToString());
-                        if (cadena > siguiente)
-                        {
-                            siguiente = cadena;
-                        }
-                    }
-                }
-                siguiente++;
-
                 // Si no se ha seleccionado ninguna fila, se agrega al inicio
                 if (rowIndex == -1)
                 {
@@ -857,12 +729,18 @@ namespace OrdenesEspeciales
                     Dgv_Orden.Rows.Insert(rowIndex, 1);
                 }
 
-                // Inicializamos el valor de las celdas
                 DataGridViewRow newRow = Dgv_Orden.Rows[rowIndex];
-                newRow.Cells["CodMuestra"].Value = siguiente.ToString("00000000");
                 newRow.Cells["observaciones"].Value = cbo_CtrlB.SelectedItem.ToString();
-                //newRow.Cells["Dispatch"].Value = txt_Orden.Text;
-                //newRow.Cells["Hole"].Value = comboBox3.SelectedValue ?? ""; // Ajustar según la columna correspondiente
+
+
+
+                //NUMERAMOS NUEVAMENTE  LOS ITEMS : 
+
+                for (int i = 0; i < Dgv_Orden.Rows.Count; i++)
+                {
+                    // Obtener la celda de la columna "item" en la fila actual y asignarle el número de fila más uno
+                    Dgv_Orden.Rows[i].Cells["item"].Value = (i + 1).ToString();
+                }
 
                 // Establecemos el valor del check en false para la fila seleccionada
                 if (rowIndex >= 0 && rowIndex < Dgv_Orden.Rows.Count)
@@ -873,6 +751,10 @@ namespace OrdenesEspeciales
                 // Limpiamos el combo y actualizamos el label con la cantidad de filas
                 cbo_CtrlB.SelectedIndex = -1;
                 lblcant.Text = Dgv_Orden.Rows.Count.ToString();
+
+                btnFillConsecutive_Click();
+           
+
             }
             catch (Exception ex)
             {
@@ -880,5 +762,211 @@ namespace OrdenesEspeciales
             }
         }
 
+        private void label4_Click_1(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label4_Click_2(object sender, EventArgs e)
+        {
+
+        }
+
+        private void groupBox2_Enter(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btn_guardar2_Click(object sender, EventArgs e)
+        {
+            SaveFileDialog Guardar = new SaveFileDialog();
+            // Especificar el nombre del archivo
+            Guardar.FileName = DateTime.Now.ToString("ddMMyyyyHHmmss") + ".pdf";
+            Guardar.DefaultExt = ".pdf"; // Establecer la extensión predeterminada
+            Guardar.Filter = "Archivos PDF (*.pdf)|*.pdf";
+
+
+            string paginahtml_texto = Properties.Resources.Plantilla2.ToString();
+
+            paginahtml_texto = paginahtml_texto.Replace("@ORDENENSAYO", txtorden_es.Text);
+            paginahtml_texto = paginahtml_texto.Replace("@@FECHAENVIO", dtpfecha_es.Text);
+            paginahtml_texto = paginahtml_texto.Replace("@LABORATORIO", txtLaboratorio_Es.Text);
+            paginahtml_texto = paginahtml_texto.Replace("@@TIPODEMUESTRA ", txttipomuestra_Es.Text);
+            paginahtml_texto = paginahtml_texto.Replace("@TOTALORDEN", count_es.Text);
+
+            string filas = string.Empty;
+
+            foreach (DataGridViewRow row in dgv_esp.Rows)
+            {
+
+                // Obtener el valor de la celda "CuTot"
+                
+
+                // Verificar si el valor de la celda es un booleano y está marcado como verdadero
+                
+
+                // Crear la fila de la tabla HTML con el checkbox marcado si isChecked es verdadero
+                filas += "<tr>";
+                filas += "<td>" + (row.Cells["muestrases"].Value ?? "").ToString() + "</td>";
+                filas += "<td>" + (row.Cells["tipoensayo"].Value ?? "").ToString() + "</td>";
+                filas += "<td>" + (row.Cells["tajo"].Value ?? "").ToString() + "</td>";
+                filas += "<td>" + (row.Cells["banco"].Value ?? "").ToString() + "</td>";
+                filas += "<td>" + (row.Cells["equipo"].Value ?? "").ToString() + "</td>";
+                filas += "<td>" + (row.Cells["ismr"].Value ?? "").ToString() + "</td>";
+                filas += "<td>" + (row.Cells["litologia"].Value ?? "").ToString() + "</td>";
+                filas += "<td>" + (row.Cells["porarcilla"].Value ?? "").ToString() + "</td>";
+                filas += "<td>" + (row.Cells["cordeste"].Value ?? "").ToString() + "</td>";
+                filas += "<td>" + (row.Cells["cordnorte"].Value ?? "").ToString() + "</td>";
+                filas += "<td>" + (row.Cells["cota"].Value ?? "").ToString() + "</td>";
+                filas += "<td>" + (row.Cells["descripcion"].Value ?? "").ToString() + "</td>";
+                filas += "</tr>";
+
+            }
+
+
+            paginahtml_texto = paginahtml_texto.Replace("@FILAS", filas);
+
+            string rutaArchivo = @"C:\Users\joel.vilcatoma\OneDrive - Vela Industries Group\Escritorio\miArchivo.html";
+            File.WriteAllText(rutaArchivo, paginahtml_texto);
+
+            if (Guardar.ShowDialog() == DialogResult.OK)
+            {
+                using (FileStream stream = new FileStream(Guardar.FileName, FileMode.Create))
+                {
+                    Document pdfDoc = new Document(PageSize.A4, 25, 25, 25, 25);
+
+                    PdfWriter writer = PdfWriter.GetInstance(pdfDoc, stream);
+
+                    pdfDoc.Open();
+                    //pdfDoc.Add(new Phrase(""));
+
+                    iTextSharp.text.Image img = iTextSharp.text.Image.GetInstance(Properties.Resources.logoAntapaccay, System.Drawing.Imaging.ImageFormat.Png);
+                    img.ScaleToFit(80, 60);
+                    img.Alignment = iTextSharp.text.Image.UNDERLYING;
+                    img.SetAbsolutePosition(pdfDoc.RightMargin + 470, pdfDoc.Top - 40);
+                    pdfDoc.Add(img);
+
+
+
+                    using (StringReader sr = new StringReader(paginahtml_texto))
+                    {
+
+                        XMLWorkerHelper.GetInstance().ParseXHtml(writer, pdfDoc, sr);
+
+                    }
+
+                    pdfDoc.Close();
+                    stream.Close();
+
+                }
+
+            }
+
+        }
+
+        //GENERAR DUPLICADO 
+
+        private void GRV_DATOS_EditingControlShowing(object sender, DataGridViewEditingControlShowingEventArgs e)
+        {
+            if (Dgv_Orden.CurrentCell.ColumnIndex == Dgv_Orden.Columns["MCtrl"].Index && e.Control is System.Windows.Forms.ComboBox comboBox)
+            {
+                comboBox.SelectedIndexChanged -= ComboBox_SelectedIndexChanged; // Evitar duplicados de eventos
+                comboBox.SelectedIndexChanged += ComboBox_SelectedIndexChanged;
+            }
+
+
+        }
+
+        private void ComboBox_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (sender is System.Windows.Forms.ComboBox comboBox && comboBox.SelectedItem != null && comboBox.SelectedItem.ToString() == "Duplicado de Campo")
+            {
+                // Generar 3 filas automáticamente
+                for (int i = 0; i < 3; i++)
+                {
+                    Dgv_Orden.Rows.Add(); // Agregar nueva fila
+                }
+
+                //enumerar 
+
+
+                for (int i = 0; i < Dgv_Orden.Rows.Count; i++)
+                {
+                    // Obtener la celda de la columna "item" en la fila actual y asignarle el número de fila más uno
+                    Dgv_Orden.Rows[i].Cells["item"].Value = (i + 1).ToString();
+                }
+
+                btnFillConsecutive_Click();
+            }
+        }
+
+        // IMPRIMIR CODIGO DE BARRA 
+
+        private void button3_Click_1(object sender, EventArgs e)
+        {
+            SaveFileDialog Guardar = new SaveFileDialog();
+            // Especificar el nombre del archivo
+            Guardar.FileName = DateTime.Now.ToString("ddMMyyyyHHmmss") + ".pdf";
+            Guardar.DefaultExt = ".pdf"; // Establecer la extensión predeterminada
+            Guardar.Filter = "Archivos PDF (*.pdf)|*.pdf";
+
+
+            string paginahtml_texto = Properties.Resources.plantilla3.ToString();
+            paginahtml_texto = paginahtml_texto.Replace("@NumOrden", txt_Orden.Text);
+
+            string filas = string.Empty;
+
+            foreach (DataGridViewRow row in Dgv_Orden.Rows)
+            {
+
+
+                filas += "<tr>";
+                filas += "<td>" + (row.Cells["Item"].Value ?? "").ToString() + "</td>";
+                filas += "<td class=\"barcode\">" + (row.Cells["CodMuestra"].Value ?? "").ToString() + "</td>";
+                filas += "<td>" + (row.Cells["Observaciones"].Value ?? "").ToString() + "</td>";
+                filas += "</tr>";
+
+            }
+
+
+            paginahtml_texto = paginahtml_texto.Replace("@FILAS", filas);
+
+            string rutaArchivo = @"C:\Users\joel.vilcatoma\OneDrive - Vela Industries Group\Escritorio\miArchivo.html";
+
+            File.WriteAllText(rutaArchivo, paginahtml_texto);
+
+            if (Guardar.ShowDialog() == DialogResult.OK)
+            {
+                using (FileStream stream = new FileStream(Guardar.FileName, FileMode.Create))
+                {
+                    Document pdfDoc = new Document(PageSize.A4, 25, 25, 25, 25);
+
+                    PdfWriter writer = PdfWriter.GetInstance(pdfDoc, stream);
+
+                    pdfDoc.Open();
+                    //pdfDoc.Add(new Phrase(""));
+
+                    iTextSharp.text.Image img = iTextSharp.text.Image.GetInstance(Properties.Resources.logoAntapaccay, System.Drawing.Imaging.ImageFormat.Png);
+                    img.ScaleToFit(80, 60);
+                    img.Alignment = iTextSharp.text.Image.UNDERLYING;
+                    img.SetAbsolutePosition(pdfDoc.LeftMargin + 10, pdfDoc.Top - 50);
+                    pdfDoc.Add(img);
+
+
+
+                    using (StringReader sr = new StringReader(paginahtml_texto))
+                    {
+
+                        XMLWorkerHelper.GetInstance().ParseXHtml(writer, pdfDoc, sr);
+
+                    }
+
+                    pdfDoc.Close();
+                    stream.Close();
+
+                }
+
+            }
+        }
     }
 }

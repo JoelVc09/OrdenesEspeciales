@@ -208,4 +208,13 @@
   <data name="logoAntapaccay" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\logoAntapaccay.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="Plantilla2" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Plantilla2.html;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;utf-8</value>
+  </data>
+  <data name="plantilla3" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\plantilla3.html;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;utf-8</value>
+  </data>
+  <data name="IDAutomationHC" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\IDAutomationHC.ttf;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
 </root>

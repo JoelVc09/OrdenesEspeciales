@@ -60,21 +60,6 @@
             this.btn_consultar = new System.Windows.Forms.Button();
             this.label6 = new System.Windows.Forms.Label();
             this.Dgv_Orden = new System.Windows.Forms.DataGridView();
-            this.btn_Guardar = new System.Windows.Forms.Button();
-            this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.lblcount = new System.Windows.Forms.Label();
-            this.label3 = new System.Windows.Forms.Label();
-            this.BtnTipDup = new System.Windows.Forms.Button();
-            this.label9 = new System.Windows.Forms.Label();
-            this.Cbo_Dup = new System.Windows.Forms.ComboBox();
-            this.BtnBlancos = new System.Windows.Forms.Button();
-            this.cbo_CtrlB = new System.Windows.Forms.ComboBox();
-            this.label8 = new System.Windows.Forms.Label();
-            this.lblcant = new System.Windows.Forms.Label();
-            this.button1 = new System.Windows.Forms.Button();
-            this.gDMS_ANTAPACCAYDataSet = new OrdenesEspeciales.GDMS_ANTAPACCAYDataSet();
-            this.gDMSANTAPACCAYDataSetBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.sdk = new System.Windows.Forms.DataGridViewCheckBoxColumn();
             this.item = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.blasthole = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -93,6 +78,50 @@
             this.CSCn = new System.Windows.Forms.DataGridViewCheckBoxColumn();
             this.CuRes = new System.Windows.Forms.DataGridViewCheckBoxColumn();
             this.FeTot = new System.Windows.Forms.DataGridViewCheckBoxColumn();
+            this.btn_Guardar = new System.Windows.Forms.Button();
+            this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.guardar_bd = new System.Windows.Forms.Button();
+            this.button3 = new System.Windows.Forms.Button();
+            this.lblcount = new System.Windows.Forms.Label();
+            this.label3 = new System.Windows.Forms.Label();
+            this.BtnBlancos = new System.Windows.Forms.Button();
+            this.cbo_CtrlB = new System.Windows.Forms.ComboBox();
+            this.label8 = new System.Windows.Forms.Label();
+            this.lblcant = new System.Windows.Forms.Label();
+            this.gDMS_ANTAPACCAYDataSet = new OrdenesEspeciales.GDMS_ANTAPACCAYDataSet();
+            this.gDMSANTAPACCAYDataSetBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
+            this.tabControl1 = new System.Windows.Forms.TabControl();
+            this.tabPage1 = new System.Windows.Forms.TabPage();
+            this.tabPage2 = new System.Windows.Forms.TabPage();
+            this.groupBox3 = new System.Windows.Forms.GroupBox();
+            this.button1 = new System.Windows.Forms.Button();
+            this.count_es = new System.Windows.Forms.Label();
+            this.label11 = new System.Windows.Forms.Label();
+            this.btn_guardar2 = new System.Windows.Forms.Button();
+            this.dgv_esp = new System.Windows.Forms.DataGridView();
+            this.muestrases = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.tipoensayo = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.tajo = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.banco = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.equipo = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ismr = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.litologia = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.porarcilla = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.cordeste = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.cordnorte = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.cota = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.descripcion = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.button2 = new System.Windows.Forms.Button();
+            this.txttipomuestra_Es = new System.Windows.Forms.TextBox();
+            this.dtpfecha_es = new System.Windows.Forms.DateTimePicker();
+            this.txtLaboratorio_Es = new System.Windows.Forms.TextBox();
+            this.txtorden_es = new System.Windows.Forms.TextBox();
+            this.label10 = new System.Windows.Forms.Label();
+            this.label7 = new System.Windows.Forms.Label();
+            this.label5 = new System.Windows.Forms.Label();
+            this.label4 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.Dgv_Consulta)).BeginInit();
             this.gb_Analisis.SuspendLayout();
             this.Consulta.SuspendLayout();
@@ -100,12 +129,18 @@
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.gDMS_ANTAPACCAYDataSet)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gDMSANTAPACCAYDataSetBindingSource)).BeginInit();
+            this.tabControl1.SuspendLayout();
+            this.tabPage1.SuspendLayout();
+            this.tabPage2.SuspendLayout();
+            this.groupBox3.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dgv_esp)).BeginInit();
+            this.groupBox2.SuspendLayout();
             this.SuspendLayout();
             // 
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(33, 315);
+            this.label1.Location = new System.Drawing.Point(33, 283);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(92, 16);
             this.label1.TabIndex = 0;
@@ -123,7 +158,7 @@
             this.Dgv_Consulta.Name = "Dgv_Consulta";
             this.Dgv_Consulta.RowHeadersWidth = 51;
             this.Dgv_Consulta.RowTemplate.Height = 24;
-            this.Dgv_Consulta.Size = new System.Drawing.Size(1193, 224);
+            this.Dgv_Consulta.Size = new System.Drawing.Size(1193, 186);
             this.Dgv_Consulta.TabIndex = 1;
             // 
             // gb_Analisis
@@ -140,9 +175,9 @@
             this.gb_Analisis.Controls.Add(this.cbo_CuSol);
             this.gb_Analisis.Controls.Add(this.cbo_CuTot);
             this.gb_Analisis.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.gb_Analisis.Location = new System.Drawing.Point(15, 817);
+            this.gb_Analisis.Location = new System.Drawing.Point(15, 383);
             this.gb_Analisis.Name = "gb_Analisis";
-            this.gb_Analisis.Size = new System.Drawing.Size(290, 123);
+            this.gb_Analisis.Size = new System.Drawing.Size(384, 123);
             this.gb_Analisis.TabIndex = 2;
             this.gb_Analisis.TabStop = false;
             this.gb_Analisis.Text = "Enviar analisis por :";
@@ -289,9 +324,9 @@
             this.Consulta.Controls.Add(this.Dgv_Consulta);
             this.Consulta.Cursor = System.Windows.Forms.Cursors.Default;
             this.Consulta.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Consulta.Location = new System.Drawing.Point(12, 23);
+            this.Consulta.Location = new System.Drawing.Point(6, 17);
             this.Consulta.Name = "Consulta";
-            this.Consulta.Size = new System.Drawing.Size(1379, 367);
+            this.Consulta.Size = new System.Drawing.Size(1267, 340);
             this.Consulta.TabIndex = 5;
             this.Consulta.TabStop = false;
             this.Consulta.Text = "Header";
@@ -300,7 +335,7 @@
             // 
             this.txt_Orden.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
             this.txt_Orden.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.CustomSource;
-            this.txt_Orden.Location = new System.Drawing.Point(36, 334);
+            this.txt_Orden.Location = new System.Drawing.Point(36, 302);
             this.txt_Orden.Name = "txt_Orden";
             this.txt_Orden.Size = new System.Drawing.Size(157, 22);
             this.txt_Orden.TabIndex = 100;
@@ -310,7 +345,7 @@
             this.cb_banco.BackColor = System.Drawing.Color.White;
             this.cb_banco.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cb_banco.FormattingEnabled = true;
-            this.cb_banco.Location = new System.Drawing.Point(486, 334);
+            this.cb_banco.Location = new System.Drawing.Point(486, 302);
             this.cb_banco.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.cb_banco.Name = "cb_banco";
             this.cb_banco.Size = new System.Drawing.Size(154, 24);
@@ -319,16 +354,16 @@
             // lb_blanco
             // 
             this.lb_blanco.AutoSize = true;
-            this.lb_blanco.Location = new System.Drawing.Point(487, 315);
+            this.lb_blanco.Location = new System.Drawing.Point(487, 283);
             this.lb_blanco.Name = "lb_blanco";
-            this.lb_blanco.Size = new System.Drawing.Size(61, 16);
+            this.lb_blanco.Size = new System.Drawing.Size(57, 16);
             this.lb_blanco.TabIndex = 98;
-            this.lb_blanco.Text = "Blanco*";
+            this.lb_blanco.Text = "Banco*";
             // 
             // cbo_laboratory
             // 
             this.cbo_laboratory.AutoSize = true;
-            this.cbo_laboratory.Location = new System.Drawing.Point(230, 315);
+            this.cbo_laboratory.Location = new System.Drawing.Point(230, 283);
             this.cbo_laboratory.Name = "cbo_laboratory";
             this.cbo_laboratory.Size = new System.Drawing.Size(92, 16);
             this.cbo_laboratory.TabIndex = 97;
@@ -340,7 +375,7 @@
             this.cbo_Laborat.BackColor = System.Drawing.Color.White;
             this.cbo_Laborat.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbo_Laborat.FormattingEnabled = true;
-            this.cbo_Laborat.Location = new System.Drawing.Point(228, 334);
+            this.cbo_Laborat.Location = new System.Drawing.Point(228, 302);
             this.cbo_Laborat.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.cbo_Laborat.Name = "cbo_Laborat";
             this.cbo_Laborat.Size = new System.Drawing.Size(237, 24);
@@ -348,9 +383,9 @@
             // 
             // btn_Buscar
             // 
-            this.btn_Buscar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
+            this.btn_Buscar.BackColor = System.Drawing.Color.LightSeaGreen;
             this.btn_Buscar.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btn_Buscar.ForeColor = System.Drawing.Color.White;
+            this.btn_Buscar.ForeColor = System.Drawing.Color.Black;
             this.btn_Buscar.ImageAlign = System.Drawing.ContentAlignment.BottomCenter;
             this.btn_Buscar.Location = new System.Drawing.Point(312, 20);
             this.btn_Buscar.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
@@ -399,21 +434,22 @@
             // cbo_proyecto
             // 
             this.cbo_proyecto.FormattingEnabled = true;
-            this.cbo_proyecto.Location = new System.Drawing.Point(569, 47);
+            this.cbo_proyecto.Location = new System.Drawing.Point(569, 38);
             this.cbo_proyecto.Name = "cbo_proyecto";
             this.cbo_proyecto.Size = new System.Drawing.Size(191, 24);
             this.cbo_proyecto.TabIndex = 78;
+            this.cbo_proyecto.Text = "36334";
             // 
             // btn_crear
             // 
-            this.btn_crear.BackColor = System.Drawing.Color.SeaGreen;
+            this.btn_crear.BackColor = System.Drawing.Color.LightSeaGreen;
             this.btn_crear.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btn_crear.ForeColor = System.Drawing.Color.White;
+            this.btn_crear.ForeColor = System.Drawing.Color.Black;
             this.btn_crear.ImageAlign = System.Drawing.ContentAlignment.BottomCenter;
-            this.btn_crear.Location = new System.Drawing.Point(807, 316);
+            this.btn_crear.Location = new System.Drawing.Point(663, 269);
             this.btn_crear.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btn_crear.Name = "btn_crear";
-            this.btn_crear.Size = new System.Drawing.Size(130, 42);
+            this.btn_crear.Size = new System.Drawing.Size(130, 57);
             this.btn_crear.TabIndex = 77;
             this.btn_crear.Text = "CREAR";
             this.btn_crear.UseVisualStyleBackColor = false;
@@ -421,14 +457,14 @@
             // 
             // btn_consultar
             // 
-            this.btn_consultar.BackColor = System.Drawing.Color.SeaGreen;
+            this.btn_consultar.BackColor = System.Drawing.Color.LightSeaGreen;
             this.btn_consultar.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btn_consultar.ForeColor = System.Drawing.Color.White;
+            this.btn_consultar.ForeColor = System.Drawing.Color.Black;
             this.btn_consultar.ImageAlign = System.Drawing.ContentAlignment.BottomCenter;
-            this.btn_consultar.Location = new System.Drawing.Point(1213, 20);
+            this.btn_consultar.Location = new System.Drawing.Point(1099, 20);
             this.btn_consultar.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btn_consultar.Name = "btn_consultar";
-            this.btn_consultar.Size = new System.Drawing.Size(130, 42);
+            this.btn_consultar.Size = new System.Drawing.Size(130, 49);
             this.btn_consultar.TabIndex = 76;
             this.btn_consultar.Text = "CONSULTAR";
             this.btn_consultar.UseVisualStyleBackColor = false;
@@ -439,7 +475,7 @@
             this.label6.AutoSize = true;
             this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label6.ForeColor = System.Drawing.SystemColors.InfoText;
-            this.label6.Location = new System.Drawing.Point(468, 51);
+            this.label6.Location = new System.Drawing.Point(468, 39);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(95, 20);
             this.label6.TabIndex = 75;
@@ -476,105 +512,266 @@
             this.Dgv_Orden.Name = "Dgv_Orden";
             this.Dgv_Orden.RowHeadersWidth = 51;
             this.Dgv_Orden.RowTemplate.Height = 24;
-            this.Dgv_Orden.Size = new System.Drawing.Size(1221, 288);
+            this.Dgv_Orden.Size = new System.Drawing.Size(1221, 268);
             this.Dgv_Orden.TabIndex = 6;
             this.Dgv_Orden.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.Dgv_Orden_CellContentClick);
+            this.Dgv_Orden.EditingControlShowing += new System.Windows.Forms.DataGridViewEditingControlShowingEventHandler(this.GRV_DATOS_EditingControlShowing);
+            // 
+            // sdk
+            // 
+            this.sdk.HeaderText = "";
+            this.sdk.MinimumWidth = 6;
+            this.sdk.Name = "sdk";
+            this.sdk.Width = 6;
+            // 
+            // item
+            // 
+            this.item.HeaderText = "Item";
+            this.item.MinimumWidth = 6;
+            this.item.Name = "item";
+            this.item.Width = 69;
+            // 
+            // blasthole
+            // 
+            this.blasthole.HeaderText = "Blast_Hole";
+            this.blasthole.MinimumWidth = 6;
+            this.blasthole.Name = "blasthole";
+            this.blasthole.Visible = false;
+            this.blasthole.Width = 112;
+            // 
+            // CodMuestra
+            // 
+            this.CodMuestra.HeaderText = "CodMuestra";
+            this.CodMuestra.MinimumWidth = 6;
+            this.CodMuestra.Name = "CodMuestra";
+            this.CodMuestra.Width = 125;
+            // 
+            // MCtrl
+            // 
+            this.MCtrl.HeaderText = "MCtrl";
+            this.MCtrl.Items.AddRange(new object[] {
+            "Duplicado de Campo",
+            "Duplicado de Finos",
+            "Duplicado de Gruesos",
+            "Duplicado de Testigos"});
+            this.MCtrl.MinimumWidth = 6;
+            this.MCtrl.Name = "MCtrl";
+            this.MCtrl.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.MCtrl.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
+            this.MCtrl.Width = 76;
+            // 
+            // observaciones
+            // 
+            this.observaciones.HeaderText = "Observaciones";
+            this.observaciones.MinimumWidth = 6;
+            this.observaciones.Name = "observaciones";
+            this.observaciones.Width = 147;
+            // 
+            // parent
+            // 
+            this.parent.HeaderText = "Parent";
+            this.parent.MinimumWidth = 6;
+            this.parent.Name = "parent";
+            this.parent.Width = 86;
+            // 
+            // CuTot
+            // 
+            this.CuTot.FalseValue = "false";
+            this.CuTot.HeaderText = "CuTot";
+            this.CuTot.IndeterminateValue = "false";
+            this.CuTot.MinimumWidth = 6;
+            this.CuTot.Name = "CuTot";
+            this.CuTot.TrueValue = "true";
+            this.CuTot.Width = 57;
+            // 
+            // CuOx
+            // 
+            this.CuOx.FalseValue = "false";
+            this.CuOx.HeaderText = "CuOx";
+            this.CuOx.IndeterminateValue = "false";
+            this.CuOx.MinimumWidth = 6;
+            this.CuOx.Name = "CuOx";
+            this.CuOx.TrueValue = "true";
+            this.CuOx.Width = 54;
+            // 
+            // CuSol
+            // 
+            this.CuSol.FalseValue = "false";
+            this.CuSol.HeaderText = "CuSol";
+            this.CuSol.IndeterminateValue = "false";
+            this.CuSol.MinimumWidth = 6;
+            this.CuSol.Name = "CuSol";
+            this.CuSol.TrueValue = "true";
+            this.CuSol.Width = 57;
+            // 
+            // Au
+            // 
+            this.Au.FalseValue = "false";
+            this.Au.HeaderText = "Au";
+            this.Au.IndeterminateValue = "false";
+            this.Au.MinimumWidth = 6;
+            this.Au.Name = "Au";
+            this.Au.TrueValue = "true";
+            this.Au.Width = 34;
+            // 
+            // Ag
+            // 
+            this.Ag.FalseValue = "false";
+            this.Ag.HeaderText = "Ag";
+            this.Ag.IndeterminateValue = "false";
+            this.Ag.MinimumWidth = 6;
+            this.Ag.Name = "Ag";
+            this.Ag.TrueValue = "true";
+            this.Ag.Width = 34;
+            // 
+            // Mo
+            // 
+            this.Mo.FalseValue = "false";
+            this.Mo.HeaderText = "Mo";
+            this.Mo.IndeterminateValue = "false";
+            this.Mo.MinimumWidth = 6;
+            this.Mo.Name = "Mo";
+            this.Mo.TrueValue = "true";
+            this.Mo.Width = 35;
+            // 
+            // CO3
+            // 
+            this.CO3.FalseValue = "false";
+            this.CO3.HeaderText = "CO3";
+            this.CO3.IndeterminateValue = "false";
+            this.CO3.MinimumWidth = 6;
+            this.CO3.Name = "CO3";
+            this.CO3.TrueValue = "true";
+            this.CO3.Width = 46;
+            // 
+            // CSAc
+            // 
+            this.CSAc.FalseValue = "false";
+            this.CSAc.HeaderText = "CSAc";
+            this.CSAc.IndeterminateValue = "false";
+            this.CSAc.MinimumWidth = 6;
+            this.CSAc.Name = "CSAc";
+            this.CSAc.TrueValue = "true";
+            this.CSAc.Width = 55;
+            // 
+            // CSCn
+            // 
+            this.CSCn.FalseValue = "false";
+            this.CSCn.HeaderText = "CSCn";
+            this.CSCn.IndeterminateValue = "false";
+            this.CSCn.MinimumWidth = 6;
+            this.CSCn.Name = "CSCn";
+            this.CSCn.TrueValue = "true";
+            this.CSCn.Width = 55;
+            // 
+            // CuRes
+            // 
+            this.CuRes.FalseValue = "false";
+            this.CuRes.HeaderText = "CuRes";
+            this.CuRes.IndeterminateValue = "false";
+            this.CuRes.MinimumWidth = 6;
+            this.CuRes.Name = "CuRes";
+            this.CuRes.TrueValue = "true";
+            this.CuRes.Width = 62;
+            // 
+            // FeTot
+            // 
+            this.FeTot.FalseValue = "false";
+            this.FeTot.HeaderText = "FeTot";
+            this.FeTot.IndeterminateValue = "false";
+            this.FeTot.MinimumWidth = 6;
+            this.FeTot.Name = "FeTot";
+            this.FeTot.TrueValue = "true";
+            this.FeTot.Width = 55;
             // 
             // btn_Guardar
             // 
-            this.btn_Guardar.BackColor = System.Drawing.Color.SeaGreen;
+            this.btn_Guardar.BackColor = System.Drawing.Color.LightSeaGreen;
             this.btn_Guardar.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btn_Guardar.ForeColor = System.Drawing.Color.White;
+            this.btn_Guardar.ForeColor = System.Drawing.Color.Black;
             this.btn_Guardar.ImageAlign = System.Drawing.ContentAlignment.BottomCenter;
-            this.btn_Guardar.Location = new System.Drawing.Point(1261, 874);
+            this.btn_Guardar.Location = new System.Drawing.Point(1118, 362);
             this.btn_Guardar.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btn_Guardar.Name = "btn_Guardar";
-            this.btn_Guardar.Size = new System.Drawing.Size(130, 42);
+            this.btn_Guardar.Size = new System.Drawing.Size(124, 43);
             this.btn_Guardar.TabIndex = 78;
-            this.btn_Guardar.Text = "GUARDAR";
+            this.btn_Guardar.Text = "IMPRIMIR";
             this.btn_Guardar.UseVisualStyleBackColor = false;
             this.btn_Guardar.Click += new System.EventHandler(this.btn_Guardar_Click);
             // 
             // groupBox1
             // 
             this.groupBox1.BackColor = System.Drawing.SystemColors.ActiveBorder;
+            this.groupBox1.Controls.Add(this.guardar_bd);
+            this.groupBox1.Controls.Add(this.button3);
             this.groupBox1.Controls.Add(this.lblcount);
             this.groupBox1.Controls.Add(this.label3);
-            this.groupBox1.Controls.Add(this.BtnTipDup);
-            this.groupBox1.Controls.Add(this.label9);
-            this.groupBox1.Controls.Add(this.Cbo_Dup);
+            this.groupBox1.Controls.Add(this.gb_Analisis);
+            this.groupBox1.Controls.Add(this.btn_Guardar);
             this.groupBox1.Controls.Add(this.BtnBlancos);
             this.groupBox1.Controls.Add(this.cbo_CtrlB);
             this.groupBox1.Controls.Add(this.Dgv_Orden);
             this.groupBox1.Controls.Add(this.label8);
             this.groupBox1.Controls.Add(this.lblcant);
-            this.groupBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.groupBox1.Location = new System.Drawing.Point(12, 396);
+            this.groupBox1.Font = new System.Drawing.Font("Arial Rounded MT Bold", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.groupBox1.Location = new System.Drawing.Point(6, 363);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(1379, 415);
+            this.groupBox1.Size = new System.Drawing.Size(1267, 526);
             this.groupBox1.TabIndex = 79;
             this.groupBox1.TabStop = false;
-            this.groupBox1.Text = "Samples";
+            this.groupBox1.Text = "Blast Hole";
+            // 
+            // guardar_bd
+            // 
+            this.guardar_bd.BackColor = System.Drawing.Color.LightSeaGreen;
+            this.guardar_bd.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.guardar_bd.ForeColor = System.Drawing.Color.Black;
+            this.guardar_bd.ImageAlign = System.Drawing.ContentAlignment.BottomCenter;
+            this.guardar_bd.Location = new System.Drawing.Point(1118, 409);
+            this.guardar_bd.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.guardar_bd.Name = "guardar_bd";
+            this.guardar_bd.Size = new System.Drawing.Size(124, 43);
+            this.guardar_bd.TabIndex = 99;
+            this.guardar_bd.Text = "GUARDAR / DB";
+            this.guardar_bd.UseVisualStyleBackColor = false;
+            // 
+            // button3
+            // 
+            this.button3.BackColor = System.Drawing.Color.LightSeaGreen;
+            this.button3.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button3.ForeColor = System.Drawing.Color.Black;
+            this.button3.ImageAlign = System.Drawing.ContentAlignment.BottomCenter;
+            this.button3.Location = new System.Drawing.Point(1118, 462);
+            this.button3.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.button3.Name = "button3";
+            this.button3.Size = new System.Drawing.Size(124, 43);
+            this.button3.TabIndex = 98;
+            this.button3.Text = "CÓDIGO BARRA";
+            this.button3.UseVisualStyleBackColor = false;
+            this.button3.Click += new System.EventHandler(this.button3_Click_1);
             // 
             // lblcount
             // 
             this.lblcount.AutoSize = true;
             this.lblcount.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblcount.ForeColor = System.Drawing.SystemColors.InfoText;
-            this.lblcount.Location = new System.Drawing.Point(131, 384);
+            this.lblcount.Location = new System.Drawing.Point(124, 360);
             this.lblcount.Name = "lblcount";
-            this.lblcount.Size = new System.Drawing.Size(49, 20);
+            this.lblcount.Size = new System.Drawing.Size(19, 20);
             this.lblcount.TabIndex = 97;
-            this.lblcount.Text = "label";
+            this.lblcount.Text = "0";
             // 
             // label3
             // 
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label3.ForeColor = System.Drawing.SystemColors.InfoText;
-            this.label3.Location = new System.Drawing.Point(19, 384);
+            this.label3.Location = new System.Drawing.Point(12, 360);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(106, 20);
             this.label3.TabIndex = 96;
             this.label3.Text = "Recuento : ";
             this.label3.Click += new System.EventHandler(this.label3_Click_1);
-            // 
-            // BtnTipDup
-            // 
-            this.BtnTipDup.BackColor = System.Drawing.Color.Transparent;
-            this.BtnTipDup.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("BtnTipDup.BackgroundImage")));
-            this.BtnTipDup.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.BtnTipDup.FlatAppearance.BorderSize = 0;
-            this.BtnTipDup.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.BtnTipDup.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.BtnTipDup.Location = new System.Drawing.Point(399, 45);
-            this.BtnTipDup.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.BtnTipDup.Name = "BtnTipDup";
-            this.BtnTipDup.Size = new System.Drawing.Size(45, 37);
-            this.BtnTipDup.TabIndex = 93;
-            this.BtnTipDup.UseVisualStyleBackColor = false;
-            // 
-            // label9
-            // 
-            this.label9.AutoSize = true;
-            this.label9.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label9.ForeColor = System.Drawing.SystemColors.InfoText;
-            this.label9.Location = new System.Drawing.Point(229, 18);
-            this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(122, 20);
-            this.label9.TabIndex = 94;
-            this.label9.Text = "Duplicados: *";
-            // 
-            // Cbo_Dup
-            // 
-            this.Cbo_Dup.BackColor = System.Drawing.Color.White;
-            this.Cbo_Dup.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.Cbo_Dup.FormattingEnabled = true;
-            this.Cbo_Dup.Location = new System.Drawing.Point(228, 57);
-            this.Cbo_Dup.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.Cbo_Dup.Name = "Cbo_Dup";
-            this.Cbo_Dup.Size = new System.Drawing.Size(171, 24);
-            this.Cbo_Dup.TabIndex = 95;
             // 
             // BtnBlancos
             // 
@@ -597,10 +794,16 @@
             this.cbo_CtrlB.BackColor = System.Drawing.Color.White;
             this.cbo_CtrlB.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbo_CtrlB.FormattingEnabled = true;
+            this.cbo_CtrlB.Items.AddRange(new object[] {
+            "MB 105",
+            "MC 401",
+            "MC 402",
+            "MC 403\t",
+            "MC 976"});
             this.cbo_CtrlB.Location = new System.Drawing.Point(21, 57);
             this.cbo_CtrlB.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.cbo_CtrlB.Name = "cbo_CtrlB";
-            this.cbo_CtrlB.Size = new System.Drawing.Size(119, 24);
+            this.cbo_CtrlB.Size = new System.Drawing.Size(119, 25);
             this.cbo_CtrlB.TabIndex = 80;
             // 
             // label8
@@ -619,24 +822,9 @@
             this.lblcant.AutoSize = true;
             this.lblcant.Location = new System.Drawing.Point(349, 184);
             this.lblcant.Name = "lblcant";
-            this.lblcant.Size = new System.Drawing.Size(50, 16);
+            this.lblcant.Size = new System.Drawing.Size(52, 17);
             this.lblcant.TabIndex = 7;
             this.lblcant.Text = "label2";
-            // 
-            // button1
-            // 
-            this.button1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
-            this.button1.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button1.ForeColor = System.Drawing.Color.White;
-            this.button1.ImageAlign = System.Drawing.ContentAlignment.BottomCenter;
-            this.button1.Location = new System.Drawing.Point(1111, 872);
-            this.button1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(130, 42);
-            this.button1.TabIndex = 80;
-            this.button1.Text = "ENVIAR BD";
-            this.button1.UseVisualStyleBackColor = false;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
             // gDMS_ANTAPACCAYDataSet
             // 
@@ -654,179 +842,307 @@
             this.contextMenuStrip1.Name = "contextMenuStrip1";
             this.contextMenuStrip1.Size = new System.Drawing.Size(61, 4);
             // 
-            // sdk
+            // tabControl1
             // 
-            this.sdk.HeaderText = "";
-            this.sdk.MinimumWidth = 6;
-            this.sdk.Name = "sdk";
-            this.sdk.Width = 6;
+            this.tabControl1.Controls.Add(this.tabPage1);
+            this.tabControl1.Controls.Add(this.tabPage2);
+            this.tabControl1.Font = new System.Drawing.Font("Arial Rounded MT Bold", 7.8F);
+            this.tabControl1.Location = new System.Drawing.Point(2, 1);
+            this.tabControl1.Name = "tabControl1";
+            this.tabControl1.SelectedIndex = 0;
+            this.tabControl1.Size = new System.Drawing.Size(1619, 1165);
+            this.tabControl1.TabIndex = 81;
             // 
-            // item
+            // tabPage1
             // 
-            this.item.HeaderText = "Item";
-            this.item.MinimumWidth = 6;
-            this.item.Name = "item";
-            this.item.Width = 65;
+            this.tabPage1.Controls.Add(this.Consulta);
+            this.tabPage1.Controls.Add(this.groupBox1);
+            this.tabPage1.Location = new System.Drawing.Point(4, 24);
+            this.tabPage1.Name = "tabPage1";
+            this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPage1.Size = new System.Drawing.Size(1611, 1137);
+            this.tabPage1.TabIndex = 0;
+            this.tabPage1.Text = "ENVIO DE ORDENES";
+            this.tabPage1.UseVisualStyleBackColor = true;
             // 
-            // blasthole
+            // tabPage2
             // 
-            this.blasthole.HeaderText = "Blast_Hole";
-            this.blasthole.MinimumWidth = 6;
-            this.blasthole.Name = "blasthole";
-            this.blasthole.Visible = false;
-            this.blasthole.Width = 112;
+            this.tabPage2.Controls.Add(this.groupBox3);
+            this.tabPage2.Controls.Add(this.groupBox2);
+            this.tabPage2.Location = new System.Drawing.Point(4, 24);
+            this.tabPage2.Name = "tabPage2";
+            this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPage2.Size = new System.Drawing.Size(1611, 1137);
+            this.tabPage2.TabIndex = 1;
+            this.tabPage2.Text = "ORDENES DE HUMEDAD";
+            this.tabPage2.UseVisualStyleBackColor = true;
             // 
-            // CodMuestra
+            // groupBox3
             // 
-            this.CodMuestra.HeaderText = "CodMuestra";
-            this.CodMuestra.MinimumWidth = 6;
-            this.CodMuestra.Name = "CodMuestra";
-            this.CodMuestra.Width = 119;
+            this.groupBox3.BackColor = System.Drawing.Color.DarkGray;
+            this.groupBox3.Controls.Add(this.button1);
+            this.groupBox3.Controls.Add(this.count_es);
+            this.groupBox3.Controls.Add(this.label11);
+            this.groupBox3.Controls.Add(this.btn_guardar2);
+            this.groupBox3.Controls.Add(this.dgv_esp);
+            this.groupBox3.Font = new System.Drawing.Font("Arial Rounded MT Bold", 7.8F);
+            this.groupBox3.Location = new System.Drawing.Point(17, 209);
+            this.groupBox3.Name = "groupBox3";
+            this.groupBox3.Size = new System.Drawing.Size(1240, 674);
+            this.groupBox3.TabIndex = 1;
+            this.groupBox3.TabStop = false;
+            this.groupBox3.Text = "Blast Hole";
             // 
-            // MCtrl
+            // button1
             // 
-            this.MCtrl.HeaderText = "MCtrl";
-            this.MCtrl.MinimumWidth = 6;
-            this.MCtrl.Name = "MCtrl";
-            this.MCtrl.Resizable = System.Windows.Forms.DataGridViewTriState.True;
-            this.MCtrl.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
-            this.MCtrl.Width = 71;
+            this.button1.BackColor = System.Drawing.Color.LightSeaGreen;
+            this.button1.Location = new System.Drawing.Point(1084, 617);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(133, 45);
+            this.button1.TabIndex = 4;
+            this.button1.Text = "CÓDIGO BARRA";
+            this.button1.UseVisualStyleBackColor = false;
             // 
-            // observaciones
+            // count_es
             // 
-            this.observaciones.HeaderText = "Observaciones";
-            this.observaciones.MinimumWidth = 6;
-            this.observaciones.Name = "observaciones";
-            this.observaciones.Width = 141;
+            this.count_es.AutoSize = true;
+            this.count_es.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.count_es.Location = new System.Drawing.Point(61, 569);
+            this.count_es.Name = "count_es";
+            this.count_es.Size = new System.Drawing.Size(41, 29);
+            this.count_es.TabIndex = 3;
+            this.count_es.Text = "20";
             // 
-            // parent
+            // label11
             // 
-            this.parent.HeaderText = "Parent";
-            this.parent.MinimumWidth = 6;
-            this.parent.Name = "parent";
-            this.parent.Width = 81;
+            this.label11.AutoSize = true;
+            this.label11.Location = new System.Drawing.Point(18, 580);
+            this.label11.Name = "label11";
+            this.label11.Size = new System.Drawing.Size(56, 15);
+            this.label11.TabIndex = 2;
+            this.label11.Text = "Count : ";
             // 
-            // CuTot
+            // btn_guardar2
             // 
-            this.CuTot.FalseValue = "false";
-            this.CuTot.HeaderText = "CuTot";
-            this.CuTot.IndeterminateValue = "false";
-            this.CuTot.MinimumWidth = 6;
-            this.CuTot.Name = "CuTot";
-            this.CuTot.TrueValue = "true";
-            this.CuTot.Width = 54;
+            this.btn_guardar2.BackColor = System.Drawing.Color.LightSeaGreen;
+            this.btn_guardar2.Location = new System.Drawing.Point(1084, 566);
+            this.btn_guardar2.Name = "btn_guardar2";
+            this.btn_guardar2.Size = new System.Drawing.Size(133, 45);
+            this.btn_guardar2.TabIndex = 1;
+            this.btn_guardar2.Text = "GUARDAR ";
+            this.btn_guardar2.UseVisualStyleBackColor = false;
+            this.btn_guardar2.Click += new System.EventHandler(this.btn_guardar2_Click);
             // 
-            // CuOx
+            // dgv_esp
             // 
-            this.CuOx.FalseValue = "false";
-            this.CuOx.HeaderText = "CuOx";
-            this.CuOx.IndeterminateValue = "false";
-            this.CuOx.MinimumWidth = 6;
-            this.CuOx.Name = "CuOx";
-            this.CuOx.TrueValue = "true";
-            this.CuOx.Width = 49;
+            this.dgv_esp.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgv_esp.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.muestrases,
+            this.tipoensayo,
+            this.tajo,
+            this.banco,
+            this.equipo,
+            this.ismr,
+            this.litologia,
+            this.porarcilla,
+            this.cordeste,
+            this.cordnorte,
+            this.cota,
+            this.descripcion});
+            this.dgv_esp.Location = new System.Drawing.Point(21, 38);
+            this.dgv_esp.Name = "dgv_esp";
+            this.dgv_esp.RowHeadersWidth = 51;
+            this.dgv_esp.RowTemplate.Height = 24;
+            this.dgv_esp.Size = new System.Drawing.Size(1196, 518);
+            this.dgv_esp.TabIndex = 0;
             // 
-            // CuSol
+            // muestrases
             // 
-            this.CuSol.FalseValue = "false";
-            this.CuSol.HeaderText = "CuSol";
-            this.CuSol.IndeterminateValue = "false";
-            this.CuSol.MinimumWidth = 6;
-            this.CuSol.Name = "CuSol";
-            this.CuSol.TrueValue = "true";
-            this.CuSol.Width = 54;
+            this.muestrases.HeaderText = "MUESTRAS";
+            this.muestrases.MinimumWidth = 6;
+            this.muestrases.Name = "muestrases";
+            this.muestrases.Width = 125;
             // 
-            // Au
+            // tipoensayo
             // 
-            this.Au.FalseValue = "false";
-            this.Au.HeaderText = "Au";
-            this.Au.IndeterminateValue = "false";
-            this.Au.MinimumWidth = 6;
-            this.Au.Name = "Au";
-            this.Au.TrueValue = "true";
-            this.Au.Width = 31;
+            this.tipoensayo.HeaderText = "TIPO DE ENSAYO";
+            this.tipoensayo.MinimumWidth = 6;
+            this.tipoensayo.Name = "tipoensayo";
+            this.tipoensayo.Width = 125;
             // 
-            // Ag
+            // tajo
             // 
-            this.Ag.FalseValue = "false";
-            this.Ag.HeaderText = "Ag";
-            this.Ag.IndeterminateValue = "false";
-            this.Ag.MinimumWidth = 6;
-            this.Ag.Name = "Ag";
-            this.Ag.TrueValue = "true";
-            this.Ag.Width = 32;
+            this.tajo.HeaderText = "TAJO";
+            this.tajo.MinimumWidth = 6;
+            this.tajo.Name = "tajo";
+            this.tajo.Width = 125;
             // 
-            // Mo
+            // banco
             // 
-            this.Mo.FalseValue = "false";
-            this.Mo.HeaderText = "Mo";
-            this.Mo.IndeterminateValue = "false";
-            this.Mo.MinimumWidth = 6;
-            this.Mo.Name = "Mo";
-            this.Mo.TrueValue = "true";
-            this.Mo.Width = 34;
+            this.banco.HeaderText = "BANCO";
+            this.banco.MinimumWidth = 6;
+            this.banco.Name = "banco";
+            this.banco.Width = 125;
             // 
-            // CO3
+            // equipo
             // 
-            this.CO3.FalseValue = "false";
-            this.CO3.HeaderText = "CO3";
-            this.CO3.IndeterminateValue = "false";
-            this.CO3.MinimumWidth = 6;
-            this.CO3.Name = "CO3";
-            this.CO3.TrueValue = "true";
-            this.CO3.Width = 42;
+            this.equipo.HeaderText = "EQUIPO";
+            this.equipo.MinimumWidth = 6;
+            this.equipo.Name = "equipo";
+            this.equipo.Width = 125;
             // 
-            // CSAc
+            // ismr
             // 
-            this.CSAc.FalseValue = "false";
-            this.CSAc.HeaderText = "CSAc";
-            this.CSAc.IndeterminateValue = "false";
-            this.CSAc.MinimumWidth = 6;
-            this.CSAc.Name = "CSAc";
-            this.CSAc.TrueValue = "true";
-            this.CSAc.Width = 51;
+            this.ismr.HeaderText = "ISMR";
+            this.ismr.MinimumWidth = 6;
+            this.ismr.Name = "ismr";
+            this.ismr.Width = 125;
             // 
-            // CSCn
+            // litologia
             // 
-            this.CSCn.FalseValue = "false";
-            this.CSCn.HeaderText = "CSCn";
-            this.CSCn.IndeterminateValue = "false";
-            this.CSCn.MinimumWidth = 6;
-            this.CSCn.Name = "CSCn";
-            this.CSCn.TrueValue = "true";
-            this.CSCn.Width = 51;
+            this.litologia.HeaderText = "LITOLOGIA";
+            this.litologia.MinimumWidth = 6;
+            this.litologia.Name = "litologia";
+            this.litologia.Width = 125;
             // 
-            // CuRes
+            // porarcilla
             // 
-            this.CuRes.FalseValue = "false";
-            this.CuRes.HeaderText = "CuRes";
-            this.CuRes.IndeterminateValue = "false";
-            this.CuRes.MinimumWidth = 6;
-            this.CuRes.Name = "CuRes";
-            this.CuRes.TrueValue = "true";
-            this.CuRes.Width = 59;
+            this.porarcilla.HeaderText = "% ARCILLAS";
+            this.porarcilla.MinimumWidth = 6;
+            this.porarcilla.Name = "porarcilla";
+            this.porarcilla.Width = 125;
             // 
-            // FeTot
+            // cordeste
             // 
-            this.FeTot.FalseValue = "false";
-            this.FeTot.HeaderText = "FeTot";
-            this.FeTot.IndeterminateValue = "false";
-            this.FeTot.MinimumWidth = 6;
-            this.FeTot.Name = "FeTot";
-            this.FeTot.TrueValue = "true";
-            this.FeTot.Width = 54;
+            this.cordeste.HeaderText = "COORD ESTE";
+            this.cordeste.MinimumWidth = 6;
+            this.cordeste.Name = "cordeste";
+            this.cordeste.Width = 125;
+            // 
+            // cordnorte
+            // 
+            this.cordnorte.HeaderText = "COORD NORTE";
+            this.cordnorte.MinimumWidth = 6;
+            this.cordnorte.Name = "cordnorte";
+            this.cordnorte.Width = 125;
+            // 
+            // cota
+            // 
+            this.cota.HeaderText = "COTA";
+            this.cota.MinimumWidth = 6;
+            this.cota.Name = "cota";
+            this.cota.Width = 125;
+            // 
+            // descripcion
+            // 
+            this.descripcion.HeaderText = "DESCRIPCIÓN";
+            this.descripcion.MinimumWidth = 6;
+            this.descripcion.Name = "descripcion";
+            this.descripcion.Width = 125;
+            // 
+            // groupBox2
+            // 
+            this.groupBox2.BackColor = System.Drawing.Color.DarkGray;
+            this.groupBox2.Controls.Add(this.button2);
+            this.groupBox2.Controls.Add(this.txttipomuestra_Es);
+            this.groupBox2.Controls.Add(this.dtpfecha_es);
+            this.groupBox2.Controls.Add(this.txtLaboratorio_Es);
+            this.groupBox2.Controls.Add(this.txtorden_es);
+            this.groupBox2.Controls.Add(this.label10);
+            this.groupBox2.Controls.Add(this.label7);
+            this.groupBox2.Controls.Add(this.label5);
+            this.groupBox2.Controls.Add(this.label4);
+            this.groupBox2.Font = new System.Drawing.Font("Arial Rounded MT Bold", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.groupBox2.Location = new System.Drawing.Point(14, 15);
+            this.groupBox2.Name = "groupBox2";
+            this.groupBox2.Size = new System.Drawing.Size(1244, 185);
+            this.groupBox2.TabIndex = 0;
+            this.groupBox2.TabStop = false;
+            this.groupBox2.Text = "Head";
+            this.groupBox2.Enter += new System.EventHandler(this.groupBox2_Enter);
+            // 
+            // button2
+            // 
+            this.button2.BackColor = System.Drawing.Color.LightSeaGreen;
+            this.button2.Location = new System.Drawing.Point(432, 58);
+            this.button2.Name = "button2";
+            this.button2.Size = new System.Drawing.Size(157, 52);
+            this.button2.TabIndex = 8;
+            this.button2.TabStop = false;
+            this.button2.Text = "CONSULTAR";
+            this.button2.UseVisualStyleBackColor = false;
+            // 
+            // txttipomuestra_Es
+            // 
+            this.txttipomuestra_Es.Location = new System.Drawing.Point(180, 124);
+            this.txttipomuestra_Es.Name = "txttipomuestra_Es";
+            this.txttipomuestra_Es.Size = new System.Drawing.Size(121, 23);
+            this.txttipomuestra_Es.TabIndex = 7;
+            // 
+            // dtpfecha_es
+            // 
+            this.dtpfecha_es.Location = new System.Drawing.Point(180, 58);
+            this.dtpfecha_es.Name = "dtpfecha_es";
+            this.dtpfecha_es.Size = new System.Drawing.Size(218, 23);
+            this.dtpfecha_es.TabIndex = 6;
+            // 
+            // txtLaboratorio_Es
+            // 
+            this.txtLaboratorio_Es.Location = new System.Drawing.Point(180, 89);
+            this.txtLaboratorio_Es.Name = "txtLaboratorio_Es";
+            this.txtLaboratorio_Es.Size = new System.Drawing.Size(218, 23);
+            this.txtLaboratorio_Es.TabIndex = 5;
+            // 
+            // txtorden_es
+            // 
+            this.txtorden_es.Location = new System.Drawing.Point(180, 26);
+            this.txtorden_es.Name = "txtorden_es";
+            this.txtorden_es.Size = new System.Drawing.Size(218, 23);
+            this.txtorden_es.TabIndex = 4;
+            // 
+            // label10
+            // 
+            this.label10.AutoSize = true;
+            this.label10.Location = new System.Drawing.Point(23, 130);
+            this.label10.Name = "label10";
+            this.label10.Size = new System.Drawing.Size(128, 15);
+            this.label10.TabIndex = 3;
+            this.label10.Text = "TIPO DE MUESTRA";
+            // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.Location = new System.Drawing.Point(23, 95);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(102, 15);
+            this.label7.TabIndex = 2;
+            this.label7.Text = "LABORATORIO";
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Location = new System.Drawing.Point(23, 64);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(120, 15);
+            this.label5.TabIndex = 1;
+            this.label5.Text = "FECHA DE ENVIO";
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Location = new System.Drawing.Point(23, 32);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(135, 15);
+            this.label4.TabIndex = 0;
+            this.label4.Text = "ORDEN DE ENSAYO";
             // 
             // Form_Orden
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ActiveCaption;
-            this.ClientSize = new System.Drawing.Size(1418, 932);
-            this.Controls.Add(this.button1);
-            this.Controls.Add(this.groupBox1);
-            this.Controls.Add(this.btn_Guardar);
-            this.Controls.Add(this.Consulta);
-            this.Controls.Add(this.gb_Analisis);
+            this.ClientSize = new System.Drawing.Size(1309, 932);
+            this.Controls.Add(this.tabControl1);
             this.Name = "Form_Orden";
             this.Text = "ORDEN DE ANÁLISIS";
             this.Load += new System.EventHandler(this.Form_Orden_Load);
@@ -840,6 +1156,14 @@
             this.groupBox1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.gDMS_ANTAPACCAYDataSet)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.gDMSANTAPACCAYDataSetBindingSource)).EndInit();
+            this.tabControl1.ResumeLayout(false);
+            this.tabPage1.ResumeLayout(false);
+            this.tabPage2.ResumeLayout(false);
+            this.groupBox3.ResumeLayout(false);
+            this.groupBox3.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dgv_esp)).EndInit();
+            this.groupBox2.ResumeLayout(false);
+            this.groupBox2.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -870,10 +1194,6 @@
         private System.Windows.Forms.ComboBox cbo_CtrlB;
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.Button BtnBlancos;
-        private System.Windows.Forms.Button BtnTipDup;
-        private System.Windows.Forms.Label label9;
-        private System.Windows.Forms.ComboBox Cbo_Dup;
-        private System.Windows.Forms.Button button1;
         private System.Windows.Forms.ComboBox cbo_proyecto;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label lb_desde;
@@ -890,6 +1210,35 @@
         private System.Windows.Forms.Label lb_blanco;
         private System.Windows.Forms.TextBox txt_Orden;
         private System.Windows.Forms.ContextMenuStrip contextMenuStrip1;
+        private System.Windows.Forms.TabControl tabControl1;
+        private System.Windows.Forms.TabPage tabPage1;
+        private System.Windows.Forms.TabPage tabPage2;
+        private System.Windows.Forms.GroupBox groupBox2;
+        private System.Windows.Forms.GroupBox groupBox3;
+        private System.Windows.Forms.Label label10;
+        private System.Windows.Forms.Label label7;
+        private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.TextBox txtLaboratorio_Es;
+        private System.Windows.Forms.TextBox txtorden_es;
+        private System.Windows.Forms.TextBox txttipomuestra_Es;
+        private System.Windows.Forms.DateTimePicker dtpfecha_es;
+        private System.Windows.Forms.DataGridView dgv_esp;
+        private System.Windows.Forms.Button btn_guardar2;
+        private System.Windows.Forms.Label count_es;
+        private System.Windows.Forms.Label label11;
+        private System.Windows.Forms.DataGridViewTextBoxColumn muestrases;
+        private System.Windows.Forms.DataGridViewTextBoxColumn tipoensayo;
+        private System.Windows.Forms.DataGridViewTextBoxColumn tajo;
+        private System.Windows.Forms.DataGridViewTextBoxColumn banco;
+        private System.Windows.Forms.DataGridViewTextBoxColumn equipo;
+        private System.Windows.Forms.DataGridViewTextBoxColumn ismr;
+        private System.Windows.Forms.DataGridViewTextBoxColumn litologia;
+        private System.Windows.Forms.DataGridViewTextBoxColumn porarcilla;
+        private System.Windows.Forms.DataGridViewTextBoxColumn cordeste;
+        private System.Windows.Forms.DataGridViewTextBoxColumn cordnorte;
+        private System.Windows.Forms.DataGridViewTextBoxColumn cota;
+        private System.Windows.Forms.DataGridViewTextBoxColumn descripcion;
         private System.Windows.Forms.DataGridViewCheckBoxColumn sdk;
         private System.Windows.Forms.DataGridViewTextBoxColumn item;
         private System.Windows.Forms.DataGridViewTextBoxColumn blasthole;
@@ -908,5 +1257,9 @@
         private System.Windows.Forms.DataGridViewCheckBoxColumn CSCn;
         private System.Windows.Forms.DataGridViewCheckBoxColumn CuRes;
         private System.Windows.Forms.DataGridViewCheckBoxColumn FeTot;
+        private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.Button guardar_bd;
+        private System.Windows.Forms.Button button3;
+        private System.Windows.Forms.Button button1;
     }
 }
