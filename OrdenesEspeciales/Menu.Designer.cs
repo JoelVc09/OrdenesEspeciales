@@ -40,38 +40,44 @@ namespace OrdenesEspeciales
             // 
             // BtnReassay
             // 
-            this.BtnReassay.Location = new System.Drawing.Point(26, 49);
+            this.BtnReassay.BackColor = System.Drawing.Color.SteelBlue;
+            this.BtnReassay.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.BtnReassay.Location = new System.Drawing.Point(12, 49);
             this.BtnReassay.Name = "BtnReassay";
-            this.BtnReassay.Size = new System.Drawing.Size(133, 98);
+            this.BtnReassay.Size = new System.Drawing.Size(156, 113);
             this.BtnReassay.TabIndex = 0;
-            this.BtnReassay.Text = "Ord.Especiales";
-            this.BtnReassay.UseVisualStyleBackColor = true;
+            this.BtnReassay.Text = "Ordenes Especiales";
+            this.BtnReassay.UseVisualStyleBackColor = false;
             this.BtnReassay.Click += new System.EventHandler(this.BtnReassay_Click);
             // 
             // BtnCompositos
             // 
-            this.BtnCompositos.Location = new System.Drawing.Point(402, 49);
+            this.BtnCompositos.BackColor = System.Drawing.Color.SteelBlue;
+            this.BtnCompositos.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.BtnCompositos.Location = new System.Drawing.Point(201, 49);
             this.BtnCompositos.Name = "BtnCompositos";
-            this.BtnCompositos.Size = new System.Drawing.Size(123, 100);
+            this.BtnCompositos.Size = new System.Drawing.Size(143, 113);
             this.BtnCompositos.TabIndex = 1;
             this.BtnCompositos.Text = "Compositos";
-            this.BtnCompositos.UseVisualStyleBackColor = true;
+            this.BtnCompositos.UseVisualStyleBackColor = false;
             this.BtnCompositos.Click += new System.EventHandler(this.BtnCompositos_Click);
             // 
             // Btn_Envio_Ordenes
             // 
-            this.Btn_Envio_Ordenes.Location = new System.Drawing.Point(209, 49);
+            this.Btn_Envio_Ordenes.BackColor = System.Drawing.Color.SteelBlue;
+            this.Btn_Envio_Ordenes.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Btn_Envio_Ordenes.Location = new System.Drawing.Point(379, 49);
             this.Btn_Envio_Ordenes.Name = "Btn_Envio_Ordenes";
-            this.Btn_Envio_Ordenes.Size = new System.Drawing.Size(137, 100);
+            this.Btn_Envio_Ordenes.Size = new System.Drawing.Size(150, 113);
             this.Btn_Envio_Ordenes.TabIndex = 129;
             this.Btn_Envio_Ordenes.Text = "Ordenes de Analisis BH ";
-            this.Btn_Envio_Ordenes.UseVisualStyleBackColor = true;
+            this.Btn_Envio_Ordenes.UseVisualStyleBackColor = false;
             this.Btn_Envio_Ordenes.Click += new System.EventHandler(this.Btn_Envio_Ordenes_Click);
             // 
             // pictureBox3
             // 
             this.pictureBox3.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox3.Image")));
-            this.pictureBox3.Location = new System.Drawing.Point(174, 196);
+            this.pictureBox3.Location = new System.Drawing.Point(169, 196);
             this.pictureBox3.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.pictureBox3.Name = "pictureBox3";
             this.pictureBox3.Size = new System.Drawing.Size(215, 46);
@@ -84,9 +90,8 @@ namespace OrdenesEspeciales
             this.Nom_Usua.AutoSize = true;
             this.Nom_Usua.Location = new System.Drawing.Point(505, 228);
             this.Nom_Usua.Name = "Nom_Usua";
-            this.Nom_Usua.Size = new System.Drawing.Size(44, 16);
+            this.Nom_Usua.Size = new System.Drawing.Size(0, 20);
             this.Nom_Usua.TabIndex = 130;
-            this.Nom_Usua.Text = "label1";
             // 
             // Menu
             // 

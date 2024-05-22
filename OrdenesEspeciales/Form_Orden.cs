@@ -28,9 +28,13 @@ namespace OrdenesEspeciales
             InitializeComponent();
             this.WindowState = FormWindowState.Maximized;
             this.StartPosition = FormStartPosition.CenterScreen;
-            completecodBh(txt_Orden);
+            Dgv_Orden.CellValueChanged += Dgv_Orden_CellValueChanged;
+            this.WindowState = FormWindowState.Maximized;
+            this.StartPosition = FormStartPosition.CenterScreen;
 
         }
+        //
+
 
         //Listado de datos en DATAGRIDVIEW
         public void listar_datos()
@@ -73,6 +77,19 @@ namespace OrdenesEspeciales
             catch (Exception ex)
             {
                 MessageBox.Show("No se pudo llenar el datagridview: " + ex.Message);
+            }
+        }
+
+        //DESMARCAR LOS CHECKBOX DE DGV
+
+        private void DesmarcarColumnaSdk()
+        {
+            foreach (DataGridViewRow row in Dgv_Orden.Rows)
+            {
+                if (row.Cells["sdk"] is DataGridViewCheckBoxCell)
+                {
+                    row.Cells["sdk"].Value = false;
+                }
             }
         }
 
@@ -225,48 +242,30 @@ namespace OrdenesEspeciales
                     return;
                 }
 
-                // Calcular el consecutivo
-                int consecutivo = ObtenerConsecutivo(numeroOrden);
+                // Convertir el número a entero y sumarle 1
+                Int64 numero = Int64.Parse(numeroOrden) + 1;
 
-                // Verificar que el consecutivo sea válido
-                if (consecutivo <= 0)
+                // Verificar que el DataGridView tenga al menos una fila
+                if (Dgv_Orden.Rows.Count == 0)
                 {
-                    MessageBox.Show("No se pudo obtener el consecutivo.");
+                    MessageBox.Show("Agregue al menos una fila al DataGridView.");
                     return;
                 }
-
-                // Llenar la columna CodMuestra del Dgv_Orden con el consecutivo
+                
+                // Llenar la columna CodMuestra del Dgv_Orden con el número capturado y sumado 1
                 foreach (DataGridViewRow row in Dgv_Orden.Rows)
                 {
-                    row.Cells["CodMuestra"].Value = numeroOrden + consecutivo.ToString("D2");
-                    consecutivo++;
+                    row.Cells["CodMuestra"].Value = numero.ToString();
+                    numero++;
                 }
 
-                MessageBox.Show("Consecutivo llenado exitosamente.");
+                MessageBox.Show("SUCCESSFULLY...");
             }
             catch (Exception ex)
             {
-                MessageBox.Show("Error al llenar el consecutivo: " + ex.Message);
+                MessageBox.Show("Error al llenar los números: " + ex.Message);
             }
         }
-
-        private int ObtenerConsecutivo(string numeroOrden)
-        {
-            // Aquí puedes implementar la lógica para obtener el consecutivo, por ejemplo:
-            // Consultar la base de datos, calcular en base a ciertas reglas, etc.
-            // En este ejemplo simple, solo se toma el último número de la orden y se incrementa en 1.
-
-            string ultimoNumero = numeroOrden.Substring(numeroOrden.Length - 2);
-            if (int.TryParse(ultimoNumero, out int consecutivo))
-            {
-                return consecutivo;
-            }
-            else
-            {
-                return 0; // Error al obtener el consecutivo
-            }
-        }
-
 
         //CARGAR DATOS  AL COMBOBOX DE DUPLICADO 
 
@@ -338,19 +337,25 @@ namespace OrdenesEspeciales
           
             try
             {
-                string query = "SELECT order_prep_guid FROM [dbo].[UDEF_ORDER_PREP] ORDER BY order_prep_guid ASC";
-                OdbcCommand command = new OdbcCommand(query, con);
-
-                OdbcDataReader reader = command.ExecuteReader();
-                var source = new AutoCompleteStringCollection();
-                while (reader.Read())
+                string query = "SELECT max(order_prep_guid) FROM [dbo].[UDEF_ORDER_PREP]";
+                using (OdbcCommand command = new OdbcCommand(query, con))
                 {
-                    source.Add(reader["order_prep_guid"].ToString());
+                    using (OdbcDataReader reader = command.ExecuteReader())
+                    {
+                        var source = new AutoCompleteStringCollection();
+                        while (reader.Read())
+                        {
+                            if (!reader.IsDBNull(0)) // Verificar que el valor no sea nulo
+                            {
+                                source.Add(reader[0].ToString());
+                            }
+                        }
+                        reader.Close();
+                        cajaTexto.AutoCompleteMode = AutoCompleteMode.SuggestAppend;
+                        cajaTexto.AutoCompleteSource = AutoCompleteSource.CustomSource;
+                        cajaTexto.AutoCompleteCustomSource = source;
+                    }
                 }
-                reader.Close();
-                cajaTexto.AutoCompleteCustomSource = source;
-
-                command.Dispose();
             }
             catch (Exception ex)
             {
@@ -393,7 +398,9 @@ namespace OrdenesEspeciales
         {
             listar_datos();
             cargar_laboratory();
-            
+            completecodBh(txt_Orden);
+            Dgv_Consulta.ReadOnly = true;
+
         }
 
         private void label6_Click(object sender, EventArgs e)
@@ -668,10 +675,70 @@ namespace OrdenesEspeciales
         }
 
 
-        //Crear CONTROLES Y BLANCOS 
+        //Crear PARENT 
+        private void GRV_DATOS_EditingControlShowing(object sender, DataGridViewEditingControlShowingEventArgs e)
+        {
+            if (Dgv_Orden.CurrentCell.ColumnIndex == Dgv_Orden.Columns["MCtrl"].Index && e.Control is System.Windows.Forms.ComboBox comboBox)
+            {
+                comboBox.SelectedIndexChanged -= ComboBox_SelectedIndexChanged; // Evitar duplicados de eventos
+                comboBox.SelectedIndexChanged += ComboBox_SelectedIndexChanged;
+            }
+        }
+
+        private void ComboBox_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (sender is System.Windows.Forms.ComboBox comboBox && comboBox.SelectedItem != null)
+            {
+                DataGridViewRow currentRow = Dgv_Orden.CurrentRow;
+
+                if (comboBox.SelectedItem.ToString() == "Duplicado de Campo" && currentRow != null)
+                {
+                    // Obtener el valor de CodMuestra en la fila actual
+                    string codMuestraValue = currentRow.Cells["CodMuestra"].Value?.ToString();
+
+                    // Asignar el valor de CodMuestra a la columna parent
+                    //currentRow.Cells["parent"].Value = codMuestraValue;
+
+                    // Generar 3 filas automáticamente con el mismo CodMuestra en la columna parent
+                    for (int i = 0; i < 3; i++)
+                    {
+                        int newRowIndex = Dgv_Orden.Rows.Add();
+                        DataGridViewRow newRow = Dgv_Orden.Rows[newRowIndex];
+                        newRow.Cells["parent"].Value = codMuestraValue;
+                        newRow.Cells["CodMuestra"].Value = codMuestraValue; // Si quieres también copiar CodMuestra
+                    }
+
+                    // Enumerar las filas en la columna "item"
+                    for (int i = 0; i < Dgv_Orden.Rows.Count; i++)
+                    {
+                        Dgv_Orden.Rows[i].Cells["item"].Value = (i + 1).ToString();
+                    }
+
+                    // Llamar al método btnFillConsecutive_Click() si es necesario
+                    btnFillConsecutive_Click();
+
+                    // Actualizar el label lblcount con el conteo de filas
+                    lblcount.Text = Dgv_Orden.Rows.Count.ToString();
+                }
+            }
+        }
+
+        // Método adicional para manejar cambios en el valor del ComboBox directamente en la celda
+        private void Dgv_Orden_CellValueChanged(object sender, DataGridViewCellEventArgs e)
+        {
+            if (e.ColumnIndex == Dgv_Orden.Columns["MCtrl"].Index && e.RowIndex >= 0)
+            {
+                string selectedValue = Dgv_Orden.Rows[e.RowIndex].Cells["MCtrl"].Value?.ToString();
+                if (selectedValue == "Duplicado de Campo")
+                {
+                    string codMuestraValue = Dgv_Orden.Rows[e.RowIndex].Cells["CodMuestra"].Value?.ToString();
+                    Dgv_Orden.Rows[e.RowIndex].Cells["parent"].Value = codMuestraValue;
+                }
+            }
+        }
 
 
-    //----------------------------
+        //----------------------------
 
         private void button1_Click(object sender, EventArgs e)
         {
@@ -748,12 +815,16 @@ namespace OrdenesEspeciales
                     Dgv_Orden.Rows[rowIndex].Cells["sdk"].Value = false;
                 }
 
+                lblcount.Text = Dgv_Orden.Rows.Count.ToString();
+                
                 // Limpiamos el combo y actualizamos el label con la cantidad de filas
                 cbo_CtrlB.SelectedIndex = -1;
                 lblcant.Text = Dgv_Orden.Rows.Count.ToString();
 
                 btnFillConsecutive_Click();
-           
+
+                DesmarcarColumnaSdk();
+
 
             }
             catch (Exception ex)
@@ -864,41 +935,6 @@ namespace OrdenesEspeciales
 
         }
 
-        //GENERAR DUPLICADO 
-
-        private void GRV_DATOS_EditingControlShowing(object sender, DataGridViewEditingControlShowingEventArgs e)
-        {
-            if (Dgv_Orden.CurrentCell.ColumnIndex == Dgv_Orden.Columns["MCtrl"].Index && e.Control is System.Windows.Forms.ComboBox comboBox)
-            {
-                comboBox.SelectedIndexChanged -= ComboBox_SelectedIndexChanged; // Evitar duplicados de eventos
-                comboBox.SelectedIndexChanged += ComboBox_SelectedIndexChanged;
-            }
-
-
-        }
-
-        private void ComboBox_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            if (sender is System.Windows.Forms.ComboBox comboBox && comboBox.SelectedItem != null && comboBox.SelectedItem.ToString() == "Duplicado de Campo")
-            {
-                // Generar 3 filas automáticamente
-                for (int i = 0; i < 3; i++)
-                {
-                    Dgv_Orden.Rows.Add(); // Agregar nueva fila
-                }
-
-                //enumerar 
-
-
-                for (int i = 0; i < Dgv_Orden.Rows.Count; i++)
-                {
-                    // Obtener la celda de la columna "item" en la fila actual y asignarle el número de fila más uno
-                    Dgv_Orden.Rows[i].Cells["item"].Value = (i + 1).ToString();
-                }
-
-                btnFillConsecutive_Click();
-            }
-        }
 
         // IMPRIMIR CODIGO DE BARRA 
 
@@ -967,6 +1003,17 @@ namespace OrdenesEspeciales
                 }
 
             }
+        }
+
+        private void btn_limpiar_Click(object sender, EventArgs e)
+        {
+            Dgv_Orden.Rows.Clear();
+            Dgv_Orden.Refresh();
+        }
+
+        private void lblcount_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }
