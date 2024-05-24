@@ -608,7 +608,6 @@ namespace OrdenesEspeciales
             paginahtml_texto = paginahtml_texto.Replace("@CODPROJECT", cbo_proyecto.Text);
             //paginahtml_texto = paginahtml_texto.Replace("@G.MINA", txt_OrdenAnalisis.Text);
             paginahtml_texto = paginahtml_texto.Replace("@FECHAPREP", DateTime.Now.ToString("dd/MM/yyyy"));
-            paginahtml_texto = paginahtml_texto.Replace("@CODBANCO", cb_banco.Text);
             paginahtml_texto = paginahtml_texto.Replace("@TOTALORDEN", lblcount.Text);
 
             string filas = string.Empty;
@@ -859,40 +858,7 @@ namespace OrdenesEspeciales
 
             string paginahtml_texto = Properties.Resources.Plantilla2.ToString();
 
-            paginahtml_texto = paginahtml_texto.Replace("@ORDENENSAYO", txtorden_es.Text);
-            paginahtml_texto = paginahtml_texto.Replace("@@FECHAENVIO", dtpfecha_es.Text);
-            paginahtml_texto = paginahtml_texto.Replace("@LABORATORIO", txtLaboratorio_Es.Text);
-            paginahtml_texto = paginahtml_texto.Replace("@@TIPODEMUESTRA ", txttipomuestra_Es.Text);
-            paginahtml_texto = paginahtml_texto.Replace("@TOTALORDEN", count_es.Text);
-
             string filas = string.Empty;
-
-            foreach (DataGridViewRow row in dgv_esp.Rows)
-            {
-
-                // Obtener el valor de la celda "CuTot"
-                
-
-                // Verificar si el valor de la celda es un booleano y está marcado como verdadero
-                
-
-                // Crear la fila de la tabla HTML con el checkbox marcado si isChecked es verdadero
-                filas += "<tr>";
-                filas += "<td>" + (row.Cells["muestrases"].Value ?? "").ToString() + "</td>";
-                filas += "<td>" + (row.Cells["tipoensayo"].Value ?? "").ToString() + "</td>";
-                filas += "<td>" + (row.Cells["tajo"].Value ?? "").ToString() + "</td>";
-                filas += "<td>" + (row.Cells["banco"].Value ?? "").ToString() + "</td>";
-                filas += "<td>" + (row.Cells["equipo"].Value ?? "").ToString() + "</td>";
-                filas += "<td>" + (row.Cells["ismr"].Value ?? "").ToString() + "</td>";
-                filas += "<td>" + (row.Cells["litologia"].Value ?? "").ToString() + "</td>";
-                filas += "<td>" + (row.Cells["porarcilla"].Value ?? "").ToString() + "</td>";
-                filas += "<td>" + (row.Cells["cordeste"].Value ?? "").ToString() + "</td>";
-                filas += "<td>" + (row.Cells["cordnorte"].Value ?? "").ToString() + "</td>";
-                filas += "<td>" + (row.Cells["cota"].Value ?? "").ToString() + "</td>";
-                filas += "<td>" + (row.Cells["descripcion"].Value ?? "").ToString() + "</td>";
-                filas += "</tr>";
-
-            }
 
 
             paginahtml_texto = paginahtml_texto.Replace("@FILAS", filas);
@@ -1012,6 +978,16 @@ namespace OrdenesEspeciales
         }
 
         private void lblcount_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void Dgv_Consulta_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
+        }
+
+        private void label8_Click(object sender, EventArgs e)
         {
 
         }
