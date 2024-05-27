@@ -38,6 +38,7 @@ namespace OrdenesEspeciales
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.btnCerrar = new System.Windows.Forms.PictureBox();
             this.panel2 = new System.Windows.Forms.Panel();
+            this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.panel5 = new System.Windows.Forms.Panel();
             this.BtnReassay = new System.Windows.Forms.Button();
             this.panel4 = new System.Windows.Forms.Panel();
@@ -46,22 +47,21 @@ namespace OrdenesEspeciales
             this.BtnCompositos = new System.Windows.Forms.Button();
             this.panelContenedor = new System.Windows.Forms.Panel();
             this.pictureBox5 = new System.Windows.Forms.PictureBox();
-            this.pictureBox2 = new System.Windows.Forms.PictureBox();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
             this.barratitulo.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.btnCerrar)).BeginInit();
             this.panel2.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             this.panelContenedor.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             this.SuspendLayout();
             // 
             // pictureBox3
             // 
             this.pictureBox3.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox3.Image")));
-            this.pictureBox3.Location = new System.Drawing.Point(14, 828);
+            this.pictureBox3.Location = new System.Drawing.Point(28, 828);
             this.pictureBox3.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.pictureBox3.Name = "pictureBox3";
             this.pictureBox3.Size = new System.Drawing.Size(176, 45);
@@ -150,8 +150,18 @@ namespace OrdenesEspeciales
             this.panel2.Dock = System.Windows.Forms.DockStyle.Left;
             this.panel2.Location = new System.Drawing.Point(0, 54);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(222, 900);
+            this.panel2.Size = new System.Drawing.Size(236, 900);
             this.panel2.TabIndex = 132;
+            // 
+            // pictureBox2
+            // 
+            this.pictureBox2.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox2.Image")));
+            this.pictureBox2.Location = new System.Drawing.Point(18, 31);
+            this.pictureBox2.Name = "pictureBox2";
+            this.pictureBox2.Size = new System.Drawing.Size(182, 140);
+            this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pictureBox2.TabIndex = 131;
+            this.pictureBox2.TabStop = false;
             // 
             // panel5
             // 
@@ -174,7 +184,7 @@ namespace OrdenesEspeciales
             this.BtnReassay.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.BtnReassay.Location = new System.Drawing.Point(18, 219);
             this.BtnReassay.Name = "BtnReassay";
-            this.BtnReassay.Size = new System.Drawing.Size(185, 46);
+            this.BtnReassay.Size = new System.Drawing.Size(198, 46);
             this.BtnReassay.TabIndex = 129;
             this.BtnReassay.Text = "Ordenes \r\nEspeciales\r\n";
             this.BtnReassay.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -230,7 +240,7 @@ namespace OrdenesEspeciales
             this.BtnCompositos.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.BtnCompositos.Location = new System.Drawing.Point(18, 271);
             this.BtnCompositos.Name = "BtnCompositos";
-            this.BtnCompositos.Size = new System.Drawing.Size(185, 45);
+            this.BtnCompositos.Size = new System.Drawing.Size(198, 45);
             this.BtnCompositos.TabIndex = 2;
             this.BtnCompositos.Text = "Compósitos";
             this.BtnCompositos.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -244,30 +254,20 @@ namespace OrdenesEspeciales
             this.panelContenedor.Controls.Add(this.pictureBox5);
             this.panelContenedor.Controls.Add(this.Nom_Usua);
             this.panelContenedor.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panelContenedor.Location = new System.Drawing.Point(222, 54);
+            this.panelContenedor.Location = new System.Drawing.Point(236, 54);
             this.panelContenedor.Name = "panelContenedor";
-            this.panelContenedor.Size = new System.Drawing.Size(1321, 900);
+            this.panelContenedor.Size = new System.Drawing.Size(1307, 900);
             this.panelContenedor.TabIndex = 2;
             // 
             // pictureBox5
             // 
             this.pictureBox5.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox5.Image")));
-            this.pictureBox5.Location = new System.Drawing.Point(66, 120);
+            this.pictureBox5.Location = new System.Drawing.Point(33, 127);
             this.pictureBox5.Name = "pictureBox5";
             this.pictureBox5.Size = new System.Drawing.Size(1031, 589);
             this.pictureBox5.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pictureBox5.TabIndex = 131;
             this.pictureBox5.TabStop = false;
-            // 
-            // pictureBox2
-            // 
-            this.pictureBox2.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox2.Image")));
-            this.pictureBox2.Location = new System.Drawing.Point(18, 31);
-            this.pictureBox2.Name = "pictureBox2";
-            this.pictureBox2.Size = new System.Drawing.Size(182, 140);
-            this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pictureBox2.TabIndex = 131;
-            this.pictureBox2.TabStop = false;
             // 
             // Menu
             // 
@@ -292,10 +292,10 @@ namespace OrdenesEspeciales
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.btnCerrar)).EndInit();
             this.panel2.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             this.panelContenedor.ResumeLayout(false);
             this.panelContenedor.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 

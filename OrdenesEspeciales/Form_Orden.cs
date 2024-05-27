@@ -24,13 +24,23 @@ namespace OrdenesEspeciales
         OdbcConnection con = ConexionODBC.connection;
         public Form_Orden()
         {
-            
+
             InitializeComponent();
             this.WindowState = FormWindowState.Maximized;
             this.StartPosition = FormStartPosition.CenterScreen;
             Dgv_Orden.CellValueChanged += Dgv_Orden_CellValueChanged;
             this.WindowState = FormWindowState.Maximized;
             this.StartPosition = FormStartPosition.CenterScreen;
+
+            //INICIALIZAR 
+            //Dgv_Orden.CellPainting += Dgv_Orden_CellPainting;
+            //Dgv_Orden.MouseClick += Dgv_Orden_MouseClick;
+
+            // Configurar el evento CheckedChanged del CheckBox
+            //cbo_CuTot.CheckedChanged += HeaderCheckBox_CheckedChanged;
+            // Inicialmente ocultamos el CheckBox para evitar que aparezca como control aparte
+
+
 
         }
         //
@@ -43,7 +53,7 @@ namespace OrdenesEspeciales
             {
                 string numeroDespacho = cbo_proyecto.Text;
 
-                
+
                 string query = "SELECT ID_BH, TIPO_CONO, RESISTENCIA, BH_LITOLOGIA, PROYECTO_GEOLOGIA, FECHA_LOGUEO FROM UDEF_LOG_BLASTHOLE WHERE PROYECTO_GEOLOGIA = ? ORDER BY ID_BH ";
 
 
@@ -251,7 +261,7 @@ namespace OrdenesEspeciales
                     MessageBox.Show("Agregue al menos una fila al DataGridView.");
                     return;
                 }
-                
+
                 // Llenar la columna CodMuestra del Dgv_Orden con el número capturado y sumado 1
                 foreach (DataGridViewRow row in Dgv_Orden.Rows)
                 {
@@ -289,7 +299,7 @@ namespace OrdenesEspeciales
 
         //CARGAR DATOS  COMBOBOX DE CONTROLES BLANCOS
 
-        
+
         public void cargar_CBlanco()
         {
             string query = "select b.ASSAY_STANDARD_CODE,a.business_unit_name \r\nfrom reference_code_assignments as \r\na  inner join ASSAY_STANDARDS b on \r\na.reference_code_id = b.REFERENCE_CODE_ID \r\nwhere column_name = 'ASSAY_STANDARD_CODE' and a.business_unit_name='EXPLORACION' group by b.ASSAY_STANDARD_CODE,a.business_unit_name";
@@ -331,10 +341,10 @@ namespace OrdenesEspeciales
         }
 
         //AUTO COMPLETAR EL CODIGO MUESTRA PARA EVITAR DUPLICADO
-       
+
         public void completecodBh(System.Windows.Forms.TextBox cajaTexto)
         {
-          
+
             try
             {
                 string query = "SELECT max(order_prep_guid) FROM [dbo].[UDEF_ORDER_PREP]";
@@ -400,6 +410,7 @@ namespace OrdenesEspeciales
             cargar_laboratory();
             completecodBh(txt_Orden);
             Dgv_Consulta.ReadOnly = true;
+            label7.Text = Dgv_Consulta.Rows.Count.ToString();
 
         }
 
@@ -415,7 +426,7 @@ namespace OrdenesEspeciales
 
         private void btn_crear_Click(object sender, EventArgs e)
         {
-            
+
             recibir_datos1();
             //AgregarColumnasCheckBoxAdicionales();
             //cargar_duplicado();
@@ -561,7 +572,6 @@ namespace OrdenesEspeciales
 
         private void cbo_CuRes_CheckedChanged(object sender, EventArgs e)
         {
-
             bool marcarTodo = cbo_CuRes.Checked;
             foreach (DataGridViewRow row in Dgv_Orden.Rows)
             {
@@ -612,8 +622,8 @@ namespace OrdenesEspeciales
 
             string filas = string.Empty;
 
-            foreach ( DataGridViewRow row in Dgv_Orden.Rows )
-           {
+            foreach (DataGridViewRow row in Dgv_Orden.Rows)
+            {
 
                 // Obtener el valor de la celda "CuTot"
                 object CuTotValue = row.Cells["CuTot"].Value;
@@ -814,8 +824,10 @@ namespace OrdenesEspeciales
                     Dgv_Orden.Rows[rowIndex].Cells["sdk"].Value = false;
                 }
 
+                //Contar las filas
+
                 lblcount.Text = Dgv_Orden.Rows.Count.ToString();
-                
+
                 // Limpiamos el combo y actualizamos el label con la cantidad de filas
                 cbo_CtrlB.SelectedIndex = -1;
                 lblcant.Text = Dgv_Orden.Rows.Count.ToString();
@@ -971,12 +983,35 @@ namespace OrdenesEspeciales
             }
         }
 
+        //LIMPIAR TODO EL DGV_ORDE
         private void btn_limpiar_Click(object sender, EventArgs e)
         {
+
             Dgv_Orden.Rows.Clear();
             Dgv_Orden.Refresh();
+            limpiarcheckssBox();
+            lblcount.Text = Dgv_Orden.Rows.Count.ToString();
+
         }
 
+        private void limpiarcheckssBox()
+        {
+            cbo_CuTot.Checked = false;
+            cbo_CuOxi.Checked = false;
+            cbo_CuSol.Checked = false;
+            cbo_Au.Checked = false;
+            cbo_Ag.Checked = false;
+            cbo_Mo.Checked = false;
+            cbo_CO3.Checked = false;
+            cbo_CuSAc.Checked = false;
+            cbo_CuSCn.Checked = false;
+            cbo_CuRes.Checked = false;
+            cbo_FeTot.Checked = false;
+            this.Update();
+            this.Refresh();
+        }
+
+        //------------------------------------
         private void lblcount_Click(object sender, EventArgs e)
         {
 
@@ -991,5 +1026,89 @@ namespace OrdenesEspeciales
         {
 
         }
+
+        // checkBox al DGV_ORDEN
+
+        private void HeaderCheckBox_Click(string columnName, System.Windows.Forms.CheckBox checkBox)
+        {
+            // Obtener la posición relativa al DataGridView
+            Point relativePoint = Dgv_Orden.PointToClient(Cursor.Position);
+
+            DataGridView.HitTestInfo hit = Dgv_Orden.HitTest(relativePoint.X, relativePoint.Y);
+
+            if (hit.Type == DataGridViewHitTestType.ColumnHeader && hit.ColumnIndex == Dgv_Orden.Columns[columnName].Index)
+            {
+                checkBox.Checked = !checkBox.Checked;
+                Dgv_Orden.InvalidateCell(hit.ColumnIndex, -1); // Forzar repintado de la celda de la cabecera
+            }
+        }
+
+        private void Dgv_Orden_MouseClick(object sender, MouseEventArgs e)
+        {
+            HeaderCheckBox_Click("CuTot", cbo_CuTot);
+            HeaderCheckBox_Click("CuOx", cbo_CuOxi);
+            HeaderCheckBox_Click("CuSol", cbo_CuSol);
+            HeaderCheckBox_Click("Au", cbo_Au);
+            HeaderCheckBox_Click("Ag", cbo_Ag);
+            HeaderCheckBox_Click("Mo", cbo_Mo);
+            HeaderCheckBox_Click("CO3", cbo_CO3);
+            HeaderCheckBox_Click("CSAc", cbo_CuSAc);
+            HeaderCheckBox_Click("CSCn", cbo_CuSCn);
+            HeaderCheckBox_Click("CuRes", cbo_CuRes);
+            HeaderCheckBox_Click("FeTot", cbo_FeTot);
+        }
+
+        //TODOS
+        private void DrawCheckBoxHeader(string columnName, System.Windows.Forms.CheckBox checkBox, DataGridViewCellPaintingEventArgs e)
+        {
+            if (e.RowIndex == -1 && e.ColumnIndex == Dgv_Orden.Columns[columnName].Index)
+            {
+                // Limpiar la cabecera
+                e.PaintBackground(e.ClipBounds, true);
+
+                // Obtener el texto de la cabecera
+                string headerText = Dgv_Orden.Columns[e.ColumnIndex].HeaderText;
+
+                // Medir el tamaño del texto
+                SizeF textSize = e.Graphics.MeasureString(headerText, e.CellStyle.Font);
+
+                // Calcular la ubicación del texto y dibujarlo
+                using (Brush brush = new SolidBrush(e.CellStyle.ForeColor))
+                {
+                    PointF textLocation = new PointF(e.CellBounds.X + 5, e.CellBounds.Y + (e.CellBounds.Height - textSize.Height) / 2);
+                    e.Graphics.DrawString(headerText, e.CellStyle.Font, brush, textLocation);
+                }
+
+                // Calcular la ubicación del CheckBox al lado del texto
+                int checkBoxX = e.CellBounds.X + (int)textSize.Width + 10; // 10px padding after text
+                int checkBoxY = e.CellBounds.Y + (e.CellBounds.Height - checkBox.Height) / 2;
+
+                // Dibujar el CheckBox en la cabecera
+                ControlPaint.DrawCheckBox(
+                    e.Graphics,
+                    new System.Drawing.Rectangle(checkBoxX, checkBoxY, checkBox.Width, checkBox.Height),
+                    checkBox.Checked ? ButtonState.Checked : ButtonState.Normal
+                );
+
+                e.Handled = true;
+            }
+        }
+
+
+        private void Dgv_Orden_CellPainting(object sender, DataGridViewCellPaintingEventArgs e)
+        {
+            DrawCheckBoxHeader("CuTot", cbo_CuTot, e);
+            DrawCheckBoxHeader("CuOx", cbo_CuOxi, e);
+            DrawCheckBoxHeader("CuSol", cbo_CuSol, e);
+            DrawCheckBoxHeader("Au", cbo_Au, e);
+            DrawCheckBoxHeader("Ag", cbo_Ag, e);
+            DrawCheckBoxHeader("Mo", cbo_Mo, e);
+            DrawCheckBoxHeader("CO3", cbo_CO3, e);
+            DrawCheckBoxHeader("CSAc", cbo_CuSAc, e);
+            DrawCheckBoxHeader("CSCn", cbo_CuSCn, e);
+            DrawCheckBoxHeader("CuRes", cbo_CuRes, e);
+            DrawCheckBoxHeader("FeTot", cbo_FeTot, e);
+        }
+
     }
 }
