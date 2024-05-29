@@ -1097,6 +1097,11 @@ namespace OrdenesEspeciales
         {
 
         }
+
+        private void label13_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }
 

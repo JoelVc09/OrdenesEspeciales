@@ -38,6 +38,13 @@ namespace OrdenesEspeciales
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.btnCerrar = new System.Windows.Forms.PictureBox();
             this.panel2 = new System.Windows.Forms.Panel();
+            this.submenu = new System.Windows.Forms.Panel();
+            this.btnHumedad = new System.Windows.Forms.Button();
+            this.btnEspeciales = new System.Windows.Forms.Button();
+            this.btnBlastHole = new System.Windows.Forms.Button();
+            this.panel8 = new System.Windows.Forms.Panel();
+            this.panel7 = new System.Windows.Forms.Panel();
+            this.panel6 = new System.Windows.Forms.Panel();
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.panel5 = new System.Windows.Forms.Panel();
             this.BtnReassay = new System.Windows.Forms.Button();
@@ -47,29 +54,22 @@ namespace OrdenesEspeciales
             this.BtnCompositos = new System.Windows.Forms.Button();
             this.panelContenedor = new System.Windows.Forms.Panel();
             this.pictureBox5 = new System.Windows.Forms.PictureBox();
-            this.submenu = new System.Windows.Forms.Panel();
-            this.panel6 = new System.Windows.Forms.Panel();
-            this.panel7 = new System.Windows.Forms.Panel();
-            this.panel8 = new System.Windows.Forms.Panel();
-            this.btnBlastHole = new System.Windows.Forms.Button();
-            this.btnEspeciales = new System.Windows.Forms.Button();
-            this.btnHumedad = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
             this.barratitulo.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.btnCerrar)).BeginInit();
             this.panel2.SuspendLayout();
+            this.submenu.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             this.panelContenedor.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).BeginInit();
-            this.submenu.SuspendLayout();
             this.SuspendLayout();
             // 
             // pictureBox3
             // 
             this.pictureBox3.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox3.Image")));
-            this.pictureBox3.Location = new System.Drawing.Point(24, 827);
+            this.pictureBox3.Location = new System.Drawing.Point(27, 827);
             this.pictureBox3.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.pictureBox3.Name = "pictureBox3";
             this.pictureBox3.Size = new System.Drawing.Size(176, 45);
@@ -163,10 +163,108 @@ namespace OrdenesEspeciales
             this.panel2.TabIndex = 132;
             this.panel2.Paint += new System.Windows.Forms.PaintEventHandler(this.panel2_Paint);
             // 
+            // submenu
+            // 
+            this.submenu.Controls.Add(this.btnHumedad);
+            this.submenu.Controls.Add(this.btnEspeciales);
+            this.submenu.Controls.Add(this.btnBlastHole);
+            this.submenu.Controls.Add(this.panel8);
+            this.submenu.Controls.Add(this.panel7);
+            this.submenu.Controls.Add(this.panel6);
+            this.submenu.Location = new System.Drawing.Point(24, 373);
+            this.submenu.Name = "submenu";
+            this.submenu.Size = new System.Drawing.Size(212, 135);
+            this.submenu.TabIndex = 132;
+            this.submenu.Visible = false;
+            // 
+            // btnHumedad
+            // 
+            this.btnHumedad.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(91)))), ((int)(((byte)(142)))));
+            this.btnHumedad.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnHumedad.FlatAppearance.BorderSize = 0;
+            this.btnHumedad.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(80)))), ((int)(((byte)(200)))));
+            this.btnHumedad.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnHumedad.Font = new System.Drawing.Font("Century Gothic", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnHumedad.ForeColor = System.Drawing.Color.White;
+            this.btnHumedad.Image = ((System.Drawing.Image)(resources.GetObject("btnHumedad.Image")));
+            this.btnHumedad.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnHumedad.Location = new System.Drawing.Point(21, 96);
+            this.btnHumedad.Name = "btnHumedad";
+            this.btnHumedad.Size = new System.Drawing.Size(191, 36);
+            this.btnHumedad.TabIndex = 135;
+            this.btnHumedad.Text = "Humedad";
+            this.btnHumedad.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.btnHumedad.UseVisualStyleBackColor = false;
+            this.btnHumedad.Click += new System.EventHandler(this.btnHumedad_Click);
+            // 
+            // btnEspeciales
+            // 
+            this.btnEspeciales.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(91)))), ((int)(((byte)(142)))));
+            this.btnEspeciales.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnEspeciales.FlatAppearance.BorderSize = 0;
+            this.btnEspeciales.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(80)))), ((int)(((byte)(200)))));
+            this.btnEspeciales.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnEspeciales.Font = new System.Drawing.Font("Century Gothic", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnEspeciales.ForeColor = System.Drawing.Color.White;
+            this.btnEspeciales.Image = ((System.Drawing.Image)(resources.GetObject("btnEspeciales.Image")));
+            this.btnEspeciales.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnEspeciales.Location = new System.Drawing.Point(22, 50);
+            this.btnEspeciales.Name = "btnEspeciales";
+            this.btnEspeciales.Size = new System.Drawing.Size(190, 36);
+            this.btnEspeciales.TabIndex = 134;
+            this.btnEspeciales.Text = "Especiales";
+            this.btnEspeciales.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.btnEspeciales.UseVisualStyleBackColor = false;
+            this.btnEspeciales.Click += new System.EventHandler(this.btnEspeciales_Click);
+            // 
+            // btnBlastHole
+            // 
+            this.btnBlastHole.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(91)))), ((int)(((byte)(142)))));
+            this.btnBlastHole.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnBlastHole.FlatAppearance.BorderSize = 0;
+            this.btnBlastHole.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(80)))), ((int)(((byte)(200)))));
+            this.btnBlastHole.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnBlastHole.Font = new System.Drawing.Font("Century Gothic", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnBlastHole.ForeColor = System.Drawing.Color.White;
+            this.btnBlastHole.Image = ((System.Drawing.Image)(resources.GetObject("btnBlastHole.Image")));
+            this.btnBlastHole.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnBlastHole.Location = new System.Drawing.Point(22, 3);
+            this.btnBlastHole.Name = "btnBlastHole";
+            this.btnBlastHole.Size = new System.Drawing.Size(190, 36);
+            this.btnBlastHole.TabIndex = 133;
+            this.btnBlastHole.Text = "BlastHole";
+            this.btnBlastHole.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.btnBlastHole.UseVisualStyleBackColor = false;
+            this.btnBlastHole.Click += new System.EventHandler(this.btnBlastHole_Click);
+            // 
+            // panel8
+            // 
+            this.panel8.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(80)))), ((int)(((byte)(200)))));
+            this.panel8.Location = new System.Drawing.Point(3, 96);
+            this.panel8.Name = "panel8";
+            this.panel8.Size = new System.Drawing.Size(13, 36);
+            this.panel8.TabIndex = 132;
+            // 
+            // panel7
+            // 
+            this.panel7.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(80)))), ((int)(((byte)(200)))));
+            this.panel7.Location = new System.Drawing.Point(3, 49);
+            this.panel7.Name = "panel7";
+            this.panel7.Size = new System.Drawing.Size(13, 36);
+            this.panel7.TabIndex = 132;
+            // 
+            // panel6
+            // 
+            this.panel6.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(80)))), ((int)(((byte)(200)))));
+            this.panel6.Location = new System.Drawing.Point(3, 3);
+            this.panel6.Name = "panel6";
+            this.panel6.Size = new System.Drawing.Size(13, 36);
+            this.panel6.TabIndex = 131;
+            // 
             // pictureBox2
             // 
             this.pictureBox2.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox2.Image")));
-            this.pictureBox2.Location = new System.Drawing.Point(24, 32);
+            this.pictureBox2.Location = new System.Drawing.Point(26, 32);
             this.pictureBox2.Name = "pictureBox2";
             this.pictureBox2.Size = new System.Drawing.Size(182, 140);
             this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
@@ -188,15 +286,15 @@ namespace OrdenesEspeciales
             this.BtnReassay.FlatAppearance.BorderSize = 0;
             this.BtnReassay.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(80)))), ((int)(((byte)(200)))));
             this.BtnReassay.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.BtnReassay.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.BtnReassay.Font = new System.Drawing.Font("Century Gothic", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.BtnReassay.ForeColor = System.Drawing.Color.White;
             this.BtnReassay.Image = ((System.Drawing.Image)(resources.GetObject("BtnReassay.Image")));
             this.BtnReassay.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.BtnReassay.Location = new System.Drawing.Point(18, 219);
             this.BtnReassay.Name = "BtnReassay";
-            this.BtnReassay.Size = new System.Drawing.Size(215, 46);
+            this.BtnReassay.Size = new System.Drawing.Size(218, 46);
             this.BtnReassay.TabIndex = 129;
-            this.BtnReassay.Text = "Ordenes \r\nEspeciales\r\n";
+            this.BtnReassay.Text = "Ordenes Especiales\r\n";
             this.BtnReassay.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.BtnReassay.UseVisualStyleBackColor = false;
             this.BtnReassay.Click += new System.EventHandler(this.button1_Click);
@@ -216,13 +314,13 @@ namespace OrdenesEspeciales
             this.Btn_Envio_Ordenes.FlatAppearance.BorderSize = 0;
             this.Btn_Envio_Ordenes.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(80)))), ((int)(((byte)(200)))));
             this.Btn_Envio_Ordenes.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.Btn_Envio_Ordenes.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Btn_Envio_Ordenes.Font = new System.Drawing.Font("Century Gothic", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Btn_Envio_Ordenes.ForeColor = System.Drawing.Color.White;
             this.Btn_Envio_Ordenes.Image = ((System.Drawing.Image)(resources.GetObject("Btn_Envio_Ordenes.Image")));
             this.Btn_Envio_Ordenes.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.Btn_Envio_Ordenes.Location = new System.Drawing.Point(18, 322);
             this.Btn_Envio_Ordenes.Name = "Btn_Envio_Ordenes";
-            this.Btn_Envio_Ordenes.Size = new System.Drawing.Size(215, 45);
+            this.Btn_Envio_Ordenes.Size = new System.Drawing.Size(218, 45);
             this.Btn_Envio_Ordenes.TabIndex = 4;
             this.Btn_Envio_Ordenes.Text = "Orden de análisis";
             this.Btn_Envio_Ordenes.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -244,13 +342,13 @@ namespace OrdenesEspeciales
             this.BtnCompositos.FlatAppearance.BorderSize = 0;
             this.BtnCompositos.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(80)))), ((int)(((byte)(200)))));
             this.BtnCompositos.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.BtnCompositos.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.BtnCompositos.Font = new System.Drawing.Font("Century Gothic", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.BtnCompositos.ForeColor = System.Drawing.Color.White;
             this.BtnCompositos.Image = ((System.Drawing.Image)(resources.GetObject("BtnCompositos.Image")));
             this.BtnCompositos.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.BtnCompositos.Location = new System.Drawing.Point(18, 271);
             this.BtnCompositos.Name = "BtnCompositos";
-            this.BtnCompositos.Size = new System.Drawing.Size(215, 45);
+            this.BtnCompositos.Size = new System.Drawing.Size(218, 45);
             this.BtnCompositos.TabIndex = 2;
             this.BtnCompositos.Text = "Compósitos";
             this.BtnCompositos.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -268,114 +366,17 @@ namespace OrdenesEspeciales
             this.panelContenedor.Name = "panelContenedor";
             this.panelContenedor.Size = new System.Drawing.Size(1307, 900);
             this.panelContenedor.TabIndex = 2;
+            this.panelContenedor.Paint += new System.Windows.Forms.PaintEventHandler(this.panelContenedor_Paint);
             // 
             // pictureBox5
             // 
             this.pictureBox5.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox5.Image")));
-            this.pictureBox5.Location = new System.Drawing.Point(96, 117);
+            this.pictureBox5.Location = new System.Drawing.Point(173, 176);
             this.pictureBox5.Name = "pictureBox5";
             this.pictureBox5.Size = new System.Drawing.Size(944, 540);
             this.pictureBox5.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pictureBox5.TabIndex = 131;
             this.pictureBox5.TabStop = false;
-            // 
-            // submenu
-            // 
-            this.submenu.Controls.Add(this.btnHumedad);
-            this.submenu.Controls.Add(this.btnEspeciales);
-            this.submenu.Controls.Add(this.btnBlastHole);
-            this.submenu.Controls.Add(this.panel8);
-            this.submenu.Controls.Add(this.panel7);
-            this.submenu.Controls.Add(this.panel6);
-            this.submenu.Location = new System.Drawing.Point(24, 373);
-            this.submenu.Name = "submenu";
-            this.submenu.Size = new System.Drawing.Size(212, 135);
-            this.submenu.TabIndex = 132;
-            this.submenu.Visible = false;
-            // 
-            // panel6
-            // 
-            this.panel6.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(80)))), ((int)(((byte)(200)))));
-            this.panel6.Location = new System.Drawing.Point(3, 3);
-            this.panel6.Name = "panel6";
-            this.panel6.Size = new System.Drawing.Size(13, 36);
-            this.panel6.TabIndex = 131;
-            // 
-            // panel7
-            // 
-            this.panel7.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(80)))), ((int)(((byte)(200)))));
-            this.panel7.Location = new System.Drawing.Point(3, 49);
-            this.panel7.Name = "panel7";
-            this.panel7.Size = new System.Drawing.Size(13, 36);
-            this.panel7.TabIndex = 132;
-            // 
-            // panel8
-            // 
-            this.panel8.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(80)))), ((int)(((byte)(200)))));
-            this.panel8.Location = new System.Drawing.Point(3, 96);
-            this.panel8.Name = "panel8";
-            this.panel8.Size = new System.Drawing.Size(13, 36);
-            this.panel8.TabIndex = 132;
-            // 
-            // btnBlastHole
-            // 
-            this.btnBlastHole.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(91)))), ((int)(((byte)(142)))));
-            this.btnBlastHole.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnBlastHole.FlatAppearance.BorderSize = 0;
-            this.btnBlastHole.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(80)))), ((int)(((byte)(200)))));
-            this.btnBlastHole.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnBlastHole.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnBlastHole.ForeColor = System.Drawing.Color.White;
-            this.btnBlastHole.Image = ((System.Drawing.Image)(resources.GetObject("btnBlastHole.Image")));
-            this.btnBlastHole.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnBlastHole.Location = new System.Drawing.Point(22, 3);
-            this.btnBlastHole.Name = "btnBlastHole";
-            this.btnBlastHole.Size = new System.Drawing.Size(184, 36);
-            this.btnBlastHole.TabIndex = 133;
-            this.btnBlastHole.Text = "BlastHole";
-            this.btnBlastHole.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.btnBlastHole.UseVisualStyleBackColor = false;
-            this.btnBlastHole.Click += new System.EventHandler(this.btnBlastHole_Click);
-            // 
-            // btnEspeciales
-            // 
-            this.btnEspeciales.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(91)))), ((int)(((byte)(142)))));
-            this.btnEspeciales.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnEspeciales.FlatAppearance.BorderSize = 0;
-            this.btnEspeciales.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(80)))), ((int)(((byte)(200)))));
-            this.btnEspeciales.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnEspeciales.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnEspeciales.ForeColor = System.Drawing.Color.White;
-            this.btnEspeciales.Image = ((System.Drawing.Image)(resources.GetObject("btnEspeciales.Image")));
-            this.btnEspeciales.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnEspeciales.Location = new System.Drawing.Point(22, 50);
-            this.btnEspeciales.Name = "btnEspeciales";
-            this.btnEspeciales.Size = new System.Drawing.Size(184, 36);
-            this.btnEspeciales.TabIndex = 134;
-            this.btnEspeciales.Text = "Especiales";
-            this.btnEspeciales.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.btnEspeciales.UseVisualStyleBackColor = false;
-            this.btnEspeciales.Click += new System.EventHandler(this.btnEspeciales_Click);
-            // 
-            // btnHumedad
-            // 
-            this.btnHumedad.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(91)))), ((int)(((byte)(142)))));
-            this.btnHumedad.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnHumedad.FlatAppearance.BorderSize = 0;
-            this.btnHumedad.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(80)))), ((int)(((byte)(200)))));
-            this.btnHumedad.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnHumedad.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnHumedad.ForeColor = System.Drawing.Color.White;
-            this.btnHumedad.Image = ((System.Drawing.Image)(resources.GetObject("btnHumedad.Image")));
-            this.btnHumedad.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnHumedad.Location = new System.Drawing.Point(22, 96);
-            this.btnHumedad.Name = "btnHumedad";
-            this.btnHumedad.Size = new System.Drawing.Size(184, 36);
-            this.btnHumedad.TabIndex = 135;
-            this.btnHumedad.Text = "Humedad";
-            this.btnHumedad.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.btnHumedad.UseVisualStyleBackColor = false;
-            this.btnHumedad.Click += new System.EventHandler(this.btnHumedad_Click);
             // 
             // Menu
             // 
@@ -400,11 +401,11 @@ namespace OrdenesEspeciales
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.btnCerrar)).EndInit();
             this.panel2.ResumeLayout(false);
+            this.submenu.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             this.panelContenedor.ResumeLayout(false);
             this.panelContenedor.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).EndInit();
-            this.submenu.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
 

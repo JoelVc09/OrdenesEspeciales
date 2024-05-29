@@ -53,6 +53,8 @@ namespace OrdenesEspeciales
             //cbo_CuTot.CheckedChanged += HeaderCheckBox_CheckedChanged;
             // Inicialmente ocultamos el CheckBox para evitar que aparezca como control aparte
 
+            cbo_proyecto.SelectedIndexChanged += cbo_proyecto_SelectedIndexChanged;
+
 
 
         }
@@ -128,7 +130,7 @@ namespace OrdenesEspeciales
             }
         }
 
-        // LENAR EL COMBO BOX DEL DISPACHE
+        // LENAR EL COMBO BOX DEL PROYECTO 
 
         private void proyecto_number()
         {
@@ -139,31 +141,89 @@ namespace OrdenesEspeciales
             // Crear la consulta SQL con las fechas seleccionadas
             string query = $"select proyecto from UDEF_BLASTHOLE where CREATION_DATE > '{fechaInicio}' and CREATION_DATE < '{fechaFin}'";
 
-
             // Crear el comando ODBC con la consulta
-            OdbcCommand cmd = new OdbcCommand(query, con);
+            using (OdbcCommand cmd = new OdbcCommand(query, con))
+            {
+                // Crear el adaptador ODBC
+                OdbcDataAdapter da = new OdbcDataAdapter(cmd);
 
-            // Crear el adaptador ODBC
-            OdbcDataAdapter da = new OdbcDataAdapter(cmd);
+                // Crear un nuevo DataTable para almacenar los resultados
+                DataTable dt = new DataTable();
 
-            // Crear un nuevo DataTable para almacenar los resultados
-            DataTable dt = new DataTable();
+                // Llenar el DataTable con los resultados de la consulta
+                da.Fill(dt);
 
-            // Llenar el DataTable con los resultados de la consulta
-            da.Fill(dt);
+                // Crear una nueva fila en el DataTable con un valor inicial especial
+                DataRow fila = dt.NewRow();
+                fila["proyecto"] = "Selecciona un Proyecto";
+                dt.Rows.InsertAt(fila, 0);
 
-            // Crear una nueva fila en el DataTable con un valor inicial especial
-            DataRow fila = dt.NewRow();
-            fila["proyecto"] = "Selecciona un Proyecto";
-            dt.Rows.InsertAt(fila, 0);
-
-            // Configurar el ComboBox cbo_proyecto
-            cbo_proyecto.ValueMember = "proyecto ";
-            cbo_proyecto.DisplayMember = "proyecto";
-            cbo_proyecto.DataSource = dt;
-
-
+                // Configurar el ComboBox cbo_proyecto
+                cbo_proyecto.ValueMember = "proyecto";
+                cbo_proyecto.DisplayMember = "proyecto";
+                cbo_proyecto.DataSource = dt;
+            }
         }
+
+        //  LENAR EL COMBO BOX DEL PROYECTO GEOLOGIA 
+
+        private void cbo_proyecto_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            proyecto_number_geologi();
+        }
+
+        private void proyecto_number_geologi()
+        {
+            // Verificar que hay un proyecto seleccionado
+            if (cbo_proyecto.SelectedValue != null && cbo_proyecto.SelectedValue.ToString() != "Selecciona un Proyecto")
+            {
+                // Obtener el proyecto seleccionado usando SelectedValue
+                string proyecto = cbo_proyecto.SelectedValue.ToString();
+
+                // Crear la consulta SQL con las fechas seleccionadas
+                string query = $"SELECT PROYECTO_GEOLOGIA FROM UDEF_LOG_BLASTHOLE WHERE PROYECTO_GEOLOGIA = '{proyecto}'";
+
+                // Crear el comando ODBC con la consulta
+                using (OdbcCommand cmd = new OdbcCommand(query, con))
+                {
+                    // Abrir la conexión si no está abierta
+                    if (con.State == ConnectionState.Closed)
+                    {
+                        con.Open();
+                    }
+
+                    // Ejecutar la consulta y obtener los resultados
+                    using (OdbcDataReader reader = cmd.ExecuteReader())
+                    {
+                        // Limpiar los ítems existentes en el ComboBox
+                        cbProyectoGeolo.Items.Clear();
+
+                        // Agregar un ítem inicial
+                        cbProyectoGeolo.Items.Add("Selecciona un Proyecto");
+
+                        // Leer los resultados y agregarlos al ComboBox
+                        while (reader.Read())
+                        {
+                            cbProyectoGeolo.Items.Add(reader["PROYECTO_GEOLOGIA"].ToString());
+                        }
+
+                        // Seleccionar el primer ítem por defecto
+                        if (cbProyectoGeolo.Items.Count > 0)
+                        {
+                            cbProyectoGeolo.SelectedIndex = 0;
+                        }
+                    }
+
+                    // Cerrar la conexión
+                    con.Close();
+                }
+            }
+            else
+            {
+                MessageBox.Show("Por favor, selecciona un proyecto.");
+            }
+        }
+
 
 
 
@@ -391,11 +451,6 @@ namespace OrdenesEspeciales
             txt_Orden.MaxLength = 11;
         }
 
-
-        private void label4_Click(object sender, EventArgs e)
-        {
-
-        }
 
         private void button3_Click(object sender, EventArgs e)
         {

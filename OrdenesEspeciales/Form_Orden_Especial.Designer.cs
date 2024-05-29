@@ -53,6 +53,8 @@
             this.cbo_CuOxi = new System.Windows.Forms.CheckBox();
             this.cbo_CuTot = new System.Windows.Forms.CheckBox();
             this.Consulta = new System.Windows.Forms.GroupBox();
+            this.cbtipoEspecial = new System.Windows.Forms.ComboBox();
+            this.tipoEspecial = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
             this.label9 = new System.Windows.Forms.Label();
             this.comboBox2 = new System.Windows.Forms.ComboBox();
@@ -105,8 +107,6 @@
             this.gDMS_ANTAPACCAYDataSet = new OrdenesEspeciales.GDMS_ANTAPACCAYDataSet();
             this.gDMSANTAPACCAYDataSetBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
-            this.cbtipoEspecial = new System.Windows.Forms.ComboBox();
-            this.tipoEspecial = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.Dgv_Consulta)).BeginInit();
             this.Consulta.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.Dgv_Orden)).BeginInit();
@@ -335,6 +335,34 @@
             this.Consulta.TabIndex = 5;
             this.Consulta.TabStop = false;
             this.Consulta.Text = "Header";
+            // 
+            // cbtipoEspecial
+            // 
+            this.cbtipoEspecial.BackColor = System.Drawing.Color.White;
+            this.cbtipoEspecial.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cbtipoEspecial.FormattingEnabled = true;
+            this.cbtipoEspecial.Items.AddRange(new object[] {
+            "Stock",
+            "Taludes",
+            "Truck Drill",
+            "Relleno",
+            "Calicatas"});
+            this.cbtipoEspecial.Location = new System.Drawing.Point(1116, 64);
+            this.cbtipoEspecial.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.cbtipoEspecial.Name = "cbtipoEspecial";
+            this.cbtipoEspecial.Size = new System.Drawing.Size(164, 24);
+            this.cbtipoEspecial.TabIndex = 108;
+            // 
+            // tipoEspecial
+            // 
+            this.tipoEspecial.AutoSize = true;
+            this.tipoEspecial.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tipoEspecial.ForeColor = System.Drawing.Color.White;
+            this.tipoEspecial.Location = new System.Drawing.Point(1112, 38);
+            this.tipoEspecial.Name = "tipoEspecial";
+            this.tipoEspecial.Size = new System.Drawing.Size(107, 20);
+            this.tipoEspecial.TabIndex = 107;
+            this.tipoEspecial.Text = "Tipo Especial*";
             // 
             // label7
             // 
@@ -951,7 +979,7 @@
             this.BtnBlancos.FlatAppearance.BorderSize = 0;
             this.BtnBlancos.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.BtnBlancos.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.BtnBlancos.Location = new System.Drawing.Point(291, 18);
+            this.BtnBlancos.Location = new System.Drawing.Point(297, 18);
             this.BtnBlancos.Margin = new System.Windows.Forms.Padding(4);
             this.BtnBlancos.Name = "BtnBlancos";
             this.BtnBlancos.Size = new System.Drawing.Size(43, 35);
@@ -970,7 +998,7 @@
             "MC 402",
             "MC 403\t",
             "MC 976"});
-            this.cbo_CtrlB.Location = new System.Drawing.Point(175, 22);
+            this.cbo_CtrlB.Location = new System.Drawing.Point(183, 22);
             this.cbo_CtrlB.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.cbo_CtrlB.Name = "cbo_CtrlB";
             this.cbo_CtrlB.Size = new System.Drawing.Size(101, 28);
@@ -1012,34 +1040,6 @@
             this.contextMenuStrip1.ImageScalingSize = new System.Drawing.Size(20, 20);
             this.contextMenuStrip1.Name = "contextMenuStrip1";
             this.contextMenuStrip1.Size = new System.Drawing.Size(61, 4);
-            // 
-            // cbtipoEspecial
-            // 
-            this.cbtipoEspecial.BackColor = System.Drawing.Color.White;
-            this.cbtipoEspecial.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cbtipoEspecial.FormattingEnabled = true;
-            this.cbtipoEspecial.Items.AddRange(new object[] {
-            "Stock",
-            "Taludes",
-            "Truck Drill",
-            "Relleno",
-            "Calicatas"});
-            this.cbtipoEspecial.Location = new System.Drawing.Point(1116, 64);
-            this.cbtipoEspecial.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.cbtipoEspecial.Name = "cbtipoEspecial";
-            this.cbtipoEspecial.Size = new System.Drawing.Size(164, 24);
-            this.cbtipoEspecial.TabIndex = 108;
-            // 
-            // tipoEspecial
-            // 
-            this.tipoEspecial.AutoSize = true;
-            this.tipoEspecial.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.tipoEspecial.ForeColor = System.Drawing.Color.White;
-            this.tipoEspecial.Location = new System.Drawing.Point(1112, 38);
-            this.tipoEspecial.Name = "tipoEspecial";
-            this.tipoEspecial.Size = new System.Drawing.Size(107, 20);
-            this.tipoEspecial.TabIndex = 107;
-            this.tipoEspecial.Text = "Tipo Especial*";
             // 
             // Form_Orden_Especial
             // 
