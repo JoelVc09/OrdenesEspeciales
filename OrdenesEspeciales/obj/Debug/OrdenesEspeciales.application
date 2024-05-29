@@ -7,14 +7,14 @@
     <framework targetVersion="4.8" profile="Full" supportedRuntime="4.0.30319" />
   </compatibleFrameworks>
   <dependency>
-    <dependentAssembly dependencyType="install" codebase="OrdenesEspeciales.exe.manifest" size="18754">
+    <dependentAssembly dependencyType="install" codebase="OrdenesEspeciales.exe.manifest" size="77739">
       <assemblyIdentity name="OrdenesEspeciales.exe" version="1.0.0.12" publicKeyToken="0000000000000000" language="neutral" processorArchitecture="msil" type="win32" />
       <hash>
         <dsig:Transforms>
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-        <dsig:DigestValue>iOIazt8Ngw4J2v/fmvRtCRePnhQAJ2NR77ehUDD0cvc=</dsig:DigestValue>
+        <dsig:DigestValue>1kXIHVytEwH9YH66sbi5xYVZrQzFE9g3xE7A9bUuYfI=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>

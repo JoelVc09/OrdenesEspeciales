@@ -9,13 +9,26 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using iTextSharp.text.pdf;
-using iTextSharp.text;
-using iTextSharp.tool.xml;
+using iTextSharp.text.pdf; // Comentar esta línea
+using iTextSharp.text; // Comentar esta línea
+using iTextSharp.tool.xml; // Comentar esta línea
 using static System.Windows.Forms.VisualStyles.VisualStyleElement;
 using static System.Windows.Forms.VisualStyles.VisualStyleElement.Button;
 using System.Data.SqlClient;
 using BarcodeStandard;
+//using iText.Kernel.Pdf; // Mantener esta línea
+//using iText.Layout; // Mantener esta línea
+//using iText.Layout.Element; // Mantener esta línea
+//using BarcodeLib.Barcode;
+using System.Drawing.Imaging;
+using System.Runtime.InteropServices;
+using BarcodeLib;
+using System.Drawing.Configuration;
+using iText.Layout.Properties;
+using ZXing;
+
+
+
 
 namespace OrdenesEspeciales
 {
@@ -651,9 +664,9 @@ namespace OrdenesEspeciales
             {
                 using (FileStream stream = new FileStream(Guardar.FileName, FileMode.Create))
                 {
-                    Document pdfDoc = new Document(PageSize.A4, 25, 25, 25, 25);
+                    iTextSharp.text.Document pdfDoc = new iTextSharp.text.Document(PageSize.A4, 25, 25, 25, 25);
 
-                    PdfWriter writer = PdfWriter.GetInstance(pdfDoc, stream);
+                    iTextSharp.text.pdf.PdfWriter writer = iTextSharp.text.pdf.PdfWriter.GetInstance(pdfDoc, stream);
 
                     pdfDoc.Open();
                     //pdfDoc.Add(new Phrase(""));
@@ -918,68 +931,89 @@ namespace OrdenesEspeciales
 
         private void button3_Click_1(object sender, EventArgs e)
         {
-            SaveFileDialog Guardar = new SaveFileDialog();
-            // Especificar el nombre del archivo
-            Guardar.FileName = DateTime.Now.ToString("ddMMyyyyHHmmss") + ".pdf";
-            Guardar.DefaultExt = ".pdf"; // Establecer la extensión predeterminada
-            Guardar.Filter = "Archivos PDF (*.pdf)|*.pdf";
+            SaveFileDialog saveFileDialog = new SaveFileDialog();
+            saveFileDialog.FileName = DateTime.Now.ToString("ddMMyyyyHHmmss") + ".pdf";
+            saveFileDialog.DefaultExt = ".pdf";
+            saveFileDialog.Filter = "Archivos PDF (*.pdf)|*.pdf";
 
-
-            string paginahtml_texto = Properties.Resources.plantilla3.ToString();
-            paginahtml_texto = paginahtml_texto.Replace("@NumOrden", txt_Orden.Text);
-
-            string filas = string.Empty;
-
-            foreach (DataGridViewRow row in Dgv_Orden.Rows)
+            if (saveFileDialog.ShowDialog() == DialogResult.OK)
             {
-
-
-                filas += "<tr>";
-                filas += "<td>" + (row.Cells["Item"].Value ?? "").ToString() + "</td>";
-                filas += "<td class=\"barcode\">" + (row.Cells["CodMuestra"].Value ?? "").ToString() + "</td>";
-                filas += "<td>" + (row.Cells["Observaciones"].Value ?? "").ToString() + "</td>";
-                filas += "</tr>";
-
-            }
-
-
-            paginahtml_texto = paginahtml_texto.Replace("@FILAS", filas);
-
-            string rutaArchivo = @"C:\Users\joel.vilcatoma\OneDrive - Vela Industries Group\Escritorio\miArchivo.html";
-
-            File.WriteAllText(rutaArchivo, paginahtml_texto);
-
-            if (Guardar.ShowDialog() == DialogResult.OK)
-            {
-                using (FileStream stream = new FileStream(Guardar.FileName, FileMode.Create))
+                using (FileStream stream = new FileStream(saveFileDialog.FileName, FileMode.Create))
                 {
-                    Document pdfDoc = new Document(PageSize.A4, 25, 25, 25, 25);
-
+                    // Crear un documento PDF con el tamaño especificado
+                    Document pdfDoc = new Document(new iTextSharp.text.Rectangle(226.77f, 567f)); // 8x13 cm en puntos (1 cm = 28.35 puntos)
                     PdfWriter writer = PdfWriter.GetInstance(pdfDoc, stream);
 
                     pdfDoc.Open();
-                    //pdfDoc.Add(new Phrase(""));
 
-                    iTextSharp.text.Image img = iTextSharp.text.Image.GetInstance(Properties.Resources.logoAntapaccay, System.Drawing.Imaging.ImageFormat.Png);
-                    img.ScaleToFit(80, 60);
-                    img.Alignment = iTextSharp.text.Image.UNDERLYING;
-                    img.SetAbsolutePosition(pdfDoc.LeftMargin + 10, pdfDoc.Top - 50);
-                    pdfDoc.Add(img);
-
-
-
-                    using (StringReader sr = new StringReader(paginahtml_texto))
+                    // Inicializar el generador de códigos de barras
+                    BarcodeWriter barcodeWriter = new BarcodeWriter
                     {
+                        Format = BarcodeFormat.CODE_128,
+                        Options = new ZXing.Common.EncodingOptions
+                        {
+                            Width = 300,
+                            Height = 100
+                        }
+                    };
 
-                        XMLWorkerHelper.GetInstance().ParseXHtml(writer, pdfDoc, sr);
+                    // Obtener los códigos de la columna "CodMuestra" del DataGridView
+                    foreach (DataGridViewRow row in Dgv_Orden.Rows)
+                    {
+                        if (!row.IsNewRow)
+                        {
+                            string codigo = row.Cells["CodMuestra"].Value.ToString();
+                            string blasHole = row.Cells["blasthole"].Value.ToString();
 
+                            // Generar el código de barras
+                            Bitmap barcodeBitmap = barcodeWriter.Write(codigo);
+
+                            // Convertir el Bitmap a un array de bytes
+                            using (MemoryStream ms = new MemoryStream())
+                            {
+                                barcodeBitmap.Save(ms, System.Drawing.Imaging.ImageFormat.Png);
+                                byte[] barcodeBytes = ms.ToArray();
+
+                                // Convertir el array de bytes a una imagen iTextSharp
+                                iTextSharp.text.Image barcodeImage = iTextSharp.text.Image.GetInstance(barcodeBytes);
+                                barcodeImage.ScaleToFit(200, 50);
+
+                                // Crear una tabla para organizar el contenido
+                                PdfPTable table = new PdfPTable(1);
+                                table.WidthPercentage = 100;
+                                table.DefaultCell.Border = PdfPCell.NO_BORDER;
+
+                                // Añadir el nombre del blas_hole
+                                PdfPCell cellBlasHole = new PdfPCell(new Phrase(blasHole));
+                                cellBlasHole.HorizontalAlignment = Element.ALIGN_LEFT;
+                                cellBlasHole.Border = PdfPCell.NO_BORDER;
+                                table.AddCell(cellBlasHole);
+
+                                // Añadir el código de barras
+                                PdfPCell cellBarcode = new PdfPCell(barcodeImage);
+                                cellBarcode.HorizontalAlignment = Element.ALIGN_CENTER;
+                                cellBarcode.Border = PdfPCell.NO_BORDER;
+                                table.AddCell(cellBarcode);
+
+                                // Añadir "M8D" en la parte inferior izquierda
+                                PdfPCell cellM8D = new PdfPCell(new Phrase("M8D"));
+                                cellM8D.HorizontalAlignment = Element.ALIGN_LEFT;
+                                cellM8D.Border = PdfPCell.NO_BORDER;
+                                table.AddCell(cellM8D);
+
+                                // Añadir la tabla al documento
+                                pdfDoc.Add(table);
+
+                                // Añadir un espacio entre códigos de barras
+                                pdfDoc.Add(new Paragraph(" "));
+                            }
+                        }
                     }
 
                     pdfDoc.Close();
                     stream.Close();
-
                 }
-
+                MessageBox.Show("PDF generado con éxito.");
             }
         }
 
@@ -1110,5 +1144,9 @@ namespace OrdenesEspeciales
             DrawCheckBoxHeader("FeTot", cbo_FeTot, e);
         }
 
+        private void button1_Click_1(object sender, EventArgs e)
+        {
+
+        }
     }
 }

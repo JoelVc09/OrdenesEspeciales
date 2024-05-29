@@ -29,15 +29,15 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle10 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle11 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle12 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle13 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle14 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle15 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle16 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle17 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle18 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle9 = new System.Windows.Forms.DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form_Orden));
             this.label1 = new System.Windows.Forms.Label();
             this.Dgv_Consulta = new System.Windows.Forms.DataGridView();
@@ -53,6 +53,8 @@
             this.cbo_CuOxi = new System.Windows.Forms.CheckBox();
             this.cbo_CuTot = new System.Windows.Forms.CheckBox();
             this.Consulta = new System.Windows.Forms.GroupBox();
+            this.label7 = new System.Windows.Forms.Label();
+            this.label9 = new System.Windows.Forms.Label();
             this.comboBox2 = new System.Windows.Forms.ComboBox();
             this.label5 = new System.Windows.Forms.Label();
             this.comboBox1 = new System.Windows.Forms.ComboBox();
@@ -70,20 +72,6 @@
             this.btn_consultar = new System.Windows.Forms.Button();
             this.label6 = new System.Windows.Forms.Label();
             this.Dgv_Orden = new System.Windows.Forms.DataGridView();
-            this.btn_Guardar = new System.Windows.Forms.Button();
-            this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.btn_limpiar = new System.Windows.Forms.Button();
-            this.guardar_bd = new System.Windows.Forms.Button();
-            this.button3 = new System.Windows.Forms.Button();
-            this.lblcount = new System.Windows.Forms.Label();
-            this.label3 = new System.Windows.Forms.Label();
-            this.BtnBlancos = new System.Windows.Forms.Button();
-            this.cbo_CtrlB = new System.Windows.Forms.ComboBox();
-            this.label8 = new System.Windows.Forms.Label();
-            this.lblcant = new System.Windows.Forms.Label();
-            this.gDMS_ANTAPACCAYDataSet = new OrdenesEspeciales.GDMS_ANTAPACCAYDataSet();
-            this.gDMSANTAPACCAYDataSetBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.sdk = new System.Windows.Forms.DataGridViewCheckBoxColumn();
             this.item = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.blasthole = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -102,8 +90,21 @@
             this.CSCn = new System.Windows.Forms.DataGridViewCheckBoxColumn();
             this.CuRes = new System.Windows.Forms.DataGridViewCheckBoxColumn();
             this.FeTot = new System.Windows.Forms.DataGridViewCheckBoxColumn();
-            this.label7 = new System.Windows.Forms.Label();
-            this.label9 = new System.Windows.Forms.Label();
+            this.btn_Guardar = new System.Windows.Forms.Button();
+            this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.button1 = new System.Windows.Forms.Button();
+            this.btn_limpiar = new System.Windows.Forms.Button();
+            this.guardar_bd = new System.Windows.Forms.Button();
+            this.button3 = new System.Windows.Forms.Button();
+            this.lblcount = new System.Windows.Forms.Label();
+            this.label3 = new System.Windows.Forms.Label();
+            this.BtnBlancos = new System.Windows.Forms.Button();
+            this.cbo_CtrlB = new System.Windows.Forms.ComboBox();
+            this.label8 = new System.Windows.Forms.Label();
+            this.lblcant = new System.Windows.Forms.Label();
+            this.gDMS_ANTAPACCAYDataSet = new OrdenesEspeciales.GDMS_ANTAPACCAYDataSet();
+            this.gDMSANTAPACCAYDataSetBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.Dgv_Consulta)).BeginInit();
             this.Consulta.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.Dgv_Orden)).BeginInit();
@@ -117,62 +118,62 @@
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.ForeColor = System.Drawing.Color.White;
-            this.label1.Location = new System.Drawing.Point(1113, 23);
+            this.label1.Location = new System.Drawing.Point(1112, 80);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(100, 20);
+            this.label1.Size = new System.Drawing.Size(117, 20);
             this.label1.TabIndex = 0;
-            this.label1.Text = "Nro. Orden *";
+            this.label1.Text = "Orden Ensayo*";
             // 
             // Dgv_Consulta
             // 
             this.Dgv_Consulta.AllowUserToAddRows = false;
-            dataGridViewCellStyle10.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            dataGridViewCellStyle10.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle10.ForeColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle10.SelectionBackColor = System.Drawing.Color.SteelBlue;
-            dataGridViewCellStyle10.SelectionForeColor = System.Drawing.Color.Black;
-            this.Dgv_Consulta.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle10;
+            dataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle1.ForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.Color.SteelBlue;
+            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.Color.Black;
+            this.Dgv_Consulta.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
             this.Dgv_Consulta.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
             this.Dgv_Consulta.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
             this.Dgv_Consulta.BackgroundColor = System.Drawing.Color.WhiteSmoke;
             this.Dgv_Consulta.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.Dgv_Consulta.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Sunken;
-            dataGridViewCellStyle11.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle11.BackColor = System.Drawing.SystemColors.HotTrack;
-            dataGridViewCellStyle11.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle11.ForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle11.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle11.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle11.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.Dgv_Consulta.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle11;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.HotTrack;
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle2.ForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.Dgv_Consulta.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
             this.Dgv_Consulta.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridViewCellStyle12.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle12.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle12.Font = new System.Drawing.Font("Century Gothic", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle12.ForeColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle12.SelectionBackColor = System.Drawing.Color.SteelBlue;
-            dataGridViewCellStyle12.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle12.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.Dgv_Consulta.DefaultCellStyle = dataGridViewCellStyle12;
+            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle3.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle3.Font = new System.Drawing.Font("Century Gothic", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle3.ForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.Color.SteelBlue;
+            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.Dgv_Consulta.DefaultCellStyle = dataGridViewCellStyle3;
             this.Dgv_Consulta.EnableHeadersVisualStyles = false;
             this.Dgv_Consulta.GridColor = System.Drawing.Color.SteelBlue;
             this.Dgv_Consulta.Location = new System.Drawing.Point(175, 25);
             this.Dgv_Consulta.Name = "Dgv_Consulta";
-            dataGridViewCellStyle13.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle13.BackColor = System.Drawing.Color.White;
-            dataGridViewCellStyle13.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle13.ForeColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle13.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle13.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle13.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.Dgv_Consulta.RowHeadersDefaultCellStyle = dataGridViewCellStyle13;
+            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle4.BackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle4.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle4.ForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle4.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.Dgv_Consulta.RowHeadersDefaultCellStyle = dataGridViewCellStyle4;
             this.Dgv_Consulta.RowHeadersWidth = 51;
-            dataGridViewCellStyle14.BackColor = System.Drawing.Color.White;
-            dataGridViewCellStyle14.Font = new System.Drawing.Font("Century Gothic", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle14.ForeColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle14.SelectionBackColor = System.Drawing.Color.SteelBlue;
-            dataGridViewCellStyle14.SelectionForeColor = System.Drawing.Color.White;
-            this.Dgv_Consulta.RowsDefaultCellStyle = dataGridViewCellStyle14;
+            dataGridViewCellStyle5.BackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle5.Font = new System.Drawing.Font("Century Gothic", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle5.ForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle5.SelectionBackColor = System.Drawing.Color.SteelBlue;
+            dataGridViewCellStyle5.SelectionForeColor = System.Drawing.Color.White;
+            this.Dgv_Consulta.RowsDefaultCellStyle = dataGridViewCellStyle5;
             this.Dgv_Consulta.RowTemplate.Height = 24;
             this.Dgv_Consulta.Size = new System.Drawing.Size(927, 289);
             this.Dgv_Consulta.TabIndex = 1;
@@ -331,6 +332,28 @@
             this.Consulta.TabStop = false;
             this.Consulta.Text = "Header";
             // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label7.ForeColor = System.Drawing.Color.White;
+            this.label7.Location = new System.Drawing.Point(268, 315);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(21, 23);
+            this.label7.TabIndex = 102;
+            this.label7.Text = "0";
+            // 
+            // label9
+            // 
+            this.label9.AutoSize = true;
+            this.label9.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label9.ForeColor = System.Drawing.Color.White;
+            this.label9.Location = new System.Drawing.Point(171, 317);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(93, 20);
+            this.label9.TabIndex = 101;
+            this.label9.Text = "Recuento : ";
+            // 
             // comboBox2
             // 
             this.comboBox2.FormattingEnabled = true;
@@ -375,9 +398,9 @@
             // 
             this.txt_Orden.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
             this.txt_Orden.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.CustomSource;
-            this.txt_Orden.Location = new System.Drawing.Point(1116, 48);
+            this.txt_Orden.Location = new System.Drawing.Point(1115, 105);
             this.txt_Orden.Name = "txt_Orden";
-            this.txt_Orden.Size = new System.Drawing.Size(130, 22);
+            this.txt_Orden.Size = new System.Drawing.Size(165, 22);
             this.txt_Orden.TabIndex = 100;
             // 
             // cbo_laboratory
@@ -385,7 +408,7 @@
             this.cbo_laboratory.AutoSize = true;
             this.cbo_laboratory.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cbo_laboratory.ForeColor = System.Drawing.Color.White;
-            this.cbo_laboratory.Location = new System.Drawing.Point(1112, 75);
+            this.cbo_laboratory.Location = new System.Drawing.Point(1112, 132);
             this.cbo_laboratory.Name = "cbo_laboratory";
             this.cbo_laboratory.Size = new System.Drawing.Size(99, 20);
             this.cbo_laboratory.TabIndex = 97;
@@ -397,10 +420,10 @@
             this.cbo_Laborat.BackColor = System.Drawing.Color.White;
             this.cbo_Laborat.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbo_Laborat.FormattingEnabled = true;
-            this.cbo_Laborat.Location = new System.Drawing.Point(1116, 102);
+            this.cbo_Laborat.Location = new System.Drawing.Point(1116, 160);
             this.cbo_Laborat.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.cbo_Laborat.Name = "cbo_Laborat";
-            this.cbo_Laborat.Size = new System.Drawing.Size(127, 24);
+            this.cbo_Laborat.Size = new System.Drawing.Size(164, 24);
             this.cbo_Laborat.TabIndex = 96;
             // 
             // btn_Buscar
@@ -523,22 +546,22 @@
             // Dgv_Orden
             // 
             this.Dgv_Orden.AllowUserToAddRows = false;
-            dataGridViewCellStyle15.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            dataGridViewCellStyle15.ForeColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle15.SelectionBackColor = System.Drawing.Color.SteelBlue;
-            dataGridViewCellStyle15.SelectionForeColor = System.Drawing.Color.Black;
-            this.Dgv_Orden.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle15;
+            dataGridViewCellStyle6.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            dataGridViewCellStyle6.ForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle6.SelectionBackColor = System.Drawing.Color.SteelBlue;
+            dataGridViewCellStyle6.SelectionForeColor = System.Drawing.Color.Black;
+            this.Dgv_Orden.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle6;
             this.Dgv_Orden.BackgroundColor = System.Drawing.Color.WhiteSmoke;
             this.Dgv_Orden.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.Dgv_Orden.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Sunken;
-            dataGridViewCellStyle16.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle16.BackColor = System.Drawing.SystemColors.HotTrack;
-            dataGridViewCellStyle16.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle16.ForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle16.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle16.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle16.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.Dgv_Orden.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle16;
+            dataGridViewCellStyle7.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle7.BackColor = System.Drawing.SystemColors.HotTrack;
+            dataGridViewCellStyle7.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle7.ForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle7.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle7.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle7.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.Dgv_Orden.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle7;
             this.Dgv_Orden.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.Dgv_Orden.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.sdk,
@@ -559,24 +582,24 @@
             this.CSCn,
             this.CuRes,
             this.FeTot});
-            dataGridViewCellStyle17.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle17.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle17.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle17.ForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle17.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle17.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle17.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.Dgv_Orden.DefaultCellStyle = dataGridViewCellStyle17;
+            dataGridViewCellStyle8.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle8.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle8.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle8.ForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle8.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle8.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle8.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.Dgv_Orden.DefaultCellStyle = dataGridViewCellStyle8;
             this.Dgv_Orden.EnableHeadersVisualStyles = false;
             this.Dgv_Orden.Location = new System.Drawing.Point(9, 60);
             this.Dgv_Orden.Name = "Dgv_Orden";
             this.Dgv_Orden.RowHeadersWidth = 51;
-            dataGridViewCellStyle18.BackColor = System.Drawing.Color.White;
-            dataGridViewCellStyle18.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle18.ForeColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle18.SelectionBackColor = System.Drawing.Color.SteelBlue;
-            dataGridViewCellStyle18.SelectionForeColor = System.Drawing.Color.Black;
-            this.Dgv_Orden.RowsDefaultCellStyle = dataGridViewCellStyle18;
+            dataGridViewCellStyle9.BackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle9.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle9.ForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle9.SelectionBackColor = System.Drawing.Color.SteelBlue;
+            dataGridViewCellStyle9.SelectionForeColor = System.Drawing.Color.Black;
+            this.Dgv_Orden.RowsDefaultCellStyle = dataGridViewCellStyle9;
             this.Dgv_Orden.RowTemplate.Height = 24;
             this.Dgv_Orden.Size = new System.Drawing.Size(1260, 373);
             this.Dgv_Orden.TabIndex = 6;
@@ -584,209 +607,6 @@
             this.Dgv_Orden.CellPainting += new System.Windows.Forms.DataGridViewCellPaintingEventHandler(this.Dgv_Orden_CellPainting);
             this.Dgv_Orden.EditingControlShowing += new System.Windows.Forms.DataGridViewEditingControlShowingEventHandler(this.GRV_DATOS_EditingControlShowing);
             this.Dgv_Orden.MouseClick += new System.Windows.Forms.MouseEventHandler(this.Dgv_Orden_MouseClick);
-            // 
-            // btn_Guardar
-            // 
-            this.btn_Guardar.BackColor = System.Drawing.SystemColors.HotTrack;
-            this.btn_Guardar.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btn_Guardar.FlatAppearance.BorderSize = 0;
-            this.btn_Guardar.FlatAppearance.MouseOverBackColor = System.Drawing.Color.CornflowerBlue;
-            this.btn_Guardar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btn_Guardar.Font = new System.Drawing.Font("Century Gothic", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btn_Guardar.ForeColor = System.Drawing.Color.White;
-            this.btn_Guardar.ImageAlign = System.Drawing.ContentAlignment.BottomCenter;
-            this.btn_Guardar.Location = new System.Drawing.Point(915, 446);
-            this.btn_Guardar.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.btn_Guardar.Name = "btn_Guardar";
-            this.btn_Guardar.Size = new System.Drawing.Size(96, 37);
-            this.btn_Guardar.TabIndex = 78;
-            this.btn_Guardar.Text = "Imprimir";
-            this.btn_Guardar.UseVisualStyleBackColor = false;
-            this.btn_Guardar.Click += new System.EventHandler(this.btn_Guardar_Click);
-            // 
-            // groupBox1
-            // 
-            this.groupBox1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(49)))), ((int)(((byte)(66)))), ((int)(((byte)(82)))));
-            this.groupBox1.Controls.Add(this.Dgv_Orden);
-            this.groupBox1.Controls.Add(this.cbo_FeTot);
-            this.groupBox1.Controls.Add(this.cbo_CuTot);
-            this.groupBox1.Controls.Add(this.cbo_CuRes);
-            this.groupBox1.Controls.Add(this.cbo_CuOxi);
-            this.groupBox1.Controls.Add(this.cbo_CuSCn);
-            this.groupBox1.Controls.Add(this.btn_limpiar);
-            this.groupBox1.Controls.Add(this.cbo_CuSAc);
-            this.groupBox1.Controls.Add(this.guardar_bd);
-            this.groupBox1.Controls.Add(this.cbo_CO3);
-            this.groupBox1.Controls.Add(this.button3);
-            this.groupBox1.Controls.Add(this.cbo_Mo);
-            this.groupBox1.Controls.Add(this.lblcount);
-            this.groupBox1.Controls.Add(this.cbo_Ag);
-            this.groupBox1.Controls.Add(this.label3);
-            this.groupBox1.Controls.Add(this.cbo_Au);
-            this.groupBox1.Controls.Add(this.cbo_CuSol);
-            this.groupBox1.Controls.Add(this.btn_Guardar);
-            this.groupBox1.Controls.Add(this.BtnBlancos);
-            this.groupBox1.Controls.Add(this.cbo_CtrlB);
-            this.groupBox1.Controls.Add(this.label8);
-            this.groupBox1.Controls.Add(this.lblcant);
-            this.groupBox1.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.groupBox1.ForeColor = System.Drawing.Color.White;
-            this.groupBox1.Location = new System.Drawing.Point(12, 370);
-            this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(1286, 526);
-            this.groupBox1.TabIndex = 79;
-            this.groupBox1.TabStop = false;
-            this.groupBox1.Text = "Blast Hole";
-            // 
-            // btn_limpiar
-            // 
-            this.btn_limpiar.BackColor = System.Drawing.Color.IndianRed;
-            this.btn_limpiar.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btn_limpiar.FlatAppearance.BorderSize = 0;
-            this.btn_limpiar.FlatAppearance.MouseOverBackColor = System.Drawing.Color.CornflowerBlue;
-            this.btn_limpiar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btn_limpiar.Font = new System.Drawing.Font("Century Gothic", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btn_limpiar.ForeColor = System.Drawing.Color.White;
-            this.btn_limpiar.ImageAlign = System.Drawing.ContentAlignment.BottomCenter;
-            this.btn_limpiar.Location = new System.Drawing.Point(1182, 448);
-            this.btn_limpiar.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.btn_limpiar.Name = "btn_limpiar";
-            this.btn_limpiar.Size = new System.Drawing.Size(94, 35);
-            this.btn_limpiar.TabIndex = 100;
-            this.btn_limpiar.Text = "Limpiar";
-            this.btn_limpiar.UseVisualStyleBackColor = false;
-            this.btn_limpiar.Click += new System.EventHandler(this.btn_limpiar_Click);
-            // 
-            // guardar_bd
-            // 
-            this.guardar_bd.BackColor = System.Drawing.SystemColors.HotTrack;
-            this.guardar_bd.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.guardar_bd.FlatAppearance.BorderSize = 0;
-            this.guardar_bd.FlatAppearance.MouseOverBackColor = System.Drawing.Color.CornflowerBlue;
-            this.guardar_bd.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.guardar_bd.Font = new System.Drawing.Font("Century Gothic", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.guardar_bd.ForeColor = System.Drawing.Color.White;
-            this.guardar_bd.ImageAlign = System.Drawing.ContentAlignment.BottomCenter;
-            this.guardar_bd.Location = new System.Drawing.Point(808, 447);
-            this.guardar_bd.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.guardar_bd.Name = "guardar_bd";
-            this.guardar_bd.Size = new System.Drawing.Size(92, 36);
-            this.guardar_bd.TabIndex = 99;
-            this.guardar_bd.Text = "Guardar";
-            this.guardar_bd.UseVisualStyleBackColor = false;
-            // 
-            // button3
-            // 
-            this.button3.BackColor = System.Drawing.SystemColors.HotTrack;
-            this.button3.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.button3.FlatAppearance.BorderSize = 0;
-            this.button3.FlatAppearance.MouseOverBackColor = System.Drawing.Color.CornflowerBlue;
-            this.button3.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button3.Font = new System.Drawing.Font("Century Gothic", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button3.ForeColor = System.Drawing.Color.White;
-            this.button3.ImageAlign = System.Drawing.ContentAlignment.BottomCenter;
-            this.button3.Location = new System.Drawing.Point(1027, 448);
-            this.button3.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(139, 35);
-            this.button3.TabIndex = 98;
-            this.button3.Text = "Código de Barra";
-            this.button3.UseVisualStyleBackColor = false;
-            this.button3.Click += new System.EventHandler(this.button3_Click_1);
-            // 
-            // lblcount
-            // 
-            this.lblcount.AutoSize = true;
-            this.lblcount.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblcount.ForeColor = System.Drawing.Color.White;
-            this.lblcount.Location = new System.Drawing.Point(106, 437);
-            this.lblcount.Name = "lblcount";
-            this.lblcount.Size = new System.Drawing.Size(21, 23);
-            this.lblcount.TabIndex = 97;
-            this.lblcount.Text = "0";
-            this.lblcount.Click += new System.EventHandler(this.lblcount_Click);
-            // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.ForeColor = System.Drawing.Color.White;
-            this.label3.Location = new System.Drawing.Point(9, 439);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(93, 20);
-            this.label3.TabIndex = 96;
-            this.label3.Text = "Recuento : ";
-            this.label3.Click += new System.EventHandler(this.label3_Click_1);
-            // 
-            // BtnBlancos
-            // 
-            this.BtnBlancos.BackColor = System.Drawing.Color.Transparent;
-            this.BtnBlancos.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("BtnBlancos.BackgroundImage")));
-            this.BtnBlancos.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.BtnBlancos.FlatAppearance.BorderSize = 0;
-            this.BtnBlancos.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.BtnBlancos.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.BtnBlancos.Location = new System.Drawing.Point(291, 18);
-            this.BtnBlancos.Margin = new System.Windows.Forms.Padding(4);
-            this.BtnBlancos.Name = "BtnBlancos";
-            this.BtnBlancos.Size = new System.Drawing.Size(43, 35);
-            this.BtnBlancos.TabIndex = 92;
-            this.BtnBlancos.UseVisualStyleBackColor = false;
-            this.BtnBlancos.Click += new System.EventHandler(this.BtnBlancos_Click);
-            // 
-            // cbo_CtrlB
-            // 
-            this.cbo_CtrlB.BackColor = System.Drawing.Color.White;
-            this.cbo_CtrlB.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cbo_CtrlB.FormattingEnabled = true;
-            this.cbo_CtrlB.Items.AddRange(new object[] {
-            "MB 105",
-            "MC 401",
-            "MC 402",
-            "MC 403\t",
-            "MC 976"});
-            this.cbo_CtrlB.Location = new System.Drawing.Point(175, 22);
-            this.cbo_CtrlB.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.cbo_CtrlB.Name = "cbo_CtrlB";
-            this.cbo_CtrlB.Size = new System.Drawing.Size(101, 28);
-            this.cbo_CtrlB.TabIndex = 80;
-            // 
-            // label8
-            // 
-            this.label8.AutoSize = true;
-            this.label8.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label8.ForeColor = System.Drawing.Color.White;
-            this.label8.Location = new System.Drawing.Point(7, 25);
-            this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(162, 40);
-            this.label8.TabIndex = 81;
-            this.label8.Text = "Controles y Blancos:*\r\n \r\n";
-            this.label8.Click += new System.EventHandler(this.label8_Click);
-            // 
-            // lblcant
-            // 
-            this.lblcant.AutoSize = true;
-            this.lblcant.Location = new System.Drawing.Point(349, 184);
-            this.lblcant.Name = "lblcant";
-            this.lblcant.Size = new System.Drawing.Size(53, 20);
-            this.lblcant.TabIndex = 7;
-            this.lblcant.Text = "label2";
-            // 
-            // gDMS_ANTAPACCAYDataSet
-            // 
-            this.gDMS_ANTAPACCAYDataSet.DataSetName = "GDMS_ANTAPACCAYDataSet";
-            this.gDMS_ANTAPACCAYDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
-            // 
-            // gDMSANTAPACCAYDataSetBindingSource
-            // 
-            this.gDMSANTAPACCAYDataSetBindingSource.DataSource = this.gDMS_ANTAPACCAYDataSet;
-            this.gDMSANTAPACCAYDataSetBindingSource.Position = 0;
-            // 
-            // contextMenuStrip1
-            // 
-            this.contextMenuStrip1.ImageScalingSize = new System.Drawing.Size(20, 20);
-            this.contextMenuStrip1.Name = "contextMenuStrip1";
-            this.contextMenuStrip1.Size = new System.Drawing.Size(61, 4);
             // 
             // sdk
             // 
@@ -966,27 +786,228 @@
             this.FeTot.TrueValue = "true";
             this.FeTot.Width = 65;
             // 
-            // label7
+            // btn_Guardar
             // 
-            this.label7.AutoSize = true;
-            this.label7.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label7.ForeColor = System.Drawing.Color.White;
-            this.label7.Location = new System.Drawing.Point(268, 315);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(21, 23);
-            this.label7.TabIndex = 102;
-            this.label7.Text = "0";
+            this.btn_Guardar.BackColor = System.Drawing.SystemColors.HotTrack;
+            this.btn_Guardar.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btn_Guardar.FlatAppearance.BorderSize = 0;
+            this.btn_Guardar.FlatAppearance.MouseOverBackColor = System.Drawing.Color.CornflowerBlue;
+            this.btn_Guardar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btn_Guardar.Font = new System.Drawing.Font("Century Gothic", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btn_Guardar.ForeColor = System.Drawing.Color.White;
+            this.btn_Guardar.ImageAlign = System.Drawing.ContentAlignment.BottomCenter;
+            this.btn_Guardar.Location = new System.Drawing.Point(916, 446);
+            this.btn_Guardar.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.btn_Guardar.Name = "btn_Guardar";
+            this.btn_Guardar.Size = new System.Drawing.Size(96, 37);
+            this.btn_Guardar.TabIndex = 78;
+            this.btn_Guardar.Text = "Imprimir";
+            this.btn_Guardar.UseVisualStyleBackColor = false;
+            this.btn_Guardar.Click += new System.EventHandler(this.btn_Guardar_Click);
             // 
-            // label9
+            // groupBox1
             // 
-            this.label9.AutoSize = true;
-            this.label9.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label9.ForeColor = System.Drawing.Color.White;
-            this.label9.Location = new System.Drawing.Point(171, 317);
-            this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(93, 20);
-            this.label9.TabIndex = 101;
-            this.label9.Text = "Recuento : ";
+            this.groupBox1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(49)))), ((int)(((byte)(66)))), ((int)(((byte)(82)))));
+            this.groupBox1.Controls.Add(this.button1);
+            this.groupBox1.Controls.Add(this.Dgv_Orden);
+            this.groupBox1.Controls.Add(this.cbo_FeTot);
+            this.groupBox1.Controls.Add(this.cbo_CuTot);
+            this.groupBox1.Controls.Add(this.cbo_CuRes);
+            this.groupBox1.Controls.Add(this.cbo_CuOxi);
+            this.groupBox1.Controls.Add(this.cbo_CuSCn);
+            this.groupBox1.Controls.Add(this.btn_limpiar);
+            this.groupBox1.Controls.Add(this.cbo_CuSAc);
+            this.groupBox1.Controls.Add(this.guardar_bd);
+            this.groupBox1.Controls.Add(this.cbo_CO3);
+            this.groupBox1.Controls.Add(this.button3);
+            this.groupBox1.Controls.Add(this.cbo_Mo);
+            this.groupBox1.Controls.Add(this.lblcount);
+            this.groupBox1.Controls.Add(this.cbo_Ag);
+            this.groupBox1.Controls.Add(this.label3);
+            this.groupBox1.Controls.Add(this.cbo_Au);
+            this.groupBox1.Controls.Add(this.cbo_CuSol);
+            this.groupBox1.Controls.Add(this.btn_Guardar);
+            this.groupBox1.Controls.Add(this.BtnBlancos);
+            this.groupBox1.Controls.Add(this.cbo_CtrlB);
+            this.groupBox1.Controls.Add(this.label8);
+            this.groupBox1.Controls.Add(this.lblcant);
+            this.groupBox1.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.groupBox1.ForeColor = System.Drawing.Color.White;
+            this.groupBox1.Location = new System.Drawing.Point(12, 370);
+            this.groupBox1.Name = "groupBox1";
+            this.groupBox1.Size = new System.Drawing.Size(1286, 526);
+            this.groupBox1.TabIndex = 79;
+            this.groupBox1.TabStop = false;
+            this.groupBox1.Text = "Blast Hole";
+            // 
+            // button1
+            // 
+            this.button1.BackColor = System.Drawing.SystemColors.HotTrack;
+            this.button1.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.button1.FlatAppearance.BorderSize = 0;
+            this.button1.FlatAppearance.MouseOverBackColor = System.Drawing.Color.CornflowerBlue;
+            this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button1.Font = new System.Drawing.Font("Century Gothic", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button1.ForeColor = System.Drawing.Color.White;
+            this.button1.ImageAlign = System.Drawing.ContentAlignment.BottomCenter;
+            this.button1.Location = new System.Drawing.Point(653, 446);
+            this.button1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(139, 35);
+            this.button1.TabIndex = 101;
+            this.button1.Text = "Código de Barra";
+            this.button1.UseVisualStyleBackColor = false;
+            this.button1.Click += new System.EventHandler(this.button1_Click_1);
+            // 
+            // btn_limpiar
+            // 
+            this.btn_limpiar.BackColor = System.Drawing.Color.IndianRed;
+            this.btn_limpiar.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btn_limpiar.FlatAppearance.BorderSize = 0;
+            this.btn_limpiar.FlatAppearance.MouseOverBackColor = System.Drawing.Color.CornflowerBlue;
+            this.btn_limpiar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btn_limpiar.Font = new System.Drawing.Font("Century Gothic", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btn_limpiar.ForeColor = System.Drawing.Color.White;
+            this.btn_limpiar.ImageAlign = System.Drawing.ContentAlignment.BottomCenter;
+            this.btn_limpiar.Location = new System.Drawing.Point(1182, 448);
+            this.btn_limpiar.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.btn_limpiar.Name = "btn_limpiar";
+            this.btn_limpiar.Size = new System.Drawing.Size(94, 35);
+            this.btn_limpiar.TabIndex = 100;
+            this.btn_limpiar.Text = "Limpiar";
+            this.btn_limpiar.UseVisualStyleBackColor = false;
+            this.btn_limpiar.Click += new System.EventHandler(this.btn_limpiar_Click);
+            // 
+            // guardar_bd
+            // 
+            this.guardar_bd.BackColor = System.Drawing.SystemColors.HotTrack;
+            this.guardar_bd.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.guardar_bd.FlatAppearance.BorderSize = 0;
+            this.guardar_bd.FlatAppearance.MouseOverBackColor = System.Drawing.Color.CornflowerBlue;
+            this.guardar_bd.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.guardar_bd.Font = new System.Drawing.Font("Century Gothic", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.guardar_bd.ForeColor = System.Drawing.Color.White;
+            this.guardar_bd.ImageAlign = System.Drawing.ContentAlignment.BottomCenter;
+            this.guardar_bd.Location = new System.Drawing.Point(809, 447);
+            this.guardar_bd.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.guardar_bd.Name = "guardar_bd";
+            this.guardar_bd.Size = new System.Drawing.Size(92, 36);
+            this.guardar_bd.TabIndex = 99;
+            this.guardar_bd.Text = "Guardar";
+            this.guardar_bd.UseVisualStyleBackColor = false;
+            // 
+            // button3
+            // 
+            this.button3.BackColor = System.Drawing.SystemColors.HotTrack;
+            this.button3.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.button3.FlatAppearance.BorderSize = 0;
+            this.button3.FlatAppearance.MouseOverBackColor = System.Drawing.Color.CornflowerBlue;
+            this.button3.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button3.Font = new System.Drawing.Font("Century Gothic", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button3.ForeColor = System.Drawing.Color.White;
+            this.button3.ImageAlign = System.Drawing.ContentAlignment.BottomCenter;
+            this.button3.Location = new System.Drawing.Point(1028, 448);
+            this.button3.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.button3.Name = "button3";
+            this.button3.Size = new System.Drawing.Size(139, 35);
+            this.button3.TabIndex = 98;
+            this.button3.Text = "Código de Barra";
+            this.button3.UseVisualStyleBackColor = false;
+            this.button3.Click += new System.EventHandler(this.button3_Click_1);
+            // 
+            // lblcount
+            // 
+            this.lblcount.AutoSize = true;
+            this.lblcount.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblcount.ForeColor = System.Drawing.Color.White;
+            this.lblcount.Location = new System.Drawing.Point(106, 437);
+            this.lblcount.Name = "lblcount";
+            this.lblcount.Size = new System.Drawing.Size(21, 23);
+            this.lblcount.TabIndex = 97;
+            this.lblcount.Text = "0";
+            this.lblcount.Click += new System.EventHandler(this.lblcount_Click);
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label3.ForeColor = System.Drawing.Color.White;
+            this.label3.Location = new System.Drawing.Point(9, 439);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(93, 20);
+            this.label3.TabIndex = 96;
+            this.label3.Text = "Recuento : ";
+            this.label3.Click += new System.EventHandler(this.label3_Click_1);
+            // 
+            // BtnBlancos
+            // 
+            this.BtnBlancos.BackColor = System.Drawing.Color.Transparent;
+            this.BtnBlancos.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("BtnBlancos.BackgroundImage")));
+            this.BtnBlancos.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.BtnBlancos.FlatAppearance.BorderSize = 0;
+            this.BtnBlancos.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.BtnBlancos.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.BtnBlancos.Location = new System.Drawing.Point(291, 18);
+            this.BtnBlancos.Margin = new System.Windows.Forms.Padding(4);
+            this.BtnBlancos.Name = "BtnBlancos";
+            this.BtnBlancos.Size = new System.Drawing.Size(43, 35);
+            this.BtnBlancos.TabIndex = 92;
+            this.BtnBlancos.UseVisualStyleBackColor = false;
+            this.BtnBlancos.Click += new System.EventHandler(this.BtnBlancos_Click);
+            // 
+            // cbo_CtrlB
+            // 
+            this.cbo_CtrlB.BackColor = System.Drawing.Color.White;
+            this.cbo_CtrlB.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cbo_CtrlB.FormattingEnabled = true;
+            this.cbo_CtrlB.Items.AddRange(new object[] {
+            "MB 105",
+            "MC 401",
+            "MC 402",
+            "MC 403\t",
+            "MC 976"});
+            this.cbo_CtrlB.Location = new System.Drawing.Point(175, 22);
+            this.cbo_CtrlB.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.cbo_CtrlB.Name = "cbo_CtrlB";
+            this.cbo_CtrlB.Size = new System.Drawing.Size(101, 28);
+            this.cbo_CtrlB.TabIndex = 80;
+            // 
+            // label8
+            // 
+            this.label8.AutoSize = true;
+            this.label8.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label8.ForeColor = System.Drawing.Color.White;
+            this.label8.Location = new System.Drawing.Point(7, 25);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(162, 40);
+            this.label8.TabIndex = 81;
+            this.label8.Text = "Controles y Blancos:*\r\n \r\n";
+            this.label8.Click += new System.EventHandler(this.label8_Click);
+            // 
+            // lblcant
+            // 
+            this.lblcant.AutoSize = true;
+            this.lblcant.Location = new System.Drawing.Point(349, 184);
+            this.lblcant.Name = "lblcant";
+            this.lblcant.Size = new System.Drawing.Size(53, 20);
+            this.lblcant.TabIndex = 7;
+            this.lblcant.Text = "label2";
+            // 
+            // gDMS_ANTAPACCAYDataSet
+            // 
+            this.gDMS_ANTAPACCAYDataSet.DataSetName = "GDMS_ANTAPACCAYDataSet";
+            this.gDMS_ANTAPACCAYDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            // 
+            // gDMSANTAPACCAYDataSetBindingSource
+            // 
+            this.gDMSANTAPACCAYDataSetBindingSource.DataSource = this.gDMS_ANTAPACCAYDataSet;
+            this.gDMSANTAPACCAYDataSetBindingSource.Position = 0;
+            // 
+            // contextMenuStrip1
+            // 
+            this.contextMenuStrip1.ImageScalingSize = new System.Drawing.Size(20, 20);
+            this.contextMenuStrip1.Name = "contextMenuStrip1";
+            this.contextMenuStrip1.Size = new System.Drawing.Size(61, 4);
             // 
             // Form_Orden
             // 
@@ -1078,5 +1099,6 @@
         private System.Windows.Forms.DataGridViewCheckBoxColumn FeTot;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.Label label9;
+        private System.Windows.Forms.Button button1;
     }
 }

@@ -11,6 +11,7 @@ using System.Data.Odbc;
 using System.Runtime.InteropServices;
 
 
+
 namespace OrdenesEspeciales
 {
     public partial class Menu : Form
@@ -20,7 +21,10 @@ namespace OrdenesEspeciales
             
 
             InitializeComponent();
-            
+
+       
+
+
             //BtnReassay.ForeColor = Color.Black;
 
             // Personalizar la fuente del texto del botón
@@ -29,23 +33,23 @@ namespace OrdenesEspeciales
             // Personalizar el estilo del botón
             //BtnReassay.FlatStyle = FlatStyle.Flat;
             //BtnReassay.FlatAppearance.BorderSize = 1;
-           //// BtnReassay.FlatAppearance.MouseOverBackColor = Color.FromArgb(96, 96, 96);
+            //// BtnReassay.FlatAppearance.MouseOverBackColor = Color.FromArgb(96, 96, 96);
             //BtnReassay.FlatAppearance.MouseDownBackColor = Color.FromArgb(128, 128, 128);
-           // BtnReassay.FlatAppearance.BorderColor = Color.White;
+            // BtnReassay.FlatAppearance.BorderColor = Color.White;
 
 
             //BtnCompositos.BackColor = Color.FromArgb(64, 64, 64);
 
             // Personalizar el color del texto del botón
             //BtnCompositos1.ForeColor = Color.Black;
-        
+
             // Personalizar la fuente del texto del botón
             //BtnCompositos1.Font = new Font("Arial", 10, FontStyle.Bold);
 
             // Personalizar el estilo del botón
             //BtnCompositos.FlatStyle = FlatStyle.Flat;
             //BtnCompositos.FlatAppearance.BorderSize = 0;
-           //BtnCompositos1.FlatAppearance.MouseOverBackColor = Color.FromArgb(96, 96, 96);
+            //BtnCompositos1.FlatAppearance.MouseOverBackColor = Color.FromArgb(96, 96, 96);
             //BtnCompositos1.FlatAppearance.MouseDownBackColor = Color.FromArgb(128, 128, 128);
             //BtnCompositos1.FlatStyle = FlatStyle.Flat;
             //BtnCompositos1.FlatAppearance.BorderSize = 2;
@@ -103,10 +107,12 @@ namespace OrdenesEspeciales
 
         {
 
-            AbrirpanelHija(new Form_Orden());
+            
             //Form_Orden frm4 = new Form_Orden();
             //frm4.ShowDialog();
             //this.Hide();
+            submenu.Visible = true;
+
 
         }
 
@@ -154,6 +160,27 @@ namespace OrdenesEspeciales
 
 
         private void Menu_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnBlastHole_Click(object sender, EventArgs e)
+        {
+            AbrirpanelHija(new Form_Orden());
+               
+        }
+
+        private void btnEspeciales_Click(object sender, EventArgs e)
+        {
+            AbrirpanelHija(new Form_Orden_Especial());
+        }
+
+        private void btnHumedad_Click(object sender, EventArgs e)
+        {
+            AbrirpanelHija(new Form_Orden_Humedad());
+        }
+
+        private void panel2_Paint(object sender, PaintEventArgs e)
         {
 
         }
