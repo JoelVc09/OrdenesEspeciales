@@ -189,5 +189,13 @@ namespace OrdenesEspeciales
         {
 
         }
+
+        private void pictureBox2_Click_1(object sender, EventArgs e)
+        {
+            //panelContenedor.Visible = true;
+            Menu frm_menu = new Menu();
+            frm_menu.Show();
+            this.Hide(); // Opcional: Oculta el formulario de inicio de sesión
+        }
     }
 }

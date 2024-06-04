@@ -1026,14 +1026,14 @@
     </dependentAssembly>
   </dependency>
   <dependency>
-    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="OrdenesEspeciales.exe" size="1478144">
+    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="OrdenesEspeciales.exe" size="1404416">
       <assemblyIdentity name="OrdenesEspeciales" version="1.0.0.0" publicKeyToken="E4DAE57A988DC017" language="neutral" processorArchitecture="msil" />
       <hash>
         <dsig:Transforms>
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-        <dsig:DigestValue>RS8uhv/Jy522v2WuPHi7MAG3dx0cOC3NxJcW5hgftzc=</dsig:DigestValue>
+        <dsig:DigestValue>553ocoOnO3ymYzRTN9Yi2bl4pBpHvnkizkAMfMPJ0x4=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>

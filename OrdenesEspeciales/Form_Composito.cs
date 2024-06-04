@@ -32,7 +32,7 @@ namespace OrdenesEspeciales
             autoCompletar1(txtDispatch);
             lblcant.Text = Dgv_Despacho.Rows.Count.ToString();
             txtStatusDisp.Text = "NEW";
-            this.WindowState = FormWindowState.Maximized;
+            //this.WindowState = FormWindowState.Maximized;
             this.StartPosition = FormStartPosition.CenterScreen;
             //btnPasar.Enabled = false;
         }
@@ -1120,6 +1120,16 @@ namespace OrdenesEspeciales
         private void BtnEliDis2_Click(object sender, EventArgs e)
         {
             delete();
+        }
+
+        private void form_Compo_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label13_Click(object sender, EventArgs e)
+        {
+
         }
     }
     }

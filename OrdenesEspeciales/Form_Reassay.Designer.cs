@@ -30,19 +30,19 @@ namespace OrdenesEspeciales
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle13 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle14 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle19 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle20 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle15 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle16 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle17 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle18 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form2cs));
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle21 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle22 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle23 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle24 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle9 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle10 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle11 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle12 = new System.Windows.Forms.DataGridViewCellStyle();
             this.CboDup2 = new System.Windows.Forms.ComboBox();
             this.cboMod = new System.Windows.Forms.ComboBox();
             this.label9 = new System.Windows.Forms.Label();
@@ -82,10 +82,10 @@ namespace OrdenesEspeciales
             this.BtnEliDis2 = new System.Windows.Forms.Button();
             this.lblUsu = new System.Windows.Forms.Label();
             this.button9 = new System.Windows.Forms.Button();
+            this.btnPasar = new System.Windows.Forms.Button();
             this.btnConsultar = new System.Windows.Forms.Button();
             this.DgvSondajes = new System.Windows.Forms.DataGridView();
             this.chk = new System.Windows.Forms.DataGridViewCheckBoxColumn();
-            this.btnPasar = new System.Windows.Forms.Button();
             this.lblcant = new System.Windows.Forms.Label();
             this.label12 = new System.Windows.Forms.Label();
             this.label13 = new System.Windows.Forms.Label();
@@ -93,8 +93,8 @@ namespace OrdenesEspeciales
             this.button3 = new System.Windows.Forms.Button();
             this.BtnExcelCsv = new System.Windows.Forms.Button();
             this.BtnNewSam2 = new System.Windows.Forms.Button();
-            this.BtnTipDup = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
+            this.BtnTipDup = new System.Windows.Forms.Button();
             this.button4 = new System.Windows.Forms.Button();
             this.BtnBlancos = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.hOLEASSAYSAMPLESTATUSBindingSource)).BeginInit();
@@ -120,7 +120,7 @@ namespace OrdenesEspeciales
             // cboMod
             // 
             this.cboMod.FormattingEnabled = true;
-            this.cboMod.Location = new System.Drawing.Point(891, 21);
+            this.cboMod.Location = new System.Drawing.Point(878, 18);
             this.cboMod.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.cboMod.Name = "cboMod";
             this.cboMod.Size = new System.Drawing.Size(111, 26);
@@ -134,7 +134,7 @@ namespace OrdenesEspeciales
             this.label9.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
             this.label9.Location = new System.Drawing.Point(989, 12);
             this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(150, 26);
+            this.label9.Size = new System.Drawing.Size(120, 21);
             this.label9.TabIndex = 83;
             this.label9.Text = "Duplicados: *";
             // 
@@ -153,7 +153,7 @@ namespace OrdenesEspeciales
             // cbosta
             // 
             this.cbosta.FormattingEnabled = true;
-            this.cbosta.Location = new System.Drawing.Point(1008, 21);
+            this.cbosta.Location = new System.Drawing.Point(1010, 18);
             this.cbosta.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.cbosta.Name = "cbosta";
             this.cbosta.Size = new System.Drawing.Size(129, 26);
@@ -188,7 +188,7 @@ namespace OrdenesEspeciales
             this.label8.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
             this.label8.Location = new System.Drawing.Point(712, 12);
             this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(228, 26);
+            this.label8.Size = new System.Drawing.Size(182, 21);
             this.label8.TabIndex = 79;
             this.label8.Text = "Controles y Blancos:*";
             // 
@@ -199,7 +199,7 @@ namespace OrdenesEspeciales
             this.label1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
             this.label1.Location = new System.Drawing.Point(168, 18);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(185, 26);
+            this.label1.Size = new System.Drawing.Size(148, 21);
             this.label1.TabIndex = 77;
             this.label1.Text = "Nuevo Sample: *";
             // 
@@ -222,7 +222,7 @@ namespace OrdenesEspeciales
             this.label6.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
             this.label6.Location = new System.Drawing.Point(12, 19);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(151, 26);
+            this.label6.Size = new System.Drawing.Size(121, 21);
             this.label6.TabIndex = 74;
             this.label6.Text = "N°Dispatch: *";
             // 
@@ -233,7 +233,7 @@ namespace OrdenesEspeciales
             this.label4.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
             this.label4.Location = new System.Drawing.Point(770, 70);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(150, 26);
+            this.label4.Size = new System.Drawing.Size(120, 21);
             this.label4.TabIndex = 73;
             this.label4.Text = "Sample Type:";
             // 
@@ -244,7 +244,7 @@ namespace OrdenesEspeciales
             this.label3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
             this.label3.Location = new System.Drawing.Point(525, 70);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(103, 26);
+            this.label3.Size = new System.Drawing.Size(82, 21);
             this.label3.TabIndex = 72;
             this.label3.Text = "Sondaje:";
             // 
@@ -255,7 +255,7 @@ namespace OrdenesEspeciales
             this.label2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
             this.label2.Location = new System.Drawing.Point(281, 71);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(111, 26);
+            this.label2.Size = new System.Drawing.Size(89, 21);
             this.label2.TabIndex = 71;
             this.label2.Text = "Proyecto:";
             // 
@@ -266,7 +266,7 @@ namespace OrdenesEspeciales
             this.label5.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
             this.label5.Location = new System.Drawing.Point(10, 71);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(190, 26);
+            this.label5.Size = new System.Drawing.Size(152, 21);
             this.label5.TabIndex = 70;
             this.label5.Text = "Unidad Negocio:";
             // 
@@ -274,23 +274,23 @@ namespace OrdenesEspeciales
             // 
             this.dataGridView1.AllowUserToAddRows = false;
             this.dataGridView1.AllowUserToDeleteRows = false;
-            dataGridViewCellStyle13.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            dataGridViewCellStyle13.Font = new System.Drawing.Font("Century Gothic", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle13.ForeColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle13.SelectionBackColor = System.Drawing.Color.SteelBlue;
-            dataGridViewCellStyle13.SelectionForeColor = System.Drawing.Color.Black;
-            this.dataGridView1.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle13;
+            dataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Century Gothic", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle1.ForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.Color.SteelBlue;
+            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.Color.Black;
+            this.dataGridView1.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
             this.dataGridView1.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dataGridView1.BackgroundColor = System.Drawing.Color.White;
             this.dataGridView1.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Sunken;
-            dataGridViewCellStyle14.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle14.BackColor = System.Drawing.SystemColors.HotTrack;
-            dataGridViewCellStyle14.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle14.ForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle14.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle14.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle14.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dataGridView1.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle14;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.HotTrack;
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle2.ForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dataGridView1.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.chk1,
@@ -304,14 +304,14 @@ namespace OrdenesEspeciales
             this.Module_Name,
             this.Dispatch,
             this.ParentSample});
-            dataGridViewCellStyle19.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle19.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle19.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle19.ForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle19.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle19.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle19.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dataGridView1.DefaultCellStyle = dataGridViewCellStyle19;
+            dataGridViewCellStyle7.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle7.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle7.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle7.ForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle7.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle7.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle7.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dataGridView1.DefaultCellStyle = dataGridViewCellStyle7;
             this.dataGridView1.EnableHeadersVisualStyles = false;
             this.dataGridView1.GridColor = System.Drawing.Color.SteelBlue;
             this.dataGridView1.Location = new System.Drawing.Point(14, 79);
@@ -319,12 +319,12 @@ namespace OrdenesEspeciales
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.RowHeadersVisible = false;
             this.dataGridView1.RowHeadersWidth = 51;
-            dataGridViewCellStyle20.BackColor = System.Drawing.Color.White;
-            dataGridViewCellStyle20.Font = new System.Drawing.Font("Century Gothic", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle20.ForeColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle20.SelectionBackColor = System.Drawing.Color.SteelBlue;
-            dataGridViewCellStyle20.SelectionForeColor = System.Drawing.Color.White;
-            this.dataGridView1.RowsDefaultCellStyle = dataGridViewCellStyle20;
+            dataGridViewCellStyle8.BackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle8.Font = new System.Drawing.Font("Century Gothic", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle8.ForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle8.SelectionBackColor = System.Drawing.Color.SteelBlue;
+            dataGridViewCellStyle8.SelectionForeColor = System.Drawing.Color.White;
+            this.dataGridView1.RowsDefaultCellStyle = dataGridViewCellStyle8;
             this.dataGridView1.RowTemplate.Height = 24;
             this.dataGridView1.Size = new System.Drawing.Size(1246, 294);
             this.dataGridView1.TabIndex = 68;
@@ -339,8 +339,8 @@ namespace OrdenesEspeciales
             // 
             // Hole
             // 
-            dataGridViewCellStyle15.BackColor = System.Drawing.SystemColors.ActiveCaption;
-            this.Hole.DefaultCellStyle = dataGridViewCellStyle15;
+            dataGridViewCellStyle3.BackColor = System.Drawing.SystemColors.ActiveCaption;
+            this.Hole.DefaultCellStyle = dataGridViewCellStyle3;
             this.Hole.FillWeight = 106.484F;
             this.Hole.HeaderText = "Hole";
             this.Hole.MinimumWidth = 6;
@@ -348,8 +348,8 @@ namespace OrdenesEspeciales
             // 
             // Depth_From
             // 
-            dataGridViewCellStyle16.BackColor = System.Drawing.SystemColors.ActiveCaption;
-            this.Depth_From.DefaultCellStyle = dataGridViewCellStyle16;
+            dataGridViewCellStyle4.BackColor = System.Drawing.SystemColors.ActiveCaption;
+            this.Depth_From.DefaultCellStyle = dataGridViewCellStyle4;
             this.Depth_From.FillWeight = 106.484F;
             this.Depth_From.HeaderText = "Depth_From";
             this.Depth_From.MinimumWidth = 6;
@@ -357,8 +357,8 @@ namespace OrdenesEspeciales
             // 
             // Depth_to
             // 
-            dataGridViewCellStyle17.BackColor = System.Drawing.SystemColors.ActiveCaption;
-            this.Depth_to.DefaultCellStyle = dataGridViewCellStyle17;
+            dataGridViewCellStyle5.BackColor = System.Drawing.SystemColors.ActiveCaption;
+            this.Depth_to.DefaultCellStyle = dataGridViewCellStyle5;
             this.Depth_to.FillWeight = 106.484F;
             this.Depth_to.HeaderText = "Depth_to";
             this.Depth_to.MinimumWidth = 6;
@@ -366,8 +366,8 @@ namespace OrdenesEspeciales
             // 
             // Sample_Original
             // 
-            dataGridViewCellStyle18.BackColor = System.Drawing.SystemColors.ActiveCaption;
-            this.Sample_Original.DefaultCellStyle = dataGridViewCellStyle18;
+            dataGridViewCellStyle6.BackColor = System.Drawing.SystemColors.ActiveCaption;
+            this.Sample_Original.DefaultCellStyle = dataGridViewCellStyle6;
             this.Sample_Original.FillWeight = 106.484F;
             this.Sample_Original.HeaderText = "Sample_Original";
             this.Sample_Original.MinimumWidth = 6;
@@ -474,7 +474,7 @@ namespace OrdenesEspeciales
             // 
             // txtStatusDisp
             // 
-            this.txtStatusDisp.Location = new System.Drawing.Point(547, 22);
+            this.txtStatusDisp.Location = new System.Drawing.Point(528, 18);
             this.txtStatusDisp.Name = "txtStatusDisp";
             this.txtStatusDisp.Size = new System.Drawing.Size(269, 26);
             this.txtStatusDisp.TabIndex = 100;
@@ -543,9 +543,9 @@ namespace OrdenesEspeciales
             // lblUsu
             // 
             this.lblUsu.AutoSize = true;
-            this.lblUsu.Location = new System.Drawing.Point(831, 22);
+            this.lblUsu.Location = new System.Drawing.Point(810, 24);
             this.lblUsu.Name = "lblUsu";
-            this.lblUsu.Size = new System.Drawing.Size(78, 23);
+            this.lblUsu.Size = new System.Drawing.Size(62, 18);
             this.lblUsu.TabIndex = 103;
             this.lblUsu.Text = "label12";
             this.lblUsu.Visible = false;
@@ -566,6 +566,27 @@ namespace OrdenesEspeciales
             this.button9.TabIndex = 78;
             this.button9.UseVisualStyleBackColor = false;
             this.button9.Click += new System.EventHandler(this.button9_Click_1);
+            // 
+            // btnPasar
+            // 
+            this.btnPasar.BackColor = System.Drawing.SystemColors.HotTrack;
+            this.btnPasar.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnPasar.FlatAppearance.BorderSize = 0;
+            this.btnPasar.FlatAppearance.MouseOverBackColor = System.Drawing.Color.CornflowerBlue;
+            this.btnPasar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnPasar.Font = new System.Drawing.Font("Century Gothic", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnPasar.ForeColor = System.Drawing.Color.White;
+            this.btnPasar.Image = ((System.Drawing.Image)(resources.GetObject("btnPasar.Image")));
+            this.btnPasar.ImageAlign = System.Drawing.ContentAlignment.BottomCenter;
+            this.btnPasar.Location = new System.Drawing.Point(1111, 63);
+            this.btnPasar.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.btnPasar.Name = "btnPasar";
+            this.btnPasar.Size = new System.Drawing.Size(148, 64);
+            this.btnPasar.TabIndex = 67;
+            this.btnPasar.Text = "AGREGAR MUESTRAS";
+            this.btnPasar.TextAlign = System.Drawing.ContentAlignment.TopCenter;
+            this.btnPasar.UseVisualStyleBackColor = false;
+            this.btnPasar.Click += new System.EventHandler(this.button1_Click);
             // 
             // btnConsultar
             // 
@@ -592,33 +613,33 @@ namespace OrdenesEspeciales
             // 
             this.DgvSondajes.AllowUserToAddRows = false;
             this.DgvSondajes.AllowUserToDeleteRows = false;
-            dataGridViewCellStyle21.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            dataGridViewCellStyle21.Font = new System.Drawing.Font("Century Gothic", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle21.ForeColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle21.SelectionBackColor = System.Drawing.Color.SteelBlue;
-            dataGridViewCellStyle21.SelectionForeColor = System.Drawing.Color.Black;
-            this.DgvSondajes.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle21;
+            dataGridViewCellStyle9.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            dataGridViewCellStyle9.Font = new System.Drawing.Font("Century Gothic", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle9.ForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle9.SelectionBackColor = System.Drawing.Color.SteelBlue;
+            dataGridViewCellStyle9.SelectionForeColor = System.Drawing.Color.Black;
+            this.DgvSondajes.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle9;
             this.DgvSondajes.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.DgvSondajes.BackgroundColor = System.Drawing.Color.White;
-            dataGridViewCellStyle22.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle22.BackColor = System.Drawing.SystemColors.HotTrack;
-            dataGridViewCellStyle22.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle22.ForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle22.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle22.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle22.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.DgvSondajes.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle22;
+            dataGridViewCellStyle10.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle10.BackColor = System.Drawing.SystemColors.HotTrack;
+            dataGridViewCellStyle10.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle10.ForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle10.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle10.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle10.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.DgvSondajes.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle10;
             this.DgvSondajes.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.DgvSondajes.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.chk});
-            dataGridViewCellStyle23.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle23.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle23.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle23.ForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle23.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle23.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle23.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.DgvSondajes.DefaultCellStyle = dataGridViewCellStyle23;
+            dataGridViewCellStyle11.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle11.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle11.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle11.ForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle11.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle11.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle11.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.DgvSondajes.DefaultCellStyle = dataGridViewCellStyle11;
             this.DgvSondajes.EnableHeadersVisualStyles = false;
             this.DgvSondajes.GridColor = System.Drawing.Color.SteelBlue;
             this.DgvSondajes.Location = new System.Drawing.Point(13, 142);
@@ -626,12 +647,12 @@ namespace OrdenesEspeciales
             this.DgvSondajes.Name = "DgvSondajes";
             this.DgvSondajes.RowHeadersVisible = false;
             this.DgvSondajes.RowHeadersWidth = 51;
-            dataGridViewCellStyle24.BackColor = System.Drawing.Color.White;
-            dataGridViewCellStyle24.Font = new System.Drawing.Font("Century Gothic", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle24.ForeColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle24.SelectionBackColor = System.Drawing.Color.SteelBlue;
-            dataGridViewCellStyle24.SelectionForeColor = System.Drawing.Color.White;
-            this.DgvSondajes.RowsDefaultCellStyle = dataGridViewCellStyle24;
+            dataGridViewCellStyle12.BackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle12.Font = new System.Drawing.Font("Century Gothic", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle12.ForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle12.SelectionBackColor = System.Drawing.Color.SteelBlue;
+            dataGridViewCellStyle12.SelectionForeColor = System.Drawing.Color.White;
+            this.DgvSondajes.RowsDefaultCellStyle = dataGridViewCellStyle12;
             this.DgvSondajes.RowTemplate.Height = 24;
             this.DgvSondajes.Size = new System.Drawing.Size(1251, 244);
             this.DgvSondajes.TabIndex = 66;
@@ -641,27 +662,6 @@ namespace OrdenesEspeciales
             this.chk.HeaderText = "";
             this.chk.MinimumWidth = 6;
             this.chk.Name = "chk";
-            // 
-            // btnPasar
-            // 
-            this.btnPasar.BackColor = System.Drawing.SystemColors.HotTrack;
-            this.btnPasar.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnPasar.FlatAppearance.BorderSize = 0;
-            this.btnPasar.FlatAppearance.MouseOverBackColor = System.Drawing.Color.CornflowerBlue;
-            this.btnPasar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnPasar.Font = new System.Drawing.Font("Century Gothic", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnPasar.ForeColor = System.Drawing.Color.White;
-            this.btnPasar.Image = ((System.Drawing.Image)(resources.GetObject("btnPasar.Image")));
-            this.btnPasar.ImageAlign = System.Drawing.ContentAlignment.BottomCenter;
-            this.btnPasar.Location = new System.Drawing.Point(1111, 63);
-            this.btnPasar.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.btnPasar.Name = "btnPasar";
-            this.btnPasar.Size = new System.Drawing.Size(148, 64);
-            this.btnPasar.TabIndex = 67;
-            this.btnPasar.Text = "AGREGAR MUESTRAS";
-            this.btnPasar.TextAlign = System.Drawing.ContentAlignment.TopCenter;
-            this.btnPasar.UseVisualStyleBackColor = false;
-            this.btnPasar.Click += new System.EventHandler(this.button1_Click);
             // 
             // lblcant
             // 
@@ -692,7 +692,7 @@ namespace OrdenesEspeciales
             this.label13.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
             this.label13.Location = new System.Drawing.Point(13, 18);
             this.label13.Name = "label13";
-            this.label13.Size = new System.Drawing.Size(151, 26);
+            this.label13.Size = new System.Drawing.Size(121, 21);
             this.label13.TabIndex = 107;
             this.label13.Text = "Nuevo Tipo: *";
             this.label13.Click += new System.EventHandler(this.label13_Click);
@@ -785,22 +785,6 @@ namespace OrdenesEspeciales
             this.BtnNewSam2.UseVisualStyleBackColor = false;
             this.BtnNewSam2.Click += new System.EventHandler(this.BtnNewSam2_Click);
             // 
-            // BtnTipDup
-            // 
-            this.BtnTipDup.BackColor = System.Drawing.Color.Transparent;
-            this.BtnTipDup.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("BtnTipDup.BackgroundImage")));
-            this.BtnTipDup.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.BtnTipDup.FlatAppearance.BorderSize = 0;
-            this.BtnTipDup.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.BtnTipDup.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.BtnTipDup.Location = new System.Drawing.Point(1131, 36);
-            this.BtnTipDup.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.BtnTipDup.Name = "BtnTipDup";
-            this.BtnTipDup.Size = new System.Drawing.Size(45, 37);
-            this.BtnTipDup.TabIndex = 76;
-            this.BtnTipDup.UseVisualStyleBackColor = false;
-            this.BtnTipDup.Click += new System.EventHandler(this.button7_Click_1);
-            // 
             // button2
             // 
             this.button2.BackColor = System.Drawing.SystemColors.HotTrack;
@@ -821,6 +805,22 @@ namespace OrdenesEspeciales
             this.button2.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.button2.UseVisualStyleBackColor = false;
             this.button2.Click += new System.EventHandler(this.button2_Click);
+            // 
+            // BtnTipDup
+            // 
+            this.BtnTipDup.BackColor = System.Drawing.Color.Transparent;
+            this.BtnTipDup.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("BtnTipDup.BackgroundImage")));
+            this.BtnTipDup.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.BtnTipDup.FlatAppearance.BorderSize = 0;
+            this.BtnTipDup.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.BtnTipDup.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.BtnTipDup.Location = new System.Drawing.Point(1131, 36);
+            this.BtnTipDup.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.BtnTipDup.Name = "BtnTipDup";
+            this.BtnTipDup.Size = new System.Drawing.Size(45, 37);
+            this.BtnTipDup.TabIndex = 76;
+            this.BtnTipDup.UseVisualStyleBackColor = false;
+            this.BtnTipDup.Click += new System.EventHandler(this.button7_Click_1);
             // 
             // button4
             // 
@@ -865,7 +865,7 @@ namespace OrdenesEspeciales
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoSize = true;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(49)))), ((int)(((byte)(66)))), ((int)(((byte)(82)))));
-            this.ClientSize = new System.Drawing.Size(1294, 879);
+            this.ClientSize = new System.Drawing.Size(1293, 885);
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.groupBox1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;

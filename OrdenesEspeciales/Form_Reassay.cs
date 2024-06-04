@@ -492,73 +492,86 @@ namespace OrdenesEspeciales
 
         public void autoCompletar(TextBox cajaTexto)
         {
-
             try
             {
-
                 string query = "SELECT * FROM(SELECT SAMPLE_NUMBER " +
-                    "FROM HOLE_ASSAY_SAMPLE WHERE HOLE_NUMBER NOT LIKE '@%'" +
-                    "UNION SELECT SAMPLE_NUMBER FROM HOLE_ASSAY_STANDARDS WHERE HOLE_NUMBER NOT LIKE '@%'" +
-                    "UNION SELECT sample_number FROM sstn_surface_samples UNION SELECT sample_number FROM DHL_SAMPLE_DISPATCH_SAMPLES) AS A WHERE ISNUMERIC(SAMPLE_NUMBER) <> 0 " +
-                    "AND SAMPLE_NUMBER like ?  GROUP BY SAMPLE_NUMBER";
-                OdbcCommand command = new OdbcCommand(query, con);
-                // command.Parameters.AddWithValue("@dispatchNumber", txtDispatch.Text + "%");
+                               "FROM HOLE_ASSAY_SAMPLE WHERE HOLE_NUMBER NOT LIKE '@%'" +
+                               "UNION SELECT SAMPLE_NUMBER FROM HOLE_ASSAY_STANDARDS WHERE HOLE_NUMBER NOT LIKE '@%'" +
+                               "UNION SELECT sample_number FROM sstn_surface_samples UNION SELECT sample_number FROM DHL_SAMPLE_DISPATCH_SAMPLES) AS A WHERE ISNUMERIC(SAMPLE_NUMBER) <> 0 " +
+                               "AND SAMPLE_NUMBER like ?  GROUP BY SAMPLE_NUMBER";
 
-                OdbcParameter param2 = new OdbcParameter("@param2", OdbcType.VarChar);
-                param2.Value = txt_newsample.Text + "%";
-                command.Parameters.Add(param2);
-
-
-                OdbcDataReader reader = command.ExecuteReader();
-                var source = new AutoCompleteStringCollection();
-                while (reader.Read())
+                using (OdbcCommand command = new OdbcCommand(query, con))
                 {
-                    source.Add(reader["SAMPLE_NUMBER"].ToString());
+                    OdbcParameter param2 = new OdbcParameter("@param2", OdbcType.VarChar);
+                    param2.Value = txt_newsample.Text + "%";
+                    command.Parameters.Add(param2);
+
+                    if (con.State == System.Data.ConnectionState.Closed)
+                    {
+                        con.Open();
+                    }
+
+                    using (OdbcDataReader reader = command.ExecuteReader())
+                    {
+                        var source = new AutoCompleteStringCollection();
+                        while (reader.Read())
+                        {
+                            source.Add(reader["SAMPLE_NUMBER"].ToString());
+                        }
+                        cajaTexto.AutoCompleteCustomSource = source;
+                    }
                 }
-                reader.Close();
-                cajaTexto.AutoCompleteCustomSource = source;
-
-
-                command.Dispose();
-
-
             }
             catch (Exception ex)
             {
-                MessageBox.Show("No se pudo autocompletar el Textbox :" + ex.ToString());
+                MessageBox.Show("No se pudo autocompletar el Textbox: " + ex.ToString());
             }
-
+            finally
+            {
+                if (con.State == System.Data.ConnectionState.Open)
+                {
+                    con.Close();
+                }
+            }
         }
         public void autoCompletar1(TextBox cajaTexto1)
         {
             try
             {
-
                 string query = "SELECT dispatch_number FROM DHL_SAMPLE_DISPATCH_HEADER WHERE dispatch_number LIKE ? GROUP BY dispatch_number ORDER BY dispatch_number DESC";
-                OdbcCommand command = new OdbcCommand(query, con);
-                // command.Parameters.AddWithValue("@dispatchNumber", txtDispatch.Text + "%");
 
-                OdbcParameter param1 = new OdbcParameter("@param1", OdbcType.VarChar);
-                param1.Value = txtDispatch.Text + "%";
-                command.Parameters.Add(param1);
-
-
-                OdbcDataReader reader = command.ExecuteReader();
-                var source = new AutoCompleteStringCollection();
-                while (reader.Read())
+                using (OdbcCommand command = new OdbcCommand(query, con))
                 {
-                    source.Add(reader["dispatch_number"].ToString());
+                    OdbcParameter param1 = new OdbcParameter("@param1", OdbcType.VarChar);
+                    param1.Value = txtDispatch.Text + "%";
+                    command.Parameters.Add(param1);
+
+                    if (con.State == System.Data.ConnectionState.Closed)
+                    {
+                        con.Open();
+                    }
+
+                    using (OdbcDataReader reader = command.ExecuteReader())
+                    {
+                        var source = new AutoCompleteStringCollection();
+                        while (reader.Read())
+                        {
+                            source.Add(reader["dispatch_number"].ToString());
+                        }
+                        cajaTexto1.AutoCompleteCustomSource = source;
+                    }
                 }
-                reader.Close();
-                cajaTexto1.AutoCompleteCustomSource = source;
-
-
-                command.Dispose();
-
             }
             catch (Exception ex)
             {
-                MessageBox.Show("No se pudo autocompletar el Textbox :" + ex.ToString());
+                MessageBox.Show("No se pudo autocompletar el Textbox: " + ex.ToString());
+            }
+            finally
+            {
+                if (con.State == System.Data.ConnectionState.Open)
+                {
+                    con.Close();
+                }
             }
         }
         public void insert_general()
