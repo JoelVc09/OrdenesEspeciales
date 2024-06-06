@@ -26,6 +26,7 @@ using BarcodeLib;
 using System.Drawing.Configuration;
 using iText.Layout.Properties;
 using ZXing;
+using Org.BouncyCastle.Math;
 
 
 
@@ -75,7 +76,7 @@ namespace OrdenesEspeciales
                 string numeroDespacho = codPreparacion.Text;
 
 
-                string query = "Select CODE_PREP, CAST(BH_ID AS INT), MUESTRA_CONTROL, BH_PARENT, PROYECTO_GEOLOGIA, SAMPLE_CODE TAJO, FASE, FECHA_ENTREGA, HORA_ENTREGA from UDEF_ORDER_PREP WHERE CODE_PREP = ? ";
+                string query = "Select CODE_PREP,  SAMPLE_CODE, CAST(BH_ID AS INT) AS BH_ID, MUESTRA_CONTROL, BH_PARENT, PROYECTO_GEOLOGIA, TAJO, FASE, FECHA_ENTREGA, HORA_ENTREGA from UDEF_ORDER_PREP WHERE CODE_PREP = ? ORDER BY CASE WHEN SAMPLE_CODE IS NULL THEN 0 ELSE 1 END, CASE WHEN MUESTRA_CONTROL IS NULL THEN 0 ELSE 1 END, SAMPLE_CODE;";
 
 
                 OdbcCommand command = new OdbcCommand(query, con);
@@ -375,14 +376,15 @@ namespace OrdenesEspeciales
                     // Copia los valores de las dos primeras celdas del Dgv_Consulta
                     Dgv_Orden.Rows[rowIndex].Cells["Item"].Value = filaDgvConsulta.Cells[0].Value;
                     Dgv_Orden.Rows[rowIndex].Cells["Cod_Prep"].Value = filaDgvConsulta.Cells[1].Value;
-                    Dgv_Orden.Rows[rowIndex].Cells["blasthole"].Value = filaDgvConsulta.Cells[2].Value;
-                    Dgv_Orden.Rows[rowIndex].Cells["Control"].Value = filaDgvConsulta.Cells[3].Value;
-                    Dgv_Orden.Rows[rowIndex].Cells["parent"].Value = filaDgvConsulta.Cells[4].Value;
-                    Dgv_Orden.Rows[rowIndex].Cells["Proyecto_geologia"].Value = filaDgvConsulta.Cells[5].Value;
-                    Dgv_Orden.Rows[rowIndex].Cells["Tajo"].Value = filaDgvConsulta.Cells[6].Value;
-                    Dgv_Orden.Rows[rowIndex].Cells["Fase"].Value = filaDgvConsulta.Cells[7].Value;
-                    Dgv_Orden.Rows[rowIndex].Cells["Fecha_Entrega"].Value = filaDgvConsulta.Cells[8].Value;
-                    Dgv_Orden.Rows[rowIndex].Cells["Hora_Entrega"].Value = filaDgvConsulta.Cells[9].Value;
+                    Dgv_Orden.Rows[rowIndex].Cells["sample_code"].Value = filaDgvConsulta.Cells[2].Value;
+                    Dgv_Orden.Rows[rowIndex].Cells["blasthole"].Value = filaDgvConsulta.Cells[3].Value;
+                    Dgv_Orden.Rows[rowIndex].Cells["Control"].Value = filaDgvConsulta.Cells[4].Value;
+                    Dgv_Orden.Rows[rowIndex].Cells["parent"].Value = filaDgvConsulta.Cells[5].Value;
+                    Dgv_Orden.Rows[rowIndex].Cells["Proyecto_geologia"].Value = filaDgvConsulta.Cells[6].Value;
+                    Dgv_Orden.Rows[rowIndex].Cells["Tajo"].Value = filaDgvConsulta.Cells[7].Value;
+                    Dgv_Orden.Rows[rowIndex].Cells["Fase"].Value = filaDgvConsulta.Cells[8].Value;
+                    Dgv_Orden.Rows[rowIndex].Cells["Fecha_Entrega"].Value = filaDgvConsulta.Cells[9].Value;
+                    Dgv_Orden.Rows[rowIndex].Cells["Hora_Entrega"].Value = filaDgvConsulta.Cells[10].Value;
 
 
                     // Establece el valor de la columna "NuevaColumna" en el Dgv_Orden
@@ -420,7 +422,7 @@ namespace OrdenesEspeciales
                 // Llenar la columna CodMuestra del Dgv_Orden con el número capturado y sumado 1
                 foreach (DataGridViewRow row in Dgv_Orden.Rows)
                 {
-                    row.Cells["CodMuestra"].Value = numero.ToString();
+                    row.Cells["CodAnalisis"].Value = numero.ToString();
                     numero++;
                 }
 
@@ -560,7 +562,7 @@ namespace OrdenesEspeciales
                 }
 
                 // Define tu consulta SQL
-                string query = "select max(SAMPLE_NUMBER) from DHL_SAMPLE_DISPATCH_SAMPLES where SAMPLE_NUMBER not like '%E%' and SAMPLE_NUMBER not like '%A%'";
+                string query = "select max(SAMPLE_NUMBER) from DHL_SAMPLE_DISPATCH_SAMPLES where SAMPLE_NUMBER not like '%E%' and SAMPLE_NUMBER not like '%A%' and SAMPLE_NUMBER like '24%'";
 
                 // Crear el comando SQL
                 using (OdbcCommand command = new OdbcCommand(query, con))
@@ -654,15 +656,23 @@ namespace OrdenesEspeciales
 
         private void btn_crear_Click(object sender, EventArgs e)
         {
-            
-            recibir_datos1();
-            //AgregarColumnasCheckBoxAdicionales();
-            //cargar_duplicado();
-            cargar_CBlanco();
 
-            lblcount.Text = Dgv_Orden.Rows.Count.ToString();
-            
-            btnFillConsecutive_Click();
+            if (cbo_Laborat.SelectedIndex > 0)
+            {
+                // Ejecutar los métodos solo si se ha seleccionado un valor en cbo_Laborat
+                //InsertarDatosDispatch_Header();
+                recibir_datos1();
+                //AgregarColumnasCheckBoxAdicionales();
+                //cargar_duplicado();
+                cargar_CBlanco();
+                lblcount.Text = Dgv_Orden.Rows.Count.ToString();
+                btnFillConsecutive_Click();
+                UpdateLabels();
+            }
+            else
+            {
+                MessageBox.Show("Seleccione laboratorio");
+            }
 
         }
 
@@ -894,7 +904,7 @@ namespace OrdenesEspeciales
                 // Crear la fila de la tabla HTML
                 filas += "<tr>";
                 filas += "<td>" + (row.Cells["Item"].Value ?? "").ToString() + "</td>";
-                filas += "<td>" + (row.Cells["CodMuestra"].Value ?? "").ToString() + "</td>";
+                filas += "<td>" + (row.Cells["CodAnalisis"].Value ?? "").ToString() + "</td>";
                 filas += "<td>" + (row.Cells["Control"].Value ?? "").ToString() + "</td>";
                 filas += "<td>" + (isCheckedCuTot ? "SI" : "NO") + "</td>";
                 filas += "<td>" + (isCheckedCuOx ? "SI" : "NO") + "</td>";
@@ -957,38 +967,63 @@ namespace OrdenesEspeciales
 
         private void ComboBox_SelectedIndexChanged(object sender, EventArgs e)
         {
+            // Verificar que el sender sea un ComboBox y que tenga un elemento seleccionado
             if (sender is System.Windows.Forms.ComboBox comboBox && comboBox.SelectedItem != null)
             {
+                // Obtener la fila actual del DataGridView
                 DataGridViewRow currentRow = Dgv_Orden.CurrentRow;
 
-                if (comboBox.SelectedItem.ToString() == "Duplicado Original" && currentRow != null)
+                // Verificar que la fila actual no sea nula
+                if (currentRow != null)
                 {
-                    // Obtener el valor de CodMuestra en la fila actual
-                    string codMuestraValue = currentRow.Cells["blasthole"].Value?.ToString();
+                    // Obtener el valor seleccionado en el ComboBox
+                    string selectedValue = comboBox.SelectedItem.ToString();
 
-                    // Asignar el valor de CodMuestra a la columna parent
-                    //currentRow.Cells["parent"].Value = codMuestraValue;
-
-                    // Generar 3 filas automáticamente con el mismo CodMuestra en la columna parent
-                    for (int i = 0; i < 3; i++)
+                    // Condiciones para cada valor seleccionado en el ComboBox
+                    switch (selectedValue)
                     {
-                        int newRowIndex = Dgv_Orden.Rows.Add();
-                        DataGridViewRow newRow = Dgv_Orden.Rows[newRowIndex];
-                        newRow.Cells["parent"].Value = codMuestraValue;
-                        newRow.Cells["blasthole"].Value = codMuestraValue; // Si quieres también copiar CodMuestra
+                        case "Duplicado Original":
+                            // Obtener el valor de la celda "sample_code" en la fila actual
+                            string codMuestraValue = currentRow.Cells["sample_code"].Value?.ToString();
+
+                            // Generar 3 nuevas filas con el mismo CodMuestra en la columna "parent"
+                            for (int i = 0; i < 3; i++)
+                            {
+                                int newRowIndex = Dgv_Orden.Rows.Add();
+                                DataGridViewRow newRow = Dgv_Orden.Rows[newRowIndex];
+                                newRow.Cells["parent"].Value = codMuestraValue;
+                                // Descomentar la siguiente línea si quieres también copiar CodMuestra
+                                // newRow.Cells["sample_code"].Value = codMuestraValue;
+                            }
+
+                            // Enumerar las filas en la columna "item"
+                            for (int i = 0; i < Dgv_Orden.Rows.Count; i++)
+                            {
+                                Dgv_Orden.Rows[i].Cells["item"].Value = (i + 1).ToString();
+                            }
+
+                            // Llamar al método btnFillConsecutive_Click() si es necesario
+                            btnFillConsecutive_Click();
+
+                            // Actualizar el label lblcount con el conteo de filas
+                            lblcount.Text = Dgv_Orden.Rows.Count.ToString();
+                            break;
+
+                        case "Duplicado Campo":
+                            // Asignar el valor "MDC" a la columna "Control" en la fila actual
+                            currentRow.Cells["Control"].Value = "MDC";
+                            break;
+
+                        case "Duplicado Grueso":
+                            // Asignar el valor "MDG" a la columna "Control" en la fila actual
+                            currentRow.Cells["Control"].Value = "MDG";
+                            break;
+
+                        case "Duplicado Fino":
+                            // Asignar el valor "MDF" a la columna "Control" en la fila actual
+                            currentRow.Cells["Control"].Value = "MDF";
+                            break;
                     }
-
-                    // Enumerar las filas en la columna "item"
-                    for (int i = 0; i < Dgv_Orden.Rows.Count; i++)
-                    {
-                        Dgv_Orden.Rows[i].Cells["item"].Value = (i + 1).ToString();
-                    }
-
-                    // Llamar al método btnFillConsecutive_Click() si es necesario
-                    btnFillConsecutive_Click();
-
-                    // Actualizar el label lblcount con el conteo de filas
-                    lblcount.Text = Dgv_Orden.Rows.Count.ToString();
                 }
             }
         }
@@ -1001,7 +1036,7 @@ namespace OrdenesEspeciales
                 string selectedValue = Dgv_Orden.Rows[e.RowIndex].Cells["MCtrl"].Value?.ToString();
                 if (selectedValue == "Duplicado Original")
                 {
-                    string codMuestraValue = Dgv_Orden.Rows[e.RowIndex].Cells["CodMuestra"].Value?.ToString();
+                    string codMuestraValue = Dgv_Orden.Rows[e.RowIndex].Cells["CodAnalisis"].Value?.ToString();
                     Dgv_Orden.Rows[e.RowIndex].Cells["parent"].Value = codMuestraValue;
                 }
             }
@@ -1216,7 +1251,7 @@ namespace OrdenesEspeciales
                     {
                         if (!row.IsNewRow)
                         {
-                            string codigo = row.Cells["CodMuestra"].Value.ToString();
+                            string codigo = row.Cells["CodAnalisis"].Value.ToString();
                             string blasHole = row.Cells["blasthole"].Value.ToString();
 
                             // Generar el código de barras
@@ -1411,6 +1446,176 @@ namespace OrdenesEspeciales
         private void comboBox2_SelectedIndexChanged(object sender, EventArgs e)
         {
 
+        }
+        // INSERTAR A DHL_SAMPLE_DISPATCH_HEADER  
+        public void InsertarDatosDispatch_Header()
+        {
+            try
+            {
+                string valorOrden = txt_Orden.Text; // Obtener el valor del TextBox
+
+                string query = $"INSERT INTO DHL_SAMPLE_DISPATCH_HEADER(dispatch_number) VALUES ('{valorOrden}')";
+
+                // Crear y configurar el comando SQL
+                using (OdbcCommand command = new OdbcCommand(query, con))
+                {
+                    // Abrir la conexión si está cerrada
+                    if (con.State == ConnectionState.Closed)
+                    {
+                        con.Open();
+                    }
+
+                    // Ejecutar la consulta de inserción
+                    int rowsAffected = command.ExecuteNonQuery();
+
+                    // Verificar si se insertaron filas y mostrar un mensaje
+                    if (rowsAffected > 0)
+                    {
+                        MessageBox.Show("Código de orden creado");
+                    }
+                    else
+                    {
+                        MessageBox.Show("No se pudo insertar los datos.");
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error al insertar datos: " + ex.Message);
+            }
+            finally
+            {
+                // Cerrar la conexión al finalizar
+                if (con.State == ConnectionState.Open)
+                {
+                    con.Close();
+                }
+            }
+        }
+
+        // INSERTAR A MODULAR SAMPLE  
+
+        public void InsertIntoModularSamples()
+        {
+            // Obtener el valor del TextBox y del ComboBox
+            //string valorOrden = txt_Orden.Text;
+            string geolo = cbProyectoGeolo.SelectedValue.ToString();
+
+            // Aquí deberías ejecutar la consulta para obtener el valor de codGui
+            //string codGui = ""; // Ejemplo de resultado de la consulta
+            string codGui = $"select distinct(a1.BLASTHOLE_guid) from UDEF_BLASTHOLE as a1 inner join UDEF_LOG_BLASTHOLE as a2 ON a1.BLASTHOLE_guid = a2.BLASTHOLE_GUID where a2.PROYECTO_GEOLOGIA = '{geolo}'";
+
+            // Capturar el usuario
+
+            string usuario = $"DECLARE @sys_usr CHAR(30); SET @sys_usr = SYSTEM_USER; SELECT @sys_usr;";
+
+            try
+            {
+                // Abrir la conexión si está cerrada
+                if (con.State == ConnectionState.Closed)
+                {
+                    con.Open();
+                }
+
+                foreach (DataGridViewRow row in Dgv_Orden.Rows)
+                {
+                    if (row.IsNewRow) continue; // Saltar la fila de nueva inserción del DataGridView
+
+                    // Obtener valores de cada fila del DataGridView
+                    string sampleNumber = row.Cells["CodAnalisis"].Value?.ToString();
+                    string moduleName = "BLASTHOLE"; // Valor fijo
+                    string assaySampleTypeCode = row.Cells["Control"].Value?.ToString() ?? "Assay";
+                    string parentSampleNumber = row.Cells["Parent"].Value?.ToString();
+                    string dateShipped = DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss");
+                    string statusCode = "Logged"; // Valor fijo
+                    string sampleDispatched = "N"; // Valor fijo
+                    string numberOfBags = "1"; // Valor fijo
+                    string lastModifiedBy = usuario; // Nombre del usuario que ejecuta la aplicación
+                    string lastModifiedDateTime = DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss");
+                    string isMaster = "Y"; // Valor fijo
+                    string bhId = row.Cells["Blasthole"].Value?.ToString();
+                    string sampleCode = row.Cells["Sample_Code"].Value?.ToString();
+
+                    // Construir la consulta de inserción
+                    string insertQuery = "INSERT INTO modular_samples(sample_number, standalone_guid, module_name, assay_sample_type_code, parent_sample_number, date_shipped, status_code, sample_dispatched, number_of_bags, last_modified_by, last_modified_date_time, is_master, PROYECTO_GEOLOGIA, BH_ID, SAMPLE_CODE) " +
+                                         "VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
+
+                    try
+                    {
+                        // Configurar el comando de inserción
+                        using (OdbcCommand cmd = new OdbcCommand(insertQuery, con))
+                        {
+                            cmd.Parameters.AddWithValue("@sample_number", sampleNumber);
+                            cmd.Parameters.AddWithValue("@standalone_guid", codGui);
+                            cmd.Parameters.AddWithValue("@module_name", moduleName);
+                            cmd.Parameters.AddWithValue("@assay_sample_type_code", assaySampleTypeCode);
+                            cmd.Parameters.AddWithValue("@parent_sample_number", parentSampleNumber);
+                            cmd.Parameters.AddWithValue("@date_shipped", dateShipped);
+                            cmd.Parameters.AddWithValue("@status_code", statusCode);
+                            cmd.Parameters.AddWithValue("@sample_dispatched", sampleDispatched);
+                            cmd.Parameters.AddWithValue("@number_of_bags", numberOfBags);
+                            cmd.Parameters.AddWithValue("@last_modified_by", lastModifiedBy);
+                            cmd.Parameters.AddWithValue("@last_modified_date_time", lastModifiedDateTime);
+                            cmd.Parameters.AddWithValue("@is_master", isMaster);
+                            cmd.Parameters.AddWithValue("@PROYECTO_GEOLOGIA", geolo);
+                            cmd.Parameters.AddWithValue("@BH_ID", bhId);
+                            cmd.Parameters.AddWithValue("@SAMPLE_CODE", sampleCode);
+
+                            // Ejecutar el comando de inserción
+                            cmd.ExecuteNonQuery();
+                        }
+                    }
+                    catch (OdbcException ex)
+                    {
+                        MessageBox.Show("Ocurrió un error al insertar: " + ex.Message);
+                    }
+                }
+
+                MessageBox.Show("Datos Insertados");
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error al insertar datos: " + ex.Message);
+            }
+            finally
+            {
+                // Cerrar la conexión al finalizar
+                if (con.State == ConnectionState.Open)
+                {
+                    con.Close();
+                }
+            }
+        }
+
+
+
+
+
+        //-----------------------------------------------------
+        private void label11_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        // DAR EL VALOR A GEOLOGIA Y PREPARACIÓN
+        private void UpdateLabels()
+        {
+            // Capturar el valor seleccionado en el ComboBox cbProyectoGeolo
+            string selectedProyectoGeolo = cbProyectoGeolo.SelectedValue?.ToString();
+
+            // Asignar el valor al Label lbProyGeolo
+            lbProyGeolo.Text = selectedProyectoGeolo;
+
+            // Capturar el valor seleccionado en el ComboBox cbCodPreparacion
+            string selectedCodPreparacion = codPreparacion.SelectedValue?.ToString();
+
+            // Asignar el valor al Label lbCodPrep
+            lbCodPrep.Text = selectedCodPreparacion;
+        }
+
+        private void guardar_bd_Click(object sender, EventArgs e)
+        {
+            InsertIntoModularSamples();
         }
     }
 }
