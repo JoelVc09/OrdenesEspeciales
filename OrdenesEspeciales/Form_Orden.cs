@@ -664,7 +664,7 @@ namespace OrdenesEspeciales
                 recibir_datos1();
                 //AgregarColumnasCheckBoxAdicionales();
                 //cargar_duplicado();
-                cargar_CBlanco();
+                //cargar_CBlanco();
                 lblcount.Text = Dgv_Orden.Rows.Count.ToString();
                 btnFillConsecutive_Click();
                 UpdateLabels();
@@ -1081,7 +1081,11 @@ namespace OrdenesEspeciales
                     MessageBox.Show("Debe seleccionar un valor del campo 'MCtrl'.");
                     return;
                 }
-
+                if (cbo_CtrlB.SelectedItem.ToString() == "Seleccionar")
+                {
+                    MessageBox.Show("Debe seleccionar un valor del campo 'MCtrl'.");
+                    return;
+                }
                 int rowIndex = -1;
                 foreach (DataGridViewRow row in Dgv_Orden.Rows)
                 {
@@ -1108,7 +1112,7 @@ namespace OrdenesEspeciales
                 }
 
                 DataGridViewRow newRow = Dgv_Orden.Rows[rowIndex];
-                newRow.Cells["Control"].Value = cbo_CtrlB.SelectedValue.ToString();
+                newRow.Cells["Control"].Value = cbo_CtrlB.SelectedItem?.ToString();
 
 
 
@@ -1493,21 +1497,14 @@ namespace OrdenesEspeciales
             }
         }
 
-        // INSERTAR A MODULAR SAMPLE  
+        // INSERTAR A MODULAR SAMPLE
 
         public void InsertIntoModularSamples()
         {
             // Obtener el valor del TextBox y del ComboBox
-            //string valorOrden = txt_Orden.Text;
             string geolo = cbProyectoGeolo.SelectedValue.ToString();
 
-            // Aquí deberías ejecutar la consulta para obtener el valor de codGui
-            //string codGui = ""; // Ejemplo de resultado de la consulta
-            string codGui = $"select distinct(a1.BLASTHOLE_guid) from UDEF_BLASTHOLE as a1 inner join UDEF_LOG_BLASTHOLE as a2 ON a1.BLASTHOLE_guid = a2.BLASTHOLE_GUID where a2.PROYECTO_GEOLOGIA = '{geolo}'";
-
-            // Capturar el usuario
-
-            string usuario = $"DECLARE @sys_usr CHAR(30); SET @sys_usr = SYSTEM_USER; SELECT @sys_usr;";
+            string codGui = string.Empty;
 
             try
             {
@@ -1517,6 +1514,40 @@ namespace OrdenesEspeciales
                     con.Open();
                 }
 
+                // Ejecutar la consulta para obtener el valor de codGui
+                string codGuiQuery = $"SELECT DISTINCT a1.BLASTHOLE_guid " +
+                                     $"FROM UDEF_BLASTHOLE AS a1 " +
+                                     $"INNER JOIN UDEF_LOG_BLASTHOLE AS a2 " +
+                                     $"ON a1.BLASTHOLE_guid = a2.BLASTHOLE_GUID " +
+                                     $"WHERE a2.PROYECTO_GEOLOGIA = ?";
+
+                using (OdbcCommand cmd = new OdbcCommand(codGuiQuery, con))
+                {
+                    cmd.Parameters.AddWithValue("@PROYECTO_GEOLOGIA", geolo);
+                    using (OdbcDataReader reader = cmd.ExecuteReader())
+                    {
+                        if (reader.Read())
+                        {
+                            codGui = reader["BLASTHOLE_guid"].ToString();
+                        }
+                    }
+                }
+
+                // Ejecutar para obtener el usuario 
+                string lastModifiedByQuery = "SELECT SUSER_SNAME() AS CurrentUser";
+                string lastModifiedBy = string.Empty;
+
+                using (OdbcCommand cmd = new OdbcCommand(lastModifiedByQuery, con))
+                {
+                    using (OdbcDataReader reader = cmd.ExecuteReader())
+                    {
+                        if (reader.Read())
+                        {
+                            lastModifiedBy = reader["CurrentUser"].ToString();
+                        }
+                    }
+                }
+
                 foreach (DataGridViewRow row in Dgv_Orden.Rows)
                 {
                     if (row.IsNewRow) continue; // Saltar la fila de nueva inserción del DataGridView
@@ -1524,45 +1555,72 @@ namespace OrdenesEspeciales
                     // Obtener valores de cada fila del DataGridView
                     string sampleNumber = row.Cells["CodAnalisis"].Value?.ToString();
                     string moduleName = "BLASTHOLE"; // Valor fijo
-                    string assaySampleTypeCode = row.Cells["Control"].Value?.ToString() ?? "Assay";
+                    string assaySampleTypeCode = row.Cells["Control"].Value?.ToString();
+                    if (string.IsNullOrEmpty(assaySampleTypeCode) || new[] { "MB 105", "MC 401", "MC 402", "MC 403", "MC 976" }.Contains(assaySampleTypeCode))
+                    {
+                        assaySampleTypeCode = "ASSAY";
+                    }
                     string parentSampleNumber = row.Cells["Parent"].Value?.ToString();
                     string dateShipped = DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss");
                     string statusCode = "Logged"; // Valor fijo
                     string sampleDispatched = "N"; // Valor fijo
-                    string numberOfBags = "1"; // Valor fijo
-                    string lastModifiedBy = usuario; // Nombre del usuario que ejecuta la aplicación
+                    int numberOfBags = 1; // Valor fijo
                     string lastModifiedDateTime = DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss");
                     string isMaster = "Y"; // Valor fijo
                     string bhId = row.Cells["Blasthole"].Value?.ToString();
                     string sampleCode = row.Cells["Sample_Code"].Value?.ToString();
 
-                    // Construir la consulta de inserción
+                    // Construir la consulta de inserción para modular_samples
                     string insertQuery = "INSERT INTO modular_samples(sample_number, standalone_guid, module_name, assay_sample_type_code, parent_sample_number, date_shipped, status_code, sample_dispatched, number_of_bags, last_modified_by, last_modified_date_time, is_master, PROYECTO_GEOLOGIA, BH_ID, SAMPLE_CODE) " +
                                          "VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
 
                     try
                     {
                         // Configurar el comando de inserción
-                        using (OdbcCommand cmd = new OdbcCommand(insertQuery, con))
+                        using (OdbcCommand insertCmd = new OdbcCommand(insertQuery, con))
                         {
-                            cmd.Parameters.AddWithValue("@sample_number", sampleNumber);
-                            cmd.Parameters.AddWithValue("@standalone_guid", codGui);
-                            cmd.Parameters.AddWithValue("@module_name", moduleName);
-                            cmd.Parameters.AddWithValue("@assay_sample_type_code", assaySampleTypeCode);
-                            cmd.Parameters.AddWithValue("@parent_sample_number", parentSampleNumber);
-                            cmd.Parameters.AddWithValue("@date_shipped", dateShipped);
-                            cmd.Parameters.AddWithValue("@status_code", statusCode);
-                            cmd.Parameters.AddWithValue("@sample_dispatched", sampleDispatched);
-                            cmd.Parameters.AddWithValue("@number_of_bags", numberOfBags);
-                            cmd.Parameters.AddWithValue("@last_modified_by", lastModifiedBy);
-                            cmd.Parameters.AddWithValue("@last_modified_date_time", lastModifiedDateTime);
-                            cmd.Parameters.AddWithValue("@is_master", isMaster);
-                            cmd.Parameters.AddWithValue("@PROYECTO_GEOLOGIA", geolo);
-                            cmd.Parameters.AddWithValue("@BH_ID", bhId);
-                            cmd.Parameters.AddWithValue("@SAMPLE_CODE", sampleCode);
+                            insertCmd.Parameters.AddWithValue("@sample_number", sampleNumber ?? (object)DBNull.Value);
+                            insertCmd.Parameters.AddWithValue("@standalone_guid", codGui ?? (object)DBNull.Value);
+                            insertCmd.Parameters.AddWithValue("@module_name", moduleName);
+                            insertCmd.Parameters.AddWithValue("@assay_sample_type_code", assaySampleTypeCode ?? (object)DBNull.Value);
+                            insertCmd.Parameters.AddWithValue("@parent_sample_number", parentSampleNumber ?? (object)DBNull.Value);
+                            insertCmd.Parameters.AddWithValue("@date_shipped", dateShipped);
+                            insertCmd.Parameters.AddWithValue("@status_code", statusCode);
+                            insertCmd.Parameters.AddWithValue("@sample_dispatched", sampleDispatched);
+                            insertCmd.Parameters.AddWithValue("@number_of_bags", numberOfBags);
+                            insertCmd.Parameters.AddWithValue("@last_modified_by", lastModifiedBy ?? (object)DBNull.Value);
+                            insertCmd.Parameters.AddWithValue("@last_modified_date_time", lastModifiedDateTime);
+                            insertCmd.Parameters.AddWithValue("@is_master", isMaster);
+                            insertCmd.Parameters.AddWithValue("@PROYECTO_GEOLOGIA", geolo ?? (object)DBNull.Value);
+                            insertCmd.Parameters.AddWithValue("@BH_ID", bhId ?? (object)DBNull.Value);
+                            insertCmd.Parameters.AddWithValue("@SAMPLE_CODE", sampleCode ?? (object)DBNull.Value);
 
                             // Ejecutar el comando de inserción
-                            cmd.ExecuteNonQuery();
+                            insertCmd.ExecuteNonQuery();
+                        }
+
+                        // Insertar en HOLE_ASSAY_STANDARDS si el valor de 'Control' es uno de los especificados
+                        if (new[] { "MB 105", "MC 401", "MC 402", "MC 403", "MC 976" }.Contains(row.Cells["Control"].Value?.ToString()))
+                        {
+                            string insertHoleAssayQuery = "INSERT INTO HOLE_ASSAY_STANDARDS(sample_number, assay_standard_code, hole_number, date_shipped, last_modified_by, last_modified_date_time, is_master, sample_dispatched, standalone_guid, module_name) " +
+                                                          "VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
+
+                            using (OdbcCommand insertHoleAssayCmd = new OdbcCommand(insertHoleAssayQuery, con))
+                            {
+                                insertHoleAssayCmd.Parameters.AddWithValue("@sample_number", sampleNumber ?? (object)DBNull.Value);
+                                insertHoleAssayCmd.Parameters.AddWithValue("@assay_standard_code", row.Cells["Control"].Value?.ToString() ?? (object)DBNull.Value);
+                                insertHoleAssayCmd.Parameters.AddWithValue("@hole_number", bhId ?? (object)DBNull.Value);
+                                insertHoleAssayCmd.Parameters.AddWithValue("@date_shipped", dateShipped);
+                                insertHoleAssayCmd.Parameters.AddWithValue("@last_modified_by", lastModifiedBy ?? (object)DBNull.Value);
+                                insertHoleAssayCmd.Parameters.AddWithValue("@last_modified_date_time", lastModifiedDateTime);
+                                insertHoleAssayCmd.Parameters.AddWithValue("@is_master", isMaster);
+                                insertHoleAssayCmd.Parameters.AddWithValue("@sample_dispatched", sampleDispatched);
+                                insertHoleAssayCmd.Parameters.AddWithValue("@standalone_guid", codGui ?? (object)DBNull.Value);
+                                insertHoleAssayCmd.Parameters.AddWithValue("@module_name", moduleName);
+
+                                // Ejecutar el comando de inserción
+                                insertHoleAssayCmd.ExecuteNonQuery();
+                            }
                         }
                     }
                     catch (OdbcException ex)
@@ -1589,6 +1647,8 @@ namespace OrdenesEspeciales
 
 
 
+
+        //INSERTAR A 
 
 
         //-----------------------------------------------------
