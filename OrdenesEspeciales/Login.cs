@@ -55,7 +55,7 @@ namespace OrdenesEspeciales
             if (conexionExitosa)
             {
                 // La conexión se estableció correctamente
-                MessageBox.Show("Conexión exitosa", "Éxito", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                //MessageBox.Show("Conexión exitosa", "Éxito", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
                 // Abrir el nuevo formulario
                 Menu frm_menu = new Menu();
@@ -102,7 +102,7 @@ namespace OrdenesEspeciales
                 if (conexionExitosa)
                 {
                     // La conexión se estableció correctamente
-                    MessageBox.Show("Conexión exitosa", "Éxito", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    //MessageBox.Show("Conexión exitosa", "Éxito", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
                     // Abrir el nuevo formulario
                     Menu frm_menu = new Menu();

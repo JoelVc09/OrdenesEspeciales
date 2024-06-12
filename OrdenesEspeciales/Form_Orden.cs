@@ -27,6 +27,7 @@ using System.Drawing.Configuration;
 using iText.Layout.Properties;
 using ZXing;
 using Org.BouncyCastle.Math;
+using System.Configuration;
 
 
 
@@ -660,7 +661,7 @@ namespace OrdenesEspeciales
             if (cbo_Laborat.SelectedIndex > 0)
             {
                 // Ejecutar los métodos solo si se ha seleccionado un valor en cbo_Laborat
-                //InsertarDatosDispatch_Header();
+                InsertarDatosDispatch_Header();
                 recibir_datos1();
                 //AgregarColumnasCheckBoxAdicionales();
                 //cargar_duplicado();
@@ -1439,7 +1440,7 @@ namespace OrdenesEspeciales
 
         private void button1_Click_1(object sender, EventArgs e)
         {
-
+            
         }
 
         private void cbo_CtrlB_SelectedIndexChanged(object sender, EventArgs e)
@@ -1646,6 +1647,108 @@ namespace OrdenesEspeciales
         }
 
 
+        // INSERTAR A STANDAR RESULT 
+
+        public void InsertIntoStandarResult()
+        {
+            try
+            {
+                // Crear una tabla temporal para almacenar los resultados de la consulta
+                DataTable tempTable = new DataTable();
+
+                // Definir las columnas de la tabla temporal
+                tempTable.Columns.Add("CodAnalisis", typeof(string));
+                tempTable.Columns.Add("ASSAY_UOFM_CODE", typeof(string));
+                tempTable.Columns.Add("ELEMENT_TYPE_CODE", typeof(string));
+                tempTable.Columns.Add("method_code", typeof(string));
+
+                // Abrir la conexión si está cerrada
+                if (con.State == ConnectionState.Closed)
+                {
+                    con.Open();
+                }
+
+                foreach (DataGridViewRow row in Dgv_Orden.Rows)
+                {
+                    if (row.IsNewRow) continue; // Saltar la fila de nueva inserción del DataGridView
+
+                    // Obtener valores de cada fila del DataGridView
+                    string SampleNumber = row.Cells["CodAnalisis"].Value?.ToString();
+                    string controlValue = row.Cells["Control"].Value?.ToString();
+
+                    try
+                    {
+                        if (new[] { "MB 105", "MC 401", "MC 402", "MC 403", "MC 976" }.Contains(controlValue))
+                        {
+                            string assayStandardDefaultsQuery = "SELECT ASSAY_UOFM_CODE, ELEMENT_TYPE_CODE, method_code FROM ASSAY_STANDARD_DEFAULTS WHERE ASSAY_STANDARD_CODE = ?";
+
+                            using (OdbcCommand cmd = new OdbcCommand(assayStandardDefaultsQuery, con))
+                            {
+                                cmd.Parameters.AddWithValue("@ControlValue", controlValue);
+
+                                using (OdbcDataReader reader = cmd.ExecuteReader())
+                                {
+                                    // Agregar los resultados de la consulta a la tabla temporal
+                                    while (reader.Read())
+                                    {
+                                        DataRow newRow = tempTable.NewRow();
+                                        newRow["CodAnalisis"] = SampleNumber;
+                                        newRow["ASSAY_UOFM_CODE"] = reader["ASSAY_UOFM_CODE"].ToString();
+                                        newRow["ELEMENT_TYPE_CODE"] = reader["ELEMENT_TYPE_CODE"].ToString();
+                                        newRow["method_code"] = reader["method_code"].ToString();
+                                        tempTable.Rows.Add(newRow);
+                                    }
+                                }
+                            }
+                        }
+                    }
+                    catch (SqlException ex)
+                    {
+                        MessageBox.Show("Ocurrió un error al insertar: " + ex.Message);
+                    }
+                }
+
+                // Procesar los datos de la tabla temporal para realizar los inserts
+                foreach (DataRow tempRow in tempTable.Rows)
+                {
+                    string assayUofmCode = tempRow["ASSAY_UOFM_CODE"].ToString();
+                    string elementTypeCode = tempRow["ELEMENT_TYPE_CODE"].ToString();
+                    string methodCode = tempRow["method_code"].ToString();
+
+                    // Realizar el insert en ASSAY_STANDARD_RESULTS
+                    string insertQuery = "INSERT INTO ASSAY_STANDARD_RESULTS(SAMPLE_NUMBER, ASSAY_UOFM_CODE, ELEMENT_TYPE_CODE, method_code) " +
+                                         "VALUES (?, ?, ?, ?)";
+
+                    using (OdbcCommand insertCmd = new OdbcCommand(insertQuery, con))
+                    {
+                        insertCmd.Parameters.AddWithValue("@SampleNumber", tempRow["CodAnalisis"]);
+                        insertCmd.Parameters.AddWithValue("@AssayUofmCode", assayUofmCode);
+                        insertCmd.Parameters.AddWithValue("@ElementTypeCode", elementTypeCode);
+                        insertCmd.Parameters.AddWithValue("@MethodCode", methodCode);
+
+                        insertCmd.ExecuteNonQuery();
+                    }
+                }
+
+                //MessageBox.Show("Datos Insertados");
+            }
+            catch (Exception ex)
+            {
+                //MessageBox.Show("Error al insertar datos: " + ex.Message);
+            }
+            finally
+            {
+                // Cerrar la conexión al finalizar
+                if (con.State == ConnectionState.Open)
+                {
+                    con.Close();
+                }
+            }
+        }
+
+
+
+
 
 
         //INSERTAR A 
@@ -1676,6 +1779,7 @@ namespace OrdenesEspeciales
         private void guardar_bd_Click(object sender, EventArgs e)
         {
             InsertIntoModularSamples();
+            InsertIntoStandarResult();
         }
     }
 }
