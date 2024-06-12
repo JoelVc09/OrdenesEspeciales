@@ -244,6 +244,8 @@ namespace OrdenesEspeciales
         }
 
 
+
+
         private void LlenarCodPreparacion()
         {
             // Verificar que hay un proyecto seleccionado en cbProyectoGeolo
@@ -481,7 +483,7 @@ namespace OrdenesEspeciales
 
         public void cargar_laboratory()
         {
-            string query = "select laboratory_name from LABORATORY";
+            string query = "select LABORATORY_ID, laboratory_name from LABORATORY";
             OdbcCommand cmd = new OdbcCommand(query, con);
             OdbcDataAdapter da = new OdbcDataAdapter(cmd);
             DataTable dt = new DataTable();
@@ -497,6 +499,70 @@ namespace OrdenesEspeciales
             cbo_Laborat.DataSource = dt;
 
         }
+
+        // CARGAR LAB_PACKAGE 
+
+        private void cbo_Laborat_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            lab_package();
+        }
+
+        private void lab_package()
+        {
+            // Verificar que hay un proyecto seleccionado
+            if (cbo_Laborat.SelectedValue != null && cbo_Laborat.SelectedValue.ToString() != "Seleccionar")
+            {
+                // Obtener el laboratorio seleccionado usando SelectedValue
+                string laboratorio = cbo_Laborat.SelectedValue.ToString();
+
+                // Crear la consulta SQL con el proyecto seleccionado
+                string query = $"select p.LAB_PACKAGE_NAME from LABORATORY as l inner join LAB_PACKAGE as p ON l.LABORATORY_ID = p.LABORATORY_ID where l.laboratory_name =  '{laboratorio}'";
+
+                // Crear el comando ODBC con la consulta
+                using (OdbcCommand cmd = new OdbcCommand(query, con))
+                {
+                    // Abrir la conexión si no está abierta
+                    if (con.State == ConnectionState.Closed)
+                    {
+                        con.Open();
+                    }
+
+                    // Crear un adaptador ODBC
+                    OdbcDataAdapter da = new OdbcDataAdapter(cmd);
+
+                    // Crear un nuevo DataTable para almacenar los resultados
+                    DataTable dt = new DataTable();
+
+                    // Llenar el DataTable con los resultados de la consulta
+                    da.Fill(dt);
+
+                    // Crear una nueva fila en el DataTable con un valor inicial especial
+                    DataRow fila = dt.NewRow();
+                    fila["LAB_PACKAGE_NAME"] = "Seleccionar ";
+
+                    dt.Rows.InsertAt(fila, 0);
+
+                    // Configurar el ComboBox cbo_Lab_package
+                    cbo_Lab_package.ValueMember = "LAB_PACKAGE_NAME";
+                    cbo_Lab_package.DisplayMember = "LAB_PACKAGE_NAME";
+                    cbo_Lab_package.DataSource = dt;
+
+                    // Seleccionar el primer ítem por defecto
+                    if (cbo_Lab_package.Items.Count > 0)
+                    {
+                        cbo_Lab_package.SelectedIndex = 0;
+                    }
+
+                    // Cerrar la conexión
+                    con.Close();
+                }
+            }
+            else
+            {
+                //MessageBox.Show("Por favor, selecciona un laboratorio.");
+            }
+        }
+
 
         //AUTO COMPLETAR EL CODIGO DE DISPATCH_NUMBER ORDEN DE ENSAYO
 
@@ -661,7 +727,7 @@ namespace OrdenesEspeciales
             if (cbo_Laborat.SelectedIndex > 0)
             {
                 // Ejecutar los métodos solo si se ha seleccionado un valor en cbo_Laborat
-                InsertarDatosDispatch_Header();
+                
                 recibir_datos1();
                 //AgregarColumnasCheckBoxAdicionales();
                 //cargar_duplicado();
@@ -1440,7 +1506,8 @@ namespace OrdenesEspeciales
 
         private void button1_Click_1(object sender, EventArgs e)
         {
-            
+            InsertarDatosDispatch_Header();
+            InsertarDatosDispatch_Samples();
         }
 
         private void cbo_CtrlB_SelectedIndexChanged(object sender, EventArgs e)
@@ -1452,23 +1519,86 @@ namespace OrdenesEspeciales
         {
 
         }
-        // INSERTAR A DHL_SAMPLE_DISPATCH_HEADER  
+        // INSERTAR A DHL_SAMPLE_DISPATCH_HEADER
+
         public void InsertarDatosDispatch_Header()
         {
             try
             {
-                string valorOrden = txt_Orden.Text; // Obtener el valor del TextBox
+                // Abrir la conexión lo más pronto posible
+                if (con.State == ConnectionState.Closed)
+                {
+                    con.Open();
+                }
 
-                string query = $"INSERT INTO DHL_SAMPLE_DISPATCH_HEADER(dispatch_number) VALUES ('{valorOrden}')";
+                string valorOrden = txt_Orden.Text; // Obtener el valor del TextBox
+                string sampleList = string.Join(" ", Dgv_Orden.Rows.Cast<DataGridViewRow>().Select(row => row.Cells["CodAnalisis"].Value.ToString()));
+                string companyName = "Glencore Antapaccay";
+                string companyCountry = "Lima";
+                string companyPostal = "051";
+                string dispatchedBy = string.Empty;
+                string projectNumber = "ANT-2020DH";
+                string projectArea = "Drill Hole - Antapaccay";
+                string dispatchDate = DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss");
+                string dateEntered = DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss");
+                string dispatchStatus = "NEW";
+                string labPackage = cbo_Lab_package.SelectedValue.ToString();
+                string laboratoryId = cbo_Laborat.SelectedValue.ToString();
+                int id_labo = 0;  // Cambiado a int
+                int samplePriority = 20;
+
+                // Obtener el usuario conectado a la DB
+                string lastModifiedByQuery = "SELECT SUSER_SNAME() AS CurrentUser";
+                using (OdbcCommand cmd = new OdbcCommand(lastModifiedByQuery, con))
+                {
+                    using (OdbcDataReader reader = cmd.ExecuteReader())
+                    {
+                        if (reader.Read())
+                        {
+                            dispatchedBy = reader["CurrentUser"].ToString();
+                        }
+                    }
+                }
+
+                // Obtener el id del laboratorio 
+                string id_laboratorio_query = $"SELECT LABORATORY_ID FROM LABORATORY WHERE laboratory_name = '{laboratoryId}'";
+                using (OdbcCommand cmd = new OdbcCommand(id_laboratorio_query, con))
+                {
+                    using (OdbcDataReader reader = cmd.ExecuteReader())
+                    {
+                        if (reader.Read())
+                        {
+                            id_labo = Convert.ToInt32(reader["LABORATORY_ID"]);  // Convertir a int
+                        }
+                    }
+                }
+
+                // Mostrar los datos capturados en un MessageBox (solo para propósitos de depuración)
+                //MessageBox.Show($"Valor de Orden: {valorOrden}\nSample List: {sampleList}\nCompany Name: {companyName}\nCompany Country: {companyCountry}\nCompany Postal: {companyPostal}\nDispatched By: {dispatchedBy}\nProject Number: {projectNumber}\nProject Area: {projectArea}\nDispatch Date: {dispatchDate}\nDate Entered: {dateEntered}\nDispatch Status: {dispatchStatus}\nLab Package: {labPackage}\nLaboratory ID: {id_labo}\nSample Priority: {samplePriority}");
+
+                // Query de inserción
+                string query = "INSERT INTO DHL_SAMPLE_DISPATCH_HEADER(dispatch_number, sample_list, company_name, company_country, company_postal, dispatched_by, project_number, project_area, dispatch_date, date_entered, dispatch_status, lab_package, laboratory_id, carrier_company, sample_priority) " +
+                               "VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
 
                 // Crear y configurar el comando SQL
                 using (OdbcCommand command = new OdbcCommand(query, con))
                 {
-                    // Abrir la conexión si está cerrada
-                    if (con.State == ConnectionState.Closed)
-                    {
-                        con.Open();
-                    }
+                    // Parámetros de la consulta
+                    command.Parameters.AddWithValue("@dispatch_number", valorOrden);
+                    command.Parameters.AddWithValue("@sample_list", sampleList);
+                    command.Parameters.AddWithValue("@company_name", companyName);
+                    command.Parameters.AddWithValue("@company_country", companyCountry);
+                    command.Parameters.AddWithValue("@company_postal", companyPostal);
+                    command.Parameters.AddWithValue("@dispatched_by", dispatchedBy);
+                    command.Parameters.AddWithValue("@project_number", projectNumber);
+                    command.Parameters.AddWithValue("@project_area", projectArea);
+                    command.Parameters.AddWithValue("@dispatch_date", dispatchDate);
+                    command.Parameters.AddWithValue("@date_entered", dateEntered);
+                    command.Parameters.AddWithValue("@dispatch_status", dispatchStatus);
+                    command.Parameters.AddWithValue("@lab_package", labPackage);
+                    command.Parameters.AddWithValue("@laboratory_id", id_labo);
+                    command.Parameters.AddWithValue("@carrier_company", companyName); // Asumiendo que la compañía es la misma
+                    command.Parameters.AddWithValue("@sample_priority", samplePriority);
 
                     // Ejecutar la consulta de inserción
                     int rowsAffected = command.ExecuteNonQuery();
@@ -1476,7 +1606,7 @@ namespace OrdenesEspeciales
                     // Verificar si se insertaron filas y mostrar un mensaje
                     if (rowsAffected > 0)
                     {
-                        MessageBox.Show("Código de orden creado");
+                        //MessageBox.Show("Datos insertados exitosamente.");
                     }
                     else
                     {
@@ -1497,6 +1627,116 @@ namespace OrdenesEspeciales
                 }
             }
         }
+
+        // INSERTAR A DHL_SAMPLE_DISPATCH_SAMPLE
+
+        public void InsertarDatosDispatch_Samples()
+        {
+            try
+            {
+                // Abrir la conexión lo más pronto posible
+                if (con.State == ConnectionState.Closed)
+                {
+                    con.Open();
+                }
+
+                string dispatchNumber = txt_Orden.Text; // Obtener el valor del TextBox
+                string labReferenceNumber = dispatchNumber + "OCT09";
+                string analysisDate = DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss");
+                string numberOfBags = "1";
+                string isSizeFraction = "N";
+                string isDensityFraction = "N";
+                string hasDensityFractions = "N";
+
+                foreach (DataGridViewRow row in Dgv_Orden.Rows)
+                {
+                    if (row.IsNewRow) continue;
+
+                    string sampleNumber = row.Cells["CodAnalisis"].Value?.ToString() ?? DBNull.Value.ToString();
+                    string sampleType = row.Cells["Control"].Value?.ToString();
+                    string holeNumber = row.Cells["Blasthole"].Value?.ToString() ?? DBNull.Value.ToString();
+                    string holeTypeCode = string.IsNullOrEmpty(sampleType) || sampleType == "MDC" || sampleType == "MDG" || sampleType == "MDF" ? "DDH" : null;
+                    string moduleName = string.IsNullOrEmpty(sampleType) || sampleType == "MDC" || sampleType == "MDG" || sampleType == "MDF" ? "DDH" : "STD";
+                    string sortOrder = row.Cells["Item"].Value?.ToString() ?? DBNull.Value.ToString();
+
+                    if (string.IsNullOrEmpty(sampleType))
+                    {
+                        sampleType = "ASSAY";
+                    }
+
+                    // Mostrar los datos capturados en un MessageBox (solo para propósitos de depuración)
+                    /*MessageBox.Show($"Valor de Orden: {dispatchNumber}\n" +
+                                    $"Sample Number: {sampleNumber}\n" +
+                                    $"Sample Type: {sampleType}\n" +
+                                    $"Hole Number: {holeNumber}\n" +
+                                    $"Dispatch Number: {dispatchNumber}\n" +
+                                    $"Lab Reference Number: {labReferenceNumber}\n" +
+                                    $"Analysis Date: {analysisDate}\n" +
+                                    $"Number of Bags: {numberOfBags}\n" +
+                                    $"Hole Type Code: {(holeTypeCode ?? "NULL")}\n" +
+                                    $"Module Name: {moduleName}\n" +
+                                    $"Is Size Fraction: {isSizeFraction}\n" +
+                                    $"Is Density Fraction: {isDensityFraction}\n" +
+                                    $"Has Density Fractions: {hasDensityFractions}\n" +
+                                    $"Sort Order: {sortOrder}");*/
+
+                    // Query de inserción
+                    string query = "INSERT INTO DHL_SAMPLE_DISPATCH_SAMPLES (SAMPLE_NUMBER, sample_type, hole_number, dispatch_number, lab_reference_number, analysis_date, number_of_bags, hole_type_code, module_name, is_size_fraction, is_density_fraction, has_density_fractions, SORT_ORDER) " +
+                                   "VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
+
+                    // Crear y configurar el comando SQL
+                    using (OdbcCommand command = new OdbcCommand(query, con))
+                    {
+                        // Parámetros de la consulta
+                        command.Parameters.AddWithValue("@SAMPLE_NUMBER", string.IsNullOrEmpty(sampleNumber) ? (object)DBNull.Value : sampleNumber);
+                        command.Parameters.AddWithValue("@sample_type", string.IsNullOrEmpty(sampleType) ? (object)DBNull.Value : sampleType);
+                        command.Parameters.AddWithValue("@hole_number", string.IsNullOrEmpty(holeNumber) ? (object)DBNull.Value : holeNumber);
+                        command.Parameters.AddWithValue("@dispatch_number", string.IsNullOrEmpty(dispatchNumber) ? (object)DBNull.Value : dispatchNumber);
+                        command.Parameters.AddWithValue("@lab_reference_number", string.IsNullOrEmpty(labReferenceNumber) ? (object)DBNull.Value : labReferenceNumber);
+                        command.Parameters.AddWithValue("@analysis_date", string.IsNullOrEmpty(analysisDate) ? (object)DBNull.Value : analysisDate);
+                        command.Parameters.AddWithValue("@number_of_bags", string.IsNullOrEmpty(numberOfBags) ? (object)DBNull.Value : numberOfBags);
+                        command.Parameters.AddWithValue("@hole_type_code", string.IsNullOrEmpty(holeTypeCode) ? (object)DBNull.Value : holeTypeCode);
+                        command.Parameters.AddWithValue("@module_name", string.IsNullOrEmpty(moduleName) ? (object)DBNull.Value : moduleName);
+                        command.Parameters.AddWithValue("@is_size_fraction", string.IsNullOrEmpty(isSizeFraction) ? (object)DBNull.Value : isSizeFraction);
+                        command.Parameters.AddWithValue("@is_density_fraction", string.IsNullOrEmpty(isDensityFraction) ? (object)DBNull.Value : isDensityFraction);
+                        command.Parameters.AddWithValue("@has_density_fractions", string.IsNullOrEmpty(hasDensityFractions) ? (object)DBNull.Value : hasDensityFractions);
+                        command.Parameters.AddWithValue("@SORT_ORDER", string.IsNullOrEmpty(sortOrder) ? (object)DBNull.Value : sortOrder);
+
+                        // Ejecutar la consulta de inserción
+                        int rowsAffected = command.ExecuteNonQuery();
+
+                        // Verificar si se insertaron filas y mostrar un mensaje
+                        if (rowsAffected > 0)
+                        {
+                            //MessageBox.Show($"Datos insertados exitosamente para SAMPLE_NUMBER: {sampleNumber}");
+                        }
+                        else
+                        {
+                            MessageBox.Show($"No se pudo insertar los datos para SAMPLE_NUMBER: {sampleNumber}");
+                        }
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error al insertar datos: " + ex.Message);
+            }
+            finally
+            {
+                // Cerrar la conexión al finalizar
+                if (con.State == ConnectionState.Open)
+                {
+                    con.Close();
+                }
+            }
+        }
+
+
+
+
+
+
+
 
         // INSERTAR A MODULAR SAMPLE
 
@@ -1535,6 +1775,7 @@ namespace OrdenesEspeciales
                 }
 
                 // Ejecutar para obtener el usuario 
+
                 string lastModifiedByQuery = "SELECT SUSER_SNAME() AS CurrentUser";
                 string lastModifiedBy = string.Empty;
 
@@ -1548,6 +1789,7 @@ namespace OrdenesEspeciales
                         }
                     }
                 }
+
 
                 foreach (DataGridViewRow row in Dgv_Orden.Rows)
                 {
@@ -1781,5 +2023,6 @@ namespace OrdenesEspeciales
             InsertIntoModularSamples();
             InsertIntoStandarResult();
         }
+
     }
 }
