@@ -71,7 +71,7 @@ namespace OrdenesEspeciales
             this.txtusuario.Name = "txtusuario";
             this.txtusuario.Size = new System.Drawing.Size(164, 21);
             this.txtusuario.TabIndex = 26;
-            this.txtusuario.Text = "admin";
+            this.txtusuario.Text = "admin3";
             // 
             // label4
             // 

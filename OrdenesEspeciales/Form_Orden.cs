@@ -1300,8 +1300,8 @@ namespace OrdenesEspeciales
             {
                 using (FileStream stream = new FileStream(saveFileDialog.FileName, FileMode.Create))
                 {
-                    // Crear un documento PDF con el tamaño especificado
-                    Document pdfDoc = new Document(new iTextSharp.text.Rectangle(226.77f, 567f)); // 8x13 cm en puntos (1 cm = 28.35 puntos)
+                    // Crear un documento PDF con el tamaño A4
+                    Document pdfDoc = new Document(PageSize.A4); // Tamaño A4
                     PdfWriter writer = PdfWriter.GetInstance(pdfDoc, stream);
 
                     pdfDoc.Open();
@@ -1312,10 +1312,20 @@ namespace OrdenesEspeciales
                         Format = BarcodeFormat.CODE_128,
                         Options = new ZXing.Common.EncodingOptions
                         {
-                            Width = 300,
-                            Height = 100
+                            Width = 450, // Aumentar el ancho del código de barras
+                            Height = 120 // Aumentar la altura del código de barras
                         }
                     };
+
+                    // Inicializar la tabla para 2 columnas
+                    PdfPTable table = new PdfPTable(2);
+                    table.WidthPercentage = 100;
+                    table.DefaultCell.Border = PdfPCell.NO_BORDER;
+
+                    int count = 0;
+
+                    // Obtener el valor de proyect_geolo
+                    string proyect_geolo = cbProyectoGeolo.SelectedValue.ToString();
 
                     // Obtener los códigos de la columna "CodMuestra" del DataGridView
                     foreach (DataGridViewRow row in Dgv_Orden.Rows)
@@ -1336,38 +1346,55 @@ namespace OrdenesEspeciales
 
                                 // Convertir el array de bytes a una imagen iTextSharp
                                 iTextSharp.text.Image barcodeImage = iTextSharp.text.Image.GetInstance(barcodeBytes);
-                                barcodeImage.ScaleToFit(200, 50);
+                                barcodeImage.ScaleToFit(250, 70); // Aumentar el tamaño de la imagen del código de barras
 
-                                // Crear una tabla para organizar el contenido
-                                PdfPTable table = new PdfPTable(1);
-                                table.WidthPercentage = 100;
-                                table.DefaultCell.Border = PdfPCell.NO_BORDER;
+                                // Crear una celda para el contenido
+                                PdfPTable cellTable = new PdfPTable(1);
+                                cellTable.WidthPercentage = 100;
+                                cellTable.DefaultCell.Border = PdfPCell.NO_BORDER;
 
-                                // Añadir el nombre del blas_hole
-                                PdfPCell cellBlasHole = new PdfPCell(new Phrase(blasHole));
+                                // Añadir el valor de proyect_geolo
+                                PdfPCell cellProyecto = new PdfPCell(new Phrase("Project:" + proyect_geolo));
+                                cellProyecto.HorizontalAlignment = Element.ALIGN_LEFT;
+                                cellProyecto.Border = PdfPCell.NO_BORDER;
+                                cellTable.AddCell(cellProyecto);
+
+                                // Añadir el nombre del blas_hole con el formato requerido
+                                PdfPCell cellBlasHole = new PdfPCell(new Phrase("Hole : " + blasHole));
                                 cellBlasHole.HorizontalAlignment = Element.ALIGN_LEFT;
                                 cellBlasHole.Border = PdfPCell.NO_BORDER;
-                                table.AddCell(cellBlasHole);
+                                cellTable.AddCell(cellBlasHole);
 
                                 // Añadir el código de barras
                                 PdfPCell cellBarcode = new PdfPCell(barcodeImage);
                                 cellBarcode.HorizontalAlignment = Element.ALIGN_CENTER;
                                 cellBarcode.Border = PdfPCell.NO_BORDER;
-                                table.AddCell(cellBarcode);
+                                cellTable.AddCell(cellBarcode);
 
-                                // Añadir "M8D" en la parte inferior izquierda
-                                PdfPCell cellM8D = new PdfPCell(new Phrase("M8D"));
-                                cellM8D.HorizontalAlignment = Element.ALIGN_LEFT;
-                                cellM8D.Border = PdfPCell.NO_BORDER;
-                                table.AddCell(cellM8D);
+                                // Añadir la celda a la tabla principal
+                                PdfPCell cell = new PdfPCell(cellTable);
+                                cell.Border = PdfPCell.NO_BORDER;
+                                table.AddCell(cell);
 
-                                // Añadir la tabla al documento
-                                pdfDoc.Add(table);
+                                count++;
 
-                                // Añadir un espacio entre códigos de barras
-                                pdfDoc.Add(new Paragraph(" "));
+                                // Si hemos añadido 12 códigos, añadir la tabla al documento y empezar una nueva página
+                                if (count % 12 == 0)
+                                {
+                                    pdfDoc.Add(table);
+                                    pdfDoc.NewPage();
+                                    table = new PdfPTable(2);
+                                    table.WidthPercentage = 100;
+                                    table.DefaultCell.Border = PdfPCell.NO_BORDER;
+                                }
                             }
                         }
+                    }
+
+                    // Añadir la tabla restante al documento
+                    if (count % 12 != 0)
+                    {
+                        pdfDoc.Add(table);
                     }
 
                     pdfDoc.Close();
@@ -1376,6 +1403,11 @@ namespace OrdenesEspeciales
                 MessageBox.Show("PDF generado con éxito.");
             }
         }
+
+
+
+
+
 
         //LIMPIAR TODO EL DGV_ORDE
         private void btn_limpiar_Click(object sender, EventArgs e)
@@ -1656,7 +1688,7 @@ namespace OrdenesEspeciales
                     string sampleType = row.Cells["Control"].Value?.ToString();
                     string holeNumber = row.Cells["Blasthole"].Value?.ToString() ?? DBNull.Value.ToString();
                     string holeTypeCode = string.IsNullOrEmpty(sampleType) || sampleType == "MDC" || sampleType == "MDG" || sampleType == "MDF" ? "DDH" : null;
-                    string moduleName = string.IsNullOrEmpty(sampleType) || sampleType == "MDC" || sampleType == "MDG" || sampleType == "MDF" ? "DDH" : "STD";
+                    string moduleName = string.IsNullOrEmpty(sampleType) || sampleType == "MDC" || sampleType == "MDG" || sampleType == "MDF" ? "BLASTHOLE" : "STD";
                     string sortOrder = row.Cells["Item"].Value?.ToString() ?? DBNull.Value.ToString();
 
                     if (string.IsNullOrEmpty(sampleType))
@@ -2024,5 +2056,9 @@ namespace OrdenesEspeciales
             InsertIntoStandarResult();
         }
 
+        private void cbProyectoGeolo_SelectedIndexChanged_1(object sender, EventArgs e)
+        {
+
+        }
     }
 }
