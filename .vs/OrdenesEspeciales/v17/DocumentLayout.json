@@ -3,15 +3,15 @@
   "WorkspaceRootPath": "C:\\Users\\joel.vilcatoma\\OneDrive - Vela Industries Group\\Escritorio\\OrdenenesEspeciales\\OrdenesEspeciales01\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{03681841-05E5-417A-A175-85536010D36D}|OrdenesEspeciales\\OrdenesEspeciales.csproj|C:\\Users\\joel.vilcatoma\\OneDrive - Vela Industries Group\\Escritorio\\OrdenenesEspeciales\\OrdenesEspeciales01\\ordenesespeciales\\form_orden.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{03681841-05E5-417A-A175-85536010D36D}|OrdenesEspeciales\\OrdenesEspeciales.csproj|solutionrelative:ordenesespeciales\\form_orden.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{03681841-05E5-417A-A175-85536010D36D}|OrdenesEspeciales\\OrdenesEspeciales.csproj|C:\\Users\\joel.vilcatoma\\OneDrive - Vela Industries Group\\Escritorio\\OrdenenesEspeciales\\OrdenesEspeciales01\\ordenesespeciales\\form_orden.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
       "RelativeMoniker": "D:0:0:{03681841-05E5-417A-A175-85536010D36D}|OrdenesEspeciales\\OrdenesEspeciales.csproj|solutionrelative:ordenesespeciales\\form_orden.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{03681841-05E5-417A-A175-85536010D36D}|OrdenesEspeciales\\OrdenesEspeciales.csproj|c:\\users\\joel.vilcatoma\\onedrive - vela industries group\\escritorio\\ordenenesespeciales\\ordenesespeciales01\\ordenesespeciales\\form_orden.designer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{03681841-05E5-417A-A175-85536010D36D}|OrdenesEspeciales\\OrdenesEspeciales.csproj|c:\\users\\joel.vilcatoma\\onedrive - vela industries group\\escritorio\\ordenenesespeciales\\ordenesespeciales01\\ordenesespeciales\\form_orden.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{03681841-05E5-417A-A175-85536010D36D}|OrdenesEspeciales\\OrdenesEspeciales.csproj|solutionrelative:ordenesespeciales\\form_orden.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{03681841-05E5-417A-A175-85536010D36D}|OrdenesEspeciales\\OrdenesEspeciales.csproj|C:\\Users\\joel.vilcatoma\\OneDrive - Vela Industries Group\\Escritorio\\OrdenenesEspeciales\\OrdenesEspeciales01\\ordenesespeciales\\form_orden.designer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{03681841-05E5-417A-A175-85536010D36D}|OrdenesEspeciales\\OrdenesEspeciales.csproj|solutionrelative:ordenesespeciales\\form_orden.designer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
@@ -66,7 +66,7 @@
       "DocumentGroups": [
         {
           "DockedWidth": 132,
-          "SelectedChildIndex": 5,
+          "SelectedChildIndex": 4,
           "Children": [
             {
               "$type": "Bookmark",
@@ -94,8 +94,7 @@
               "RelativeToolTip": "OrdenesEspeciales\\Resources\\plantilla3.html",
               "ViewState": "AQIAACkAAAAAAAAAAAAiwGEAAAAAAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001512|",
-              "WhenOpened": "2024-06-19T00:59:00.492Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-06-19T00:59:00.492Z"
             },
             {
               "$type": "Document",
@@ -107,12 +106,11 @@
               "RelativeToolTip": "OrdenesEspeciales\\Resources\\plantilla.html",
               "ViewState": "AQIAAG0AAAAAAAAAAAAIwJ4AAAAAAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001512|",
-              "WhenOpened": "2024-06-14T17:26:09.304Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-06-14T17:26:09.304Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 0,
               "Title": "Form_Orden.cs [Dise\u00F1o]",
               "DocumentMoniker": "C:\\Users\\joel.vilcatoma\\OneDrive - Vela Industries Group\\Escritorio\\OrdenenesEspeciales\\OrdenesEspeciales01\\OrdenesEspeciales\\Form_Orden.cs",
               "RelativeDocumentMoniker": "OrdenesEspeciales\\Form_Orden.cs",
@@ -124,7 +122,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 0,
+              "DocumentIndex": 1,
               "Title": "Form_Orden.cs",
               "DocumentMoniker": "C:\\Users\\joel.vilcatoma\\OneDrive - Vela Industries Group\\Escritorio\\OrdenenesEspeciales\\OrdenesEspeciales01\\OrdenesEspeciales\\Form_Orden.cs",
               "RelativeDocumentMoniker": "OrdenesEspeciales\\Form_Orden.cs",
@@ -145,8 +143,7 @@
               "RelativeToolTip": "OrdenesEspeciales\\Form_Orden.Designer.cs",
               "ViewState": "AQIAABoEAAAAAAAAAAAmwCwEAAAmAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-06-19T03:43:59.12Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-06-19T03:43:59.12Z"
             },
             {
               "$type": "Document",
@@ -157,8 +154,7 @@
               "ToolTip": "C:\\Users\\joel.vilcatoma\\OneDrive - Vela Industries Group\\Escritorio\\OrdenenesEspeciales\\OrdenesEspeciales01\\OrdenesEspeciales\\Form_Reassay.cs [Dise\u00F1o]",
               "RelativeToolTip": "OrdenesEspeciales\\Form_Reassay.cs [Dise\u00F1o]",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-05-29T20:45:00.455Z",
-              "EditorCaption": " [Dise\u00F1o]"
+              "WhenOpened": "2024-05-29T20:45:00.455Z"
             },
             {
               "$type": "Document",
