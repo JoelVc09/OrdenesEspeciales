@@ -76,28 +76,6 @@
             this.btn_crear = new System.Windows.Forms.Button();
             this.label6 = new System.Windows.Forms.Label();
             this.Dgv_Orden = new System.Windows.Forms.DataGridView();
-            this.btn_Guardar = new System.Windows.Forms.Button();
-            this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.button2 = new System.Windows.Forms.Button();
-            this.Cb_ordenes = new System.Windows.Forms.ComboBox();
-            this.lbProyGeolo = new System.Windows.Forms.Label();
-            this.button4 = new System.Windows.Forms.Button();
-            this.button1 = new System.Windows.Forms.Button();
-            this.lbCodPrep = new System.Windows.Forms.Label();
-            this.label12 = new System.Windows.Forms.Label();
-            this.label11 = new System.Windows.Forms.Label();
-            this.btn_limpiar = new System.Windows.Forms.Button();
-            this.guardar_bd = new System.Windows.Forms.Button();
-            this.Cod_barra = new System.Windows.Forms.Button();
-            this.lblcount = new System.Windows.Forms.Label();
-            this.label3 = new System.Windows.Forms.Label();
-            this.BtnBlancos = new System.Windows.Forms.Button();
-            this.cbo_CtrlB = new System.Windows.Forms.ComboBox();
-            this.label8 = new System.Windows.Forms.Label();
-            this.lblcant = new System.Windows.Forms.Label();
-            this.gDMS_ANTAPACCAYDataSet = new OrdenesEspeciales.GDMS_ANTAPACCAYDataSet();
-            this.gDMSANTAPACCAYDataSetBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.sdk = new System.Windows.Forms.DataGridViewCheckBoxColumn();
             this.item = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.CodAnalisis = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -126,7 +104,30 @@
             this.CSCn = new System.Windows.Forms.DataGridViewCheckBoxColumn();
             this.CuRes = new System.Windows.Forms.DataGridViewCheckBoxColumn();
             this.FeTot = new System.Windows.Forms.DataGridViewCheckBoxColumn();
+            this.btn_Guardar = new System.Windows.Forms.Button();
+            this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.Actualizar = new System.Windows.Forms.Button();
+            this.button2 = new System.Windows.Forms.Button();
+            this.Cb_ordenes = new System.Windows.Forms.ComboBox();
+            this.lbProyGeolo = new System.Windows.Forms.Label();
+            this.button4 = new System.Windows.Forms.Button();
+            this.button1 = new System.Windows.Forms.Button();
+            this.lbCodPrep = new System.Windows.Forms.Label();
+            this.label12 = new System.Windows.Forms.Label();
+            this.label11 = new System.Windows.Forms.Label();
+            this.btn_limpiar = new System.Windows.Forms.Button();
+            this.guardar_bd = new System.Windows.Forms.Button();
+            this.Cod_barra = new System.Windows.Forms.Button();
+            this.lblcount = new System.Windows.Forms.Label();
+            this.label3 = new System.Windows.Forms.Label();
+            this.BtnBlancos = new System.Windows.Forms.Button();
+            this.cbo_CtrlB = new System.Windows.Forms.ComboBox();
+            this.label8 = new System.Windows.Forms.Label();
+            this.lblcant = new System.Windows.Forms.Label();
+            this.gDMS_ANTAPACCAYDataSet = new OrdenesEspeciales.GDMS_ANTAPACCAYDataSet();
+            this.gDMSANTAPACCAYDataSetBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
+            this.lbDispatch = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.Dgv_Consulta)).BeginInit();
             this.Consulta.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.Dgv_Orden)).BeginInit();
@@ -540,9 +541,9 @@
             // dtp_fin
             // 
             this.dtp_fin.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.dtp_fin.Location = new System.Drawing.Point(8, 88);
+            this.dtp_fin.Location = new System.Drawing.Point(9, 88);
             this.dtp_fin.Name = "dtp_fin";
-            this.dtp_fin.Size = new System.Drawing.Size(135, 23);
+            this.dtp_fin.Size = new System.Drawing.Size(139, 23);
             this.dtp_fin.TabIndex = 92;
             // 
             // dtp_inicio
@@ -692,331 +693,6 @@
             this.Dgv_Orden.CellPainting += new System.Windows.Forms.DataGridViewCellPaintingEventHandler(this.Dgv_Orden_CellPainting);
             this.Dgv_Orden.EditingControlShowing += new System.Windows.Forms.DataGridViewEditingControlShowingEventHandler(this.GRV_DATOS_EditingControlShowing);
             this.Dgv_Orden.MouseClick += new System.Windows.Forms.MouseEventHandler(this.Dgv_Orden_MouseClick);
-            // 
-            // btn_Guardar
-            // 
-            this.btn_Guardar.BackColor = System.Drawing.SystemColors.HotTrack;
-            this.btn_Guardar.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btn_Guardar.FlatAppearance.BorderSize = 0;
-            this.btn_Guardar.FlatAppearance.MouseOverBackColor = System.Drawing.Color.CornflowerBlue;
-            this.btn_Guardar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btn_Guardar.Font = new System.Drawing.Font("Century Gothic", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btn_Guardar.ForeColor = System.Drawing.Color.White;
-            this.btn_Guardar.ImageAlign = System.Drawing.ContentAlignment.BottomCenter;
-            this.btn_Guardar.Location = new System.Drawing.Point(796, 465);
-            this.btn_Guardar.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.btn_Guardar.Name = "btn_Guardar";
-            this.btn_Guardar.Size = new System.Drawing.Size(96, 37);
-            this.btn_Guardar.TabIndex = 78;
-            this.btn_Guardar.Text = "Imprimir";
-            this.btn_Guardar.UseVisualStyleBackColor = false;
-            this.btn_Guardar.Click += new System.EventHandler(this.btn_Guardar_Click);
-            // 
-            // groupBox1
-            // 
-            this.groupBox1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(7)))), ((int)(((byte)(48)))), ((int)(((byte)(165)))));
-            this.groupBox1.Controls.Add(this.Actualizar);
-            this.groupBox1.Controls.Add(this.button2);
-            this.groupBox1.Controls.Add(this.Cb_ordenes);
-            this.groupBox1.Controls.Add(this.lbProyGeolo);
-            this.groupBox1.Controls.Add(this.button4);
-            this.groupBox1.Controls.Add(this.button1);
-            this.groupBox1.Controls.Add(this.lbCodPrep);
-            this.groupBox1.Controls.Add(this.label12);
-            this.groupBox1.Controls.Add(this.label11);
-            this.groupBox1.Controls.Add(this.Dgv_Orden);
-            this.groupBox1.Controls.Add(this.cbo_FeTot);
-            this.groupBox1.Controls.Add(this.cbo_CuTot);
-            this.groupBox1.Controls.Add(this.cbo_CuRes);
-            this.groupBox1.Controls.Add(this.cbo_CuOxi);
-            this.groupBox1.Controls.Add(this.cbo_CuSCn);
-            this.groupBox1.Controls.Add(this.btn_limpiar);
-            this.groupBox1.Controls.Add(this.cbo_CuSAc);
-            this.groupBox1.Controls.Add(this.guardar_bd);
-            this.groupBox1.Controls.Add(this.cbo_CO3);
-            this.groupBox1.Controls.Add(this.Cod_barra);
-            this.groupBox1.Controls.Add(this.cbo_Mo);
-            this.groupBox1.Controls.Add(this.lblcount);
-            this.groupBox1.Controls.Add(this.cbo_Ag);
-            this.groupBox1.Controls.Add(this.label3);
-            this.groupBox1.Controls.Add(this.cbo_Au);
-            this.groupBox1.Controls.Add(this.cbo_CuSol);
-            this.groupBox1.Controls.Add(this.btn_Guardar);
-            this.groupBox1.Controls.Add(this.BtnBlancos);
-            this.groupBox1.Controls.Add(this.cbo_CtrlB);
-            this.groupBox1.Controls.Add(this.label8);
-            this.groupBox1.Controls.Add(this.lblcant);
-            this.groupBox1.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.groupBox1.ForeColor = System.Drawing.Color.White;
-            this.groupBox1.Location = new System.Drawing.Point(12, 370);
-            this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(1286, 526);
-            this.groupBox1.TabIndex = 79;
-            this.groupBox1.TabStop = false;
-            this.groupBox1.Text = "Blast Hole";
-            this.groupBox1.Enter += new System.EventHandler(this.groupBox1_Enter);
-            // 
-            // button2
-            // 
-            this.button2.Location = new System.Drawing.Point(676, 465);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(101, 36);
-            this.button2.TabIndex = 113;
-            this.button2.Text = "button2";
-            this.button2.UseVisualStyleBackColor = true;
-            this.button2.Visible = false;
-            this.button2.Click += new System.EventHandler(this.button2_Click);
-            // 
-            // Cb_ordenes
-            // 
-            this.Cb_ordenes.Font = new System.Drawing.Font("Century Gothic", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Cb_ordenes.FormattingEnabled = true;
-            this.Cb_ordenes.Location = new System.Drawing.Point(871, 24);
-            this.Cb_ordenes.Name = "Cb_ordenes";
-            this.Cb_ordenes.Size = new System.Drawing.Size(158, 25);
-            this.Cb_ordenes.TabIndex = 110;
-            // 
-            // lbProyGeolo
-            // 
-            this.lbProyGeolo.AutoSize = true;
-            this.lbProyGeolo.BackColor = System.Drawing.Color.Transparent;
-            this.lbProyGeolo.Font = new System.Drawing.Font("Century Gothic", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbProyGeolo.ForeColor = System.Drawing.Color.White;
-            this.lbProyGeolo.Location = new System.Drawing.Point(324, 463);
-            this.lbProyGeolo.Name = "lbProyGeolo";
-            this.lbProyGeolo.Size = new System.Drawing.Size(20, 22);
-            this.lbProyGeolo.TabIndex = 104;
-            this.lbProyGeolo.Text = "0";
-            this.lbProyGeolo.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // button4
-            // 
-            this.button4.BackColor = System.Drawing.Color.IndianRed;
-            this.button4.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.button4.FlatAppearance.BorderSize = 0;
-            this.button4.FlatAppearance.MouseOverBackColor = System.Drawing.Color.CornflowerBlue;
-            this.button4.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button4.Font = new System.Drawing.Font("Century Gothic", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button4.ForeColor = System.Drawing.Color.White;
-            this.button4.ImageAlign = System.Drawing.ContentAlignment.BottomCenter;
-            this.button4.Location = new System.Drawing.Point(1171, 18);
-            this.button4.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.button4.Name = "button4";
-            this.button4.Size = new System.Drawing.Size(94, 35);
-            this.button4.TabIndex = 112;
-            this.button4.Text = "Eliminar";
-            this.button4.UseVisualStyleBackColor = false;
-            // 
-            // button1
-            // 
-            this.button1.BackColor = System.Drawing.SystemColors.HotTrack;
-            this.button1.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.button1.FlatAppearance.BorderSize = 0;
-            this.button1.FlatAppearance.MouseOverBackColor = System.Drawing.Color.CornflowerBlue;
-            this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button1.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button1.ForeColor = System.Drawing.Color.White;
-            this.button1.ImageAlign = System.Drawing.ContentAlignment.BottomCenter;
-            this.button1.Location = new System.Drawing.Point(1037, 18);
-            this.button1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(121, 35);
-            this.button1.TabIndex = 110;
-            this.button1.Text = "Consultar";
-            this.button1.UseVisualStyleBackColor = false;
-            this.button1.Click += new System.EventHandler(this.button1_Click_2);
-            // 
-            // lbCodPrep
-            // 
-            this.lbCodPrep.AutoSize = true;
-            this.lbCodPrep.BackColor = System.Drawing.Color.Transparent;
-            this.lbCodPrep.Font = new System.Drawing.Font("Century Gothic", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbCodPrep.ForeColor = System.Drawing.Color.White;
-            this.lbCodPrep.Location = new System.Drawing.Point(630, 464);
-            this.lbCodPrep.Name = "lbCodPrep";
-            this.lbCodPrep.Size = new System.Drawing.Size(20, 22);
-            this.lbCodPrep.TabIndex = 105;
-            this.lbCodPrep.Text = "0";
-            this.lbCodPrep.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // label12
-            // 
-            this.label12.AutoSize = true;
-            this.label12.BackColor = System.Drawing.Color.Transparent;
-            this.label12.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label12.ForeColor = System.Drawing.Color.White;
-            this.label12.Location = new System.Drawing.Point(425, 465);
-            this.label12.Name = "label12";
-            this.label12.Size = new System.Drawing.Size(199, 20);
-            this.label12.TabIndex = 103;
-            this.label12.Text = "Códiigo de preparación : \r\n";
-            this.label12.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // label11
-            // 
-            this.label11.AutoSize = true;
-            this.label11.BackColor = System.Drawing.Color.Transparent;
-            this.label11.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label11.ForeColor = System.Drawing.Color.White;
-            this.label11.Location = new System.Drawing.Point(137, 463);
-            this.label11.Name = "label11";
-            this.label11.Size = new System.Drawing.Size(182, 20);
-            this.label11.TabIndex = 102;
-            this.label11.Text = "Proyecto de geologia : \r\n";
-            this.label11.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            this.label11.Click += new System.EventHandler(this.label11_Click);
-            // 
-            // btn_limpiar
-            // 
-            this.btn_limpiar.BackColor = System.Drawing.Color.IndianRed;
-            this.btn_limpiar.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btn_limpiar.FlatAppearance.BorderSize = 0;
-            this.btn_limpiar.FlatAppearance.MouseOverBackColor = System.Drawing.Color.CornflowerBlue;
-            this.btn_limpiar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btn_limpiar.Font = new System.Drawing.Font("Century Gothic", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btn_limpiar.ForeColor = System.Drawing.Color.White;
-            this.btn_limpiar.ImageAlign = System.Drawing.ContentAlignment.BottomCenter;
-            this.btn_limpiar.Location = new System.Drawing.Point(1175, 468);
-            this.btn_limpiar.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.btn_limpiar.Name = "btn_limpiar";
-            this.btn_limpiar.Size = new System.Drawing.Size(94, 35);
-            this.btn_limpiar.TabIndex = 100;
-            this.btn_limpiar.Text = "Limpiar";
-            this.btn_limpiar.UseVisualStyleBackColor = false;
-            this.btn_limpiar.Click += new System.EventHandler(this.btn_limpiar_Click);
-            // 
-            // guardar_bd
-            // 
-            this.guardar_bd.BackColor = System.Drawing.SystemColors.HotTrack;
-            this.guardar_bd.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.guardar_bd.FlatAppearance.BorderSize = 0;
-            this.guardar_bd.FlatAppearance.MouseOverBackColor = System.Drawing.Color.CornflowerBlue;
-            this.guardar_bd.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.guardar_bd.Font = new System.Drawing.Font("Century Gothic", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.guardar_bd.ForeColor = System.Drawing.Color.White;
-            this.guardar_bd.ImageAlign = System.Drawing.ContentAlignment.BottomCenter;
-            this.guardar_bd.Location = new System.Drawing.Point(1072, 466);
-            this.guardar_bd.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.guardar_bd.Name = "guardar_bd";
-            this.guardar_bd.Size = new System.Drawing.Size(92, 36);
-            this.guardar_bd.TabIndex = 99;
-            this.guardar_bd.Text = "Guardar";
-            this.guardar_bd.UseVisualStyleBackColor = false;
-            this.guardar_bd.Click += new System.EventHandler(this.guardar_bd_Click);
-            // 
-            // Cod_barra
-            // 
-            this.Cod_barra.BackColor = System.Drawing.SystemColors.HotTrack;
-            this.Cod_barra.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.Cod_barra.FlatAppearance.BorderSize = 0;
-            this.Cod_barra.FlatAppearance.MouseOverBackColor = System.Drawing.Color.CornflowerBlue;
-            this.Cod_barra.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.Cod_barra.Font = new System.Drawing.Font("Century Gothic", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Cod_barra.ForeColor = System.Drawing.Color.White;
-            this.Cod_barra.ImageAlign = System.Drawing.ContentAlignment.BottomCenter;
-            this.Cod_barra.Location = new System.Drawing.Point(906, 466);
-            this.Cod_barra.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.Cod_barra.Name = "Cod_barra";
-            this.Cod_barra.Size = new System.Drawing.Size(149, 35);
-            this.Cod_barra.TabIndex = 98;
-            this.Cod_barra.Text = "Código de Barra";
-            this.Cod_barra.UseVisualStyleBackColor = false;
-            this.Cod_barra.Click += new System.EventHandler(this.button3_Click_1);
-            // 
-            // lblcount
-            // 
-            this.lblcount.AutoSize = true;
-            this.lblcount.Font = new System.Drawing.Font("Century Gothic", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblcount.ForeColor = System.Drawing.Color.White;
-            this.lblcount.Location = new System.Drawing.Point(101, 462);
-            this.lblcount.Name = "lblcount";
-            this.lblcount.Size = new System.Drawing.Size(20, 22);
-            this.lblcount.TabIndex = 97;
-            this.lblcount.Text = "0";
-            this.lblcount.Click += new System.EventHandler(this.lblcount_Click);
-            // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.ForeColor = System.Drawing.Color.White;
-            this.label3.Location = new System.Drawing.Point(5, 463);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(93, 20);
-            this.label3.TabIndex = 96;
-            this.label3.Text = "Recuento : ";
-            this.label3.Click += new System.EventHandler(this.label3_Click_1);
-            // 
-            // BtnBlancos
-            // 
-            this.BtnBlancos.BackColor = System.Drawing.Color.Transparent;
-            this.BtnBlancos.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("BtnBlancos.BackgroundImage")));
-            this.BtnBlancos.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.BtnBlancos.FlatAppearance.BorderSize = 0;
-            this.BtnBlancos.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.BtnBlancos.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.BtnBlancos.Location = new System.Drawing.Point(293, 18);
-            this.BtnBlancos.Margin = new System.Windows.Forms.Padding(4);
-            this.BtnBlancos.Name = "BtnBlancos";
-            this.BtnBlancos.Size = new System.Drawing.Size(43, 35);
-            this.BtnBlancos.TabIndex = 92;
-            this.BtnBlancos.UseVisualStyleBackColor = false;
-            this.BtnBlancos.Click += new System.EventHandler(this.BtnBlancos_Click);
-            // 
-            // cbo_CtrlB
-            // 
-            this.cbo_CtrlB.BackColor = System.Drawing.Color.White;
-            this.cbo_CtrlB.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cbo_CtrlB.FormattingEnabled = true;
-            this.cbo_CtrlB.Items.AddRange(new object[] {
-            "MB 105",
-            "MC 401",
-            "MC 402",
-            "MC 403",
-            "MC 976"});
-            this.cbo_CtrlB.Location = new System.Drawing.Point(185, 22);
-            this.cbo_CtrlB.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.cbo_CtrlB.Name = "cbo_CtrlB";
-            this.cbo_CtrlB.Size = new System.Drawing.Size(101, 28);
-            this.cbo_CtrlB.TabIndex = 80;
-            this.cbo_CtrlB.SelectedIndexChanged += new System.EventHandler(this.cbo_CtrlB_SelectedIndexChanged);
-            // 
-            // label8
-            // 
-            this.label8.AutoSize = true;
-            this.label8.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label8.ForeColor = System.Drawing.Color.White;
-            this.label8.Location = new System.Drawing.Point(7, 25);
-            this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(162, 40);
-            this.label8.TabIndex = 81;
-            this.label8.Text = "Controles y Blancos:*\r\n \r\n";
-            this.label8.Click += new System.EventHandler(this.label8_Click);
-            // 
-            // lblcant
-            // 
-            this.lblcant.AutoSize = true;
-            this.lblcant.Location = new System.Drawing.Point(349, 184);
-            this.lblcant.Name = "lblcant";
-            this.lblcant.Size = new System.Drawing.Size(53, 20);
-            this.lblcant.TabIndex = 7;
-            this.lblcant.Text = "label2";
-            // 
-            // gDMS_ANTAPACCAYDataSet
-            // 
-            this.gDMS_ANTAPACCAYDataSet.DataSetName = "GDMS_ANTAPACCAYDataSet";
-            this.gDMS_ANTAPACCAYDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
-            // 
-            // gDMSANTAPACCAYDataSetBindingSource
-            // 
-            this.gDMSANTAPACCAYDataSetBindingSource.DataSource = this.gDMS_ANTAPACCAYDataSet;
-            this.gDMSANTAPACCAYDataSetBindingSource.Position = 0;
-            // 
-            // contextMenuStrip1
-            // 
-            this.contextMenuStrip1.ImageScalingSize = new System.Drawing.Size(20, 20);
-            this.contextMenuStrip1.Name = "contextMenuStrip1";
-            this.contextMenuStrip1.Size = new System.Drawing.Size(61, 4);
             // 
             // sdk
             // 
@@ -1273,6 +949,70 @@
             this.FeTot.TrueValue = "true";
             this.FeTot.Width = 65;
             // 
+            // btn_Guardar
+            // 
+            this.btn_Guardar.BackColor = System.Drawing.SystemColors.HotTrack;
+            this.btn_Guardar.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btn_Guardar.FlatAppearance.BorderSize = 0;
+            this.btn_Guardar.FlatAppearance.MouseOverBackColor = System.Drawing.Color.CornflowerBlue;
+            this.btn_Guardar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btn_Guardar.Font = new System.Drawing.Font("Century Gothic", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btn_Guardar.ForeColor = System.Drawing.Color.White;
+            this.btn_Guardar.ImageAlign = System.Drawing.ContentAlignment.BottomCenter;
+            this.btn_Guardar.Location = new System.Drawing.Point(796, 465);
+            this.btn_Guardar.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.btn_Guardar.Name = "btn_Guardar";
+            this.btn_Guardar.Size = new System.Drawing.Size(96, 37);
+            this.btn_Guardar.TabIndex = 78;
+            this.btn_Guardar.Text = "Imprimir";
+            this.btn_Guardar.UseVisualStyleBackColor = false;
+            this.btn_Guardar.Click += new System.EventHandler(this.btn_Guardar_Click);
+            // 
+            // groupBox1
+            // 
+            this.groupBox1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(7)))), ((int)(((byte)(48)))), ((int)(((byte)(165)))));
+            this.groupBox1.Controls.Add(this.lbDispatch);
+            this.groupBox1.Controls.Add(this.Actualizar);
+            this.groupBox1.Controls.Add(this.button2);
+            this.groupBox1.Controls.Add(this.Cb_ordenes);
+            this.groupBox1.Controls.Add(this.lbProyGeolo);
+            this.groupBox1.Controls.Add(this.button4);
+            this.groupBox1.Controls.Add(this.button1);
+            this.groupBox1.Controls.Add(this.lbCodPrep);
+            this.groupBox1.Controls.Add(this.label12);
+            this.groupBox1.Controls.Add(this.label11);
+            this.groupBox1.Controls.Add(this.Dgv_Orden);
+            this.groupBox1.Controls.Add(this.cbo_FeTot);
+            this.groupBox1.Controls.Add(this.cbo_CuTot);
+            this.groupBox1.Controls.Add(this.cbo_CuRes);
+            this.groupBox1.Controls.Add(this.cbo_CuOxi);
+            this.groupBox1.Controls.Add(this.cbo_CuSCn);
+            this.groupBox1.Controls.Add(this.btn_limpiar);
+            this.groupBox1.Controls.Add(this.cbo_CuSAc);
+            this.groupBox1.Controls.Add(this.guardar_bd);
+            this.groupBox1.Controls.Add(this.cbo_CO3);
+            this.groupBox1.Controls.Add(this.Cod_barra);
+            this.groupBox1.Controls.Add(this.cbo_Mo);
+            this.groupBox1.Controls.Add(this.lblcount);
+            this.groupBox1.Controls.Add(this.cbo_Ag);
+            this.groupBox1.Controls.Add(this.label3);
+            this.groupBox1.Controls.Add(this.cbo_Au);
+            this.groupBox1.Controls.Add(this.cbo_CuSol);
+            this.groupBox1.Controls.Add(this.btn_Guardar);
+            this.groupBox1.Controls.Add(this.BtnBlancos);
+            this.groupBox1.Controls.Add(this.cbo_CtrlB);
+            this.groupBox1.Controls.Add(this.label8);
+            this.groupBox1.Controls.Add(this.lblcant);
+            this.groupBox1.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.groupBox1.ForeColor = System.Drawing.Color.White;
+            this.groupBox1.Location = new System.Drawing.Point(12, 370);
+            this.groupBox1.Name = "groupBox1";
+            this.groupBox1.Size = new System.Drawing.Size(1286, 526);
+            this.groupBox1.TabIndex = 79;
+            this.groupBox1.TabStop = false;
+            this.groupBox1.Text = "Blast Hole";
+            this.groupBox1.Enter += new System.EventHandler(this.groupBox1_Enter);
+            // 
             // Actualizar
             // 
             this.Actualizar.BackColor = System.Drawing.SystemColors.HotTrack;
@@ -1291,6 +1031,281 @@
             this.Actualizar.Text = "Actualizar";
             this.Actualizar.UseVisualStyleBackColor = false;
             this.Actualizar.Visible = false;
+            // 
+            // button2
+            // 
+            this.button2.Location = new System.Drawing.Point(676, 465);
+            this.button2.Name = "button2";
+            this.button2.Size = new System.Drawing.Size(101, 36);
+            this.button2.TabIndex = 113;
+            this.button2.Text = "button2";
+            this.button2.UseVisualStyleBackColor = true;
+            this.button2.Click += new System.EventHandler(this.button2_Click);
+            // 
+            // Cb_ordenes
+            // 
+            this.Cb_ordenes.Font = new System.Drawing.Font("Century Gothic", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Cb_ordenes.FormattingEnabled = true;
+            this.Cb_ordenes.Location = new System.Drawing.Point(871, 24);
+            this.Cb_ordenes.Name = "Cb_ordenes";
+            this.Cb_ordenes.Size = new System.Drawing.Size(158, 25);
+            this.Cb_ordenes.TabIndex = 110;
+            // 
+            // lbProyGeolo
+            // 
+            this.lbProyGeolo.AutoSize = true;
+            this.lbProyGeolo.BackColor = System.Drawing.Color.Transparent;
+            this.lbProyGeolo.Font = new System.Drawing.Font("Century Gothic", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbProyGeolo.ForeColor = System.Drawing.Color.White;
+            this.lbProyGeolo.Location = new System.Drawing.Point(324, 463);
+            this.lbProyGeolo.Name = "lbProyGeolo";
+            this.lbProyGeolo.Size = new System.Drawing.Size(20, 22);
+            this.lbProyGeolo.TabIndex = 104;
+            this.lbProyGeolo.Text = "0";
+            this.lbProyGeolo.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // button4
+            // 
+            this.button4.BackColor = System.Drawing.Color.IndianRed;
+            this.button4.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.button4.FlatAppearance.BorderSize = 0;
+            this.button4.FlatAppearance.MouseOverBackColor = System.Drawing.Color.CornflowerBlue;
+            this.button4.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button4.Font = new System.Drawing.Font("Century Gothic", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button4.ForeColor = System.Drawing.Color.White;
+            this.button4.ImageAlign = System.Drawing.ContentAlignment.BottomCenter;
+            this.button4.Location = new System.Drawing.Point(1171, 18);
+            this.button4.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.button4.Name = "button4";
+            this.button4.Size = new System.Drawing.Size(94, 35);
+            this.button4.TabIndex = 112;
+            this.button4.Text = "Eliminar";
+            this.button4.UseVisualStyleBackColor = false;
+            this.button4.Click += new System.EventHandler(this.button4_Click);
+            // 
+            // button1
+            // 
+            this.button1.BackColor = System.Drawing.SystemColors.HotTrack;
+            this.button1.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.button1.FlatAppearance.BorderSize = 0;
+            this.button1.FlatAppearance.MouseOverBackColor = System.Drawing.Color.CornflowerBlue;
+            this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button1.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button1.ForeColor = System.Drawing.Color.White;
+            this.button1.ImageAlign = System.Drawing.ContentAlignment.BottomCenter;
+            this.button1.Location = new System.Drawing.Point(1037, 18);
+            this.button1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(121, 35);
+            this.button1.TabIndex = 110;
+            this.button1.Text = "Consultar";
+            this.button1.UseVisualStyleBackColor = false;
+            this.button1.Click += new System.EventHandler(this.button1_Click_2);
+            // 
+            // lbCodPrep
+            // 
+            this.lbCodPrep.AutoSize = true;
+            this.lbCodPrep.BackColor = System.Drawing.Color.Transparent;
+            this.lbCodPrep.Font = new System.Drawing.Font("Century Gothic", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbCodPrep.ForeColor = System.Drawing.Color.White;
+            this.lbCodPrep.Location = new System.Drawing.Point(630, 464);
+            this.lbCodPrep.Name = "lbCodPrep";
+            this.lbCodPrep.Size = new System.Drawing.Size(20, 22);
+            this.lbCodPrep.TabIndex = 105;
+            this.lbCodPrep.Text = "0";
+            this.lbCodPrep.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // label12
+            // 
+            this.label12.AutoSize = true;
+            this.label12.BackColor = System.Drawing.Color.Transparent;
+            this.label12.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label12.ForeColor = System.Drawing.Color.White;
+            this.label12.Location = new System.Drawing.Point(425, 465);
+            this.label12.Name = "label12";
+            this.label12.Size = new System.Drawing.Size(199, 20);
+            this.label12.TabIndex = 103;
+            this.label12.Text = "Códiigo de preparación : \r\n";
+            this.label12.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // label11
+            // 
+            this.label11.AutoSize = true;
+            this.label11.BackColor = System.Drawing.Color.Transparent;
+            this.label11.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label11.ForeColor = System.Drawing.Color.White;
+            this.label11.Location = new System.Drawing.Point(137, 463);
+            this.label11.Name = "label11";
+            this.label11.Size = new System.Drawing.Size(182, 20);
+            this.label11.TabIndex = 102;
+            this.label11.Text = "Proyecto de geologia : \r\n";
+            this.label11.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.label11.Click += new System.EventHandler(this.label11_Click);
+            // 
+            // btn_limpiar
+            // 
+            this.btn_limpiar.BackColor = System.Drawing.Color.IndianRed;
+            this.btn_limpiar.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btn_limpiar.FlatAppearance.BorderSize = 0;
+            this.btn_limpiar.FlatAppearance.MouseOverBackColor = System.Drawing.Color.CornflowerBlue;
+            this.btn_limpiar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btn_limpiar.Font = new System.Drawing.Font("Century Gothic", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btn_limpiar.ForeColor = System.Drawing.Color.White;
+            this.btn_limpiar.ImageAlign = System.Drawing.ContentAlignment.BottomCenter;
+            this.btn_limpiar.Location = new System.Drawing.Point(1175, 468);
+            this.btn_limpiar.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.btn_limpiar.Name = "btn_limpiar";
+            this.btn_limpiar.Size = new System.Drawing.Size(94, 35);
+            this.btn_limpiar.TabIndex = 100;
+            this.btn_limpiar.Text = "Limpiar";
+            this.btn_limpiar.UseVisualStyleBackColor = false;
+            this.btn_limpiar.Click += new System.EventHandler(this.btn_limpiar_Click);
+            // 
+            // guardar_bd
+            // 
+            this.guardar_bd.BackColor = System.Drawing.SystemColors.HotTrack;
+            this.guardar_bd.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.guardar_bd.FlatAppearance.BorderSize = 0;
+            this.guardar_bd.FlatAppearance.MouseOverBackColor = System.Drawing.Color.CornflowerBlue;
+            this.guardar_bd.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.guardar_bd.Font = new System.Drawing.Font("Century Gothic", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.guardar_bd.ForeColor = System.Drawing.Color.White;
+            this.guardar_bd.ImageAlign = System.Drawing.ContentAlignment.BottomCenter;
+            this.guardar_bd.Location = new System.Drawing.Point(1072, 466);
+            this.guardar_bd.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.guardar_bd.Name = "guardar_bd";
+            this.guardar_bd.Size = new System.Drawing.Size(92, 36);
+            this.guardar_bd.TabIndex = 99;
+            this.guardar_bd.Text = "Guardar";
+            this.guardar_bd.UseVisualStyleBackColor = false;
+            this.guardar_bd.Click += new System.EventHandler(this.guardar_bd_Click);
+            // 
+            // Cod_barra
+            // 
+            this.Cod_barra.BackColor = System.Drawing.SystemColors.HotTrack;
+            this.Cod_barra.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.Cod_barra.FlatAppearance.BorderSize = 0;
+            this.Cod_barra.FlatAppearance.MouseOverBackColor = System.Drawing.Color.CornflowerBlue;
+            this.Cod_barra.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.Cod_barra.Font = new System.Drawing.Font("Century Gothic", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Cod_barra.ForeColor = System.Drawing.Color.White;
+            this.Cod_barra.ImageAlign = System.Drawing.ContentAlignment.BottomCenter;
+            this.Cod_barra.Location = new System.Drawing.Point(906, 466);
+            this.Cod_barra.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.Cod_barra.Name = "Cod_barra";
+            this.Cod_barra.Size = new System.Drawing.Size(149, 35);
+            this.Cod_barra.TabIndex = 98;
+            this.Cod_barra.Text = "Código de Barra";
+            this.Cod_barra.UseVisualStyleBackColor = false;
+            this.Cod_barra.Click += new System.EventHandler(this.button3_Click_1);
+            // 
+            // lblcount
+            // 
+            this.lblcount.AutoSize = true;
+            this.lblcount.Font = new System.Drawing.Font("Century Gothic", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblcount.ForeColor = System.Drawing.Color.White;
+            this.lblcount.Location = new System.Drawing.Point(101, 462);
+            this.lblcount.Name = "lblcount";
+            this.lblcount.Size = new System.Drawing.Size(20, 22);
+            this.lblcount.TabIndex = 97;
+            this.lblcount.Text = "0";
+            this.lblcount.Click += new System.EventHandler(this.lblcount_Click);
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label3.ForeColor = System.Drawing.Color.White;
+            this.label3.Location = new System.Drawing.Point(5, 463);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(93, 20);
+            this.label3.TabIndex = 96;
+            this.label3.Text = "Recuento : ";
+            this.label3.Click += new System.EventHandler(this.label3_Click_1);
+            // 
+            // BtnBlancos
+            // 
+            this.BtnBlancos.BackColor = System.Drawing.Color.Transparent;
+            this.BtnBlancos.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("BtnBlancos.BackgroundImage")));
+            this.BtnBlancos.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.BtnBlancos.FlatAppearance.BorderSize = 0;
+            this.BtnBlancos.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.BtnBlancos.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.BtnBlancos.Location = new System.Drawing.Point(293, 18);
+            this.BtnBlancos.Margin = new System.Windows.Forms.Padding(4);
+            this.BtnBlancos.Name = "BtnBlancos";
+            this.BtnBlancos.Size = new System.Drawing.Size(43, 35);
+            this.BtnBlancos.TabIndex = 92;
+            this.BtnBlancos.UseVisualStyleBackColor = false;
+            this.BtnBlancos.Click += new System.EventHandler(this.BtnBlancos_Click);
+            // 
+            // cbo_CtrlB
+            // 
+            this.cbo_CtrlB.BackColor = System.Drawing.Color.White;
+            this.cbo_CtrlB.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cbo_CtrlB.FormattingEnabled = true;
+            this.cbo_CtrlB.Items.AddRange(new object[] {
+            "MB 105",
+            "MC 401",
+            "MC 402",
+            "MC 403",
+            "MC 976"});
+            this.cbo_CtrlB.Location = new System.Drawing.Point(185, 22);
+            this.cbo_CtrlB.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.cbo_CtrlB.Name = "cbo_CtrlB";
+            this.cbo_CtrlB.Size = new System.Drawing.Size(101, 28);
+            this.cbo_CtrlB.TabIndex = 80;
+            this.cbo_CtrlB.SelectedIndexChanged += new System.EventHandler(this.cbo_CtrlB_SelectedIndexChanged);
+            // 
+            // label8
+            // 
+            this.label8.AutoSize = true;
+            this.label8.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label8.ForeColor = System.Drawing.Color.White;
+            this.label8.Location = new System.Drawing.Point(7, 25);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(162, 40);
+            this.label8.TabIndex = 81;
+            this.label8.Text = "Controles y Blancos:*\r\n \r\n";
+            this.label8.Click += new System.EventHandler(this.label8_Click);
+            // 
+            // lblcant
+            // 
+            this.lblcant.AutoSize = true;
+            this.lblcant.Location = new System.Drawing.Point(349, 184);
+            this.lblcant.Name = "lblcant";
+            this.lblcant.Size = new System.Drawing.Size(53, 20);
+            this.lblcant.TabIndex = 7;
+            this.lblcant.Text = "label2";
+            // 
+            // gDMS_ANTAPACCAYDataSet
+            // 
+            this.gDMS_ANTAPACCAYDataSet.DataSetName = "GDMS_ANTAPACCAYDataSet";
+            this.gDMS_ANTAPACCAYDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            // 
+            // gDMSANTAPACCAYDataSetBindingSource
+            // 
+            this.gDMSANTAPACCAYDataSetBindingSource.DataSource = this.gDMS_ANTAPACCAYDataSet;
+            this.gDMSANTAPACCAYDataSetBindingSource.Position = 0;
+            // 
+            // contextMenuStrip1
+            // 
+            this.contextMenuStrip1.ImageScalingSize = new System.Drawing.Size(20, 20);
+            this.contextMenuStrip1.Name = "contextMenuStrip1";
+            this.contextMenuStrip1.Size = new System.Drawing.Size(61, 4);
+            // 
+            // lbDispatch
+            // 
+            this.lbDispatch.AutoSize = true;
+            this.lbDispatch.BackColor = System.Drawing.Color.Transparent;
+            this.lbDispatch.Font = new System.Drawing.Font("Century Gothic", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbDispatch.ForeColor = System.Drawing.Color.White;
+            this.lbDispatch.Location = new System.Drawing.Point(363, 25);
+            this.lbDispatch.Name = "lbDispatch";
+            this.lbDispatch.Size = new System.Drawing.Size(20, 22);
+            this.lbDispatch.TabIndex = 115;
+            this.lbDispatch.Text = "0";
+            this.lbDispatch.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // Form_Orden
             // 
@@ -1406,5 +1421,6 @@
         private System.Windows.Forms.DataGridViewCheckBoxColumn CuRes;
         private System.Windows.Forms.DataGridViewCheckBoxColumn FeTot;
         private System.Windows.Forms.Button Actualizar;
+        private System.Windows.Forms.Label lbDispatch;
     }
 }

@@ -2573,7 +2573,51 @@ namespace OrdenesEspeciales
                         }
                     }
                 }
+
+                // Definir la segunda consulta SQL
+                string query2 = "select distinct a2.code_prep, a1.PROYECTO_GEOLOGIA " +
+                                "from modular_samples as a1 " +
+                                "inner join UDEF_ORDER_ANALYSIS as a2 ON a1.sample_number = a2.CODE_ANALYSIS " +
+                                "where A2.DISPATCH_CODE = ?";
+
+                // Crear y configurar el comando para la segunda consulta
+                using (OdbcCommand cmd2 = new OdbcCommand(query2, con))
+                {
+                    cmd2.Parameters.Add("@DISPATCH_CODE", OdbcType.VarChar).Value = dispatchCode;
+
+                    // Ejecutar la consulta y obtener los resultados
+                    using (OdbcDataReader reader2 = cmd2.ExecuteReader())
+                    {
+                        if (reader2.Read())
+                        {
+                            // Asignar los valores a los labels
+                            lbCodPrep.Text = reader2["code_prep"].ToString();
+                            lbProyGeolo.Text = reader2["PROYECTO_GEOLOGIA"].ToString();
+                        }
+                    }
+                }
+
+
+                string query3 = "select  distinct DISPATCH_CODE from UDEF_ORDER_ANALYSIS WHERE DISPATCH_CODE = ? ";
+
+                using (OdbcCommand cmd3 = new OdbcCommand(query3, con))
+                {
+                    cmd3.Parameters.Add("@DISPATCH_CODE", OdbcType.VarChar).Value = dispatchCode;
+
+                    // Ejecutar la consulta y obtener los resultados
+                    using (OdbcDataReader reader3 = cmd3.ExecuteReader())
+                    {
+                        if (reader3.Read())
+                        {
+                            // Asignar los valores a los labels
+                            lbDispatch.Text = reader3["DISPATCH_CODE"].ToString();
+                        }
+                    }
+                }
+
             }
+
+
             catch (Exception ex)
             {
                 MessageBox.Show("Error al realizar la consulta: " + ex.Message);
@@ -2587,9 +2631,233 @@ namespace OrdenesEspeciales
                 }
             }
         }
+        // DELETE DE LAS TABLAS ---------------------
 
+        //HOLE_ASSAY_STANDARDS 
+        private void EliminarRegistrosASSAY_STANDARDS()
+        {
+            try
+            {
+                // Lista de valores que buscamos en la columna "CONTROL"
+                var valoresControl = new[] { "MB 105", "MC 401", "MC 402", "MC 403", "MC 976" };
 
-        //--------------------------
+                // Construir una lista de valores para el DELETE
+                var codigosAnalisis = new List<string>();
+
+                foreach (DataGridViewRow row in Dgv_Orden.Rows)
+                {
+                    if (row.Cells["CONTROL"] != null && valoresControl.Contains(row.Cells["CONTROL"].Value.ToString()))
+                    {
+                        codigosAnalisis.Add(row.Cells["CodAnalisis"].Value.ToString());
+                    }
+                }
+
+                if (codigosAnalisis.Count > 0)
+                {
+                    string codigos = string.Join("','", codigosAnalisis);
+                    string query = $"DELETE FROM HOLE_ASSAY_STANDARDS WHERE SAMPLE_NUMBER IN ('{codigos}')";
+
+                    using (OdbcCommand command = new OdbcCommand(query, con))
+                    {
+                        if (con.State == System.Data.ConnectionState.Closed)
+                        {
+                            con.Open();
+                        }
+
+                        int rowsAffected = command.ExecuteNonQuery();
+                        //MessageBox.Show($"{rowsAffected} registros eliminados.");
+                    }
+                }
+                else
+                {
+                    MessageBox.Show("No se encontraron registros para eliminar.");
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error al eliminar registros: " + ex.ToString());
+            }
+            finally
+            {
+                if (con.State == System.Data.ConnectionState.Open)
+                {
+                    con.Close();
+                }
+            }
+        }
+
+        //------------------modular_samples 
+        private void EliminarRegistrosModularSamples()
+        {
+            try
+            {
+                // Construir una lista de valores para el DELETE
+                var codigosAnalisis = new List<string>();
+
+                foreach (DataGridViewRow row in Dgv_Orden.Rows)
+                {
+                    if (row.Cells["CodAnalisis"] != null && row.Cells["CodAnalisis"].Value != null)
+                    {
+                        codigosAnalisis.Add(row.Cells["CodAnalisis"].Value.ToString());
+                    }
+                }
+
+                if (codigosAnalisis.Count > 0)
+                {
+                    string codigos = string.Join("','", codigosAnalisis);
+                    string query = $"DELETE FROM modular_samples WHERE sample_number IN ('{codigos}')";
+
+                    using (OdbcCommand command = new OdbcCommand(query, con))
+                    {
+                        if (con.State == System.Data.ConnectionState.Closed)
+                        {
+                            con.Open();
+                        }
+
+                        int rowsAffected = command.ExecuteNonQuery();
+                        //MessageBox.Show($"{rowsAffected} registros eliminados.");
+                    }
+                }
+                else
+                {
+                    MessageBox.Show("No se encontraron registros para eliminar.");
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error al eliminar registros: " + ex.ToString());
+            }
+            finally
+            {
+                if (con.State == System.Data.ConnectionState.Open)
+                {
+                    con.Close();
+                }
+            }
+        }
+        //----------------- DHL_SAMPLE_DISPATCH_SAMPLES
+
+        private void EliminarRegistrosDHL()
+        {
+            try
+            {
+                // Construir una lista de valores para el DELETE
+                var codigosAnalisis = new List<string>();
+
+                foreach (DataGridViewRow row in Dgv_Orden.Rows)
+                {
+                    if (row.Cells["CodAnalisis"] != null && row.Cells["CodAnalisis"].Value != null)
+                    {
+                        codigosAnalisis.Add(row.Cells["CodAnalisis"].Value.ToString());
+                    }
+                }
+
+                if (codigosAnalisis.Count > 0)
+                {
+                    string codigos = string.Join("','", codigosAnalisis);
+                    string query = $"DELETE FROM DHL_SAMPLE_DISPATCH_SAMPLES WHERE SAMPLE_NUMBER IN ('{codigos}')";
+
+                    using (OdbcCommand command = new OdbcCommand(query, con))
+                    {
+                        if (con.State == System.Data.ConnectionState.Closed)
+                        {
+                            con.Open();
+                        }
+
+                        int rowsAffected = command.ExecuteNonQuery();
+                        //MessageBox.Show($"{rowsAffected} registros eliminados.");
+                    }
+                }
+                else
+                {
+                    MessageBox.Show("No se encontraron registros para eliminar.");
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error al eliminar registros: " + ex.ToString());
+            }
+            finally
+            {
+                if (con.State == System.Data.ConnectionState.Open)
+                {
+                    con.Close();
+                }
+            }
+        }
+
+        // ELIMINAR DHL_SAMPLE_DISPATCH_HEADER 
+
+        private void EliminarRegistrosDHLHeaderFromLabel()
+        {
+            try
+            {
+                string dispatchNumber = lbDispatch.Text;// Obtener el valor del Label
+
+                string query = "DELETE FROM DHL_SAMPLE_DISPATCH_HEADER WHERE dispatch_number = ?";
+
+                using (OdbcCommand command = new OdbcCommand(query, con))
+                {
+                    command.Parameters.Add("@dispatchNumber", OdbcType.VarChar).Value = dispatchNumber;
+
+                    if (con.State == System.Data.ConnectionState.Closed)
+                    {
+                        con.Open();
+                    }
+
+                    int rowsAffected = command.ExecuteNonQuery();
+                    //MessageBox.Show($"{rowsAffected} registros eliminados.");
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error al eliminar registros: " + ex.ToString());
+            }
+            finally
+            {
+                if (con.State == System.Data.ConnectionState.Open)
+                {
+                    con.Close();
+                }
+            }
+        }
+        //--------------ELIMINAR UDEF_ORDER_ANALYSIS  
+
+        private void EliminarRegistrosUDEFOrderAnalysis()
+        {
+            try
+            {
+
+                string dispatchCode = lbDispatch.Text;
+
+                string query = "DELETE FROM UDEF_ORDER_ANALYSIS WHERE DISPATCH_CODE = ?";
+
+                using (OdbcCommand command = new OdbcCommand(query, con))
+                {
+                    command.Parameters.Add("@dispatchCode", OdbcType.VarChar).Value = dispatchCode;
+
+                    if (con.State == System.Data.ConnectionState.Closed)
+                    {
+                        con.Open();
+                    }
+
+                    int rowsAffected = command.ExecuteNonQuery();
+                    //MessageBox.Show($"{rowsAffected} registros eliminados.");
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error al eliminar registros: " + ex.ToString());
+            }
+            finally
+            {
+                if (con.State == System.Data.ConnectionState.Open)
+                {
+                    con.Close();
+                }
+            }
+        }
+        //----------------------------------------------
 
         private void cbProyectoGeolo_SelectedIndexChanged_1(object sender, EventArgs e)
         {
@@ -2604,7 +2872,7 @@ namespace OrdenesEspeciales
 
         private void button2_Click(object sender, EventArgs e)
         {
-            InsertarDatosOrder_Analysis();
+
         }
 
         private void button1_Click_2(object sender, EventArgs e)
@@ -2621,6 +2889,15 @@ namespace OrdenesEspeciales
 
             // Hacer visible el botón Actualizar
             Actualizar.Visible = true;
+        }
+
+        private void button4_Click(object sender, EventArgs e)
+        {   
+            EliminarRegistrosASSAY_STANDARDS();
+            EliminarRegistrosModularSamples();
+            //EliminarRegistrosDHL();
+            EliminarRegistrosDHLHeaderFromLabel();
+            EliminarRegistrosUDEFOrderAnalysis();
         }
     }
 }
