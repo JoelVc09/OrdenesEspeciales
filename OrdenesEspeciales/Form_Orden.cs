@@ -39,6 +39,7 @@ namespace OrdenesEspeciales
     {
         OdbcConnection con = ConexionODBC.connection;
         public Form_Orden()
+
         {
 
             InitializeComponent();
@@ -173,12 +174,13 @@ namespace OrdenesEspeciales
                 cbo_proyecto.DataSource = dt;
             }
         }
+
         //LLENAR LOS ULTIMOS 10 DESPACHOS :
 
         private void llenarComboBoxOrdenes()
         {
             // Crear la consulta SQL
-            string query = "SELECT TOP 10 dispatch_number FROM DHL_SAMPLE_DISPATCH_HEADER WHERE dispatch_number NOT LIKE '%E%' AND dispatch_number NOT LIKE '%A%' ORDER BY dispatch_number DESC";
+            string query = "SELECT TOP 10 DISPATCH_CODE FROM UDEF_ORDER_ANALYSIS WHERE DISPATCH_CODE NOT LIKE '%E%' AND DISPATCH_CODE NOT LIKE '%A%' ORDER BY DISPATCH_CODE DESC";
 
             // Crear el comando ODBC con la consulta
             using (OdbcCommand cmd = new OdbcCommand(query, con))
@@ -194,12 +196,12 @@ namespace OrdenesEspeciales
 
                 // Crear una nueva fila en el DataTable con un valor inicial especial
                 DataRow fila = dt.NewRow();
-                fila["dispatch_number"] = "Seleccionar";
+                fila["DISPATCH_CODE"] = "Seleccionar";
                 dt.Rows.InsertAt(fila, 0);
 
                 // Configurar el ComboBox Cb_ordenes
-                Cb_ordenes.ValueMember = "dispatch_number";
-                Cb_ordenes.DisplayMember = "dispatch_number";
+                Cb_ordenes.ValueMember = "DISPATCH_CODE";
+                Cb_ordenes.DisplayMember = "DISPATCH_CODE";
                 Cb_ordenes.DataSource = dt;
             }
         }
@@ -415,7 +417,6 @@ namespace OrdenesEspeciales
                     Dgv_Orden.Rows[rowIndex].Cells["Cod_Prep"].Value = filaDgvConsulta.Cells[1].Value;
                     Dgv_Orden.Rows[rowIndex].Cells["sample_code"].Value = filaDgvConsulta.Cells[2].Value;
                     Dgv_Orden.Rows[rowIndex].Cells["blasthole"].Value = filaDgvConsulta.Cells[3].Value;
-                    Dgv_Orden.Rows[rowIndex].Cells["Hole"].Value = filaDgvConsulta.Cells[3].Value;
                     Dgv_Orden.Rows[rowIndex].Cells["Control"].Value = filaDgvConsulta.Cells[4].Value;
                     Dgv_Orden.Rows[rowIndex].Cells["parent"].Value = filaDgvConsulta.Cells[5].Value;
                     Dgv_Orden.Rows[rowIndex].Cells["Proyecto_geologia"].Value = filaDgvConsulta.Cells[6].Value;
@@ -437,11 +438,18 @@ namespace OrdenesEspeciales
 
         private void FillHoleColumn()
         {
+            // Copiar todos los valores de la columna "blasthole"
+            foreach (DataGridViewRow row in Dgv_Orden.Rows)
+            {
+                var blastholeValue = row.Cells["blasthole"].Value?.ToString();
+                row.Cells["Hole"].Value = blastholeValue;
+            }
+
             // Recorrer todas las filas del DataGridView
             foreach (DataGridViewRow row in Dgv_Orden.Rows)
             {
                 // Verificar si la columna "Hole" está vacía
-                if (row.Cells["Hole"].Value == null || string.IsNullOrEmpty(row.Cells["Hole"].Value.ToString()))
+                if (string.IsNullOrEmpty(row.Cells["Hole"].Value?.ToString()))
                 {
                     // Obtener el valor de la columna "parent"
                     var parentValue = row.Cells["parent"].Value?.ToString();
@@ -466,6 +474,7 @@ namespace OrdenesEspeciales
                 }
             }
         }
+
 
         // LLEVAR LOS DATOS DE MUESTRADUPLICADO A LA COLUMNA CORRESPONDIENTE 4
 
@@ -827,6 +836,12 @@ namespace OrdenesEspeciales
 
         private void btn_crear_Click(object sender, EventArgs e)
         {
+
+            limpiarcheckssBox();
+
+            guardar_bd.Visible = true;
+
+            Actualizar.Visible = false;
 
             if (cbo_Laborat.SelectedIndex > 0)
             {
@@ -1215,8 +1230,8 @@ namespace OrdenesEspeciales
                 string selectedValue = Dgv_Orden.Rows[e.RowIndex].Cells["MCtrl"].Value?.ToString();
                 if (selectedValue == "Duplicado Original")
                 {
-                    string codMuestraValue = Dgv_Orden.Rows[e.RowIndex].Cells["CodAnalisis"].Value?.ToString();
-                    Dgv_Orden.Rows[e.RowIndex].Cells["parent"].Value = codMuestraValue;
+                    //string codMuestraValue = Dgv_Orden.Rows[e.RowIndex].Cells["CodAnalisis"].Value?.ToString();
+                    //Dgv_Orden.Rows[e.RowIndex].Cells["parent"].Value = codMuestraValue;
                 }
             }
         }
@@ -1399,6 +1414,7 @@ namespace OrdenesEspeciales
         }
 
         // IMPRIMIR CODIGO DE BARRA 
+
         private void button3_Click_1(object sender, EventArgs e)
         {
             SaveFileDialog saveFileDialog = new SaveFileDialog();
@@ -1410,8 +1426,14 @@ namespace OrdenesEspeciales
             {
                 using (FileStream stream = new FileStream(saveFileDialog.FileName, FileMode.Create))
                 {
-                    // Crear un documento PDF con el tamaño A4
-                    Document pdfDoc = new Document(PageSize.A4); // Tamaño A4
+                    // Crear un documento PDF con el tamaño personalizado (10.6 cm de ancho y una altura grande)
+                    float pageWidth = 10.6f * 28.3465f; // Convertir cm a puntos
+                    float pageHeight = 2000f; // Establecer una altura grande pero manejable
+
+                    // Margen de 0.20 cm convertido a puntos
+                    float margin = 0.2f * 28.3465f;
+
+                    Document pdfDoc = new Document(new iTextSharp.text.Rectangle(pageWidth, pageHeight), margin, margin, margin, margin);
                     PdfWriter writer = PdfWriter.GetInstance(pdfDoc, stream);
 
                     pdfDoc.Open();
@@ -1422,8 +1444,8 @@ namespace OrdenesEspeciales
                         Format = BarcodeFormat.CODE_128,
                         Options = new ZXing.Common.EncodingOptions
                         {
-                            Width = 450, // Aumentar el ancho del código de barras
-                            Height = 120 // Aumentar la altura del código de barras
+                            Width = (int)(2.94f * 28.3465f), // Convertir 2.94 cm a puntos ancho
+                            Height = (int)(1.16f * 28.3465f) // Convertir 1.16 cm a puntos altura 
                         }
                     };
 
@@ -1431,8 +1453,14 @@ namespace OrdenesEspeciales
                     PdfPTable table = new PdfPTable(2);
                     table.WidthPercentage = 100;
                     table.DefaultCell.Border = PdfPCell.NO_BORDER;
+                    table.SpacingBefore = 0.02f * 28.3465f; // Espacio antes de la tabla (0.02 cm)
 
-                    int count = 0;
+                    // Espacio entre celdas
+                    float cellPadding = 0.02f * 28.3465f;
+
+                    // Establecer el borde de las celdas y el ancho del borde
+                    table.DefaultCell.Border = PdfPCell.BOX; // Añadir borde alrededor de cada celda
+                    table.DefaultCell.BorderWidth = 1f; // Establecer el ancho del borde
 
                     // Obtener el valor de proyect_geolo
                     string proyect_geolo = cbProyectoGeolo.SelectedValue.ToString();
@@ -1443,7 +1471,7 @@ namespace OrdenesEspeciales
                         if (!row.IsNewRow)
                         {
                             string codigo = row.Cells["CodAnalisis"].Value.ToString();
-                            string blasHole = row.Cells["blasthole"].Value.ToString();
+                            string blasHole = row.Cells["Hole"].Value.ToString();
 
                             // Generar el código de barras
                             Bitmap barcodeBitmap = barcodeWriter.Write(codigo);
@@ -1456,56 +1484,60 @@ namespace OrdenesEspeciales
 
                                 // Convertir el array de bytes a una imagen iTextSharp
                                 iTextSharp.text.Image barcodeImage = iTextSharp.text.Image.GetInstance(barcodeBytes);
-                                barcodeImage.ScaleToFit(250, 70); // Aumentar el tamaño de la imagen del código de barras
+                                barcodeImage.ScaleToFit((int)(5f * 28.3465f), (int)(2.5f * 28.3465f)); // Ajustar al tamaño de la celda
+
+                                // Posicionar el código de barras en la parte inferior de la celda y centrado horizontalmente
+                                barcodeImage.Alignment = Element.ALIGN_CENTER | Element.ALIGN_BOTTOM;
 
                                 // Crear una celda para el contenido
                                 PdfPTable cellTable = new PdfPTable(1);
                                 cellTable.WidthPercentage = 100;
                                 cellTable.DefaultCell.Border = PdfPCell.NO_BORDER;
 
-                                // Añadir el valor de proyect_geolo
-                                PdfPCell cellProyecto = new PdfPCell(new Phrase("Project:" + proyect_geolo));
+                                // Añadir el valor de proyect_geolo con tamaño de fuente reducido
+                                PdfPCell cellProyecto = new PdfPCell(new Phrase("Project: " + proyect_geolo, FontFactory.GetFont("Arial", 5)));
                                 cellProyecto.HorizontalAlignment = Element.ALIGN_LEFT;
                                 cellProyecto.Border = PdfPCell.NO_BORDER;
                                 cellTable.AddCell(cellProyecto);
 
-                                // Añadir el nombre del blas_hole con el formato requerido
-                                PdfPCell cellBlasHole = new PdfPCell(new Phrase("Hole : " + blasHole));
+                                // Añadir el nombre del blas_hole con tamaño de fuente reducido
+                                PdfPCell cellBlasHole = new PdfPCell(new Phrase("Hole: " + blasHole, FontFactory.GetFont("Arial", 5)));
                                 cellBlasHole.HorizontalAlignment = Element.ALIGN_LEFT;
                                 cellBlasHole.Border = PdfPCell.NO_BORDER;
                                 cellTable.AddCell(cellBlasHole);
 
-                                // Añadir el código de barras
+                                // Añadir el código de barras en su posición ajustada
                                 PdfPCell cellBarcode = new PdfPCell(barcodeImage);
                                 cellBarcode.HorizontalAlignment = Element.ALIGN_CENTER;
+                                cellBarcode.VerticalAlignment = Element.ALIGN_BOTTOM; // Alinear en la parte inferior
                                 cellBarcode.Border = PdfPCell.NO_BORDER;
                                 cellTable.AddCell(cellBarcode);
 
-                                // Añadir la celda a la tabla principal
-                                PdfPCell cell = new PdfPCell(cellTable);
-                                cell.Border = PdfPCell.NO_BORDER;
-                                table.AddCell(cell);
+                                // Ajustar el espaciado interno de las celdas
+                                PdfPCell cellWrapper = new PdfPCell(cellTable);
+                                cellWrapper.Padding = cellPadding;
 
-                                count++;
+                                // Añadir la celda ajustada a la tabla principal
+                                table.AddCell(cellWrapper);
 
-                                // Si hemos añadido 12 códigos, añadir la tabla al documento y empezar una nueva página
-                                if (count % 12 == 0)
+                                // Comprobar si la tabla se ha llenado y necesita una nueva página
+                                if (table.CalculateHeights() > pageHeight - pdfDoc.TopMargin - pdfDoc.BottomMargin)
                                 {
                                     pdfDoc.Add(table);
                                     pdfDoc.NewPage();
                                     table = new PdfPTable(2);
                                     table.WidthPercentage = 100;
                                     table.DefaultCell.Border = PdfPCell.NO_BORDER;
+                                    table.SpacingBefore = 0.02f * 28.3465f; // Espacio antes de la nueva tabla
+                                    table.DefaultCell.Border = PdfPCell.BOX; // Añadir borde alrededor de cada celda
+                                    table.DefaultCell.BorderWidth = 1f; // Establecer el ancho del borde
                                 }
                             }
                         }
                     }
 
                     // Añadir la tabla restante al documento
-                    if (count % 12 != 0)
-                    {
-                        pdfDoc.Add(table);
-                    }
+                    pdfDoc.Add(table);
 
                     pdfDoc.Close();
                     stream.Close();
@@ -1513,6 +1545,14 @@ namespace OrdenesEspeciales
                 MessageBox.Show("PDF generado con éxito.");
             }
         }
+
+
+
+
+
+
+
+        //------------------------------------------
 
         private PdfPTable CreateNewTable()
         {
@@ -1595,15 +1635,18 @@ namespace OrdenesEspeciales
         private void btn_limpiar_Click(object sender, EventArgs e)
         {
 
-            Dgv_Orden.Rows.Clear();
-            Dgv_Orden.Refresh();
+
             limpiarcheckssBox();
-            lblcount.Text = Dgv_Orden.Rows.Count.ToString();
+            
 
         }
 
         private void limpiarcheckssBox()
         {
+
+            lblcount.Text = Dgv_Orden.Rows.Count.ToString();
+            Dgv_Orden.Rows.Clear();
+            Dgv_Orden.Refresh();
             cbo_CuTot.Checked = false;
             cbo_CuOxi.Checked = false;
             cbo_CuSol.Checked = false;
@@ -2230,6 +2273,7 @@ namespace OrdenesEspeciales
                 string geolo = cbProyectoGeolo.SelectedValue.ToString();
                 string laboratorio = cbo_Laborat.SelectedValue.ToString();
                 string cod_prep = codPreparacion.SelectedValue.ToString();
+                string valorOrden = txt_Orden.Text; // Obtener el valor del TextBox
 
                 // Obtener el valor del usuario actual conectado
                 string lastModifiedByQuery = "SELECT SUSER_SNAME() AS CurrentUser";
@@ -2319,8 +2363,8 @@ namespace OrdenesEspeciales
                     int CuRes_pInt = CuResVal ? 1 : 0;
                     int FeTot_pInt = FeTotVal ? 1 : 0;
 
-                    string query = "INSERT INTO UDEF_ORDER_ANALYSIS (STATUS, IS_MASTER, CHECKEDOUT_COMPUTER, CODE_ANALYSIS, CuTot_p, CuOx_p, CuSol_p, Au_p, Ag_p, Mo_p, CO3_p, CSAc, CsCn_p, CuRes_p, FeTot_p, LAST_MODIFIED_BY, LAST_MODIFIED_DATE_TIME, INCLUDE_IN_TRANSFER, SELECTED_BY, BLASTHOLE_GUID, current_owner, last_successful_transfer, ready_for_auto_checkin, samplenumber, PROYECTO_GEOLOGIA, ORIGINADO_POR, REPORTAR_A, FECHA_PREPARACION, FECHA_MUESTREO, LABORATORIO, CODE_PREP, PROYECTO_PLANEAMIENTO) " +
-                                      "VALUES ('NEW', 'Y', 'Y', ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, 'Y', ?, ?, ?, ?, 'Y', ?, ?, 'MUESTRERIA', 'G.MINA/BASE DE DATOS', ?, ?, ?, ?, ?)";
+                    string query = "INSERT INTO UDEF_ORDER_ANALYSIS (STATUS, IS_MASTER, CHECKEDOUT_COMPUTER, CODE_ANALYSIS, CuTot_p, CuOx_p, CuSol_p, Au_p, Ag_p, Mo_p, CO3_p, CSAc, CsCn_p, CuRes_p, FeTot_p, LAST_MODIFIED_BY, LAST_MODIFIED_DATE_TIME, INCLUDE_IN_TRANSFER, SELECTED_BY, BLASTHOLE_GUID, current_owner, last_successful_transfer, ready_for_auto_checkin, samplenumber, PROYECTO_GEOLOGIA, ORIGINADO_POR, REPORTAR_A, FECHA_PREPARACION, FECHA_MUESTREO, LABORATORIO, CODE_PREP, PROYECTO_PLANEAMIENTO, DISPATCH_CODE ) " +
+                                      "VALUES ('NEW', 'Y', 'Y', ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, 'Y', ?, ?, ?, ?, 'Y', ?, ?, 'MUESTRERIA', 'G.MINA/BASE DE DATOS', ?, ?, ?, ?, ?, ? )";
 
                     using (OdbcCommand command = new OdbcCommand(query, con))
                     {
@@ -2349,6 +2393,7 @@ namespace OrdenesEspeciales
                         command.Parameters.Add("@LABORATORIO", OdbcType.VarChar).Value = laboratorio;
                         command.Parameters.Add("@CODE_PREP", OdbcType.VarChar).Value = cod_prep;
                         command.Parameters.Add("@PROYECTO_PLANEAMIENTO", OdbcType.VarChar).Value = proy_planeamiento;
+                        command.Parameters.Add("@DISPATCH_CODE", OdbcType.VarChar).Value = valorOrden;
 
                         int rowsAffected = command.ExecuteNonQuery();
                         if (rowsAffected > 0)
@@ -2470,6 +2515,82 @@ namespace OrdenesEspeciales
             llenarComboBoxOrdenes();
         }
 
+        // CONSULTA DE DESPACHO 
+
+        private void LlenarDataGridView()
+        {
+            // Verificar si la conexión está cerrada y abrirla
+            if (con.State == ConnectionState.Closed)
+            {
+                con.Open();
+            }
+
+            try
+            {
+                // Obtener el valor seleccionado del ComboBox
+                string dispatchCode = Cb_ordenes.SelectedValue.ToString();
+
+                // Definir la consulta SQL
+                string query = "select a1.sample_number, a1.SAMPLE_CODE, a1.BH_ID, a2.code_prep, a1.PROYECTO_GEOLOGIA, case when a3.sample_type = 'ASSAY' THEN NULL ELSE a3.sample_type END AS assay_sample_type_code  , a1.parent_sample_number, a2.CuTot_p, a2.CuOx_p , a2.CuSol_p, a2.Au_p, a2.Ag_p, a2.Mo_p, a2.CO3_p, a2.CSAc, a2.CsCn_p, a2.CuRes_p, a2.FeTot_p  from modular_samples as a1 inner join UDEF_ORDER_ANALYSIS as a2 ON  a1.sample_number = a2.CODE_ANALYSIS inner join DHL_SAMPLE_DISPATCH_SAMPLES as a3 ON a3.SAMPLE_NUMBER = a2.CODE_ANALYSIS where DISPATCH_CODE = ? order by sample_number";
+
+
+                // Crear y configurar el comando
+                using (OdbcCommand cmd = new OdbcCommand(query, con))
+                {
+                    cmd.Parameters.Add("@DISPATCH_CODE", OdbcType.VarChar).Value = dispatchCode;
+
+                    // Ejecutar la consulta y obtener los resultados
+                    using (OdbcDataReader reader = cmd.ExecuteReader())
+                    {
+                        // Limpiar el DataGridView antes de llenarlo
+                        Dgv_Orden.Rows.Clear();
+
+                        // Leer los datos de la consulta
+                        while (reader.Read())
+                        {
+                            // Crear una nueva fila en el DataGridView
+                            int rowIndex = Dgv_Orden.Rows.Add();
+
+                            // Asignar valores a las celdas correspondientes
+                            Dgv_Orden.Rows[rowIndex].Cells["CodAnalisis"].Value = reader["sample_number"].ToString();
+                            Dgv_Orden.Rows[rowIndex].Cells["sample_code"].Value = reader["SAMPLE_CODE"].ToString();
+                            Dgv_Orden.Rows[rowIndex].Cells["blasthole"].Value = reader["BH_ID"].ToString();
+                            Dgv_Orden.Rows[rowIndex].Cells["Cod_Prep"].Value = reader["code_prep"].ToString();
+                            Dgv_Orden.Rows[rowIndex].Cells["Proyecto_geologia"].Value = reader["PROYECTO_GEOLOGIA"].ToString();
+                            Dgv_Orden.Rows[rowIndex].Cells["Control"].Value = reader["assay_sample_type_code"].ToString();
+                            Dgv_Orden.Rows[rowIndex].Cells["parent"].Value = reader["parent_sample_number"].ToString();
+                            Dgv_Orden.Rows[rowIndex].Cells["CuTot"].Value = Convert.ToBoolean(reader["CuTot_p"]);
+                            Dgv_Orden.Rows[rowIndex].Cells["CuOx"].Value = Convert.ToBoolean(reader["CuOx_p"]);
+                            Dgv_Orden.Rows[rowIndex].Cells["CuSol"].Value = Convert.ToBoolean(reader["CuSol_p"]);
+                            Dgv_Orden.Rows[rowIndex].Cells["Au"].Value = Convert.ToBoolean(reader["Au_p"]);
+                            Dgv_Orden.Rows[rowIndex].Cells["Ag"].Value = Convert.ToBoolean(reader["Ag_p"]);
+                            Dgv_Orden.Rows[rowIndex].Cells["Mo"].Value = Convert.ToBoolean(reader["Mo_p"]);
+                            Dgv_Orden.Rows[rowIndex].Cells["CO3"].Value = Convert.ToBoolean(reader["CO3_p"]);
+                            Dgv_Orden.Rows[rowIndex].Cells["CSAc"].Value = Convert.ToBoolean(reader["CSAc"]);
+                            Dgv_Orden.Rows[rowIndex].Cells["CsCn"].Value = Convert.ToBoolean(reader["CsCn_p"]);
+                            Dgv_Orden.Rows[rowIndex].Cells["CuRes"].Value = Convert.ToBoolean(reader["CuRes_p"]);
+                            Dgv_Orden.Rows[rowIndex].Cells["FeTot"].Value = Convert.ToBoolean(reader["FeTot_p"]);
+                        }
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error al realizar la consulta: " + ex.Message);
+            }
+            finally
+            {
+                // Cerrar la conexión a la base de datos
+                if (con.State == ConnectionState.Open)
+                {
+                    con.Close();
+                }
+            }
+        }
+
+
+        //--------------------------
+
         private void cbProyectoGeolo_SelectedIndexChanged_1(object sender, EventArgs e)
         {
 
@@ -2479,6 +2600,27 @@ namespace OrdenesEspeciales
         private void groupBox1_Enter(object sender, EventArgs e)
         {
 
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            InsertarDatosOrder_Analysis();
+        }
+
+        private void button1_Click_2(object sender, EventArgs e)
+        {
+            LlenarDataGridView();
+            FillHoleColumn();
+
+            for (int i = 0; i < Dgv_Orden.Rows.Count; i++)
+            {
+                Dgv_Orden.Rows[i].Cells["item"].Value = (i + 1).ToString();
+            }
+
+            guardar_bd.Visible = false;
+
+            // Hacer visible el botón Actualizar
+            Actualizar.Visible = true;
         }
     }
 }

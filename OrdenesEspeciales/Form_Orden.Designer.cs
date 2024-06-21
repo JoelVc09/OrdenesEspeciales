@@ -29,15 +29,15 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle28 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle29 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle30 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle31 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle32 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle33 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle34 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle35 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle36 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle10 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle11 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle12 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle13 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle14 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle15 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle16 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle17 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle18 = new System.Windows.Forms.DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form_Orden));
             this.label1 = new System.Windows.Forms.Label();
             this.Dgv_Consulta = new System.Windows.Forms.DataGridView();
@@ -76,6 +76,28 @@
             this.btn_crear = new System.Windows.Forms.Button();
             this.label6 = new System.Windows.Forms.Label();
             this.Dgv_Orden = new System.Windows.Forms.DataGridView();
+            this.btn_Guardar = new System.Windows.Forms.Button();
+            this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.button2 = new System.Windows.Forms.Button();
+            this.Cb_ordenes = new System.Windows.Forms.ComboBox();
+            this.lbProyGeolo = new System.Windows.Forms.Label();
+            this.button4 = new System.Windows.Forms.Button();
+            this.button1 = new System.Windows.Forms.Button();
+            this.lbCodPrep = new System.Windows.Forms.Label();
+            this.label12 = new System.Windows.Forms.Label();
+            this.label11 = new System.Windows.Forms.Label();
+            this.btn_limpiar = new System.Windows.Forms.Button();
+            this.guardar_bd = new System.Windows.Forms.Button();
+            this.Cod_barra = new System.Windows.Forms.Button();
+            this.lblcount = new System.Windows.Forms.Label();
+            this.label3 = new System.Windows.Forms.Label();
+            this.BtnBlancos = new System.Windows.Forms.Button();
+            this.cbo_CtrlB = new System.Windows.Forms.ComboBox();
+            this.label8 = new System.Windows.Forms.Label();
+            this.lblcant = new System.Windows.Forms.Label();
+            this.gDMS_ANTAPACCAYDataSet = new OrdenesEspeciales.GDMS_ANTAPACCAYDataSet();
+            this.gDMSANTAPACCAYDataSetBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.sdk = new System.Windows.Forms.DataGridViewCheckBoxColumn();
             this.item = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.CodAnalisis = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -104,27 +126,7 @@
             this.CSCn = new System.Windows.Forms.DataGridViewCheckBoxColumn();
             this.CuRes = new System.Windows.Forms.DataGridViewCheckBoxColumn();
             this.FeTot = new System.Windows.Forms.DataGridViewCheckBoxColumn();
-            this.btn_Guardar = new System.Windows.Forms.Button();
-            this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.lbProyGeolo = new System.Windows.Forms.Label();
-            this.button4 = new System.Windows.Forms.Button();
-            this.button1 = new System.Windows.Forms.Button();
-            this.lbCodPrep = new System.Windows.Forms.Label();
-            this.label12 = new System.Windows.Forms.Label();
-            this.label11 = new System.Windows.Forms.Label();
-            this.btn_limpiar = new System.Windows.Forms.Button();
-            this.guardar_bd = new System.Windows.Forms.Button();
-            this.Cod_barra = new System.Windows.Forms.Button();
-            this.lblcount = new System.Windows.Forms.Label();
-            this.label3 = new System.Windows.Forms.Label();
-            this.BtnBlancos = new System.Windows.Forms.Button();
-            this.cbo_CtrlB = new System.Windows.Forms.ComboBox();
-            this.label8 = new System.Windows.Forms.Label();
-            this.lblcant = new System.Windows.Forms.Label();
-            this.gDMS_ANTAPACCAYDataSet = new OrdenesEspeciales.GDMS_ANTAPACCAYDataSet();
-            this.gDMSANTAPACCAYDataSetBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
-            this.Cb_ordenes = new System.Windows.Forms.ComboBox();
+            this.Actualizar = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.Dgv_Consulta)).BeginInit();
             this.Consulta.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.Dgv_Orden)).BeginInit();
@@ -147,53 +149,53 @@
             // Dgv_Consulta
             // 
             this.Dgv_Consulta.AllowUserToAddRows = false;
-            dataGridViewCellStyle28.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            dataGridViewCellStyle28.Font = new System.Drawing.Font("Century Gothic", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle28.ForeColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle28.SelectionBackColor = System.Drawing.Color.SteelBlue;
-            dataGridViewCellStyle28.SelectionForeColor = System.Drawing.Color.Black;
-            this.Dgv_Consulta.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle28;
+            dataGridViewCellStyle10.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            dataGridViewCellStyle10.Font = new System.Drawing.Font("Century Gothic", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle10.ForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle10.SelectionBackColor = System.Drawing.Color.SteelBlue;
+            dataGridViewCellStyle10.SelectionForeColor = System.Drawing.Color.Black;
+            this.Dgv_Consulta.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle10;
             this.Dgv_Consulta.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
             this.Dgv_Consulta.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
             this.Dgv_Consulta.BackgroundColor = System.Drawing.Color.WhiteSmoke;
             this.Dgv_Consulta.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.Dgv_Consulta.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Sunken;
-            dataGridViewCellStyle29.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle29.BackColor = System.Drawing.SystemColors.HotTrack;
-            dataGridViewCellStyle29.Font = new System.Drawing.Font("Century Gothic", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle29.ForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle29.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle29.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle29.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.Dgv_Consulta.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle29;
+            dataGridViewCellStyle11.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle11.BackColor = System.Drawing.SystemColors.HotTrack;
+            dataGridViewCellStyle11.Font = new System.Drawing.Font("Century Gothic", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle11.ForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle11.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle11.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle11.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.Dgv_Consulta.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle11;
             this.Dgv_Consulta.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridViewCellStyle30.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle30.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle30.Font = new System.Drawing.Font("Century Gothic", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle30.ForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle30.SelectionBackColor = System.Drawing.Color.SteelBlue;
-            dataGridViewCellStyle30.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle30.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.Dgv_Consulta.DefaultCellStyle = dataGridViewCellStyle30;
+            dataGridViewCellStyle12.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle12.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle12.Font = new System.Drawing.Font("Century Gothic", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle12.ForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle12.SelectionBackColor = System.Drawing.Color.SteelBlue;
+            dataGridViewCellStyle12.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle12.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.Dgv_Consulta.DefaultCellStyle = dataGridViewCellStyle12;
             this.Dgv_Consulta.EnableHeadersVisualStyles = false;
             this.Dgv_Consulta.GridColor = System.Drawing.Color.SteelBlue;
             this.Dgv_Consulta.Location = new System.Drawing.Point(162, 25);
             this.Dgv_Consulta.Name = "Dgv_Consulta";
-            dataGridViewCellStyle31.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle31.BackColor = System.Drawing.Color.White;
-            dataGridViewCellStyle31.Font = new System.Drawing.Font("Century Gothic", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle31.ForeColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle31.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle31.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle31.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.Dgv_Consulta.RowHeadersDefaultCellStyle = dataGridViewCellStyle31;
+            dataGridViewCellStyle13.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle13.BackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle13.Font = new System.Drawing.Font("Century Gothic", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle13.ForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle13.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle13.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle13.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.Dgv_Consulta.RowHeadersDefaultCellStyle = dataGridViewCellStyle13;
             this.Dgv_Consulta.RowHeadersWidth = 51;
-            dataGridViewCellStyle32.BackColor = System.Drawing.Color.White;
-            dataGridViewCellStyle32.Font = new System.Drawing.Font("Century Gothic", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle32.ForeColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle32.SelectionBackColor = System.Drawing.Color.SteelBlue;
-            dataGridViewCellStyle32.SelectionForeColor = System.Drawing.Color.White;
-            this.Dgv_Consulta.RowsDefaultCellStyle = dataGridViewCellStyle32;
+            dataGridViewCellStyle14.BackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle14.Font = new System.Drawing.Font("Century Gothic", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle14.ForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle14.SelectionBackColor = System.Drawing.Color.SteelBlue;
+            dataGridViewCellStyle14.SelectionForeColor = System.Drawing.Color.White;
+            this.Dgv_Consulta.RowsDefaultCellStyle = dataGridViewCellStyle14;
             this.Dgv_Consulta.RowTemplate.Height = 24;
             this.Dgv_Consulta.Size = new System.Drawing.Size(850, 289);
             this.Dgv_Consulta.TabIndex = 1;
@@ -618,22 +620,22 @@
             // 
             this.Dgv_Orden.AllowUserToAddRows = false;
             this.Dgv_Orden.AllowUserToDeleteRows = false;
-            dataGridViewCellStyle33.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            dataGridViewCellStyle33.ForeColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle33.SelectionBackColor = System.Drawing.Color.SteelBlue;
-            dataGridViewCellStyle33.SelectionForeColor = System.Drawing.Color.Black;
-            this.Dgv_Orden.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle33;
+            dataGridViewCellStyle15.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            dataGridViewCellStyle15.ForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle15.SelectionBackColor = System.Drawing.Color.SteelBlue;
+            dataGridViewCellStyle15.SelectionForeColor = System.Drawing.Color.Black;
+            this.Dgv_Orden.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle15;
             this.Dgv_Orden.BackgroundColor = System.Drawing.Color.WhiteSmoke;
             this.Dgv_Orden.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.Dgv_Orden.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Sunken;
-            dataGridViewCellStyle34.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle34.BackColor = System.Drawing.SystemColors.HotTrack;
-            dataGridViewCellStyle34.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle34.ForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle34.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle34.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle34.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.Dgv_Orden.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle34;
+            dataGridViewCellStyle16.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle16.BackColor = System.Drawing.SystemColors.HotTrack;
+            dataGridViewCellStyle16.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle16.ForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle16.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle16.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle16.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.Dgv_Orden.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle16;
             this.Dgv_Orden.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.Dgv_Orden.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.sdk,
@@ -664,25 +666,25 @@
             this.CSCn,
             this.CuRes,
             this.FeTot});
-            dataGridViewCellStyle35.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle35.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle35.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle35.ForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle35.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle35.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle35.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.Dgv_Orden.DefaultCellStyle = dataGridViewCellStyle35;
+            dataGridViewCellStyle17.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle17.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle17.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle17.ForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle17.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle17.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle17.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.Dgv_Orden.DefaultCellStyle = dataGridViewCellStyle17;
             this.Dgv_Orden.EnableHeadersVisualStyles = false;
             this.Dgv_Orden.GridColor = System.Drawing.Color.SteelBlue;
             this.Dgv_Orden.Location = new System.Drawing.Point(13, 60);
             this.Dgv_Orden.Name = "Dgv_Orden";
             this.Dgv_Orden.RowHeadersWidth = 51;
-            dataGridViewCellStyle36.BackColor = System.Drawing.Color.White;
-            dataGridViewCellStyle36.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle36.ForeColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle36.SelectionBackColor = System.Drawing.Color.SteelBlue;
-            dataGridViewCellStyle36.SelectionForeColor = System.Drawing.Color.Black;
-            this.Dgv_Orden.RowsDefaultCellStyle = dataGridViewCellStyle36;
+            dataGridViewCellStyle18.BackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle18.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle18.ForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle18.SelectionBackColor = System.Drawing.Color.SteelBlue;
+            dataGridViewCellStyle18.SelectionForeColor = System.Drawing.Color.Black;
+            this.Dgv_Orden.RowsDefaultCellStyle = dataGridViewCellStyle18;
             this.Dgv_Orden.RowTemplate.Height = 24;
             this.Dgv_Orden.Size = new System.Drawing.Size(1252, 386);
             this.Dgv_Orden.TabIndex = 6;
@@ -690,261 +692,6 @@
             this.Dgv_Orden.CellPainting += new System.Windows.Forms.DataGridViewCellPaintingEventHandler(this.Dgv_Orden_CellPainting);
             this.Dgv_Orden.EditingControlShowing += new System.Windows.Forms.DataGridViewEditingControlShowingEventHandler(this.GRV_DATOS_EditingControlShowing);
             this.Dgv_Orden.MouseClick += new System.Windows.Forms.MouseEventHandler(this.Dgv_Orden_MouseClick);
-            // 
-            // sdk
-            // 
-            this.sdk.Frozen = true;
-            this.sdk.HeaderText = "";
-            this.sdk.MinimumWidth = 6;
-            this.sdk.Name = "sdk";
-            this.sdk.Width = 25;
-            // 
-            // item
-            // 
-            this.item.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.ColumnHeader;
-            this.item.Frozen = true;
-            this.item.HeaderText = "Item";
-            this.item.MinimumWidth = 6;
-            this.item.Name = "item";
-            this.item.Resizable = System.Windows.Forms.DataGridViewTriState.True;
-            this.item.Width = 71;
-            // 
-            // CodAnalisis
-            // 
-            this.CodAnalisis.Frozen = true;
-            this.CodAnalisis.HeaderText = "CodAnalisis";
-            this.CodAnalisis.MinimumWidth = 6;
-            this.CodAnalisis.Name = "CodAnalisis";
-            this.CodAnalisis.Width = 130;
-            // 
-            // sample_code
-            // 
-            this.sample_code.HeaderText = "sample_code";
-            this.sample_code.MinimumWidth = 6;
-            this.sample_code.Name = "sample_code";
-            this.sample_code.Width = 125;
-            // 
-            // blasthole
-            // 
-            this.blasthole.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.ColumnHeader;
-            this.blasthole.HeaderText = "Blast_Hole";
-            this.blasthole.MinimumWidth = 6;
-            this.blasthole.Name = "blasthole";
-            this.blasthole.Width = 112;
-            // 
-            // Cod_Prep
-            // 
-            this.Cod_Prep.HeaderText = "Cod_prep";
-            this.Cod_Prep.MinimumWidth = 6;
-            this.Cod_Prep.Name = "Cod_Prep";
-            this.Cod_Prep.Width = 125;
-            // 
-            // Hole
-            // 
-            this.Hole.HeaderText = "Hole";
-            this.Hole.MinimumWidth = 6;
-            this.Hole.Name = "Hole";
-            this.Hole.Width = 125;
-            // 
-            // Proyecto_geologia
-            // 
-            this.Proyecto_geologia.HeaderText = "Proy_Geolo";
-            this.Proyecto_geologia.MinimumWidth = 6;
-            this.Proyecto_geologia.Name = "Proyecto_geologia";
-            this.Proyecto_geologia.Width = 125;
-            // 
-            // MCtrl
-            // 
-            this.MCtrl.HeaderText = "MCtrl";
-            this.MCtrl.Items.AddRange(new object[] {
-            "Duplicado Original",
-            "Duplicado Campo",
-            "Duplicado Grueso",
-            "Duplicado Fino"});
-            this.MCtrl.MinimumWidth = 6;
-            this.MCtrl.Name = "MCtrl";
-            this.MCtrl.Resizable = System.Windows.Forms.DataGridViewTriState.True;
-            this.MCtrl.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
-            this.MCtrl.Width = 170;
-            // 
-            // Control
-            // 
-            this.Control.HeaderText = "Control";
-            this.Control.MinimumWidth = 6;
-            this.Control.Name = "Control";
-            this.Control.Width = 50;
-            // 
-            // Control_in
-            // 
-            this.Control_in.HeaderText = "Control_in";
-            this.Control_in.MinimumWidth = 6;
-            this.Control_in.Name = "Control_in";
-            this.Control_in.Width = 50;
-            // 
-            // parent
-            // 
-            this.parent.HeaderText = "Parent";
-            this.parent.MinimumWidth = 6;
-            this.parent.Name = "parent";
-            this.parent.Width = 86;
-            // 
-            // Tajo
-            // 
-            this.Tajo.HeaderText = "Tajo";
-            this.Tajo.MinimumWidth = 6;
-            this.Tajo.Name = "Tajo";
-            this.Tajo.Width = 50;
-            // 
-            // BANCO
-            // 
-            this.BANCO.HeaderText = "BANCO";
-            this.BANCO.MinimumWidth = 6;
-            this.BANCO.Name = "BANCO";
-            this.BANCO.Width = 125;
-            // 
-            // Fase
-            // 
-            this.Fase.HeaderText = "Fase";
-            this.Fase.MinimumWidth = 6;
-            this.Fase.Name = "Fase";
-            this.Fase.Width = 50;
-            // 
-            // Fecha_Entrega
-            // 
-            this.Fecha_Entrega.HeaderText = "Fecha_Entrega";
-            this.Fecha_Entrega.MinimumWidth = 6;
-            this.Fecha_Entrega.Name = "Fecha_Entrega";
-            this.Fecha_Entrega.Visible = false;
-            this.Fecha_Entrega.Width = 125;
-            // 
-            // Hora_Entrega
-            // 
-            this.Hora_Entrega.HeaderText = "Hora_Entrega";
-            this.Hora_Entrega.MinimumWidth = 6;
-            this.Hora_Entrega.Name = "Hora_Entrega";
-            this.Hora_Entrega.Visible = false;
-            this.Hora_Entrega.Width = 50;
-            // 
-            // CuTot
-            // 
-            this.CuTot.FalseValue = "false";
-            this.CuTot.HeaderText = "CuTot";
-            this.CuTot.IndeterminateValue = "false";
-            this.CuTot.MinimumWidth = 7;
-            this.CuTot.Name = "CuTot";
-            this.CuTot.Resizable = System.Windows.Forms.DataGridViewTriState.False;
-            this.CuTot.TrueValue = "true";
-            this.CuTot.Width = 65;
-            // 
-            // CuOx
-            // 
-            this.CuOx.FalseValue = "false";
-            this.CuOx.HeaderText = "CuOx";
-            this.CuOx.IndeterminateValue = "false";
-            this.CuOx.MinimumWidth = 7;
-            this.CuOx.Name = "CuOx";
-            this.CuOx.Resizable = System.Windows.Forms.DataGridViewTriState.False;
-            this.CuOx.TrueValue = "true";
-            this.CuOx.Width = 65;
-            // 
-            // CuSol
-            // 
-            this.CuSol.FalseValue = "false";
-            this.CuSol.HeaderText = "CuSol";
-            this.CuSol.IndeterminateValue = "false";
-            this.CuSol.MinimumWidth = 7;
-            this.CuSol.Name = "CuSol";
-            this.CuSol.Resizable = System.Windows.Forms.DataGridViewTriState.False;
-            this.CuSol.TrueValue = "true";
-            this.CuSol.Width = 65;
-            // 
-            // Au
-            // 
-            this.Au.FalseValue = "false";
-            this.Au.HeaderText = "Au";
-            this.Au.IndeterminateValue = "false";
-            this.Au.MinimumWidth = 6;
-            this.Au.Name = "Au";
-            this.Au.Resizable = System.Windows.Forms.DataGridViewTriState.False;
-            this.Au.TrueValue = "true";
-            this.Au.Width = 47;
-            // 
-            // Ag
-            // 
-            this.Ag.FalseValue = "false";
-            this.Ag.HeaderText = "Ag";
-            this.Ag.IndeterminateValue = "false";
-            this.Ag.MinimumWidth = 6;
-            this.Ag.Name = "Ag";
-            this.Ag.Resizable = System.Windows.Forms.DataGridViewTriState.False;
-            this.Ag.TrueValue = "true";
-            this.Ag.Width = 47;
-            // 
-            // Mo
-            // 
-            this.Mo.FalseValue = "false";
-            this.Mo.HeaderText = "Mo";
-            this.Mo.IndeterminateValue = "false";
-            this.Mo.MinimumWidth = 6;
-            this.Mo.Name = "Mo";
-            this.Mo.Resizable = System.Windows.Forms.DataGridViewTriState.False;
-            this.Mo.TrueValue = "true";
-            this.Mo.Width = 50;
-            // 
-            // CO3
-            // 
-            this.CO3.FalseValue = "false";
-            this.CO3.HeaderText = "CO3";
-            this.CO3.IndeterminateValue = "false";
-            this.CO3.MinimumWidth = 6;
-            this.CO3.Name = "CO3";
-            this.CO3.Resizable = System.Windows.Forms.DataGridViewTriState.False;
-            this.CO3.TrueValue = "true";
-            this.CO3.Width = 57;
-            // 
-            // CSAc
-            // 
-            this.CSAc.FalseValue = "false";
-            this.CSAc.HeaderText = "CSAc";
-            this.CSAc.IndeterminateValue = "false";
-            this.CSAc.MinimumWidth = 6;
-            this.CSAc.Name = "CSAc";
-            this.CSAc.Resizable = System.Windows.Forms.DataGridViewTriState.False;
-            this.CSAc.TrueValue = "true";
-            this.CSAc.Width = 65;
-            // 
-            // CSCn
-            // 
-            this.CSCn.FalseValue = "false";
-            this.CSCn.HeaderText = "CSCn";
-            this.CSCn.IndeterminateValue = "false";
-            this.CSCn.MinimumWidth = 6;
-            this.CSCn.Name = "CSCn";
-            this.CSCn.Resizable = System.Windows.Forms.DataGridViewTriState.False;
-            this.CSCn.TrueValue = "true";
-            this.CSCn.Width = 66;
-            // 
-            // CuRes
-            // 
-            this.CuRes.FalseValue = "false";
-            this.CuRes.HeaderText = "CuRes";
-            this.CuRes.IndeterminateValue = "false";
-            this.CuRes.MinimumWidth = 6;
-            this.CuRes.Name = "CuRes";
-            this.CuRes.Resizable = System.Windows.Forms.DataGridViewTriState.False;
-            this.CuRes.TrueValue = "true";
-            this.CuRes.Width = 68;
-            // 
-            // FeTot
-            // 
-            this.FeTot.FalseValue = "false";
-            this.FeTot.HeaderText = "FeTot";
-            this.FeTot.IndeterminateValue = "false";
-            this.FeTot.MinimumWidth = 6;
-            this.FeTot.Name = "FeTot";
-            this.FeTot.Resizable = System.Windows.Forms.DataGridViewTriState.False;
-            this.FeTot.TrueValue = "true";
-            this.FeTot.Width = 65;
             // 
             // btn_Guardar
             // 
@@ -968,6 +715,8 @@
             // groupBox1
             // 
             this.groupBox1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(7)))), ((int)(((byte)(48)))), ((int)(((byte)(165)))));
+            this.groupBox1.Controls.Add(this.Actualizar);
+            this.groupBox1.Controls.Add(this.button2);
             this.groupBox1.Controls.Add(this.Cb_ordenes);
             this.groupBox1.Controls.Add(this.lbProyGeolo);
             this.groupBox1.Controls.Add(this.button4);
@@ -1006,6 +755,26 @@
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Blast Hole";
             this.groupBox1.Enter += new System.EventHandler(this.groupBox1_Enter);
+            // 
+            // button2
+            // 
+            this.button2.Location = new System.Drawing.Point(676, 465);
+            this.button2.Name = "button2";
+            this.button2.Size = new System.Drawing.Size(101, 36);
+            this.button2.TabIndex = 113;
+            this.button2.Text = "button2";
+            this.button2.UseVisualStyleBackColor = true;
+            this.button2.Visible = false;
+            this.button2.Click += new System.EventHandler(this.button2_Click);
+            // 
+            // Cb_ordenes
+            // 
+            this.Cb_ordenes.Font = new System.Drawing.Font("Century Gothic", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Cb_ordenes.FormattingEnabled = true;
+            this.Cb_ordenes.Location = new System.Drawing.Point(871, 24);
+            this.Cb_ordenes.Name = "Cb_ordenes";
+            this.Cb_ordenes.Size = new System.Drawing.Size(158, 25);
+            this.Cb_ordenes.TabIndex = 110;
             // 
             // lbProyGeolo
             // 
@@ -1055,6 +824,7 @@
             this.button1.TabIndex = 110;
             this.button1.Text = "Consultar";
             this.button1.UseVisualStyleBackColor = false;
+            this.button1.Click += new System.EventHandler(this.button1_Click_2);
             // 
             // lbCodPrep
             // 
@@ -1248,14 +1018,279 @@
             this.contextMenuStrip1.Name = "contextMenuStrip1";
             this.contextMenuStrip1.Size = new System.Drawing.Size(61, 4);
             // 
-            // Cb_ordenes
+            // sdk
             // 
-            this.Cb_ordenes.Font = new System.Drawing.Font("Century Gothic", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Cb_ordenes.FormattingEnabled = true;
-            this.Cb_ordenes.Location = new System.Drawing.Point(871, 24);
-            this.Cb_ordenes.Name = "Cb_ordenes";
-            this.Cb_ordenes.Size = new System.Drawing.Size(158, 25);
-            this.Cb_ordenes.TabIndex = 110;
+            this.sdk.Frozen = true;
+            this.sdk.HeaderText = "";
+            this.sdk.MinimumWidth = 6;
+            this.sdk.Name = "sdk";
+            this.sdk.Width = 25;
+            // 
+            // item
+            // 
+            this.item.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.ColumnHeader;
+            this.item.Frozen = true;
+            this.item.HeaderText = "Item";
+            this.item.MinimumWidth = 6;
+            this.item.Name = "item";
+            this.item.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.item.Width = 71;
+            // 
+            // CodAnalisis
+            // 
+            this.CodAnalisis.Frozen = true;
+            this.CodAnalisis.HeaderText = "CodAnalisis";
+            this.CodAnalisis.MinimumWidth = 6;
+            this.CodAnalisis.Name = "CodAnalisis";
+            this.CodAnalisis.Width = 130;
+            // 
+            // sample_code
+            // 
+            this.sample_code.HeaderText = "sample_code";
+            this.sample_code.MinimumWidth = 6;
+            this.sample_code.Name = "sample_code";
+            this.sample_code.Width = 125;
+            // 
+            // blasthole
+            // 
+            this.blasthole.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.ColumnHeader;
+            this.blasthole.HeaderText = "Blast_Hole";
+            this.blasthole.MinimumWidth = 6;
+            this.blasthole.Name = "blasthole";
+            this.blasthole.Width = 112;
+            // 
+            // Cod_Prep
+            // 
+            this.Cod_Prep.HeaderText = "Cod_prep";
+            this.Cod_Prep.MinimumWidth = 6;
+            this.Cod_Prep.Name = "Cod_Prep";
+            this.Cod_Prep.Width = 125;
+            // 
+            // Hole
+            // 
+            this.Hole.HeaderText = "Hole";
+            this.Hole.MinimumWidth = 6;
+            this.Hole.Name = "Hole";
+            this.Hole.Width = 125;
+            // 
+            // Proyecto_geologia
+            // 
+            this.Proyecto_geologia.HeaderText = "Proy_Geolo";
+            this.Proyecto_geologia.MinimumWidth = 6;
+            this.Proyecto_geologia.Name = "Proyecto_geologia";
+            this.Proyecto_geologia.Width = 125;
+            // 
+            // MCtrl
+            // 
+            this.MCtrl.HeaderText = "MCtrl";
+            this.MCtrl.Items.AddRange(new object[] {
+            "Duplicado Original",
+            "Duplicado Campo",
+            "Duplicado Grueso",
+            "Duplicado Fino"});
+            this.MCtrl.MinimumWidth = 6;
+            this.MCtrl.Name = "MCtrl";
+            this.MCtrl.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.MCtrl.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
+            this.MCtrl.Width = 170;
+            // 
+            // Control
+            // 
+            this.Control.HeaderText = "Control";
+            this.Control.MinimumWidth = 6;
+            this.Control.Name = "Control";
+            this.Control.Width = 70;
+            // 
+            // Control_in
+            // 
+            this.Control_in.HeaderText = "Control_in";
+            this.Control_in.MinimumWidth = 6;
+            this.Control_in.Name = "Control_in";
+            this.Control_in.Width = 50;
+            // 
+            // parent
+            // 
+            this.parent.HeaderText = "Parent";
+            this.parent.MinimumWidth = 6;
+            this.parent.Name = "parent";
+            this.parent.Width = 86;
+            // 
+            // Tajo
+            // 
+            this.Tajo.HeaderText = "Tajo";
+            this.Tajo.MinimumWidth = 6;
+            this.Tajo.Name = "Tajo";
+            this.Tajo.Width = 50;
+            // 
+            // BANCO
+            // 
+            this.BANCO.HeaderText = "BANCO";
+            this.BANCO.MinimumWidth = 6;
+            this.BANCO.Name = "BANCO";
+            this.BANCO.Width = 125;
+            // 
+            // Fase
+            // 
+            this.Fase.HeaderText = "Fase";
+            this.Fase.MinimumWidth = 6;
+            this.Fase.Name = "Fase";
+            this.Fase.Width = 50;
+            // 
+            // Fecha_Entrega
+            // 
+            this.Fecha_Entrega.HeaderText = "Fecha_Entrega";
+            this.Fecha_Entrega.MinimumWidth = 6;
+            this.Fecha_Entrega.Name = "Fecha_Entrega";
+            this.Fecha_Entrega.Visible = false;
+            this.Fecha_Entrega.Width = 125;
+            // 
+            // Hora_Entrega
+            // 
+            this.Hora_Entrega.HeaderText = "Hora_Entrega";
+            this.Hora_Entrega.MinimumWidth = 6;
+            this.Hora_Entrega.Name = "Hora_Entrega";
+            this.Hora_Entrega.Visible = false;
+            this.Hora_Entrega.Width = 50;
+            // 
+            // CuTot
+            // 
+            this.CuTot.FalseValue = "false";
+            this.CuTot.HeaderText = "CuTot";
+            this.CuTot.IndeterminateValue = "false";
+            this.CuTot.MinimumWidth = 7;
+            this.CuTot.Name = "CuTot";
+            this.CuTot.Resizable = System.Windows.Forms.DataGridViewTriState.False;
+            this.CuTot.TrueValue = "true";
+            this.CuTot.Width = 65;
+            // 
+            // CuOx
+            // 
+            this.CuOx.FalseValue = "false";
+            this.CuOx.HeaderText = "CuOx";
+            this.CuOx.IndeterminateValue = "false";
+            this.CuOx.MinimumWidth = 7;
+            this.CuOx.Name = "CuOx";
+            this.CuOx.Resizable = System.Windows.Forms.DataGridViewTriState.False;
+            this.CuOx.TrueValue = "true";
+            this.CuOx.Width = 65;
+            // 
+            // CuSol
+            // 
+            this.CuSol.FalseValue = "false";
+            this.CuSol.HeaderText = "CuSol";
+            this.CuSol.IndeterminateValue = "false";
+            this.CuSol.MinimumWidth = 7;
+            this.CuSol.Name = "CuSol";
+            this.CuSol.Resizable = System.Windows.Forms.DataGridViewTriState.False;
+            this.CuSol.TrueValue = "true";
+            this.CuSol.Width = 65;
+            // 
+            // Au
+            // 
+            this.Au.FalseValue = "false";
+            this.Au.HeaderText = "Au";
+            this.Au.IndeterminateValue = "false";
+            this.Au.MinimumWidth = 6;
+            this.Au.Name = "Au";
+            this.Au.Resizable = System.Windows.Forms.DataGridViewTriState.False;
+            this.Au.TrueValue = "true";
+            this.Au.Width = 47;
+            // 
+            // Ag
+            // 
+            this.Ag.FalseValue = "false";
+            this.Ag.HeaderText = "Ag";
+            this.Ag.IndeterminateValue = "false";
+            this.Ag.MinimumWidth = 6;
+            this.Ag.Name = "Ag";
+            this.Ag.Resizable = System.Windows.Forms.DataGridViewTriState.False;
+            this.Ag.TrueValue = "true";
+            this.Ag.Width = 47;
+            // 
+            // Mo
+            // 
+            this.Mo.FalseValue = "false";
+            this.Mo.HeaderText = "Mo";
+            this.Mo.IndeterminateValue = "false";
+            this.Mo.MinimumWidth = 6;
+            this.Mo.Name = "Mo";
+            this.Mo.Resizable = System.Windows.Forms.DataGridViewTriState.False;
+            this.Mo.TrueValue = "true";
+            this.Mo.Width = 50;
+            // 
+            // CO3
+            // 
+            this.CO3.FalseValue = "false";
+            this.CO3.HeaderText = "CO3";
+            this.CO3.IndeterminateValue = "false";
+            this.CO3.MinimumWidth = 6;
+            this.CO3.Name = "CO3";
+            this.CO3.Resizable = System.Windows.Forms.DataGridViewTriState.False;
+            this.CO3.TrueValue = "true";
+            this.CO3.Width = 57;
+            // 
+            // CSAc
+            // 
+            this.CSAc.FalseValue = "false";
+            this.CSAc.HeaderText = "CSAc";
+            this.CSAc.IndeterminateValue = "false";
+            this.CSAc.MinimumWidth = 6;
+            this.CSAc.Name = "CSAc";
+            this.CSAc.Resizable = System.Windows.Forms.DataGridViewTriState.False;
+            this.CSAc.TrueValue = "true";
+            this.CSAc.Width = 65;
+            // 
+            // CSCn
+            // 
+            this.CSCn.FalseValue = "false";
+            this.CSCn.HeaderText = "CSCn";
+            this.CSCn.IndeterminateValue = "false";
+            this.CSCn.MinimumWidth = 6;
+            this.CSCn.Name = "CSCn";
+            this.CSCn.Resizable = System.Windows.Forms.DataGridViewTriState.False;
+            this.CSCn.TrueValue = "true";
+            this.CSCn.Width = 66;
+            // 
+            // CuRes
+            // 
+            this.CuRes.FalseValue = "false";
+            this.CuRes.HeaderText = "CuRes";
+            this.CuRes.IndeterminateValue = "false";
+            this.CuRes.MinimumWidth = 6;
+            this.CuRes.Name = "CuRes";
+            this.CuRes.Resizable = System.Windows.Forms.DataGridViewTriState.False;
+            this.CuRes.TrueValue = "true";
+            this.CuRes.Width = 68;
+            // 
+            // FeTot
+            // 
+            this.FeTot.FalseValue = "false";
+            this.FeTot.HeaderText = "FeTot";
+            this.FeTot.IndeterminateValue = "false";
+            this.FeTot.MinimumWidth = 6;
+            this.FeTot.Name = "FeTot";
+            this.FeTot.Resizable = System.Windows.Forms.DataGridViewTriState.False;
+            this.FeTot.TrueValue = "true";
+            this.FeTot.Width = 65;
+            // 
+            // Actualizar
+            // 
+            this.Actualizar.BackColor = System.Drawing.SystemColors.HotTrack;
+            this.Actualizar.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.Actualizar.FlatAppearance.BorderSize = 0;
+            this.Actualizar.FlatAppearance.MouseOverBackColor = System.Drawing.Color.CornflowerBlue;
+            this.Actualizar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.Actualizar.Font = new System.Drawing.Font("Century Gothic", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Actualizar.ForeColor = System.Drawing.Color.White;
+            this.Actualizar.ImageAlign = System.Drawing.ContentAlignment.BottomCenter;
+            this.Actualizar.Location = new System.Drawing.Point(1072, 466);
+            this.Actualizar.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.Actualizar.Name = "Actualizar";
+            this.Actualizar.Size = new System.Drawing.Size(92, 36);
+            this.Actualizar.TabIndex = 114;
+            this.Actualizar.Text = "Actualizar";
+            this.Actualizar.UseVisualStyleBackColor = false;
+            this.Actualizar.Visible = false;
             // 
             // Form_Orden
             // 
@@ -1339,6 +1374,9 @@
         private System.Windows.Forms.Label label13;
         private System.Windows.Forms.ComboBox cbo_Lab_package;
         private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button button4;
+        private System.Windows.Forms.ComboBox Cb_ordenes;
+        private System.Windows.Forms.Button button2;
         private System.Windows.Forms.DataGridViewCheckBoxColumn sdk;
         private System.Windows.Forms.DataGridViewTextBoxColumn item;
         private System.Windows.Forms.DataGridViewTextBoxColumn CodAnalisis;
@@ -1367,7 +1405,6 @@
         private System.Windows.Forms.DataGridViewCheckBoxColumn CSCn;
         private System.Windows.Forms.DataGridViewCheckBoxColumn CuRes;
         private System.Windows.Forms.DataGridViewCheckBoxColumn FeTot;
-        private System.Windows.Forms.Button button4;
-        private System.Windows.Forms.ComboBox Cb_ordenes;
+        private System.Windows.Forms.Button Actualizar;
     }
 }

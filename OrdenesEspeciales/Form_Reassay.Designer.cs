@@ -479,6 +479,7 @@ namespace OrdenesEspeciales
             this.txtStatusDisp.Size = new System.Drawing.Size(269, 26);
             this.txtStatusDisp.TabIndex = 100;
             this.txtStatusDisp.Visible = false;
+            this.txtStatusDisp.TextChanged += new System.EventHandler(this.txtStatusDisp_TextChanged);
             // 
             // txt_newsample
             // 

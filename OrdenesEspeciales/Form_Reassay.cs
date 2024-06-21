@@ -1115,6 +1115,11 @@ namespace OrdenesEspeciales
         {
 
         }
+
+        private void txtStatusDisp_TextChanged(object sender, EventArgs e)
+        {
+
+        }
     }
 }
 
