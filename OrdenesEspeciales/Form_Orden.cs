@@ -48,6 +48,7 @@ namespace OrdenesEspeciales
             Dgv_Orden.CellValueChanged += Dgv_Orden_CellValueChanged;
             this.WindowState = FormWindowState.Maximized;
             this.StartPosition = FormStartPosition.CenterScreen;
+            
 
             //INICIALIZAR 
             //Dgv_Orden.CellPainting += Dgv_Orden_CellPainting;
@@ -68,7 +69,11 @@ namespace OrdenesEspeciales
 
             llenarComboBoxOrdenes();
         }
-        //
+
+
+        //LLENAR PROYECTO_GEOLOGIA
+
+
 
 
         //Listado de datos en DATAGRIDVIEW
@@ -333,7 +338,7 @@ namespace OrdenesEspeciales
             }
             else
             {
-                MessageBox.Show("Por favor, selecciona un proyecto.");
+                MessageBox.Show("Por favor, selecciona un proyecto de geologia ");
             }
         }
 
@@ -1251,7 +1256,7 @@ namespace OrdenesEspeciales
         private void btn_Buscar_Click(object sender, EventArgs e)
         {
             proyecto_number();
-
+            
         }
 
         private void label3_Click(object sender, EventArgs e)
@@ -2892,12 +2897,24 @@ namespace OrdenesEspeciales
         }
 
         private void button4_Click(object sender, EventArgs e)
-        {   
-            EliminarRegistrosASSAY_STANDARDS();
-            EliminarRegistrosModularSamples();
-            //EliminarRegistrosDHL();
-            EliminarRegistrosDHLHeaderFromLabel();
-            EliminarRegistrosUDEFOrderAnalysis();
+        {
+
+            try
+            {
+                EliminarRegistrosASSAY_STANDARDS();
+                EliminarRegistrosModularSamples();
+                //EliminarRegistrosDHL();
+                EliminarRegistrosDHLHeaderFromLabel();
+                EliminarRegistrosUDEFOrderAnalysis();
+                MessageBox.Show("Se eliminó el despacho.");
+            }
+            catch (Exception ex)
+            {
+                //MessageBox.Show("Error al eliminar el despacho: " + ex.Message);
+            }
+
+            llenarComboBoxOrdenes();
+
         }
     }
 }
