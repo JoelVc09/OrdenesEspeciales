@@ -16,7 +16,7 @@
     <TargetFrameworkProfile />
     <NuGetPackageImportStamp>
     </NuGetPackageImportStamp>
-    <PublishUrl>C:\Users\Datamine\OneDrive - Datamine Software Ltd\Desktop\120922\</PublishUrl>
+    <PublishUrl>C:\OrdenesEspeciales\</PublishUrl>
     <Install>true</Install>
     <InstallFrom>Disk</InstallFrom>
     <UpdateEnabled>false</UpdateEnabled>
@@ -71,6 +71,12 @@
   </PropertyGroup>
   <PropertyGroup>
     <AssemblyOriginatorKeyFile>Enviodeanalisis.pfx</AssemblyOriginatorKeyFile>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ApplicationIcon>Datamine.ico</ApplicationIcon>
+  </PropertyGroup>
+  <PropertyGroup>
+    <NoWin32Manifest>true</NoWin32Manifest>
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="BarcodeLib.Barcode.WinForms">
@@ -238,24 +244,6 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="ConexionBD.cs" />
-    <Compile Include="CodBarra.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="CodBarra.Designer.cs">
-      <DependentUpon>CodBarra.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Form_Orden_Humedad.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Form_Orden_Humedad.Designer.cs">
-      <DependentUpon>Form_Orden_Humedad.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Form_Orden_Especial.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Form_Orden_Especial.Designer.cs">
-      <DependentUpon>Form_Orden_Especial.cs</DependentUpon>
-    </Compile>
     <Compile Include="Form_Orden.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -324,17 +312,8 @@
     </Compile>
     <Compile Include="SqlServerTypes\Loader.cs" />
     <Compile Include="Validar.cs" />
-    <EmbeddedResource Include="CodBarra.resx">
-      <DependentUpon>CodBarra.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="Form_Composito.resx">
       <DependentUpon>Form_Composito.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Form_Orden_Humedad.resx">
-      <DependentUpon>Form_Orden_Humedad.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Form_Orden_Especial.resx">
-      <DependentUpon>Form_Orden_Especial.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Form_Orden.resx">
       <DependentUpon>Form_Orden.cs</DependentUpon>
@@ -493,18 +472,10 @@
     <None Include="Resources\archivo-excel %281%29.png" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\plantilla.html" />
-  </ItemGroup>
-  <ItemGroup>
     <None Include="Resources\logoAntapaccay.png" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\Plantilla2.html" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\plantilla3.html" />
-  </ItemGroup>
-  <ItemGroup>
+    <Content Include="Datamine.ico" />
     <Content Include="SqlServerTypes\readme.htm" />
     <Content Include="SqlServerTypes\x64\msvcr120.dll">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>

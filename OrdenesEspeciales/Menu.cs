@@ -127,6 +127,7 @@ namespace OrdenesEspeciales
         {
             var usuariosPermitidos = new List<string> { "admin", "admin1", "csm_admin", "csm_user", "admin3" };
             string usuario = DatosUsuario.ValorUsuario;
+            //MessageBox.Show(usuario);
             //Form_Orden frm4 = new Form_Orden();
             //frm4.ShowDialog();
             //this.Hide();

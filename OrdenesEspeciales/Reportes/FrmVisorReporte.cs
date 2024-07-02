@@ -29,8 +29,8 @@ namespace OrdenesEspeciales.Reportes
             string contraseña = DatosContrasena.ValorContrasena;
             // Ejemplo: Mostrar los valores obtenidos en MessageBox (esto es solo para verificar)
             //MessageBox.Show(loginForm.getUser());
-            MessageBox.Show(usuario);
-            MessageBox.Show(contraseña);
+            //MessageBox.Show(usuario);
+            //MessageBox.Show(contraseña);
 
             // Utilizas los valores en tu lógica para mostrar el reporte
             Reporte_Análisis reporte = new Reporte_Análisis();

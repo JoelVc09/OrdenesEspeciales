@@ -1,7 +1,9 @@
 {
   "ExpandedNodes": [
-    ""
+    "",
+    "\\OrdenesEspeciales",
+    "\\packages"
   ],
-  "SelectedNode": "\\OrdenesEspeciales.sln",
+  "SelectedNode": "\\OrdenesEspeciales\\Menu.cs",
   "PreviewInSolutionExplorer": false
 }

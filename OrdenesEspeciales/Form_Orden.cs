@@ -1,33 +1,33 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.ComponentModel;
+//using System.ComponentModel;
 using System.Data;
 using System.Data.Odbc;
 using System.Drawing;
 using System.IO;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+//using System.Text;
+//using System.Threading.Tasks;
 using System.Windows.Forms;
 using iTextSharp.text.pdf; // Comentar esta línea
 using iTextSharp.text; // Comentar esta línea
 using iTextSharp.tool.xml; // Comentar esta línea
-using static System.Windows.Forms.VisualStyles.VisualStyleElement;
-using static System.Windows.Forms.VisualStyles.VisualStyleElement.Button;
+//using static System.Windows.Forms.VisualStyles.VisualStyleElement;
+//using static System.Windows.Forms.VisualStyles.VisualStyleElement.Button;
 using System.Data.SqlClient;
-using BarcodeStandard;
+//using BarcodeStandard;
 //using iText.Kernel.Pdf; // Mantener esta línea
 //using iText.Layout; // Mantener esta línea
 //using iText.Layout.Element; // Mantener esta línea
 //using BarcodeLib.Barcode;
-using System.Drawing.Imaging;
-using System.Runtime.InteropServices;
-using BarcodeLib;
-using System.Drawing.Configuration;
-using iText.Layout.Properties;
+//using System.Drawing.Imaging;
+//using System.Runtime.InteropServices;
+//using BarcodeLib;
+//using System.Drawing.Configuration;
+//using iText.Layout.Properties;
 using ZXing;
-using Org.BouncyCastle.Math;
-using System.Configuration;
+//using Org.BouncyCastle.Math;
+//using System.Configuration;
 using OrdenesEspeciales.Reportes;
 
 
@@ -1326,55 +1326,7 @@ namespace OrdenesEspeciales
 
         private void btn_guardar2_Click(object sender, EventArgs e)
         {
-            SaveFileDialog Guardar = new SaveFileDialog();
-            // Especificar el nombre del archivo
-            Guardar.FileName = DateTime.Now.ToString("ddMMyyyyHHmmss") + ".pdf";
-            Guardar.DefaultExt = ".pdf"; // Establecer la extensión predeterminada
-            Guardar.Filter = "Archivos PDF (*.pdf)|*.pdf";
-
-
-            string paginahtml_texto = Properties.Resources.Plantilla2.ToString();
-
-            string filas = string.Empty;
-
-
-            paginahtml_texto = paginahtml_texto.Replace("@FILAS", filas);
-
-            string rutaArchivo = @"C:\Users\joel.vilcatoma\OneDrive - Vela Industries Group\Escritorio\miArchivo.html";
-            File.WriteAllText(rutaArchivo, paginahtml_texto);
-
-            if (Guardar.ShowDialog() == DialogResult.OK)
-            {
-                using (FileStream stream = new FileStream(Guardar.FileName, FileMode.Create))
-                {
-                    Document pdfDoc = new Document(PageSize.A4, 25, 25, 25, 25);
-
-                    PdfWriter writer = PdfWriter.GetInstance(pdfDoc, stream);
-
-                    pdfDoc.Open();
-                    //pdfDoc.Add(new Phrase(""));
-
-                    iTextSharp.text.Image img = iTextSharp.text.Image.GetInstance(Properties.Resources.logoAntapaccay, System.Drawing.Imaging.ImageFormat.Png);
-                    img.ScaleToFit(80, 60);
-                    img.Alignment = iTextSharp.text.Image.UNDERLYING;
-                    img.SetAbsolutePosition(pdfDoc.RightMargin + 470, pdfDoc.Top - 40);
-                    pdfDoc.Add(img);
-
-
-
-                    using (StringReader sr = new StringReader(paginahtml_texto))
-                    {
-
-                        XMLWorkerHelper.GetInstance().ParseXHtml(writer, pdfDoc, sr);
-
-                    }
-
-                    pdfDoc.Close();
-                    stream.Close();
-
-                }
-
-            }
+           
 
         }
 

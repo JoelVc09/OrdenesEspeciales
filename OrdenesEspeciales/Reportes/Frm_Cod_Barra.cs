@@ -31,7 +31,6 @@ namespace OrdenesEspeciales.Reportes
             // Ejemplo: Mostrar los valores obtenidos en MessageBox (esto es solo para verificar)
             //MessageBox.Show(loginForm.getUser());
             //MessageBox.Show(loginForm.getPassword());   
-
             // Utilizas los valores en tu lógica para mostrar el reporte
             Cod_Barra reporte = new Cod_Barra();
             reporte.SetDatabaseLogon(usuario, contraseña);

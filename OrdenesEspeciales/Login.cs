@@ -38,8 +38,11 @@ namespace OrdenesEspeciales
             InitializeComponent();
             this.FormBorderStyle = FormBorderStyle.None;
             Region = System.Drawing.Region.FromHrgn(CreateRoundRectRgn(0, 0, Width, Height, 20, 20));
+
+            //this.AcceptButton = btnlogin_Click;
+
         }
-        
+
         private void btnlogin_Click(object sender, EventArgs e)
         {
             string usuario = txtusuario.Text;
@@ -49,7 +52,7 @@ namespace OrdenesEspeciales
             DatosContrasena.ValorContrasena = contraseña;
 
 
-            //MessageBox.Show($"Usuario: {Usuario}\nContraseña: {Contraseña}", "Valores Encapsulados");
+            //MessageBox.Show($"Usuario: {usuario}\nContraseña: {contraseña}", "Valores Encapsulados");
 
 
             bool conexionExitosa = false;
@@ -119,9 +122,6 @@ namespace OrdenesEspeciales
             public static string ValorContrasena { get; set; }
         }
 
-
-
-
         private void btncancelar_Click(object sender, EventArgs e)
         {
             this.Close();
@@ -133,6 +133,9 @@ namespace OrdenesEspeciales
             {
                 string usuario = txtusuario.Text;
                 string contraseña = txtpass.Text;
+
+                DatosUsuario.ValorUsuario = usuario;
+                DatosContrasena.ValorContrasena = contraseña;
 
                 bool conexionExitosa = false;
 
