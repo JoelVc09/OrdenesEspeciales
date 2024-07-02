@@ -9,6 +9,8 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Data.Odbc;
 using System.Runtime.InteropServices;
+using OrdenesEspeciales.Reportes;
+using static OrdenesEspeciales.Login;
 
 
 
@@ -16,6 +18,8 @@ namespace OrdenesEspeciales
 {
     public partial class Menu : Form
     {
+
+
         public Menu()
         {
             
@@ -95,7 +99,22 @@ namespace OrdenesEspeciales
         private void BtnCompositos_Click_1(object sender, EventArgs e)
         {
 
-            AbrirpanelHija(new form_Compo(Nom_Usua.Text));
+
+
+            var usuariosPermitidos = new List<string> { "us1", "us2", "us3", "us4" };
+            string usuario = DatosUsuario.ValorUsuario;
+            //Form_Orden frm4 = new Form_Orden();
+            //frm4.ShowDialog();
+            //this.Hide();
+            if (usuariosPermitidos.Contains(usuario))
+            {
+                AbrirpanelHija(new form_Compo(Nom_Usua.Text));
+            }
+            else
+            {
+                MessageBox.Show("No tienes permisos para acceder a esta opción.");
+            }
+            
             //form_Compo frm3 = new form_Compo(Nom_Usua.Text);
 
             //frm3.ShowDialog();
@@ -106,12 +125,19 @@ namespace OrdenesEspeciales
 
 
         {
-
-            
+            var usuariosPermitidos = new List<string> { "admin", "admin1", "csm_admin", "csm_user", "admin3" };
+            string usuario = DatosUsuario.ValorUsuario;
             //Form_Orden frm4 = new Form_Orden();
             //frm4.ShowDialog();
             //this.Hide();
-            submenu.Visible = true;
+            if (usuariosPermitidos.Contains(usuario))
+            {
+                submenu.Visible = true;
+            }
+            else
+            {
+                MessageBox.Show("No tienes permisos para acceder a esta opción.");
+            }
 
 
         }
@@ -119,7 +145,20 @@ namespace OrdenesEspeciales
         private void button1_Click(object sender, EventArgs e)
         {
 
-            AbrirpanelHija(new Form2cs(Nom_Usua.Text));
+            var usuariosPermitidos = new List<string> { "us1", "us2", "us3", "us4" };
+            string usuario = DatosUsuario.ValorUsuario;
+            //Form_Orden frm4 = new Form_Orden();
+            //frm4.ShowDialog();
+            //this.Hide();
+            if (usuariosPermitidos.Contains(usuario))
+            {
+                AbrirpanelHija(new Form2cs(Nom_Usua.Text));
+            }
+            else
+            {
+                MessageBox.Show("No tienes permisos para acceder a esta opción.");
+            }
+            
             //Form2cs frm_reassay = new Form2cs(Nom_Usua.Text);
             //AbrirpanelHija(new Form2cs());
             //frm_reassay.ShowDialog();
@@ -172,12 +211,13 @@ namespace OrdenesEspeciales
 
         private void btnEspeciales_Click(object sender, EventArgs e)
         {
-            AbrirpanelHija(new Form_Orden_Especial());
+            //AbrirpanelHija(new Form_Orden_Especial());
         }
 
         private void btnHumedad_Click(object sender, EventArgs e)
         {
-            AbrirpanelHija(new Form_Orden_Humedad());
+            //AbrirpanelHija(new Form_Orden_Humedad());
+
         }
 
         private void panel2_Paint(object sender, PaintEventArgs e)
@@ -196,6 +236,20 @@ namespace OrdenesEspeciales
             Menu frm_menu = new Menu();
             frm_menu.Show();
             this.Hide(); // Opcional: Oculta el formulario de inicio de sesión
+        }
+
+        private void btn_iniciar_Click(object sender, EventArgs e)
+        {
+
+            // Crear una nueva instancia del formulario Login
+            Login loginForm = new Login();
+
+            // Mostrar el formulario Login
+            loginForm.Show();
+
+
+            // Cerrar el formulario Menu actual
+
         }
     }
 }

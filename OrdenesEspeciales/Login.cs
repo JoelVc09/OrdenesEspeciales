@@ -10,11 +10,15 @@ using System.Windows.Forms;
 using System.Data.Odbc;
 using System.Configuration;
 using System.Runtime.InteropServices;
+using static OrdenesEspeciales.Form_Orden;
 
 namespace OrdenesEspeciales
 {
     public partial class Login : Form
+
     {
+
+
         [DllImport("Gdi32.dll", EntryPoint = "CreateRoundRectRgn")]
         private static extern IntPtr CreateRoundRectRgn
         (
@@ -25,8 +29,10 @@ namespace OrdenesEspeciales
             int nWidthEllipse, // height of ellipse
             int nHeightEllipse // width of ellipse
         );
-        
-        
+
+
+
+
         public Login()
         {
             InitializeComponent();
@@ -39,12 +45,21 @@ namespace OrdenesEspeciales
             string usuario = txtusuario.Text;
             string contraseña = txtpass.Text;
 
+            DatosUsuario.ValorUsuario = usuario;
+            DatosContrasena.ValorContrasena = contraseña;
+
+
+            //MessageBox.Show($"Usuario: {Usuario}\nContraseña: {Contraseña}", "Valores Encapsulados");
+
+
             bool conexionExitosa = false;
 
             try
             {
                 ConexionODBC.Conectar(usuario, contraseña);
                 conexionExitosa = true;
+
+
             }
             catch (OdbcException ex)
             {
@@ -60,7 +75,17 @@ namespace OrdenesEspeciales
                 // Abrir el nuevo formulario
                 Menu frm_menu = new Menu();
                 frm_menu.Show();
+
+
+                // Crear y mostrar el formulario Orden
+                //Form_Orden form_orden = new Form_Orden();
+                //form_orden.Usuario = Usuario;
+                //form_orden.Contraseña = Contraseña;
+                
+
+
                 this.Hide(); // Opcional: Oculta el formulario de inicio de sesión
+
             }
             else
             {
@@ -73,6 +98,29 @@ namespace OrdenesEspeciales
             }
            
         }
+
+        public String getUser()
+        {
+            return txtusuario.Text;
+        }
+
+        public String getPassword()
+        {
+            return txtpass.Text;
+        }
+
+        public static class DatosUsuario
+        {
+            public static string ValorUsuario { get; set; }
+        }
+
+        public static class DatosContrasena
+        {
+            public static string ValorContrasena { get; set; }
+        }
+
+
+
 
         private void btncancelar_Click(object sender, EventArgs e)
         {
@@ -92,6 +140,7 @@ namespace OrdenesEspeciales
                 {
                     ConexionODBC.Conectar(usuario, contraseña);
                     conexionExitosa = true;
+
                 }
                 catch (OdbcException)
                 {
@@ -120,8 +169,10 @@ namespace OrdenesEspeciales
                 }
 
             }
-       }
+        }
 
+
+        
         private void Login_Load(object sender, EventArgs e)
         {
 
@@ -146,5 +197,6 @@ namespace OrdenesEspeciales
         {
 
         }
+
     }
 }

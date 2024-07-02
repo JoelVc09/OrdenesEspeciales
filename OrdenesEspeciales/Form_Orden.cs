@@ -28,6 +28,7 @@ using iText.Layout.Properties;
 using ZXing;
 using Org.BouncyCastle.Math;
 using System.Configuration;
+using OrdenesEspeciales.Reportes;
 
 
 
@@ -35,12 +36,19 @@ using System.Configuration;
 
 namespace OrdenesEspeciales
 {
+
+
     public partial class Form_Orden : Form
     {
+
+        public string Usuario { get; set; }
+        public string Contraseña { get; set; }
+
         OdbcConnection con = ConexionODBC.connection;
         public Form_Orden()
 
         {
+            
 
             InitializeComponent();
             this.WindowState = FormWindowState.Maximized;
@@ -68,6 +76,7 @@ namespace OrdenesEspeciales
             cbProyectoGeolo.SelectedIndexChanged += new EventHandler(cbProyectoGeolo_SelectedIndexChanged);
 
             llenarComboBoxOrdenes();
+
         }
 
 
@@ -185,7 +194,7 @@ namespace OrdenesEspeciales
         private void llenarComboBoxOrdenes()
         {
             // Crear la consulta SQL
-            string query = "SELECT TOP 10 DISPATCH_CODE FROM UDEF_ORDER_ANALYSIS WHERE DISPATCH_CODE NOT LIKE '%E%' AND DISPATCH_CODE NOT LIKE '%A%' ORDER BY DISPATCH_CODE DESC";
+            string query = "SELECT distinct DISPATCH_CODE FROM UDEF_ORDER_ANALYSIS WHERE DISPATCH_CODE NOT LIKE '%E%' AND DISPATCH_CODE NOT LIKE '%A%' ORDER BY DISPATCH_CODE DESC";
 
             // Crear el comando ODBC con la consulta
             using (OdbcCommand cmd = new OdbcCommand(query, con))
@@ -844,9 +853,8 @@ namespace OrdenesEspeciales
 
             limpiarcheckssBox();
 
-            guardar_bd.Visible = true;
+            
 
-            Actualizar.Visible = false;
 
             if (cbo_Laborat.SelectedIndex > 0)
             {
@@ -868,8 +876,24 @@ namespace OrdenesEspeciales
 
             FillHoleColumn();
             FillControlInColumn();
+            CopiarValorTxtOrdenATxtDespacho();
+
+            DatosOrden.ValorOrden = txtdespacho.Text;
 
         }
+
+        // DESPACHO PARA PARAMETRO 
+
+        public void CopiarValorTxtOrdenATxtDespacho()
+        {
+            txtdespacho.Text = txt_Orden.Text;
+        }
+
+        public void CopiarValorTxtOrdenATxtDespacho2()
+        {
+            txtdespacho.Text = lbDispatch.Text;
+        }
+        //------------
 
         private void txt_OrdenAnalisis_TextChanged(object sender, EventArgs e)
         {
@@ -1064,89 +1088,25 @@ namespace OrdenesEspeciales
 
         private void btn_Guardar_Click(object sender, EventArgs e)
         {
-            SaveFileDialog Guardar = new SaveFileDialog();
-            // Especificar el nombre del archivo
-            Guardar.FileName = DateTime.Now.ToString("ddMMyyyyHHmmss") + ".pdf";
-            Guardar.DefaultExt = ".pdf"; // Establecer la extensión predeterminada
-            Guardar.Filter = "Archivos PDF (*.pdf)|*.pdf";
-
-
-            string paginahtml_texto = Properties.Resources.plantilla.ToString();
-
-            paginahtml_texto = paginahtml_texto.Replace("@NumOrden", txt_Orden.Text);
-            //paginahtml_texto = paginahtml_texto.Replace("@MUESTRERIA", txt_OrdenAnalisis.Text);
-            //paginahtml_texto = paginahtml_texto.Replace("@FECHA", txt_OrdenAnalisis.Text);
-            paginahtml_texto = paginahtml_texto.Replace("@LAB", cbo_Laborat.Text);
-            paginahtml_texto = paginahtml_texto.Replace("@CODPROJECT", cbo_proyecto.Text);
-            //paginahtml_texto = paginahtml_texto.Replace("@G.MINA", txt_OrdenAnalisis.Text);
-            paginahtml_texto = paginahtml_texto.Replace("@FECHAPREP", DateTime.Now.ToString("dd/MM/yyyy"));
-            paginahtml_texto = paginahtml_texto.Replace("@TOTALORDEN", lblcount.Text);
-
-            string filas = string.Empty;
-
-            foreach (DataGridViewRow row in Dgv_Orden.Rows)
-            {
-                // Obtener el valor de la celda "CuTot"
-                object CuTotValue = row.Cells["CuTot"].Value;
-                // Verificar si el valor de la celda es un booleano y está marcado como verdadero
-                bool isCheckedCuTot = CuTotValue != null && CuTotValue is bool && (bool)CuTotValue;
-
-                // Obtener el valor de la celda "CuOx"
-                object CuOxValue = row.Cells["CuOx"].Value;
-                // Verificar si el valor de la celda es un booleano y está marcado como verdadero
-                bool isCheckedCuOx = CuOxValue != null && CuOxValue is bool && (bool)CuOxValue;
-
-                // Crear la fila de la tabla HTML
-                filas += "<tr>";
-                filas += "<td>" + (row.Cells["Item"].Value ?? "").ToString() + "</td>";
-                filas += "<td>" + (row.Cells["CodAnalisis"].Value ?? "").ToString() + "</td>";
-                filas += "<td>" + (row.Cells["Control"].Value ?? "").ToString() + "</td>";
-                filas += "<td>" + (isCheckedCuTot ? "SI" : "NO") + "</td>";
-                filas += "<td>" + (isCheckedCuOx ? "SI" : "NO") + "</td>";
-                filas += "</tr>";
-            }
-
-
-            paginahtml_texto = paginahtml_texto.Replace("@FILAS", filas);
-
-            //string rutaArchivo = @"C:\Users\joel.vilcatoma\OneDrive - Vela Industries Group\Escritorio\miArchivo.html";
-           // File.WriteAllText(rutaArchivo, paginahtml_texto);
-
-            if (Guardar.ShowDialog() == DialogResult.OK)
-            {
-                using (FileStream stream = new FileStream(Guardar.FileName, FileMode.Create))
-                {
-                    iTextSharp.text.Document pdfDoc = new iTextSharp.text.Document(PageSize.A4, 25, 25, 25, 25);
-
-                    iTextSharp.text.pdf.PdfWriter writer = iTextSharp.text.pdf.PdfWriter.GetInstance(pdfDoc, stream);
-
-                    pdfDoc.Open();
-                    //pdfDoc.Add(new Phrase(""));
-
-                    iTextSharp.text.Image img = iTextSharp.text.Image.GetInstance(Properties.Resources.logoAntapaccay, System.Drawing.Imaging.ImageFormat.Png);
-                    img.ScaleToFit(80, 60);
-                    img.Alignment = iTextSharp.text.Image.UNDERLYING;
-                    img.SetAbsolutePosition(pdfDoc.LeftMargin + 10, pdfDoc.Top - 23);
-                    pdfDoc.Add(img);
-
-
-
-                    using (StringReader sr = new StringReader(paginahtml_texto))
-                    {
-
-                        XMLWorkerHelper.GetInstance().ParseXHtml(writer, pdfDoc, sr);
-
-                    }
-
-                    pdfDoc.Close();
-                    stream.Close();
-
-                }
-
-            }
-
+            FrmVisorReporte frmVisorReporte = new FrmVisorReporte();
+            
+            frmVisorReporte.ShowDialog();
 
         }
+
+        //Parametrodespaho
+
+        public string GetDespacho
+        {
+            get {  return txtdespacho.Text; }
+        }
+
+        public static class DatosOrden
+        {
+            public static string ValorOrden { get; set; }
+        }
+
+
 
 
         //Crear PARENT 
@@ -1422,140 +1382,10 @@ namespace OrdenesEspeciales
 
         private void button3_Click_1(object sender, EventArgs e)
         {
-            SaveFileDialog saveFileDialog = new SaveFileDialog();
-            saveFileDialog.FileName = DateTime.Now.ToString("ddMMyyyyHHmmss") + ".pdf";
-            saveFileDialog.DefaultExt = ".pdf";
-            saveFileDialog.Filter = "Archivos PDF (*.pdf)|*.pdf";
+            Frm_Cod_Barra frmVisorReporte = new Frm_Cod_Barra();
+            frmVisorReporte.ShowDialog();
 
-            if (saveFileDialog.ShowDialog() == DialogResult.OK)
-            {
-                using (FileStream stream = new FileStream(saveFileDialog.FileName, FileMode.Create))
-                {
-                    // Crear un documento PDF con el tamaño personalizado (10.6 cm de ancho y una altura grande)
-                    float pageWidth = 10.6f * 28.3465f; // Convertir cm a puntos
-                    float pageHeight = 2000f; // Establecer una altura grande pero manejable
-
-                    // Margen de 0.20 cm convertido a puntos
-                    float margin = 0.2f * 28.3465f;
-
-                    Document pdfDoc = new Document(new iTextSharp.text.Rectangle(pageWidth, pageHeight), margin, margin, margin, margin);
-                    PdfWriter writer = PdfWriter.GetInstance(pdfDoc, stream);
-
-                    pdfDoc.Open();
-
-                    // Inicializar el generador de códigos de barras
-                    BarcodeWriter barcodeWriter = new BarcodeWriter
-                    {
-                        Format = BarcodeFormat.CODE_128,
-                        Options = new ZXing.Common.EncodingOptions
-                        {
-                            Width = (int)(2.94f * 28.3465f), // Convertir 2.94 cm a puntos ancho
-                            Height = (int)(1.16f * 28.3465f) // Convertir 1.16 cm a puntos altura 
-                        }
-                    };
-
-                    // Inicializar la tabla para 2 columnas
-                    PdfPTable table = new PdfPTable(2);
-                    table.WidthPercentage = 100;
-                    table.DefaultCell.Border = PdfPCell.NO_BORDER;
-                    table.SpacingBefore = 0.02f * 28.3465f; // Espacio antes de la tabla (0.02 cm)
-
-                    // Espacio entre celdas
-                    float cellPadding = 0.02f * 28.3465f;
-
-                    // Establecer el borde de las celdas y el ancho del borde
-                    table.DefaultCell.Border = PdfPCell.BOX; // Añadir borde alrededor de cada celda
-                    table.DefaultCell.BorderWidth = 1f; // Establecer el ancho del borde
-
-                    // Obtener el valor de proyect_geolo
-                    string proyect_geolo = cbProyectoGeolo.SelectedValue.ToString();
-
-                    // Obtener los códigos de la columna "CodMuestra" del DataGridView
-                    foreach (DataGridViewRow row in Dgv_Orden.Rows)
-                    {
-                        if (!row.IsNewRow)
-                        {
-                            string codigo = row.Cells["CodAnalisis"].Value.ToString();
-                            string blasHole = row.Cells["Hole"].Value.ToString();
-
-                            // Generar el código de barras
-                            Bitmap barcodeBitmap = barcodeWriter.Write(codigo);
-
-                            // Convertir el Bitmap a un array de bytes
-                            using (MemoryStream ms = new MemoryStream())
-                            {
-                                barcodeBitmap.Save(ms, System.Drawing.Imaging.ImageFormat.Png);
-                                byte[] barcodeBytes = ms.ToArray();
-
-                                // Convertir el array de bytes a una imagen iTextSharp
-                                iTextSharp.text.Image barcodeImage = iTextSharp.text.Image.GetInstance(barcodeBytes);
-                                barcodeImage.ScaleToFit((int)(5f * 28.3465f), (int)(2.5f * 28.3465f)); // Ajustar al tamaño de la celda
-
-                                // Posicionar el código de barras en la parte inferior de la celda y centrado horizontalmente
-                                barcodeImage.Alignment = Element.ALIGN_CENTER | Element.ALIGN_BOTTOM;
-
-                                // Crear una celda para el contenido
-                                PdfPTable cellTable = new PdfPTable(1);
-                                cellTable.WidthPercentage = 100;
-                                cellTable.DefaultCell.Border = PdfPCell.NO_BORDER;
-
-                                // Añadir el valor de proyect_geolo con tamaño de fuente reducido
-                                PdfPCell cellProyecto = new PdfPCell(new Phrase("Project: " + proyect_geolo, FontFactory.GetFont("Arial", 5)));
-                                cellProyecto.HorizontalAlignment = Element.ALIGN_LEFT;
-                                cellProyecto.Border = PdfPCell.NO_BORDER;
-                                cellTable.AddCell(cellProyecto);
-
-                                // Añadir el nombre del blas_hole con tamaño de fuente reducido
-                                PdfPCell cellBlasHole = new PdfPCell(new Phrase("Hole: " + blasHole, FontFactory.GetFont("Arial", 5)));
-                                cellBlasHole.HorizontalAlignment = Element.ALIGN_LEFT;
-                                cellBlasHole.Border = PdfPCell.NO_BORDER;
-                                cellTable.AddCell(cellBlasHole);
-
-                                // Añadir el código de barras en su posición ajustada
-                                PdfPCell cellBarcode = new PdfPCell(barcodeImage);
-                                cellBarcode.HorizontalAlignment = Element.ALIGN_CENTER;
-                                cellBarcode.VerticalAlignment = Element.ALIGN_BOTTOM; // Alinear en la parte inferior
-                                cellBarcode.Border = PdfPCell.NO_BORDER;
-                                cellTable.AddCell(cellBarcode);
-
-                                // Ajustar el espaciado interno de las celdas
-                                PdfPCell cellWrapper = new PdfPCell(cellTable);
-                                cellWrapper.Padding = cellPadding;
-
-                                // Añadir la celda ajustada a la tabla principal
-                                table.AddCell(cellWrapper);
-
-                                // Comprobar si la tabla se ha llenado y necesita una nueva página
-                                if (table.CalculateHeights() > pageHeight - pdfDoc.TopMargin - pdfDoc.BottomMargin)
-                                {
-                                    pdfDoc.Add(table);
-                                    pdfDoc.NewPage();
-                                    table = new PdfPTable(2);
-                                    table.WidthPercentage = 100;
-                                    table.DefaultCell.Border = PdfPCell.NO_BORDER;
-                                    table.SpacingBefore = 0.02f * 28.3465f; // Espacio antes de la nueva tabla
-                                    table.DefaultCell.Border = PdfPCell.BOX; // Añadir borde alrededor de cada celda
-                                    table.DefaultCell.BorderWidth = 1f; // Establecer el ancho del borde
-                                }
-                            }
-                        }
-                    }
-
-                    // Añadir la tabla restante al documento
-                    pdfDoc.Add(table);
-
-                    pdfDoc.Close();
-                    stream.Close();
-                }
-                MessageBox.Show("PDF generado con éxito.");
-            }
         }
-
-
-
-
-
-
 
         //------------------------------------------
 
@@ -2874,9 +2704,10 @@ namespace OrdenesEspeciales
         {
 
         }
-
+        //------------------------------------------reporte
         private void button2_Click(object sender, EventArgs e)
         {
+
 
         }
 
@@ -2890,10 +2721,15 @@ namespace OrdenesEspeciales
                 Dgv_Orden.Rows[i].Cells["item"].Value = (i + 1).ToString();
             }
 
-            guardar_bd.Visible = false;
+            
 
             // Hacer visible el botón Actualizar
-            Actualizar.Visible = true;
+
+            CopiarValorTxtOrdenATxtDespacho2();
+
+            DatosOrden.ValorOrden = txtdespacho.Text;
+
+            guardar_bd.Visible = false;
         }
 
         private void button4_Click(object sender, EventArgs e)
@@ -2915,6 +2751,9 @@ namespace OrdenesEspeciales
 
             llenarComboBoxOrdenes();
 
+            
+
         }
+
     }
 }

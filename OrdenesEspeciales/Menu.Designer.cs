@@ -54,6 +54,7 @@ namespace OrdenesEspeciales
             this.BtnCompositos = new System.Windows.Forms.Button();
             this.panelContenedor = new System.Windows.Forms.Panel();
             this.pictureBox5 = new System.Windows.Forms.PictureBox();
+            this.btn_iniciar = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
             this.barratitulo.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).BeginInit();
@@ -147,6 +148,7 @@ namespace OrdenesEspeciales
             // panel2
             // 
             this.panel2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(91)))), ((int)(((byte)(142)))));
+            this.panel2.Controls.Add(this.btn_iniciar);
             this.panel2.Controls.Add(this.submenu);
             this.panel2.Controls.Add(this.pictureBox2);
             this.panel2.Controls.Add(this.panel5);
@@ -380,6 +382,24 @@ namespace OrdenesEspeciales
             this.pictureBox5.TabIndex = 131;
             this.pictureBox5.TabStop = false;
             // 
+            // btn_iniciar
+            // 
+            this.btn_iniciar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(91)))), ((int)(((byte)(142)))));
+            this.btn_iniciar.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btn_iniciar.FlatAppearance.BorderSize = 0;
+            this.btn_iniciar.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(80)))), ((int)(((byte)(200)))));
+            this.btn_iniciar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btn_iniciar.Font = new System.Drawing.Font("Century Gothic", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btn_iniciar.ForeColor = System.Drawing.Color.White;
+            this.btn_iniciar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btn_iniciar.Location = new System.Drawing.Point(24, 786);
+            this.btn_iniciar.Name = "btn_iniciar";
+            this.btn_iniciar.Size = new System.Drawing.Size(191, 36);
+            this.btn_iniciar.TabIndex = 136;
+            this.btn_iniciar.Text = "Iniciar sesion";
+            this.btn_iniciar.UseVisualStyleBackColor = false;
+            this.btn_iniciar.Click += new System.EventHandler(this.btn_iniciar_Click);
+            // 
             // Menu
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -438,5 +458,6 @@ namespace OrdenesEspeciales
         private System.Windows.Forms.Panel panel6;
         private System.Windows.Forms.Button btnHumedad;
         private System.Windows.Forms.Button btnEspeciales;
+        private System.Windows.Forms.Button btn_iniciar;
     }
 }
