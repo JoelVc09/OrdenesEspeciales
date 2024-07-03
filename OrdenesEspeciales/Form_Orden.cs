@@ -303,7 +303,7 @@ namespace OrdenesEspeciales
             {
                 // Obtener el valor seleccionado en cbProyectoGeolo
                 string proyecto = cbProyectoGeolo.SelectedValue.ToString();
-
+                //string proyecto = cbProyectoGeolo.Text ;
                 // Crear la consulta SQL con el proyecto seleccionado
                 string query = $"SELECT DISTINCT(CODE_PREP), BLASTHOLE_GUID FROM UDEF_ORDER_PREP WHERE PROYECTO_GEOLOGIA = '{proyecto}'";
 
@@ -1089,8 +1089,10 @@ namespace OrdenesEspeciales
         private void btn_Guardar_Click(object sender, EventArgs e)
         {
             FrmVisorReporte frmVisorReporte = new FrmVisorReporte();
-            
-            frmVisorReporte.ShowDialog();
+
+            //frmVisorReporte.ShowDialog();
+            frmVisorReporte.MostrarReporte();
+
 
         }
 

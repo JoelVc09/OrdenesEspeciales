@@ -174,6 +174,7 @@ namespace OrdenesEspeciales
             // 
             this.txtDispatch.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
             this.txtDispatch.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.CustomSource;
+            this.txtDispatch.Cursor = System.Windows.Forms.Cursors.IBeam;
             this.txtDispatch.Location = new System.Drawing.Point(13, 44);
             this.txtDispatch.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.txtDispatch.Name = "txtDispatch";

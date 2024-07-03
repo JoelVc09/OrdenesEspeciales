@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Diagnostics;
 using System.Windows.Forms;
 using CrystalDecisions.CrystalReports.Engine;
 using CrystalDecisions.Shared;
@@ -18,7 +19,7 @@ namespace OrdenesEspeciales.Reportes
             
         }
 
-        private void MostrarReporte()
+        public void MostrarReporte()
         {
             // Creas una instancia del formulario de login si aún no tienes una
             Login loginForm = new Login();
@@ -36,8 +37,37 @@ namespace OrdenesEspeciales.Reportes
             Reporte_Análisis reporte = new Reporte_Análisis();
             reporte.SetDatabaseLogon(usuario, contraseña);
             reporte.SetParameterValue("Despacho",despacho);
-            crVisorReporte.ReportSource = reporte;
-            crVisorReporte.Show();
+            //crVisorReporte.ReportSource = reporte;
+            //crVisorReporte.Show();
+
+            // Configuras las opciones de exportación
+            ExportOptions exportOpts = new ExportOptions();
+            DiskFileDestinationOptions diskOpts = new DiskFileDestinationOptions();
+            PdfRtfWordFormatOptions pdfOpts = new PdfRtfWordFormatOptions();
+
+            // Especificas la ruta y el nombre del archivo PDF
+            string timestamp = DateTime.Now.ToString("yyyyMMdd_HHmmss");
+            string pdfPath = @"C:\Nueva carpeta\Report"+ timestamp + ".pdf"; // Cambia la ruta según tus necesidades
+            diskOpts.DiskFileName = pdfPath;
+            exportOpts = reporte.ExportOptions;
+            exportOpts.ExportDestinationType = ExportDestinationType.DiskFile;
+            exportOpts.ExportFormatType = ExportFormatType.PortableDocFormat;
+            exportOpts.DestinationOptions = diskOpts;
+            exportOpts.FormatOptions = pdfOpts;
+
+            // Exportas el reporte a PDF
+            try
+            {
+                reporte.Export();
+                MessageBox.Show("Reporte exportado exitosamente a PDF.");
+                Process.Start(pdfPath);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error al exportar el reporte: " + ex.Message);
+            }
+
+
 
         }
 
