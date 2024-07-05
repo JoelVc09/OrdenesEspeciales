@@ -29,6 +29,9 @@ using ZXing;
 //using Org.BouncyCastle.Math;
 //using System.Configuration;
 using OrdenesEspeciales.Reportes;
+using System.Threading.Tasks;
+using System.Threading;
+using System.Web.Services.Description;
 
 
 
@@ -56,7 +59,28 @@ namespace OrdenesEspeciales
             Dgv_Orden.CellValueChanged += Dgv_Orden_CellValueChanged;
             this.WindowState = FormWindowState.Maximized;
             this.StartPosition = FormStartPosition.CenterScreen;
-            
+
+            // Asociar los eventos MouseEnter y MouseLeave a los botones y contenedores (puedes hacer esto en el diseñador o en el constructor del formulario)
+            this.button2.MouseEnter += new System.EventHandler(this.Control_MouseEnter);
+            this.button2.MouseLeave += new System.EventHandler(this.Control_MouseLeave);
+            this.btn_Guardar.MouseEnter += new System.EventHandler(this.Control_MouseEnter);
+            this.btn_Guardar.MouseLeave += new System.EventHandler(this.Control_MouseLeave);
+            this.button5.MouseEnter += new System.EventHandler(this.Control_MouseEnter);
+            this.button5.MouseLeave += new System.EventHandler(this.Control_MouseLeave);
+            this.Cod_barra.MouseEnter += new System.EventHandler(this.Control_MouseEnter);
+            this.Cod_barra.MouseLeave += new System.EventHandler(this.Control_MouseLeave);
+            this.button3.MouseEnter += new System.EventHandler(this.Control_MouseEnter);
+            this.button3.MouseLeave += new System.EventHandler(this.Control_MouseLeave);
+            this.button7.MouseEnter += new System.EventHandler(this.Control_MouseEnter);
+            this.button6.MouseLeave += new System.EventHandler(this.Control_MouseLeave);
+            this.button6.MouseEnter += new System.EventHandler(this.Control_MouseEnter);
+            this.button6.MouseLeave += new System.EventHandler(this.Control_MouseLeave);
+            this.pImprimir.MouseEnter += new System.EventHandler(this.Control_MouseEnter);
+            this.pImprimir.MouseLeave += new System.EventHandler(this.Control_MouseLeave);
+            this.pSubImprimir.MouseEnter += new System.EventHandler(this.Control_MouseEnter);
+            this.pSubImprimir.MouseLeave += new System.EventHandler(this.Control_MouseLeave);
+            this.pImprimirSubsub.MouseEnter += new System.EventHandler(this.Control_MouseEnter);
+            this.pImprimirSubsub.MouseLeave += new System.EventHandler(this.Control_MouseLeave);
 
             //INICIALIZAR 
             //Dgv_Orden.CellPainting += Dgv_Orden_CellPainting;
@@ -879,6 +903,7 @@ namespace OrdenesEspeciales
             CopiarValorTxtOrdenATxtDespacho();
 
             DatosOrden.ValorOrden = txtdespacho.Text;
+            lbDispatch.Text = txt_Orden.Text;
 
         }
 
@@ -892,6 +917,11 @@ namespace OrdenesEspeciales
         public void CopiarValorTxtOrdenATxtDespacho2()
         {
             txtdespacho.Text = lbDispatch.Text;
+        }
+
+        public void CopiarValorTxtOrdenATxtDespacho3()
+        {
+            lbDispatch.Text = txt_Orden.Text;
         }
         //------------
 
@@ -2302,6 +2332,8 @@ namespace OrdenesEspeciales
             MessageBox.Show("Todos los datos se guardaron correctamente.", "Éxito", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
             llenarComboBoxOrdenes();
+
+            button2.Visible = true;
         }
 
         // CONSULTA DE DESPACHO 
@@ -2684,6 +2716,8 @@ namespace OrdenesEspeciales
             DatosOrden.ValorOrden = txtdespacho.Text;
 
             guardar_bd.Visible = false;
+
+            button2.Visible = true;
         }
 
         private void button4_Click(object sender, EventArgs e)
@@ -2709,5 +2743,60 @@ namespace OrdenesEspeciales
 
         }
 
+        // METODOS PARA MANEJAR EL VISIBILIDAD DE LOS BOTONES :
+
+        // Método que se ejecutará cuando el cursor se acerque a cualquier botón o contenedor
+
+        private bool isMouseOverAnyControl = false;
+        private void Control_MouseEnter(object sender, EventArgs e)
+        {
+            isMouseOverAnyControl = true;
+
+            // Mostrar el contenedor correspondiente basado en el control que disparó el evento
+            if (sender == button2 || sender == pImprimir || sender == btn_Guardar || sender == button5)
+            {
+                pImprimir.Visible = true;
+            }
+
+            if (sender == button5 || sender == pSubImprimir || sender == Cod_barra || sender == button3)
+            {
+                pSubImprimir.Visible = true;
+            }
+
+            if (sender == button3 || sender == pImprimirSubsub || sender == button7 || sender == button6)
+            {
+                pImprimirSubsub.Visible = true;
+            }
+        }
+
+        // Método que se ejecutará cuando el cursor se aleje de cualquier botón o contenedor
+        private void Control_MouseLeave(object sender, EventArgs e)
+        {
+            isMouseOverAnyControl = false;
+            HideAllContainersIfMouseNotOver();
+        }
+
+        // Método para ocultar todos los contenedores si el cursor no está sobre algún control
+        private void HideAllContainersIfMouseNotOver()
+        {
+            // Retrasar la verificación para permitir que el evento MouseEnter de otros controles se procese
+            Task.Delay(100).ContinueWith(t =>
+            {
+                if (!isMouseOverAnyControl)
+                {
+                    Invoke(new Action(() =>
+                    {
+                        pImprimir.Visible = false;
+                        pSubImprimir.Visible = false;
+                        pImprimirSubsub.Visible = false;
+                    }));
+                }
+            });
+        }
+
+        private void panel1_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
     }
 }

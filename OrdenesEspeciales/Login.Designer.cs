@@ -57,6 +57,7 @@ namespace OrdenesEspeciales
             this.txtpass.PasswordChar = '*';
             this.txtpass.Size = new System.Drawing.Size(164, 20);
             this.txtpass.TabIndex = 27;
+            this.txtpass.Text = "century2000";
             this.txtpass.TextChanged += new System.EventHandler(this.txtpass_TextChanged);
             this.txtpass.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtpass_KeyPress);
             // 
@@ -70,6 +71,7 @@ namespace OrdenesEspeciales
             this.txtusuario.Name = "txtusuario";
             this.txtusuario.Size = new System.Drawing.Size(164, 21);
             this.txtusuario.TabIndex = 26;
+            this.txtusuario.Text = "admin3";
             // 
             // label4
             // 

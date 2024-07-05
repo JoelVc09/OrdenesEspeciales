@@ -32,6 +32,7 @@ namespace OrdenesEspeciales.Reportes
             //MessageBox.Show(loginForm.getUser());
             //MessageBox.Show(usuario);
             //MessageBox.Show(contraseña);
+            MessageBox.Show(despacho);
 
             // Utilizas los valores en tu lógica para mostrar el reporte
             Reporte_Análisis reporte = new Reporte_Análisis();
@@ -45,9 +46,9 @@ namespace OrdenesEspeciales.Reportes
             DiskFileDestinationOptions diskOpts = new DiskFileDestinationOptions();
             PdfRtfWordFormatOptions pdfOpts = new PdfRtfWordFormatOptions();
 
-            // Especificas la ruta y el nombre del archivo PDF
+            // Especificas la ruta y el nombre del archivo PDF @"C:\Nueva carpeta\Report"
             string timestamp = DateTime.Now.ToString("yyyyMMdd_HHmmss");
-            string pdfPath = @"C:\Nueva carpeta\Report"+ timestamp + ".pdf"; // Cambia la ruta según tus necesidades
+            string pdfPath = @"C:\Nueva carpeta\Report" + timestamp + ".pdf"; // Cambia la ruta según tus necesidades
             diskOpts.DiskFileName = pdfPath;
             exportOpts = reporte.ExportOptions;
             exportOpts.ExportDestinationType = ExportDestinationType.DiskFile;

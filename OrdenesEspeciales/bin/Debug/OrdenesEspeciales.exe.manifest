@@ -583,14 +583,14 @@
     </dependentAssembly>
   </dependency>
   <dependency>
-    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="OrdenesEspeciales.exe" size="17403392">
+    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="OrdenesEspeciales.exe" size="17409536">
       <assemblyIdentity name="OrdenesEspeciales" version="1.0.0.1" publicKeyToken="E4DAE57A988DC017" language="neutral" processorArchitecture="msil" />
       <hash>
         <dsig:Transforms>
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-        <dsig:DigestValue>U+q0hiYxCdKulHNMZ3NJSeg5PLAIWdJPnR01akgjgx8=</dsig:DigestValue>
+        <dsig:DigestValue>BFzAuz8R0PQQEDPxPB57jtye/0j55rb7u/Gv5SUOLj4=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>
