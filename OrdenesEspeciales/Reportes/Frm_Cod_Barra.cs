@@ -30,11 +30,12 @@ namespace OrdenesEspeciales.Reportes
 
             // Ejemplo: Mostrar los valores obtenidos en MessageBox (esto es solo para verificar)
             //MessageBox.Show(loginForm.getUser());
-            //MessageBox.Show(loginForm.getPassword());   
+            //MessageBox.Show(loginForm.getPassword());
+            //MessageBox.Show(despacho);   
             // Utilizas los valores en tu lógica para mostrar el reporte
-            Cod_Barra reporte = new Cod_Barra();
+            Etiqueta_Preparación reporte = new Etiqueta_Preparación();
             reporte.SetDatabaseLogon(usuario, contraseña);
-            reporte.SetParameterValue("Dispatch_Cod", despacho);
+            reporte.SetParameterValue("Despacho", despacho);
             crVisorCodBarra.ReportSource = reporte;
             crVisorCodBarra.Show();
 

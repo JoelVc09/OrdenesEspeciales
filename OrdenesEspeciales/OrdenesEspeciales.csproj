@@ -69,13 +69,17 @@
     <SignAssembly>true</SignAssembly>
   </PropertyGroup>
   <PropertyGroup>
-    <AssemblyOriginatorKeyFile>Enviodeanalisis.pfx</AssemblyOriginatorKeyFile>
+    <AssemblyOriginatorKeyFile>ordenespecialactualizado.pfx</AssemblyOriginatorKeyFile>
   </PropertyGroup>
   <PropertyGroup>
     <ApplicationIcon>Datamine.ico</ApplicationIcon>
   </PropertyGroup>
+  <PropertyGroup />
   <PropertyGroup>
-    <NoWin32Manifest>true</NoWin32Manifest>
+    <ApplicationManifest>Properties\app.manifest</ApplicationManifest>
+  </PropertyGroup>
+  <PropertyGroup>
+    <TargetZone>LocalIntranet</TargetZone>
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="BarcodeLib.Barcode.WinForms">
@@ -273,6 +277,36 @@
       <DependentUpon>Cod_Barra.rpt</DependentUpon>
       <SubType>Component</SubType>
     </Compile>
+    <Compile Include="Reportes\Etiqueta_Laboratorio_1Fila.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Etiqueta_Laboratorio_1Fila.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Reportes\Etiqueta_Laboratorio_2Filas.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Etiqueta_Laboratorio_2Filas.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Reportes\Etiqueta_Preparación.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Etiqueta_Preparación.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Reportes\Frm_Etiquetas_DosFilas.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Reportes\Frm_Etiquetas_DosFilas.Designer.cs">
+      <DependentUpon>Frm_Etiquetas_DosFilas.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Reportes\Frm_Etiquetas_unaFila.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Reportes\Frm_Etiquetas_unaFila.Designer.cs">
+      <DependentUpon>Frm_Etiquetas_unaFila.cs</DependentUpon>
+    </Compile>
     <Compile Include="Reportes\FrmVisorReporte.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -318,11 +352,29 @@
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
       <LastGenOutput>Cod_Barra.cs</LastGenOutput>
     </EmbeddedResource>
+    <EmbeddedResource Include="Reportes\Etiqueta_Laboratorio_1Fila.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>Etiqueta_Laboratorio_1Fila.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reportes\Etiqueta_Laboratorio_2Filas.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>Etiqueta_Laboratorio_2Filas.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reportes\Etiqueta_Preparación.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>Etiqueta_Preparación.cs</LastGenOutput>
+    </EmbeddedResource>
     <EmbeddedResource Include="Reportes\FrmVisorReporte.resx">
       <DependentUpon>FrmVisorReporte.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Reportes\Frm_Cod_Barra.resx">
       <DependentUpon>Frm_Cod_Barra.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reportes\Frm_Etiquetas_DosFilas.resx">
+      <DependentUpon>Frm_Etiquetas_DosFilas.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reportes\Frm_Etiquetas_unaFila.resx">
+      <DependentUpon>Frm_Etiquetas_unaFila.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Reportes\Reporte_Análisis.rpt">
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
@@ -341,7 +393,9 @@
       <DependentUpon>GDMS_ANTAPACCAYDataSet.xsd</DependentUpon>
     </None>
     <None Include="OrdenesEspeciales_TemporaryKey.pfx" />
+    <None Include="ordenespecialactualizado.pfx" />
     <None Include="packages.config" />
+    <None Include="Properties\app.manifest" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>

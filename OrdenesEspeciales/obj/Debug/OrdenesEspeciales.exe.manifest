@@ -4,28 +4,28 @@
   <description asmv2:iconFile="Datamine.ico" xmlns="urn:schemas-microsoft-com:asm.v1" />
   <application />
   <entryPoint>
-    <assemblyIdentity name="OrdenesEspeciales" version="1.0.0.1" publicKeyToken="E4DAE57A988DC017" language="neutral" processorArchitecture="msil" />
+    <assemblyIdentity name="OrdenesEspeciales" version="1.0.0.1" publicKeyToken="C371425F7AB42E06" language="neutral" processorArchitecture="msil" />
     <commandLine file="OrdenesEspeciales.exe" parameters="" />
   </entryPoint>
   <trustInfo>
     <security>
       <applicationRequestMinimum>
-        <PermissionSet Unrestricted="true" ID="Custom" SameSite="site" />
+        <PermissionSet version="1" class="System.Security.NamedPermissionSet" Name="LocalIntranet" Description="Default rights given to applications on the local intranet" Unrestricted="true" ID="Custom" SameSite="site" />
         <defaultAssemblyRequest permissionSetReference="Custom" />
       </applicationRequestMinimum>
       <requestedPrivileges xmlns="urn:schemas-microsoft-com:asm.v3">
-        <!--
-          Opciones del manifiesto de Control de cuentas de usuario
-          Si quiere cambiar el nivel de Control de cuentas de usuario de Windows, reemplace el
-          nodo requestedExecutionLevel por alguno de los siguientes.
+        <!-- Opciones del manifiesto UAC
+             Si quiere cambiar el nivel del Control de cuentas de usuario de Windows reemplace el 
+             nodo requestedExecutionLevel por uno de los siguientes.
 
         <requestedExecutionLevel  level="asInvoker" uiAccess="false" />
         <requestedExecutionLevel  level="requireAdministrator" uiAccess="false" />
         <requestedExecutionLevel  level="highestAvailable" uiAccess="false" />
 
-         Si desea usar la virtualización de archivos y del Registro para la
-         compatibilidad con versiones anteriores, elimine el nodo requestedExecutionLevel.
-    -->
+            Especificar el elemento requestedExecutionLevel deshabilitará la virtualización de archivos y registros. 
+            Quite este elemento si la aplicación necesita esta virtualización para la compatibilidad
+            con versiones anteriores.
+        -->
         <requestedExecutionLevel level="asInvoker" uiAccess="false" />
       </requestedPrivileges>
     </security>
@@ -44,13 +44,13 @@
   </dependency>
   <dependency>
     <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="AxInterop.CrystalPrintControlLib.dll" size="15360">
-      <assemblyIdentity name="AxInterop.CrystalPrintControlLib" version="13.0.0.0" publicKeyToken="E4DAE57A988DC017" language="neutral" processorArchitecture="msil" />
+      <assemblyIdentity name="AxInterop.CrystalPrintControlLib" version="13.0.0.0" publicKeyToken="C371425F7AB42E06" language="neutral" processorArchitecture="msil" />
       <hash>
         <dsig:Transforms>
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-        <dsig:DigestValue>5Jdexxv2PMN+JJdksQZjcRhcXGQWz6XC0+Ry/mmJiZQ=</dsig:DigestValue>
+        <dsig:DigestValue>JYDnFHmCn0YusRIMINnnT5eMQ2tqfPZqDmXJIhCNJK8=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>
@@ -272,13 +272,13 @@
   </dependency>
   <dependency>
     <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="Interop.CrystalPrintControlLib.dll" size="35328">
-      <assemblyIdentity name="Interop.CrystalPrintControlLib" version="13.0.0.0" publicKeyToken="E4DAE57A988DC017" language="neutral" processorArchitecture="msil" />
+      <assemblyIdentity name="Interop.CrystalPrintControlLib" version="13.0.0.0" publicKeyToken="C371425F7AB42E06" language="neutral" processorArchitecture="msil" />
       <hash>
         <dsig:Transforms>
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-        <dsig:DigestValue>S9vHXSs+puar7DOqbUowsIEAa0BsLDAbZCFsQes08Sk=</dsig:DigestValue>
+        <dsig:DigestValue>bVO/HH0XAKbLaH6K+Liulwj0jpisyn6DCzSkZOSyZPo=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>
@@ -583,14 +583,14 @@
     </dependentAssembly>
   </dependency>
   <dependency>
-    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="OrdenesEspeciales.exe" size="17409536">
-      <assemblyIdentity name="OrdenesEspeciales" version="1.0.0.1" publicKeyToken="E4DAE57A988DC017" language="neutral" processorArchitecture="msil" />
+    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="OrdenesEspeciales.exe" size="17463296">
+      <assemblyIdentity name="OrdenesEspeciales" version="1.0.0.1" publicKeyToken="C371425F7AB42E06" language="neutral" processorArchitecture="msil" />
       <hash>
         <dsig:Transforms>
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-        <dsig:DigestValue>BFzAuz8R0PQQEDPxPB57jtye/0j55rb7u/Gv5SUOLj4=</dsig:DigestValue>
+        <dsig:DigestValue>jtWlsBJxAmBlRorJt3B/66KYmcStAa6cc+jbJH96wZM=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>
@@ -897,4 +897,21 @@
       <dsig:DigestValue>G9bXMWKQGm2JHaR9e6vHVw0MCwy+tSd6zZxD1V5rY3Y=</dsig:DigestValue>
     </hash>
   </file>
+  <compatibility xmlns="urn:schemas-microsoft-com:compatibility.v1">
+    <application>
+      <!-- Una lista de las versiones de Windows en la que se ha probado esta aplicación y
+           con la que se ha diseñado para que trabaje. Quite la marca de comentario de los elementos adecuados y Windows seleccionará 
+           automáticamente el entorno más compatible. -->
+      <!-- Windows Vista -->
+      <!--<supportedOS Id="{e2011457-1546-43c5-a5fe-008deee3d3f0}" />-->
+      <!-- Windows 7 -->
+      <!--<supportedOS Id="{35138b9a-5d96-4fbd-8e2d-a2440225f93a}" />-->
+      <!-- Windows 8 -->
+      <!--<supportedOS Id="{4a2f28e3-53b9-4441-ba9c-d69d4a4a6e38}" />-->
+      <!-- Windows 8.1 -->
+      <!--<supportedOS Id="{1f676c76-80e1-4239-95bb-83d0f6d0da78}" />-->
+      <!-- Windows 10 -->
+      <!--<supportedOS Id="{8e0f7a12-bfb3-4fe8-b9a5-48fd50a15a9a}" />-->
+    </application>
+  </compatibility>
 </asmv1:assembly>

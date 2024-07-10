@@ -32,6 +32,7 @@ using OrdenesEspeciales.Reportes;
 using System.Threading.Tasks;
 using System.Threading;
 using System.Web.Services.Description;
+using OrdenesEspeciales.Reportes;
 
 
 
@@ -877,7 +878,7 @@ namespace OrdenesEspeciales
 
             limpiarcheckssBox();
 
-            
+            guardar_bd.Visible = true;
 
 
             if (cbo_Laborat.SelectedIndex > 0)
@@ -1120,8 +1121,8 @@ namespace OrdenesEspeciales
         {
             FrmVisorReporte frmVisorReporte = new FrmVisorReporte();
 
-            //frmVisorReporte.ShowDialog();
-            frmVisorReporte.MostrarReporte();
+            frmVisorReporte.ShowDialog();
+            //frmVisorReporte.MostrarReporte();
 
 
         }
@@ -2797,6 +2798,22 @@ namespace OrdenesEspeciales
         private void panel1_Paint(object sender, PaintEventArgs e)
         {
 
+        }
+
+        private void button6_Click(object sender, EventArgs e)
+        {
+            Frm_Etiquetas_unaFila frmVisorReporte = new Frm_Etiquetas_unaFila();
+
+            frmVisorReporte.ShowDialog();
+            //frmVisorReporte.MostrarReporte();
+        }
+
+        private void button7_Click(object sender, EventArgs e)
+        {
+            Frm_Etiquetas_DosFilas frmVisorReporte = new Frm_Etiquetas_DosFilas();
+
+            frmVisorReporte.ShowDialog();
+            //frmVisorReporte.MostrarReporte();
         }
     }
 }

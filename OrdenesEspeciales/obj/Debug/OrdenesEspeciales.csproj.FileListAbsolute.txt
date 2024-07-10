@@ -32,7 +32,6 @@ C:\Users\joel.vilcatoma\OneDrive - Vela Industries Group\Escritorio\OrdenenesEsp
 C:\Users\joel.vilcatoma\OneDrive - Vela Industries Group\Escritorio\OrdenenesEspeciales\OrdenesEspeciales01\OrdenesEspeciales\bin\Debug\OrdenesEspeciales.application
 C:\Users\joel.vilcatoma\OneDrive - Vela Industries Group\Escritorio\OrdenenesEspeciales\OrdenesEspeciales01\OrdenesEspeciales\bin\Debug\OrdenesEspeciales.exe
 C:\Users\joel.vilcatoma\OneDrive - Vela Industries Group\Escritorio\OrdenenesEspeciales\OrdenesEspeciales01\OrdenesEspeciales\bin\Debug\OrdenesEspeciales.pdb
-C:\Users\joel.vilcatoma\OneDrive - Vela Industries Group\Escritorio\OrdenenesEspeciales\OrdenesEspeciales01\OrdenesEspeciales\bin\Debug\BarcodeLib.Barcode.WinForms.dll
 C:\Users\joel.vilcatoma\OneDrive - Vela Industries Group\Escritorio\OrdenenesEspeciales\OrdenesEspeciales01\OrdenesEspeciales\bin\Debug\BarcodeStandard.dll
 C:\Users\joel.vilcatoma\OneDrive - Vela Industries Group\Escritorio\OrdenenesEspeciales\OrdenesEspeciales01\OrdenesEspeciales\bin\Debug\CrystalDecisions.CrystalReports.Engine.dll
 C:\Users\joel.vilcatoma\OneDrive - Vela Industries Group\Escritorio\OrdenenesEspeciales\OrdenesEspeciales01\OrdenesEspeciales\bin\Debug\CrystalDecisions.ReportSource.dll
@@ -138,10 +137,13 @@ C:\Users\joel.vilcatoma\OneDrive - Vela Industries Group\Escritorio\OrdenenesEsp
 C:\Users\joel.vilcatoma\OneDrive - Vela Industries Group\Escritorio\OrdenenesEspeciales\OrdenesEspeciales01\OrdenesEspeciales\obj\Debug\OrdenesEspeciales.Properties.Resources.resources
 C:\Users\joel.vilcatoma\OneDrive - Vela Industries Group\Escritorio\OrdenenesEspeciales\OrdenesEspeciales01\OrdenesEspeciales\obj\Debug\OrdenesEspeciales.Reportes.FrmVisorReporte.resources
 C:\Users\joel.vilcatoma\OneDrive - Vela Industries Group\Escritorio\OrdenenesEspeciales\OrdenesEspeciales01\OrdenesEspeciales\obj\Debug\OrdenesEspeciales.Reportes.Frm_Cod_Barra.resources
+C:\Users\joel.vilcatoma\OneDrive - Vela Industries Group\Escritorio\OrdenenesEspeciales\OrdenesEspeciales01\OrdenesEspeciales\obj\Debug\OrdenesEspeciales.Reportes.Frm_Etiquetas_unaFila.resources
 C:\Users\joel.vilcatoma\OneDrive - Vela Industries Group\Escritorio\OrdenenesEspeciales\OrdenesEspeciales01\OrdenesEspeciales\obj\Debug\OrdenesEspeciales.csproj.GenerateResource.cache
 C:\Users\joel.vilcatoma\OneDrive - Vela Industries Group\Escritorio\OrdenenesEspeciales\OrdenesEspeciales01\OrdenesEspeciales\obj\Debug\OrdenesEspeciales.csproj.CoreCompileInputs.cache
+C:\Users\joel.vilcatoma\OneDrive - Vela Industries Group\Escritorio\OrdenenesEspeciales\OrdenesEspeciales01\OrdenesEspeciales\obj\Debug\OrdenesEspeciales.TrustInfo.xml
 C:\Users\joel.vilcatoma\OneDrive - Vela Industries Group\Escritorio\OrdenenesEspeciales\OrdenesEspeciales01\OrdenesEspeciales\obj\Debug\OrdenesEspeciales.exe.manifest
 C:\Users\joel.vilcatoma\OneDrive - Vela Industries Group\Escritorio\OrdenenesEspeciales\OrdenesEspeciales01\OrdenesEspeciales\obj\Debug\OrdenesEspeciales.application
 C:\Users\joel.vilcatoma\OneDrive - Vela Industries Group\Escritorio\OrdenenesEspeciales\OrdenesEspeciales01\OrdenesEspeciales\obj\Debug\OrdenesE.B2577B66.Up2Date
 C:\Users\joel.vilcatoma\OneDrive - Vela Industries Group\Escritorio\OrdenenesEspeciales\OrdenesEspeciales01\OrdenesEspeciales\obj\Debug\OrdenesEspeciales.exe
 C:\Users\joel.vilcatoma\OneDrive - Vela Industries Group\Escritorio\OrdenenesEspeciales\OrdenesEspeciales01\OrdenesEspeciales\obj\Debug\OrdenesEspeciales.pdb
+C:\Users\joel.vilcatoma\OneDrive - Vela Industries Group\Escritorio\OrdenenesEspeciales\OrdenesEspeciales01\OrdenesEspeciales\obj\Debug\OrdenesEspeciales.Reportes.Frm_Etiquetas_DosFilas.resources

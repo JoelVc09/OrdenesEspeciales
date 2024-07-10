@@ -32,17 +32,17 @@ namespace OrdenesEspeciales.Reportes
             //MessageBox.Show(loginForm.getUser());
             //MessageBox.Show(usuario);
             //MessageBox.Show(contraseña);
-            MessageBox.Show(despacho);
+            //MessageBox.Show(despacho);
 
             // Utilizas los valores en tu lógica para mostrar el reporte
             Reporte_Análisis reporte = new Reporte_Análisis();
             reporte.SetDatabaseLogon(usuario, contraseña);
             reporte.SetParameterValue("Despacho",despacho);
-            //crVisorReporte.ReportSource = reporte;
-            //crVisorReporte.Show();
+            crVisorReporte.ReportSource = reporte;
+            crVisorReporte.Show();
 
             // Configuras las opciones de exportación
-            ExportOptions exportOpts = new ExportOptions();
+            /*ExportOptions exportOpts = new ExportOptions();
             DiskFileDestinationOptions diskOpts = new DiskFileDestinationOptions();
             PdfRtfWordFormatOptions pdfOpts = new PdfRtfWordFormatOptions();
 
@@ -66,7 +66,7 @@ namespace OrdenesEspeciales.Reportes
             catch (Exception ex)
             {
                 MessageBox.Show("Error al exportar el reporte: " + ex.Message);
-            }
+            }*/
 
 
 
