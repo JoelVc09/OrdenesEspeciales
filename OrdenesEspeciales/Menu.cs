@@ -22,11 +22,11 @@ namespace OrdenesEspeciales
 
         public Menu()
         {
-            
+
 
             InitializeComponent();
 
-       
+
 
 
             //BtnReassay.ForeColor = Color.Black;
@@ -114,7 +114,7 @@ namespace OrdenesEspeciales
             {
                 MessageBox.Show("No tienes permisos para acceder a esta opción.");
             }
-            
+
             //form_Compo frm3 = new form_Compo(Nom_Usua.Text);
 
             //frm3.ShowDialog();
@@ -159,7 +159,7 @@ namespace OrdenesEspeciales
             {
                 MessageBox.Show("No tienes permisos para acceder a esta opción.");
             }
-            
+
             //Form2cs frm_reassay = new Form2cs(Nom_Usua.Text);
             //AbrirpanelHija(new Form2cs());
             //frm_reassay.ShowDialog();
@@ -207,7 +207,7 @@ namespace OrdenesEspeciales
         private void btnBlastHole_Click(object sender, EventArgs e)
         {
             AbrirpanelHija(new Form_Orden());
-               
+
         }
 
         private void btnEspeciales_Click(object sender, EventArgs e)
@@ -242,15 +242,22 @@ namespace OrdenesEspeciales
         private void btn_iniciar_Click(object sender, EventArgs e)
         {
 
+            this.Close();
             // Crear una nueva instancia del formulario Login
-            Login loginForm = new Login();
+            //Login loginForm = new Login();
 
             // Mostrar el formulario Login
-            loginForm.Show();
-
-
+            //loginForm.Show();
+            Application.Restart();
             // Cerrar el formulario Menu actual
 
+
         }
+
+        public void ClickBlastHoleButton()
+        {
+            btnBlastHole.PerformClick();
+        }
+
     }
 }

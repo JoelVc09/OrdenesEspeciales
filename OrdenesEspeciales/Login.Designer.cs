@@ -51,13 +51,12 @@ namespace OrdenesEspeciales
             this.txtpass.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(122)))), ((int)(((byte)(204)))));
             this.txtpass.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.txtpass.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtpass.Location = new System.Drawing.Point(377, 181);
+            this.txtpass.Location = new System.Drawing.Point(376, 178);
             this.txtpass.Margin = new System.Windows.Forms.Padding(5);
             this.txtpass.Name = "txtpass";
             this.txtpass.PasswordChar = '*';
             this.txtpass.Size = new System.Drawing.Size(164, 20);
             this.txtpass.TabIndex = 27;
-            this.txtpass.Text = "century2000";
             this.txtpass.TextChanged += new System.EventHandler(this.txtpass_TextChanged);
             this.txtpass.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtpass_KeyPress);
             // 
@@ -71,7 +70,7 @@ namespace OrdenesEspeciales
             this.txtusuario.Name = "txtusuario";
             this.txtusuario.Size = new System.Drawing.Size(164, 21);
             this.txtusuario.TabIndex = 26;
-            this.txtusuario.Text = "admin3";
+            this.txtusuario.Tag = "";
             // 
             // label4
             // 

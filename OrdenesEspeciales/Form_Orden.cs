@@ -376,6 +376,56 @@ namespace OrdenesEspeciales
             }
         }
 
+        private void LlenarCodPreparacion2()
+        {
+
+            // Obtener el valor seleccionado en cbProyectoGeolo
+            string proyecto = cbProyectoGeolo.Text;
+            //SelectedValue.ToString();
+            //string proyecto = cbProyectoGeolo.Text ;
+            // Crear la consulta SQL con el proyecto seleccionado
+            string query = $"SELECT DISTINCT(CODE_PREP), BLASTHOLE_GUID FROM UDEF_ORDER_PREP WHERE PROYECTO_GEOLOGIA = '{proyecto}'";
+
+            // Crear el comando ODBC con la consulta
+            using (OdbcCommand cmd = new OdbcCommand(query, con))
+            {
+                // Abrir la conexión si no está abierta
+                if (con.State == ConnectionState.Closed)
+                {
+                    con.Open();
+                }
+
+                // Crear un adaptador ODBC
+                OdbcDataAdapter da = new OdbcDataAdapter(cmd);
+
+                // Crear un nuevo DataTable para almacenar los resultados
+                DataTable dt = new DataTable();
+
+                // Llenar el DataTable con los resultados de la consulta
+                da.Fill(dt);
+
+                // Crear una nueva fila en el DataTable con un valor inicial especial
+                DataRow fila = dt.NewRow();
+                fila["CODE_PREP"] = "Selecciona una preparación";
+                dt.Rows.InsertAt(fila, 0);
+
+                // Configurar el ComboBox codPreparacion
+                codPreparacion.ValueMember = "CODE_PREP";
+                codPreparacion.DisplayMember = "CODE_PREP";
+                codPreparacion.DataSource = dt;
+
+                // Seleccionar el primer ítem por defecto
+                if (codPreparacion.Items.Count > 0)
+                {
+                    codPreparacion.SelectedIndex = 0;
+                }
+
+                // Cerrar la conexión
+                con.Close();
+            }
+
+        }
+
 
 
 
@@ -906,6 +956,9 @@ namespace OrdenesEspeciales
             DatosOrden.ValorOrden = txtdespacho.Text;
             lbDispatch.Text = txt_Orden.Text;
 
+            label14.Text = "New";
+            label14.ForeColor = Color.YellowGreen;
+
         }
 
         // DESPACHO PARA PARAMETRO 
@@ -924,6 +977,7 @@ namespace OrdenesEspeciales
         {
             lbDispatch.Text = txt_Orden.Text;
         }
+
         //------------
 
         private void txt_OrdenAnalisis_TextChanged(object sender, EventArgs e)
@@ -1215,6 +1269,39 @@ namespace OrdenesEspeciales
                             // Asignar el valor "MDF" a la columna "Control" en la fila actual
                             currentRow.Cells["Control"].Value = "MDF";
                             break;
+
+                            // Para controlar los duplicados falsos     
+                        case " ":
+                            // Eliminar el valor de la columna "Control_in" en la fila actual
+                            currentRow.Cells["Control_in"].Value = null;
+
+                            // Capturar el valor de la columna "sample_code"
+                            string sampleCodeValue = currentRow.Cells["sample_code"].Value?.ToString();
+
+                            // Eliminar las filas que tengan el valor de "sample_code" en la columna "parent"
+                            if (!string.IsNullOrEmpty(sampleCodeValue))
+                            {
+                                for (int i = Dgv_Orden.Rows.Count - 1; i >= 0; i--)
+                                {
+                                    DataGridViewRow row = Dgv_Orden.Rows[i];
+                                    if (row.Cells["parent"].Value?.ToString() == sampleCodeValue)
+                                    {
+                                        Dgv_Orden.Rows.RemoveAt(i);
+                                    }
+                                }
+                            }
+
+                            btnFillConsecutive_Click();
+
+                            // Enumerar las filas en la columna "item"
+                            for (int i = 0; i < Dgv_Orden.Rows.Count; i++)
+                            {
+                                Dgv_Orden.Rows[i].Cells["item"].Value = (i + 1).ToString();
+                            }
+
+                            // Actualizar el label lblcount con el conteo de filas
+                            lblcount.Text = Dgv_Orden.Rows.Count.ToString();
+                            break;
                     }
                 }
             }
@@ -1480,6 +1567,8 @@ namespace OrdenesEspeciales
             cbo_FeTot.Checked = false;
             this.Update();
             this.Refresh();
+
+
         }
 
         //------------------------------------
@@ -1819,7 +1908,8 @@ namespace OrdenesEspeciales
         public void InsertIntoModularSamples()
         {
             // Obtener el valor del TextBox y del ComboBox
-            string geolo = cbProyectoGeolo.SelectedValue.ToString();
+            string geolo = cbProyectoGeolo.Text;
+                //SelectedValue.ToString();
 
             string codGui = string.Empty;
 
@@ -2082,17 +2172,17 @@ namespace OrdenesEspeciales
                 }
 
                 // Validar que los controles no sean nulos
-                if (cbProyectoGeolo.SelectedValue == null || cbo_Laborat.SelectedValue == null ||
-                    codPreparacion.SelectedValue == null || cbo_proyecto.SelectedValue == null)
+                if (cbProyectoGeolo.Text == null || cbo_Laborat.Text == null ||
+                    codPreparacion.Text == null || cbo_proyecto.Text == null)
                 {
                     MessageBox.Show("Por favor, complete todos los campos necesarios.");
                     return;
                 }
 
                 // Obtener el valor del TextBox y del ComboBox
-                string geolo = cbProyectoGeolo.SelectedValue.ToString();
-                string laboratorio = cbo_Laborat.SelectedValue.ToString();
-                string cod_prep = codPreparacion.SelectedValue.ToString();
+                string geolo = cbProyectoGeolo.Text;
+                string laboratorio = cbo_Laborat.Text;
+                string cod_prep = codPreparacion.Text;
                 string valorOrden = txt_Orden.Text; // Obtener el valor del TextBox
 
                 // Obtener el valor del usuario actual conectado
@@ -2266,10 +2356,10 @@ namespace OrdenesEspeciales
         private void UpdateLabels()
         {
             // Capturar el valor seleccionado en el ComboBox cbProyectoGeolo
-            string selectedProyectoGeolo = cbProyectoGeolo.SelectedValue?.ToString();
+            //string selectedProyectoGeolo = cbProyectoGeolo.SelectedValue?.ToString();
 
             // Asignar el valor al Label lbProyGeolo
-            lbProyGeolo.Text = selectedProyectoGeolo;
+            lbProyGeolo.Text = cbProyectoGeolo.Text;
 
             // Capturar el valor seleccionado en el ComboBox cbCodPreparacion
             string selectedCodPreparacion = codPreparacion.SelectedValue?.ToString();
@@ -2335,6 +2425,8 @@ namespace OrdenesEspeciales
             llenarComboBoxOrdenes();
 
             button2.Visible = true;
+            label14.Text = "CREATE";
+            label14.ForeColor = Color.Orange;
         }
 
         // CONSULTA DE DESPACHO 
@@ -2350,7 +2442,8 @@ namespace OrdenesEspeciales
             try
             {
                 // Obtener el valor seleccionado del ComboBox
-                string dispatchCode = Cb_ordenes.SelectedValue.ToString();
+                string dispatchCode = Cb_ordenes.Text;
+                    //SelectedValue.ToString();
 
                 // Definir la consulta SQL
                 string query = "select a1.sample_number, a1.SAMPLE_CODE, a1.BH_ID, a2.code_prep, a1.PROYECTO_GEOLOGIA, case when a3.sample_type = 'ASSAY' THEN NULL ELSE a3.sample_type END AS assay_sample_type_code  , a1.parent_sample_number, a2.CuTot_p, a2.CuOx_p , a2.CuSol_p, a2.Au_p, a2.Ag_p, a2.Mo_p, a2.CO3_p, a2.CSAc, a2.CsCn_p, a2.CuRes_p, a2.FeTot_p  from modular_samples as a1 inner join UDEF_ORDER_ANALYSIS as a2 ON  a1.sample_number = a2.CODE_ANALYSIS inner join DHL_SAMPLE_DISPATCH_SAMPLES as a3 ON a3.SAMPLE_NUMBER = a2.CODE_ANALYSIS where DISPATCH_CODE = ? order by sample_number";
@@ -2694,7 +2787,8 @@ namespace OrdenesEspeciales
         //------------------------------------------reporte
         private void button2_Click(object sender, EventArgs e)
         {
-
+            //Menu inicio = new Menu();
+            //inicio.ClickBlastHoleButton();
 
         }
 
@@ -2814,6 +2908,21 @@ namespace OrdenesEspeciales
 
             frmVisorReporte.ShowDialog();
             //frmVisorReporte.MostrarReporte();
+        }
+
+        private void lbDispatch_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void codPreparacion_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btn_ir_Click(object sender, EventArgs e)
+        {
+            LlenarCodPreparacion2();
         }
     }
 }
