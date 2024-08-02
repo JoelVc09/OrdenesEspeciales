@@ -147,3 +147,4 @@ C:\Users\joel.vilcatoma\OneDrive - Vela Industries Group\Escritorio\OrdenenesEsp
 C:\Users\joel.vilcatoma\OneDrive - Vela Industries Group\Escritorio\OrdenenesEspeciales\OrdenesEspeciales01\OrdenesEspeciales\obj\Debug\OrdenesE.B2577B66.Up2Date
 C:\Users\joel.vilcatoma\OneDrive - Vela Industries Group\Escritorio\OrdenenesEspeciales\OrdenesEspeciales01\OrdenesEspeciales\obj\Debug\OrdenesEspeciales.exe
 C:\Users\joel.vilcatoma\OneDrive - Vela Industries Group\Escritorio\OrdenenesEspeciales\OrdenesEspeciales01\OrdenesEspeciales\obj\Debug\OrdenesEspeciales.pdb
+C:\Users\joel.vilcatoma\OneDrive - Vela Industries Group\Escritorio\OrdenenesEspeciales\OrdenesEspeciales01\OrdenesEspeciales\obj\Debug\OrdenesEspeciales.PanelAdmin.resources

@@ -11,6 +11,8 @@ using System.Data.Odbc;
 using System.Runtime.InteropServices;
 using OrdenesEspeciales.Reportes;
 using static OrdenesEspeciales.Login;
+using System.IO;
+using System.Text.Json;
 
 
 
@@ -58,6 +60,19 @@ namespace OrdenesEspeciales
             //BtnCompositos1.FlatStyle = FlatStyle.Flat;
             //BtnCompositos1.FlatAppearance.BorderSize = 2;
             //BtnCompositos1.FlatAppearance.BorderColor = Color.White;
+
+            string usuario = DatosUsuario.ValorUsuario;
+            //Form_Orden frm4 = new Form_Orden();
+            //frm4.ShowDialog();
+            //this.Hide();
+            if (usuario == "admin")
+            {
+                btn_admin.Visible = true;
+            }
+            else
+            {
+                btn_admin.Visible = false;
+            }
         }
 
         private bool confirmacionCierre = false;
@@ -96,16 +111,30 @@ namespace OrdenesEspeciales
 
         }
 
+        //----
+
+        private List<string> CargarUsuariosDesdeJSON(string path)
+        {
+            string fullPath = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, path);
+            if (File.Exists(fullPath))
+            {
+                try
+                {
+                    return JsonSerializer.Deserialize<List<string>>(File.ReadAllText(fullPath));
+                }
+                catch (JsonException ex)
+                {
+                    MessageBox.Show($"Error al leer el archivo JSON: {ex.Message}");
+                }
+            }
+            return new List<string>();
+        }
+
         private void BtnCompositos_Click_1(object sender, EventArgs e)
         {
-
-
-
-            var usuariosPermitidos = new List<string> { "us1", "us2", "us3", "us4" };
+            var usuariosPermitidos = CargarUsuariosDesdeJSON("usuariosCompositos.json");
             string usuario = DatosUsuario.ValorUsuario;
-            //Form_Orden frm4 = new Form_Orden();
-            //frm4.ShowDialog();
-            //this.Hide();
+
             if (usuariosPermitidos.Contains(usuario))
             {
                 AbrirpanelHija(new form_Compo(Nom_Usua.Text));
@@ -114,23 +143,14 @@ namespace OrdenesEspeciales
             {
                 MessageBox.Show("No tienes permisos para acceder a esta opción.");
             }
-
-            //form_Compo frm3 = new form_Compo(Nom_Usua.Text);
-
-            //frm3.ShowDialog();
-            //this.Hide();
         }
 
+
         private void Btn_Envio_Ordenes_Click_1(object sender, EventArgs e)
-
-
         {
-            var usuariosPermitidos = new List<string> { "admin", "admin1", "csm_admin", "csm_user", "admin3" };
+            var usuariosPermitidos = CargarUsuariosDesdeJSON("usuariosOrdenAnalisis.json");
             string usuario = DatosUsuario.ValorUsuario;
-            //MessageBox.Show(usuario);
-            //Form_Orden frm4 = new Form_Orden();
-            //frm4.ShowDialog();
-            //this.Hide();
+
             if (usuariosPermitidos.Contains(usuario))
             {
                 submenu.Visible = true;
@@ -139,18 +159,14 @@ namespace OrdenesEspeciales
             {
                 MessageBox.Show("No tienes permisos para acceder a esta opción.");
             }
-
-
         }
+
 
         private void button1_Click(object sender, EventArgs e)
         {
-
-            var usuariosPermitidos = new List<string> { "us1", "us2", "us3", "us4" };
+            var usuariosPermitidos = CargarUsuariosDesdeJSON("usuariosOrdenesespeciales.json");
             string usuario = DatosUsuario.ValorUsuario;
-            //Form_Orden frm4 = new Form_Orden();
-            //frm4.ShowDialog();
-            //this.Hide();
+
             if (usuariosPermitidos.Contains(usuario))
             {
                 AbrirpanelHija(new Form2cs(Nom_Usua.Text));
@@ -159,11 +175,6 @@ namespace OrdenesEspeciales
             {
                 MessageBox.Show("No tienes permisos para acceder a esta opción.");
             }
-
-            //Form2cs frm_reassay = new Form2cs(Nom_Usua.Text);
-            //AbrirpanelHija(new Form2cs());
-            //frm_reassay.ShowDialog();
-            //this.Hide();
         }
 
 
@@ -259,5 +270,14 @@ namespace OrdenesEspeciales
             btnBlastHole.PerformClick();
         }
 
+        private void button1_Click_1(object sender, EventArgs e)
+        {
+            AbrirpanelHija(new PanelAdmin());
+        }
+
+        private void pictureBox5_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

@@ -1229,18 +1229,41 @@ namespace OrdenesEspeciales
                             string codMuestraValue = currentRow.Cells["sample_code"].Value?.ToString();
                             string codvalue = currentRow.Cells["Hole"].Value?.ToString();
 
-                            // Generar 3 nuevas filas con el mismo CodMuestra en la columna "parent"
-                            for (int i = 0; i < 3; i++)
+                            // Mostrar el mensaje con las opciones
+                            var result = MessageBox.Show("¿Dónde registrar los duplicados?\n\nSeleccione 'Sí' para 'Al final'.\nSeleccione 'No' para 'Después del duplicado'.\nSeleccione 'Cancelar' para cancelar la operación.",
+                                "Seleccionar opción", MessageBoxButtons.YesNoCancel, MessageBoxIcon.Question);
+
+
+                            if (result == DialogResult.Yes) // Al final
                             {
-                                int newRowIndex = Dgv_Orden.Rows.Add();
-                                DataGridViewRow newRow = Dgv_Orden.Rows[newRowIndex];
-                                newRow.Cells["parent"].Value = codMuestraValue;
-                                newRow.Cells["Hole"].Value = codvalue;
-
-                                // Descomentar la siguiente línea si quieres también copiar CodMuestra
-                                // newRow.Cells["sample_code"].Value = codMuestraValue;
+                                // Generar 3 nuevas filas con el mismo CodMuestra en la columna "parent"
+                                for (int i = 0; i < 3; i++)
+                                {
+                                    int newRowIndex = Dgv_Orden.Rows.Add();
+                                    DataGridViewRow newRow = Dgv_Orden.Rows[newRowIndex];
+                                    newRow.Cells["parent"].Value = codMuestraValue;
+                                    newRow.Cells["Hole"].Value = codvalue;
+                                    // Descomentar la siguiente línea si quieres también copiar CodMuestra
+                                    // newRow.Cells["sample_code"].Value = codMuestraValue;
+                                }
                             }
+                            else if (result == DialogResult.No) // Después del duplicado
+                            {
+                                int currentIndex = currentRow.Index;
 
+                                // Generar 3 nuevas filas después de la fila seleccionada
+                                for (int i = 0; i < 3; i++)
+                                {
+                                    int newRowIndex = currentIndex + 1;
+                                    Dgv_Orden.Rows.Insert(newRowIndex, 1);
+                                    DataGridViewRow newRow = Dgv_Orden.Rows[newRowIndex];
+                                    newRow.Cells["parent"].Value = codMuestraValue;
+                                    newRow.Cells["Hole"].Value = codvalue;
+                                    // Descomentar la siguiente línea si quieres también copiar CodMuestra
+                                    // newRow.Cells["sample_code"].Value = codMuestraValue;
+                                    currentIndex++;
+                                }
+                            }
                             // Enumerar las filas en la columna "item"
                             for (int i = 0; i < Dgv_Orden.Rows.Count; i++)
                             {
@@ -1270,7 +1293,7 @@ namespace OrdenesEspeciales
                             currentRow.Cells["Control"].Value = "MDF";
                             break;
 
-                            // Para controlar los duplicados falsos     
+                        // Para controlar los duplicados falsos     
                         case " ":
                             // Eliminar el valor de la columna "Control_in" en la fila actual
                             currentRow.Cells["Control_in"].Value = null;
@@ -1306,6 +1329,8 @@ namespace OrdenesEspeciales
                 }
             }
         }
+
+
 
         // Método adicional para manejar cambios en el valor del ComboBox directamente en la celda
         private void Dgv_Orden_CellValueChanged(object sender, DataGridViewCellEventArgs e)
