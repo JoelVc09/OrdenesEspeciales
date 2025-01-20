@@ -5,7 +5,7 @@ VisualStudioVersion = 17.9.34728.123
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OrdenesEspeciales", "OrdenesEspeciales\OrdenesEspeciales.csproj", "{03681841-05E5-417A-A175-85536010D36D}"
 EndProject
-Project("{54435603-DBB4-11D2-8724-00A0C9A8B90C}") = "APP_FINAL", "D:\APP_FINAL_ANTAPACAY\APP_FINAL\APP_FINAL.vdproj", "{FAB0CBCC-E2D8-4025-A8BB-16C89DAC61F3}"
+Project("{54435603-DBB4-11D2-8724-00A0C9A8B90C}") = "Ordenes", "Ordenes\Ordenes.vdproj", "{CC5F0C5A-C836-4C64-90D8-C27255F64923}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -17,8 +17,8 @@ Global
 		{03681841-05E5-417A-A175-85536010D36D}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{03681841-05E5-417A-A175-85536010D36D}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{03681841-05E5-417A-A175-85536010D36D}.Release|Any CPU.Build.0 = Release|Any CPU
-		{FAB0CBCC-E2D8-4025-A8BB-16C89DAC61F3}.Debug|Any CPU.ActiveCfg = Debug
-		{FAB0CBCC-E2D8-4025-A8BB-16C89DAC61F3}.Release|Any CPU.ActiveCfg = Release
+		{CC5F0C5A-C836-4C64-90D8-C27255F64923}.Debug|Any CPU.ActiveCfg = Debug
+		{CC5F0C5A-C836-4C64-90D8-C27255F64923}.Release|Any CPU.ActiveCfg = Release
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

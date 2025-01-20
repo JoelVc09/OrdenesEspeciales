@@ -11,7 +11,7 @@ using System.Data.Odbc;
 using System.Runtime.InteropServices;
 using OrdenesEspeciales.Reportes;
 using static OrdenesEspeciales.Login;
-using System.IO;
+using System.IO;    
 using System.Text.Json;
 
 
@@ -276,6 +276,11 @@ namespace OrdenesEspeciales
         }
 
         private void pictureBox5_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label1_Click(object sender, EventArgs e)
         {
 
         }

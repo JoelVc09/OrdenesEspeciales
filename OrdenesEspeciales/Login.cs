@@ -11,6 +11,7 @@ using System.Data.Odbc;
 using System.Configuration;
 using System.Runtime.InteropServices;
 using static OrdenesEspeciales.Form_Orden;
+using Microsoft.Win32;
 
 namespace OrdenesEspeciales
 {
@@ -36,6 +37,7 @@ namespace OrdenesEspeciales
         public Login()
         {
             InitializeComponent();
+            LlenarComboConODBC();
             this.FormBorderStyle = FormBorderStyle.None;
             Region = System.Drawing.Region.FromHrgn(CreateRoundRectRgn(0, 0, Width, Height, 20, 20));
 
@@ -79,12 +81,10 @@ namespace OrdenesEspeciales
                 Menu frm_menu = new Menu();
                 frm_menu.Show();
 
-
                 // Crear y mostrar el formulario Orden
                 //Form_Orden form_orden = new Form_Orden();
                 //form_orden.Usuario = Usuario;
                 //form_orden.Contraseña = Contraseña;
-                
 
 
                 this.Hide(); // Opcional: Oculta el formulario de inicio de sesión
@@ -199,6 +199,55 @@ namespace OrdenesEspeciales
         private void txtpass_TextChanged(object sender, EventArgs e)
         {
 
+        }
+
+        private void txtusuario_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void checkBox1_CheckedChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void checkBox2_CheckedChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void LlenarComboConODBC()
+        {
+            // Lista para almacenar los DSN que comienzan con "CENTRAL"
+            List<string> dsnList = new List<string>();
+
+            // Ruta en el registro donde se almacenan los DSN de sistema
+            string systemDSNKey = @"Software\ODBC\ODBC.INI";
+
+            try
+            {
+                // Obtener las claves del registro para los DSN de sistema
+                RegistryKey systemKey = Registry.LocalMachine.OpenSubKey(systemDSNKey);
+                if (systemKey != null)
+                {
+                    // Obtener los nombres de los DSN configurados a nivel de sistema
+                    foreach (var dsnName in systemKey.GetSubKeyNames())
+                    {
+                        // Filtrar los DSN que comienzan con "CENTRAL"
+                        if (dsnName.StartsWith("CENTRAL", StringComparison.OrdinalIgnoreCase))
+                        {
+                            dsnList.Add(dsnName); // Agregar el nombre del DSN a la lista
+                        }
+                    }
+                }
+
+                // Llenar el ComboBox con los DSN que comienzan con "CENTRAL"
+                cm_conexiones.DataSource = dsnList.Distinct().ToList(); // Para evitar duplicados
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Error al obtener los DSN del sistema: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
 
     }

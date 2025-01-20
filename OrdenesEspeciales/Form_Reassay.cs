@@ -38,21 +38,43 @@ namespace OrdenesEspeciales
         //CARGA DE COMBOBOX//
         public void cargar_datos()
         {
-            // Ejemplo de consulta
-            string query = "select original_business_unit from DRILL_HOLE where HOLE_NUMBER not like '@%' and original_business_unit not like '%RELOG%' group by original_business_unit";
-            OdbcCommand cmd = new OdbcCommand(query, con);
-            OdbcDataAdapter da = new OdbcDataAdapter(cmd);
-            DataTable dt = new DataTable();
-            da.Fill(dt);
+            // Abre la conexión si está cerrada
+            if (con.State == ConnectionState.Closed)
+            {
+                con.Open();
+            }
 
-            DataRow fila = dt.NewRow();
-            fila["original_business_unit"] = "Selecciona un Business Unit";
-            dt.Rows.InsertAt(fila, 0);
+            try
+            {
+                // Ejemplo de consulta
+                string query = "select original_business_unit from DRILL_HOLE where HOLE_NUMBER not like '@%' and original_business_unit not like '%RELOG%' group by original_business_unit";
+                OdbcCommand cmd = new OdbcCommand(query, con);
+                OdbcDataAdapter da = new OdbcDataAdapter(cmd);
+                DataTable dt = new DataTable();
+                da.Fill(dt);
 
-            cboUnidad.ValueMember = "original_business_unit";
-            cboUnidad.DisplayMember = "original_business_unit";
-            cboUnidad.DataSource = dt;
+                DataRow fila = dt.NewRow();
+                fila["original_business_unit"] = "Selecciona un Business Unit";
+                dt.Rows.InsertAt(fila, 0);
+
+                cboUnidad.ValueMember = "original_business_unit";
+                cboUnidad.DisplayMember = "original_business_unit";
+                cboUnidad.DataSource = dt;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Error al cargar los datos: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            finally
+            {
+                // Cierra la conexión después de usarla
+                if (con.State == ConnectionState.Open)
+                {
+                    con.Close();
+                }
+            }
         }
+
 
 
 
@@ -694,6 +716,12 @@ namespace OrdenesEspeciales
                 try
                 {
 
+                    // Asegúrate de que la conexión esté abierta
+                    if (con.State == ConnectionState.Closed)
+                    {
+                        con.Open();
+                    }
+
                     // Consulta SQL para buscar el dispatch_number ingresado por el usuario
                     string consultar = "SELECT dispatch_status FROM DHL_SAMPLE_DISPATCH_HEADER WHERE dispatch_number='" + txtDispatch.Text + "'";
 
@@ -974,7 +1002,15 @@ namespace OrdenesEspeciales
         }
 
         private void BtnNewSam2_Click(object sender, EventArgs e)
+
         {
+
+            // Abre la conexión si está cerrada
+            if (con.State == ConnectionState.Closed)
+            {
+                con.Open();
+            }
+
             try
             {
                 if (dataGridView1.Rows.Count == 0)

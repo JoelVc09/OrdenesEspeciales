@@ -146,6 +146,9 @@ namespace OrdenesEspeciales
                 foreach (DataGridViewColumn column in Dgv_Consulta.Columns)
                 {
                     column.AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells;
+
+                    // Configurar SortMode para deshabilitar la ordenación
+                    column.SortMode = DataGridViewColumnSortMode.NotSortable;
                 }
             }
             catch (Exception ex)
@@ -778,8 +781,28 @@ namespace OrdenesEspeciales
                     con.Open();
                 }
 
-                // Define tu consulta SQL
-                string query = "SELECT MAX(dispatch_number) FROM DHL_SAMPLE_DISPATCH_HEADER WHERE dispatch_number NOT LIKE '%E%' AND dispatch_number NOT LIKE '%A%'";
+                // Obtener el valor seleccionado del ComboBox
+                string codigoPreparacion = codPreparacion.Text;
+                //MessageBox.Show(codigoPreparacion);
+                if (string.IsNullOrEmpty(codigoPreparacion))
+                {
+                    MessageBox.Show("Por favor, selecciona un Código de Preparación.", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    return;
+                }
+
+                // Define tu consulta SQL, integrando el código de preparación seleccionado
+                string query = $@"
+                                SELECT CONCAT(YEAR(CREATION_DATE), '-121', 
+                                    (SELECT RIGHT(CAST(MAX(dispatch_number) AS VARCHAR), 4) AS LastFourDigits
+                                     FROM DHL_SAMPLE_DISPATCH_HEADER
+                                     WHERE dispatch_number NOT LIKE '%E%' AND dispatch_number NOT LIKE '%A%' AND dispatch_number LIKE '2024%')
+                                ) AS anio
+                                FROM UDEF_BLASTHOLE
+                                WHERE BLASTHOLE_GUID IN (
+                                    SELECT DISTINCT BLASTHOLE_GUID
+                                    FROM UDEF_ORDER_PREP
+                                    WHERE CODE_PREP = '{codigoPreparacion}'
+                                )";
 
                 // Crear el comando SQL
                 using (OdbcCommand command = new OdbcCommand(query, con))
@@ -787,17 +810,24 @@ namespace OrdenesEspeciales
                     // Ejecutar el comando y obtener el resultado
                     object result = command.ExecuteScalar();
 
-                    // Asignar el resultado al TextBox, convirtiendo a string explícitamente
                     if (result != null)
                     {
-                        string lastFourDigits = result.ToString().Substring(result.ToString().Length - 4); // Captura los últimos 4 dígitos
-                        int nextNumber = int.Parse(lastFourDigits) + 1; // Suma 1 al número obtenido
-                        string nextDispatchNumber = result.ToString().Substring(0, result.ToString().Length - 4) + nextNumber.ToString().PadLeft(4, '0'); // Concatena el número con el próximo número de despacho
-                        txt_Orden.Text = nextDispatchNumber; // Mostrar el resultado en el TextBox
+                        // Obtener el valor concatenado
+                        string anioResult = result.ToString();
+
+                        // Obtener los últimos 4 dígitos y sumarle 1
+                        string lastFourDigits = anioResult.Substring(anioResult.Length - 4);
+                        int nextNumber = int.Parse(lastFourDigits) + 1;
+
+                        // Reemplazar los últimos 4 dígitos con el nuevo número
+                        string nextDispatchNumber = anioResult.Substring(0, anioResult.Length - 4) + nextNumber.ToString().PadLeft(4, '0');
+
+                        // Mostrar el resultado en el TextBox
+                        txt_Orden.Text = nextDispatchNumber;
                     }
                     else
                     {
-                        txt_Orden.Text = "No result found";
+                        txt_Orden.Text = "No se encontraron resultados.";
                     }
                 }
             }
@@ -815,7 +845,6 @@ namespace OrdenesEspeciales
                 }
             }
         }
-
 
 
         //AUTO COMPLETAR EL CODIGO DE ANALISIS
@@ -899,19 +928,30 @@ namespace OrdenesEspeciales
 
         private void btn_consultar_Click(object sender, EventArgs e)
         {
-            listar_datos();
-            cargar_laboratory();
-            //Completar el ultimo orden de ensayo    
-            LlenarTextBoxConResultadoSQL();
-            LlenarTextBoxCodAnalisisSQL();
-            //Completar el ultimo codigo de analisis 
-            //completecodsamplenumber(txSampleNumber);
-            Dgv_Consulta.ReadOnly = true;
-            label7.Text = Dgv_Consulta.Rows.Count.ToString();
+            // Verificar que el ComboBox no esté vacío y tenga un valor válido
+            if (codPreparacion.SelectedValue != null && codPreparacion.SelectedValue.ToString() != "Selecciona un Codigo de Preparación")
+            {
 
-            //LLENAR DISPACH
-            //completecodsamplenumber(txSampleNumber);
-        }
+                listar_datos();
+                cargar_laboratory();
+                //Completar el ultimo orden de ensayo    
+                LlenarTextBoxConResultadoSQL();
+                LlenarTextBoxCodAnalisisSQL();
+                //Completar el ultimo codigo de analisis 
+                //completecodsamplenumber(txSampleNumber);
+                //Dgv_Consulta.ReadOnly = false;
+                label7.Text = Dgv_Consulta.Rows.Count.ToString();
+
+                //LLENAR DISPACH
+                //completecodsamplenumber(txSampleNumber);
+            }
+
+            else
+            {
+                // Mostrar mensaje de advertencia si no se seleccionó un valor válido
+                MessageBox.Show("Por favor, selecciona un Código de Preparación válido.", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }
+         }
 
         private void label6_Click(object sender, EventArgs e)
         {
@@ -958,6 +998,8 @@ namespace OrdenesEspeciales
 
             label14.Text = "New";
             label14.ForeColor = Color.YellowGreen;
+
+            guardar_bd.Visible = true;
 
         }
 
@@ -1800,13 +1842,13 @@ namespace OrdenesEspeciales
                     }
                     else
                     {
-                        //MessageBox.Show("No se pudo insertar los datos.");
+                        MessageBox.Show("No se pudo insertar los datos a DHL_SAMPLE_DISPATCH_HEADER ");
                     }
                 }
             }
             catch (Exception ex)
             {
-                //MessageBox.Show("Error al insertar datos: " + ex.Message);
+                MessageBox.Show("Error al recupeara e insertar datos a DHL_SAMPLE_DISPATCH_HEADER " + ex.Message);
             }
             finally
             {
@@ -1902,14 +1944,14 @@ namespace OrdenesEspeciales
                         }
                         else
                         {
-                            //MessageBox.Show($"No se pudo insertar los datos para SAMPLE_NUMBER: {sampleNumber}");
+                            MessageBox.Show($"No se pudo insertar los datos a DHL_SAMPLE_DISPATCH_SAMPLES: {sampleNumber}");
                         }
                     }
                 }
             }
             catch (Exception ex)
             {
-                //MessageBox.Show("Error al insertar datos: " + ex.Message);
+                MessageBox.Show("Error al recupear e insertar datos a DHL_SAMPLE_DISPATCH_SAMPLES " + ex.Message);
             }
             finally
             {
@@ -2005,7 +2047,7 @@ namespace OrdenesEspeciales
                     string sampleCode = row.Cells["Sample_Code"].Value?.ToString();
 
                     // Construir la consulta de inserción para modular_samples
-                    string insertQuery = "INSERT INTO modular_samples(sample_number, standalone_guid, module_name, assay_sample_type_code, parent_sample_number, date_shipped, status_code, sample_dispatched, number_of_bags, last_modified_by, last_modified_date_time, is_master, PROYECTO_GEOLOGIA, BH_ID, SAMPLE_CODE) " +
+                    string insertQuery = "INSERT INTO modular_samples(sample_number, standalone_guid, module_name, assay_sample_type_code, parent_sample_number, date_shipped, status_code, sample_dispatched, number_of_bags, last_modified_by, last_modified_date_time, is_master, PROYECTO_GEOLOGIA, ID_BH, SAMPLE_CODE) " +
                                          "VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
 
                     try
@@ -2026,7 +2068,7 @@ namespace OrdenesEspeciales
                             insertCmd.Parameters.AddWithValue("@last_modified_date_time", lastModifiedDateTime);
                             insertCmd.Parameters.AddWithValue("@is_master", isMaster);
                             insertCmd.Parameters.AddWithValue("@PROYECTO_GEOLOGIA", geolo ?? (object)DBNull.Value);
-                            insertCmd.Parameters.AddWithValue("@BH_ID", bhId ?? (object)DBNull.Value);
+                            insertCmd.Parameters.AddWithValue("@ID_BH", bhId ?? (object)DBNull.Value);
                             insertCmd.Parameters.AddWithValue("@SAMPLE_CODE", sampleCode ?? (object)DBNull.Value);
 
                             // Ejecutar el comando de inserción
@@ -2059,7 +2101,7 @@ namespace OrdenesEspeciales
                     }
                     catch (OdbcException ex)
                     {
-                        //MessageBox.Show("Ocurrió un error al insertar: " + ex.Message);
+                        MessageBox.Show("Ocurrió un error al insertar a Modular sample: " + ex.Message);
                     }
                 }
 
@@ -2067,7 +2109,7 @@ namespace OrdenesEspeciales
             }
             catch (Exception ex)
             {
-                //MessageBox.Show("Error al insertar datos: " + ex.Message);
+                MessageBox.Show("Error al recuperar e insertar a Modular sample " + ex.Message);
             }
             finally
             {
@@ -2137,7 +2179,7 @@ namespace OrdenesEspeciales
                     }
                     catch (SqlException ex)
                     {
-                        MessageBox.Show("Ocurrió un error al insertar: " + ex.Message);
+                        MessageBox.Show("Ocurrió un error al recuperar datos de ASSAY_STANDARD_DEFAULTS " + ex.Message);
                     }
                 }
 
@@ -2167,7 +2209,7 @@ namespace OrdenesEspeciales
             }
             catch (Exception ex)
             {
-                //MessageBox.Show("Error al insertar datos: " + ex.Message);
+                MessageBox.Show("Error al insertar datos a ASSAY_STANDARD_RESULTS " + ex.Message);
             }
             finally
             {
@@ -2337,14 +2379,14 @@ namespace OrdenesEspeciales
                         }
                         else
                         {
-                            //MessageBox.Show($"No se pudo insertar los datos para CODE_ANALYSIS: {codeAnalysis}");
+                            MessageBox.Show($"No se pudo insertar los datos para UDEF_ORDER_ANALYSIS: {codeAnalysis}");
                         }
                     }
                 }
             }
             catch (Exception ex)
             {
-                //MessageBox.Show("Error al insertar datos: " + ex.Message);
+                MessageBox.Show("Error al recupear e insertar datos a UDEF_ORDER_ANALYSIS " + ex.Message);
             }
             finally
             {
@@ -2355,19 +2397,6 @@ namespace OrdenesEspeciales
                 }
             }
         }
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 
@@ -2452,6 +2481,7 @@ namespace OrdenesEspeciales
             button2.Visible = true;
             label14.Text = "CREATE";
             label14.ForeColor = Color.Orange;
+            guardar_bd.Visible = false;
         }
 
         // CONSULTA DE DESPACHO 
@@ -2471,7 +2501,7 @@ namespace OrdenesEspeciales
                     //SelectedValue.ToString();
 
                 // Definir la consulta SQL
-                string query = "select a1.sample_number, a1.SAMPLE_CODE, a1.BH_ID, a2.code_prep, a1.PROYECTO_GEOLOGIA, case when a3.sample_type = 'ASSAY' THEN NULL ELSE a3.sample_type END AS assay_sample_type_code  , a1.parent_sample_number, a2.CuTot_p, a2.CuOx_p , a2.CuSol_p, a2.Au_p, a2.Ag_p, a2.Mo_p, a2.CO3_p, a2.CSAc, a2.CsCn_p, a2.CuRes_p, a2.FeTot_p  from modular_samples as a1 inner join UDEF_ORDER_ANALYSIS as a2 ON  a1.sample_number = a2.CODE_ANALYSIS inner join DHL_SAMPLE_DISPATCH_SAMPLES as a3 ON a3.SAMPLE_NUMBER = a2.CODE_ANALYSIS where DISPATCH_CODE = ? order by sample_number";
+                string query = "select a1.sample_number, a1.SAMPLE_CODE, a1.ID_BH, a2.code_prep, a1.PROYECTO_GEOLOGIA, case when a3.sample_type = 'ASSAY' THEN NULL ELSE a3.sample_type END AS assay_sample_type_code  , a1.parent_sample_number, a2.CuTot_p, a2.CuOx_p , a2.CuSol_p, a2.Au_p, a2.Ag_p, a2.Mo_p, a2.CO3_p, a2.CSAc, a2.CsCn_p, a2.CuRes_p, a2.FeTot_p  from modular_samples as a1 inner join UDEF_ORDER_ANALYSIS as a2 ON  a1.sample_number = a2.CODE_ANALYSIS inner join DHL_SAMPLE_DISPATCH_SAMPLES as a3 ON a3.SAMPLE_NUMBER = a2.CODE_ANALYSIS where DISPATCH_CODE = ? order by sample_number";
 
 
                 // Crear y configurar el comando
@@ -2494,7 +2524,7 @@ namespace OrdenesEspeciales
                             // Asignar valores a las celdas correspondientes
                             Dgv_Orden.Rows[rowIndex].Cells["CodAnalisis"].Value = reader["sample_number"].ToString();
                             Dgv_Orden.Rows[rowIndex].Cells["sample_code"].Value = reader["SAMPLE_CODE"].ToString();
-                            Dgv_Orden.Rows[rowIndex].Cells["blasthole"].Value = reader["BH_ID"].ToString();
+                            Dgv_Orden.Rows[rowIndex].Cells["blasthole"].Value = reader["ID_BH"].ToString();
                             Dgv_Orden.Rows[rowIndex].Cells["Cod_Prep"].Value = reader["code_prep"].ToString();
                             Dgv_Orden.Rows[rowIndex].Cells["Proyecto_geologia"].Value = reader["PROYECTO_GEOLOGIA"].ToString();
                             Dgv_Orden.Rows[rowIndex].Cells["Control"].Value = reader["assay_sample_type_code"].ToString();
@@ -2626,7 +2656,7 @@ namespace OrdenesEspeciales
             }
         }
 
-        //------------------modular_samples 
+        //------------------modular_samples--------------------------------------------- 
         private void EliminarRegistrosModularSamples()
         {
             try
@@ -2819,25 +2849,35 @@ namespace OrdenesEspeciales
 
         private void button1_Click_2(object sender, EventArgs e)
         {
-            LlenarDataGridView();
-            FillHoleColumn();
-
-            for (int i = 0; i < Dgv_Orden.Rows.Count; i++)
+            // Verificar que el ComboBox no esté vacío y tenga un valor válido
+            if (Cb_ordenes.SelectedValue != null && Cb_ordenes.SelectedValue.ToString() != "Seleccionar")
             {
-                Dgv_Orden.Rows[i].Cells["item"].Value = (i + 1).ToString();
+
+                LlenarDataGridView();
+                FillHoleColumn();
+
+                for (int i = 0; i < Dgv_Orden.Rows.Count; i++)
+                {
+                    Dgv_Orden.Rows[i].Cells["item"].Value = (i + 1).ToString();
+                }
+
+                // Hacer visible el botón Actualizar
+
+                CopiarValorTxtOrdenATxtDespacho2();
+
+                DatosOrden.ValorOrden = txtdespacho.Text;
+
+                guardar_bd.Visible = false;
+
+                button2.Visible = true;
             }
 
-            
+            else
+            {
+                // Mostrar mensaje de advertencia si no se seleccionó un valor válido
+                MessageBox.Show("Por favor, selecciona un Código de Orden.", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }
 
-            // Hacer visible el botón Actualizar
-
-            CopiarValorTxtOrdenATxtDespacho2();
-
-            DatosOrden.ValorOrden = txtdespacho.Text;
-
-            guardar_bd.Visible = false;
-
-            button2.Visible = true;
         }
 
         private void button4_Click(object sender, EventArgs e)
@@ -2850,7 +2890,7 @@ namespace OrdenesEspeciales
                 //EliminarRegistrosDHL();
                 EliminarRegistrosDHLHeaderFromLabel();
                 EliminarRegistrosUDEFOrderAnalysis();
-                MessageBox.Show("Se eliminó el despacho.");
+                //MessageBox.Show("Se eliminó el despacho.");
             }
             catch (Exception ex)
             {
@@ -2947,7 +2987,20 @@ namespace OrdenesEspeciales
 
         private void btn_ir_Click(object sender, EventArgs e)
         {
-            LlenarCodPreparacion2();
+            if (!string.IsNullOrWhiteSpace(cbProyectoGeolo.Text) && cbProyectoGeolo.Text != "Selecciona un Codigo de Preparación")
+            {
+                LlenarCodPreparacion2();
+            }
+            else
+            {
+                MessageBox.Show("Por favor, ingresa un Código de proyecto de geología válido.", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }
+
+        }
+
+        private void Cb_ordenes_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }

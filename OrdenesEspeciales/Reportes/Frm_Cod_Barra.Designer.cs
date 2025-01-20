@@ -29,16 +29,19 @@
         private void InitializeComponent()
         {
             this.crVisorCodBarra = new CrystalDecisions.Windows.Forms.CrystalReportViewer();
+            this.Cod_Barra1 = new OrdenesEspeciales.Reportes.Cod_Barra();
+            this.Etiqueta_Preparación1 = new OrdenesEspeciales.Reportes.Etiqueta_Preparación();
             this.SuspendLayout();
             // 
             // crVisorCodBarra
             // 
-            this.crVisorCodBarra.ActiveViewIndex = -1;
+            this.crVisorCodBarra.ActiveViewIndex = 0;
             this.crVisorCodBarra.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.crVisorCodBarra.Cursor = System.Windows.Forms.Cursors.Default;
             this.crVisorCodBarra.Dock = System.Windows.Forms.DockStyle.Fill;
             this.crVisorCodBarra.Location = new System.Drawing.Point(0, 0);
             this.crVisorCodBarra.Name = "crVisorCodBarra";
+            this.crVisorCodBarra.ReportSource = this.Etiqueta_Preparación1;
             this.crVisorCodBarra.Size = new System.Drawing.Size(1362, 817);
             this.crVisorCodBarra.TabIndex = 0;
             this.crVisorCodBarra.ToolPanelView = CrystalDecisions.Windows.Forms.ToolPanelViewType.None;
@@ -60,5 +63,7 @@
         #endregion
 
         private CrystalDecisions.Windows.Forms.CrystalReportViewer crVisorCodBarra;
+        private Cod_Barra Cod_Barra1;
+        private Etiqueta_Preparación Etiqueta_Preparación1;
     }
 }

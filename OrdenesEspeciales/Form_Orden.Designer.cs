@@ -77,34 +77,6 @@
             this.btn_crear = new System.Windows.Forms.Button();
             this.label6 = new System.Windows.Forms.Label();
             this.Dgv_Orden = new System.Windows.Forms.DataGridView();
-            this.sdk = new System.Windows.Forms.DataGridViewCheckBoxColumn();
-            this.item = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.CodAnalisis = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.sample_code = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.blasthole = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Cod_Prep = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Hole = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Proyecto_geologia = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.MCtrl = new System.Windows.Forms.DataGridViewComboBoxColumn();
-            this.Control = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Control_in = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.parent = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Tajo = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.BANCO = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Fase = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Fecha_Entrega = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Hora_Entrega = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.CuTot = new System.Windows.Forms.DataGridViewCheckBoxColumn();
-            this.CuOx = new System.Windows.Forms.DataGridViewCheckBoxColumn();
-            this.CuSol = new System.Windows.Forms.DataGridViewCheckBoxColumn();
-            this.Au = new System.Windows.Forms.DataGridViewCheckBoxColumn();
-            this.Ag = new System.Windows.Forms.DataGridViewCheckBoxColumn();
-            this.Mo = new System.Windows.Forms.DataGridViewCheckBoxColumn();
-            this.CO3 = new System.Windows.Forms.DataGridViewCheckBoxColumn();
-            this.CSAc = new System.Windows.Forms.DataGridViewCheckBoxColumn();
-            this.CSCn = new System.Windows.Forms.DataGridViewCheckBoxColumn();
-            this.CuRes = new System.Windows.Forms.DataGridViewCheckBoxColumn();
-            this.FeTot = new System.Windows.Forms.DataGridViewCheckBoxColumn();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.label15 = new System.Windows.Forms.Label();
             this.pImprimirSubsub = new System.Windows.Forms.Panel();
@@ -145,6 +117,34 @@
             this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.gDMS_ANTAPACCAYDataSet = new OrdenesEspeciales.GDMS_ANTAPACCAYDataSet();
             this.gDMSANTAPACCAYDataSetBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.sdk = new System.Windows.Forms.DataGridViewCheckBoxColumn();
+            this.item = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.CodAnalisis = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.sample_code = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.blasthole = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Cod_Prep = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Hole = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Proyecto_geologia = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.MCtrl = new System.Windows.Forms.DataGridViewComboBoxColumn();
+            this.Control = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Control_in = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.parent = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Tajo = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.BANCO = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Fase = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Fecha_Entrega = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Hora_Entrega = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.CuTot = new System.Windows.Forms.DataGridViewCheckBoxColumn();
+            this.CuOx = new System.Windows.Forms.DataGridViewCheckBoxColumn();
+            this.CuSol = new System.Windows.Forms.DataGridViewCheckBoxColumn();
+            this.Au = new System.Windows.Forms.DataGridViewCheckBoxColumn();
+            this.Ag = new System.Windows.Forms.DataGridViewCheckBoxColumn();
+            this.Mo = new System.Windows.Forms.DataGridViewCheckBoxColumn();
+            this.CO3 = new System.Windows.Forms.DataGridViewCheckBoxColumn();
+            this.CSAc = new System.Windows.Forms.DataGridViewCheckBoxColumn();
+            this.CSCn = new System.Windows.Forms.DataGridViewCheckBoxColumn();
+            this.CuRes = new System.Windows.Forms.DataGridViewCheckBoxColumn();
+            this.FeTot = new System.Windows.Forms.DataGridViewCheckBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.Dgv_Consulta)).BeginInit();
             this.Consulta.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.Dgv_Orden)).BeginInit();
@@ -170,6 +170,7 @@
             // Dgv_Consulta
             // 
             this.Dgv_Consulta.AllowUserToAddRows = false;
+            this.Dgv_Consulta.AllowUserToDeleteRows = false;
             dataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
             dataGridViewCellStyle1.Font = new System.Drawing.Font("Century Gothic", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             dataGridViewCellStyle1.ForeColor = System.Drawing.Color.Black;
@@ -202,6 +203,7 @@
             this.Dgv_Consulta.GridColor = System.Drawing.Color.SteelBlue;
             this.Dgv_Consulta.Location = new System.Drawing.Point(173, 27);
             this.Dgv_Consulta.Name = "Dgv_Consulta";
+            this.Dgv_Consulta.ReadOnly = true;
             dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
             dataGridViewCellStyle4.BackColor = System.Drawing.Color.White;
             dataGridViewCellStyle4.Font = new System.Drawing.Font("Century Gothic", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -731,274 +733,12 @@
             dataGridViewCellStyle9.SelectionForeColor = System.Drawing.Color.Black;
             this.Dgv_Orden.RowsDefaultCellStyle = dataGridViewCellStyle9;
             this.Dgv_Orden.RowTemplate.Height = 24;
-            this.Dgv_Orden.Size = new System.Drawing.Size(1257, 406);
+            this.Dgv_Orden.Size = new System.Drawing.Size(1257, 379);
             this.Dgv_Orden.TabIndex = 6;
             this.Dgv_Orden.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.Dgv_Orden_CellContentClick);
             this.Dgv_Orden.CellPainting += new System.Windows.Forms.DataGridViewCellPaintingEventHandler(this.Dgv_Orden_CellPainting);
             this.Dgv_Orden.EditingControlShowing += new System.Windows.Forms.DataGridViewEditingControlShowingEventHandler(this.GRV_DATOS_EditingControlShowing);
             this.Dgv_Orden.MouseClick += new System.Windows.Forms.MouseEventHandler(this.Dgv_Orden_MouseClick);
-            // 
-            // sdk
-            // 
-            this.sdk.Frozen = true;
-            this.sdk.HeaderText = "";
-            this.sdk.MinimumWidth = 6;
-            this.sdk.Name = "sdk";
-            this.sdk.Width = 25;
-            // 
-            // item
-            // 
-            this.item.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.ColumnHeader;
-            this.item.Frozen = true;
-            this.item.HeaderText = "Item";
-            this.item.MinimumWidth = 6;
-            this.item.Name = "item";
-            this.item.Resizable = System.Windows.Forms.DataGridViewTriState.True;
-            this.item.Width = 71;
-            // 
-            // CodAnalisis
-            // 
-            this.CodAnalisis.Frozen = true;
-            this.CodAnalisis.HeaderText = "CodAnalisis";
-            this.CodAnalisis.MinimumWidth = 6;
-            this.CodAnalisis.Name = "CodAnalisis";
-            this.CodAnalisis.Width = 130;
-            // 
-            // sample_code
-            // 
-            this.sample_code.HeaderText = "sample_code";
-            this.sample_code.MinimumWidth = 6;
-            this.sample_code.Name = "sample_code";
-            this.sample_code.Width = 125;
-            // 
-            // blasthole
-            // 
-            this.blasthole.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.ColumnHeader;
-            this.blasthole.HeaderText = "Blast_Hole";
-            this.blasthole.MinimumWidth = 6;
-            this.blasthole.Name = "blasthole";
-            this.blasthole.Visible = false;
-            this.blasthole.Width = 125;
-            // 
-            // Cod_Prep
-            // 
-            this.Cod_Prep.HeaderText = "Cod_prep";
-            this.Cod_Prep.MinimumWidth = 6;
-            this.Cod_Prep.Name = "Cod_Prep";
-            this.Cod_Prep.Visible = false;
-            this.Cod_Prep.Width = 125;
-            // 
-            // Hole
-            // 
-            this.Hole.HeaderText = "Hole";
-            this.Hole.MinimumWidth = 6;
-            this.Hole.Name = "Hole";
-            this.Hole.Width = 125;
-            // 
-            // Proyecto_geologia
-            // 
-            this.Proyecto_geologia.HeaderText = "Proy_Geolo";
-            this.Proyecto_geologia.MinimumWidth = 6;
-            this.Proyecto_geologia.Name = "Proyecto_geologia";
-            this.Proyecto_geologia.Visible = false;
-            this.Proyecto_geologia.Width = 125;
-            // 
-            // MCtrl
-            // 
-            this.MCtrl.HeaderText = "MCtrl";
-            this.MCtrl.Items.AddRange(new object[] {
-            " ",
-            "Duplicado Original",
-            "Duplicado Campo",
-            "Duplicado Grueso",
-            "Duplicado Fino"});
-            this.MCtrl.MinimumWidth = 6;
-            this.MCtrl.Name = "MCtrl";
-            this.MCtrl.Resizable = System.Windows.Forms.DataGridViewTriState.True;
-            this.MCtrl.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
-            this.MCtrl.Width = 170;
-            // 
-            // Control
-            // 
-            this.Control.HeaderText = "Control";
-            this.Control.MinimumWidth = 6;
-            this.Control.Name = "Control";
-            this.Control.Width = 70;
-            // 
-            // Control_in
-            // 
-            this.Control_in.HeaderText = "Control_in";
-            this.Control_in.MinimumWidth = 6;
-            this.Control_in.Name = "Control_in";
-            this.Control_in.Width = 50;
-            // 
-            // parent
-            // 
-            this.parent.HeaderText = "Parent";
-            this.parent.MinimumWidth = 6;
-            this.parent.Name = "parent";
-            this.parent.Width = 86;
-            // 
-            // Tajo
-            // 
-            this.Tajo.HeaderText = "Tajo";
-            this.Tajo.MinimumWidth = 6;
-            this.Tajo.Name = "Tajo";
-            this.Tajo.Visible = false;
-            this.Tajo.Width = 50;
-            // 
-            // BANCO
-            // 
-            this.BANCO.HeaderText = "BANCO";
-            this.BANCO.MinimumWidth = 6;
-            this.BANCO.Name = "BANCO";
-            this.BANCO.Visible = false;
-            this.BANCO.Width = 125;
-            // 
-            // Fase
-            // 
-            this.Fase.HeaderText = "Fase";
-            this.Fase.MinimumWidth = 6;
-            this.Fase.Name = "Fase";
-            this.Fase.Visible = false;
-            this.Fase.Width = 50;
-            // 
-            // Fecha_Entrega
-            // 
-            this.Fecha_Entrega.HeaderText = "Fecha_Entrega";
-            this.Fecha_Entrega.MinimumWidth = 6;
-            this.Fecha_Entrega.Name = "Fecha_Entrega";
-            this.Fecha_Entrega.Visible = false;
-            this.Fecha_Entrega.Width = 125;
-            // 
-            // Hora_Entrega
-            // 
-            this.Hora_Entrega.HeaderText = "Hora_Entrega";
-            this.Hora_Entrega.MinimumWidth = 6;
-            this.Hora_Entrega.Name = "Hora_Entrega";
-            this.Hora_Entrega.Visible = false;
-            this.Hora_Entrega.Width = 50;
-            // 
-            // CuTot
-            // 
-            this.CuTot.FalseValue = "false";
-            this.CuTot.HeaderText = "CuTot";
-            this.CuTot.IndeterminateValue = "false";
-            this.CuTot.MinimumWidth = 7;
-            this.CuTot.Name = "CuTot";
-            this.CuTot.Resizable = System.Windows.Forms.DataGridViewTriState.False;
-            this.CuTot.TrueValue = "true";
-            this.CuTot.Width = 65;
-            // 
-            // CuOx
-            // 
-            this.CuOx.FalseValue = "false";
-            this.CuOx.HeaderText = "CuOx";
-            this.CuOx.IndeterminateValue = "false";
-            this.CuOx.MinimumWidth = 7;
-            this.CuOx.Name = "CuOx";
-            this.CuOx.Resizable = System.Windows.Forms.DataGridViewTriState.False;
-            this.CuOx.TrueValue = "true";
-            this.CuOx.Width = 65;
-            // 
-            // CuSol
-            // 
-            this.CuSol.FalseValue = "false";
-            this.CuSol.HeaderText = "CuSol";
-            this.CuSol.IndeterminateValue = "false";
-            this.CuSol.MinimumWidth = 7;
-            this.CuSol.Name = "CuSol";
-            this.CuSol.Resizable = System.Windows.Forms.DataGridViewTriState.False;
-            this.CuSol.TrueValue = "true";
-            this.CuSol.Width = 65;
-            // 
-            // Au
-            // 
-            this.Au.FalseValue = "false";
-            this.Au.HeaderText = "Au";
-            this.Au.IndeterminateValue = "false";
-            this.Au.MinimumWidth = 6;
-            this.Au.Name = "Au";
-            this.Au.Resizable = System.Windows.Forms.DataGridViewTriState.False;
-            this.Au.TrueValue = "true";
-            this.Au.Width = 47;
-            // 
-            // Ag
-            // 
-            this.Ag.FalseValue = "false";
-            this.Ag.HeaderText = "Ag";
-            this.Ag.IndeterminateValue = "false";
-            this.Ag.MinimumWidth = 6;
-            this.Ag.Name = "Ag";
-            this.Ag.Resizable = System.Windows.Forms.DataGridViewTriState.False;
-            this.Ag.TrueValue = "true";
-            this.Ag.Width = 47;
-            // 
-            // Mo
-            // 
-            this.Mo.FalseValue = "false";
-            this.Mo.HeaderText = "Mo";
-            this.Mo.IndeterminateValue = "false";
-            this.Mo.MinimumWidth = 6;
-            this.Mo.Name = "Mo";
-            this.Mo.Resizable = System.Windows.Forms.DataGridViewTriState.False;
-            this.Mo.TrueValue = "true";
-            this.Mo.Width = 50;
-            // 
-            // CO3
-            // 
-            this.CO3.FalseValue = "false";
-            this.CO3.HeaderText = "CO3";
-            this.CO3.IndeterminateValue = "false";
-            this.CO3.MinimumWidth = 6;
-            this.CO3.Name = "CO3";
-            this.CO3.Resizable = System.Windows.Forms.DataGridViewTriState.False;
-            this.CO3.TrueValue = "true";
-            this.CO3.Width = 57;
-            // 
-            // CSAc
-            // 
-            this.CSAc.FalseValue = "false";
-            this.CSAc.HeaderText = "CSAc";
-            this.CSAc.IndeterminateValue = "false";
-            this.CSAc.MinimumWidth = 6;
-            this.CSAc.Name = "CSAc";
-            this.CSAc.Resizable = System.Windows.Forms.DataGridViewTriState.False;
-            this.CSAc.TrueValue = "true";
-            this.CSAc.Width = 65;
-            // 
-            // CSCn
-            // 
-            this.CSCn.FalseValue = "false";
-            this.CSCn.HeaderText = "CSCn";
-            this.CSCn.IndeterminateValue = "false";
-            this.CSCn.MinimumWidth = 6;
-            this.CSCn.Name = "CSCn";
-            this.CSCn.Resizable = System.Windows.Forms.DataGridViewTriState.False;
-            this.CSCn.TrueValue = "true";
-            this.CSCn.Width = 66;
-            // 
-            // CuRes
-            // 
-            this.CuRes.FalseValue = "false";
-            this.CuRes.HeaderText = "CuRes";
-            this.CuRes.IndeterminateValue = "false";
-            this.CuRes.MinimumWidth = 6;
-            this.CuRes.Name = "CuRes";
-            this.CuRes.Resizable = System.Windows.Forms.DataGridViewTriState.False;
-            this.CuRes.TrueValue = "true";
-            this.CuRes.Width = 68;
-            // 
-            // FeTot
-            // 
-            this.FeTot.FalseValue = "false";
-            this.FeTot.HeaderText = "FeTot";
-            this.FeTot.IndeterminateValue = "false";
-            this.FeTot.MinimumWidth = 6;
-            this.FeTot.Name = "FeTot";
-            this.FeTot.Resizable = System.Windows.Forms.DataGridViewTriState.False;
-            this.FeTot.TrueValue = "true";
-            this.FeTot.Width = 65;
             // 
             // groupBox1
             // 
@@ -1055,7 +795,7 @@
             this.label15.BackColor = System.Drawing.Color.Transparent;
             this.label15.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label15.ForeColor = System.Drawing.Color.White;
-            this.label15.Location = new System.Drawing.Point(691, 476);
+            this.label15.Location = new System.Drawing.Point(693, 458);
             this.label15.Name = "label15";
             this.label15.Size = new System.Drawing.Size(64, 20);
             this.label15.TabIndex = 135;
@@ -1324,6 +1064,7 @@
             this.Cb_ordenes.Name = "Cb_ordenes";
             this.Cb_ordenes.Size = new System.Drawing.Size(158, 25);
             this.Cb_ordenes.TabIndex = 110;
+            this.Cb_ordenes.SelectedIndexChanged += new System.EventHandler(this.Cb_ordenes_SelectedIndexChanged);
             // 
             // lbProyGeolo
             // 
@@ -1331,7 +1072,7 @@
             this.lbProyGeolo.BackColor = System.Drawing.Color.Transparent;
             this.lbProyGeolo.Font = new System.Drawing.Font("Century Gothic", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lbProyGeolo.ForeColor = System.Drawing.Color.White;
-            this.lbProyGeolo.Location = new System.Drawing.Point(349, 477);
+            this.lbProyGeolo.Location = new System.Drawing.Point(351, 459);
             this.lbProyGeolo.Name = "lbProyGeolo";
             this.lbProyGeolo.Size = new System.Drawing.Size(20, 22);
             this.lbProyGeolo.TabIndex = 104;
@@ -1382,7 +1123,7 @@
             this.lbCodPrep.BackColor = System.Drawing.Color.Transparent;
             this.lbCodPrep.Font = new System.Drawing.Font("Century Gothic", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lbCodPrep.ForeColor = System.Drawing.Color.White;
-            this.lbCodPrep.Location = new System.Drawing.Point(563, 476);
+            this.lbCodPrep.Location = new System.Drawing.Point(565, 458);
             this.lbCodPrep.Name = "lbCodPrep";
             this.lbCodPrep.Size = new System.Drawing.Size(20, 22);
             this.lbCodPrep.TabIndex = 105;
@@ -1395,7 +1136,7 @@
             this.label12.BackColor = System.Drawing.Color.Transparent;
             this.label12.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label12.ForeColor = System.Drawing.Color.White;
-            this.label12.Location = new System.Drawing.Point(447, 477);
+            this.label12.Location = new System.Drawing.Point(449, 459);
             this.label12.Name = "label12";
             this.label12.Size = new System.Drawing.Size(112, 20);
             this.label12.TabIndex = 103;
@@ -1408,7 +1149,7 @@
             this.label11.BackColor = System.Drawing.Color.Transparent;
             this.label11.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label11.ForeColor = System.Drawing.Color.White;
-            this.label11.Location = new System.Drawing.Point(163, 477);
+            this.label11.Location = new System.Drawing.Point(165, 459);
             this.label11.Name = "label11";
             this.label11.Size = new System.Drawing.Size(182, 20);
             this.label11.TabIndex = 102;
@@ -1426,7 +1167,7 @@
             this.btn_limpiar.Font = new System.Drawing.Font("Century Gothic", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btn_limpiar.ForeColor = System.Drawing.Color.White;
             this.btn_limpiar.ImageAlign = System.Drawing.ContentAlignment.BottomCenter;
-            this.btn_limpiar.Location = new System.Drawing.Point(1175, 484);
+            this.btn_limpiar.Location = new System.Drawing.Point(1175, 458);
             this.btn_limpiar.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btn_limpiar.Name = "btn_limpiar";
             this.btn_limpiar.Size = new System.Drawing.Size(94, 35);
@@ -1461,7 +1202,7 @@
             this.lblcount.AutoSize = true;
             this.lblcount.Font = new System.Drawing.Font("Century Gothic", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblcount.ForeColor = System.Drawing.Color.White;
-            this.lblcount.Location = new System.Drawing.Point(103, 475);
+            this.lblcount.Location = new System.Drawing.Point(105, 457);
             this.lblcount.Name = "lblcount";
             this.lblcount.Size = new System.Drawing.Size(20, 22);
             this.lblcount.TabIndex = 97;
@@ -1473,7 +1214,7 @@
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label3.ForeColor = System.Drawing.Color.White;
-            this.label3.Location = new System.Drawing.Point(9, 476);
+            this.label3.Location = new System.Drawing.Point(11, 458);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(93, 20);
             this.label3.TabIndex = 96;
@@ -1554,7 +1295,7 @@
             this.lbDispatch.BackColor = System.Drawing.Color.Transparent;
             this.lbDispatch.Font = new System.Drawing.Font("Century Gothic", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lbDispatch.ForeColor = System.Drawing.Color.White;
-            this.lbDispatch.Location = new System.Drawing.Point(760, 476);
+            this.lbDispatch.Location = new System.Drawing.Point(762, 458);
             this.lbDispatch.Name = "lbDispatch";
             this.lbDispatch.Size = new System.Drawing.Size(20, 22);
             this.lbDispatch.TabIndex = 115;
@@ -1577,6 +1318,297 @@
             // 
             this.gDMSANTAPACCAYDataSetBindingSource.DataSource = this.gDMS_ANTAPACCAYDataSet;
             this.gDMSANTAPACCAYDataSetBindingSource.Position = 0;
+            // 
+            // sdk
+            // 
+            this.sdk.Frozen = true;
+            this.sdk.HeaderText = "";
+            this.sdk.MinimumWidth = 6;
+            this.sdk.Name = "sdk";
+            this.sdk.Width = 25;
+            // 
+            // item
+            // 
+            this.item.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.ColumnHeader;
+            this.item.Frozen = true;
+            this.item.HeaderText = "Item";
+            this.item.MinimumWidth = 6;
+            this.item.Name = "item";
+            this.item.ReadOnly = true;
+            this.item.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.item.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            this.item.Width = 48;
+            // 
+            // CodAnalisis
+            // 
+            this.CodAnalisis.Frozen = true;
+            this.CodAnalisis.HeaderText = "CodAnalisis";
+            this.CodAnalisis.MinimumWidth = 6;
+            this.CodAnalisis.Name = "CodAnalisis";
+            this.CodAnalisis.ReadOnly = true;
+            this.CodAnalisis.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            this.CodAnalisis.Width = 130;
+            // 
+            // sample_code
+            // 
+            this.sample_code.HeaderText = "sample_code";
+            this.sample_code.MinimumWidth = 6;
+            this.sample_code.Name = "sample_code";
+            this.sample_code.ReadOnly = true;
+            this.sample_code.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            this.sample_code.Width = 125;
+            // 
+            // blasthole
+            // 
+            this.blasthole.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.ColumnHeader;
+            this.blasthole.HeaderText = "Blast_Hole";
+            this.blasthole.MinimumWidth = 6;
+            this.blasthole.Name = "blasthole";
+            this.blasthole.ReadOnly = true;
+            this.blasthole.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            this.blasthole.Visible = false;
+            this.blasthole.Width = 89;
+            // 
+            // Cod_Prep
+            // 
+            this.Cod_Prep.HeaderText = "Cod_prep";
+            this.Cod_Prep.MinimumWidth = 6;
+            this.Cod_Prep.Name = "Cod_Prep";
+            this.Cod_Prep.ReadOnly = true;
+            this.Cod_Prep.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            this.Cod_Prep.Visible = false;
+            this.Cod_Prep.Width = 125;
+            // 
+            // Hole
+            // 
+            this.Hole.HeaderText = "Hole";
+            this.Hole.MinimumWidth = 6;
+            this.Hole.Name = "Hole";
+            this.Hole.ReadOnly = true;
+            this.Hole.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            this.Hole.Width = 125;
+            // 
+            // Proyecto_geologia
+            // 
+            this.Proyecto_geologia.HeaderText = "Proy_Geolo";
+            this.Proyecto_geologia.MinimumWidth = 6;
+            this.Proyecto_geologia.Name = "Proyecto_geologia";
+            this.Proyecto_geologia.ReadOnly = true;
+            this.Proyecto_geologia.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            this.Proyecto_geologia.Visible = false;
+            this.Proyecto_geologia.Width = 125;
+            // 
+            // MCtrl
+            // 
+            this.MCtrl.HeaderText = "MCtrl";
+            this.MCtrl.Items.AddRange(new object[] {
+            " ",
+            "Duplicado Original",
+            "Duplicado Campo",
+            "Duplicado Grueso",
+            "Duplicado Fino"});
+            this.MCtrl.MinimumWidth = 6;
+            this.MCtrl.Name = "MCtrl";
+            this.MCtrl.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.MCtrl.Width = 170;
+            // 
+            // Control
+            // 
+            this.Control.HeaderText = "Control";
+            this.Control.MinimumWidth = 6;
+            this.Control.Name = "Control";
+            this.Control.ReadOnly = true;
+            this.Control.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            this.Control.Width = 70;
+            // 
+            // Control_in
+            // 
+            this.Control_in.HeaderText = "Control_in";
+            this.Control_in.MinimumWidth = 6;
+            this.Control_in.Name = "Control_in";
+            this.Control_in.ReadOnly = true;
+            this.Control_in.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            this.Control_in.Width = 50;
+            // 
+            // parent
+            // 
+            this.parent.HeaderText = "Parent";
+            this.parent.MinimumWidth = 6;
+            this.parent.Name = "parent";
+            this.parent.ReadOnly = true;
+            this.parent.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            this.parent.Width = 86;
+            // 
+            // Tajo
+            // 
+            this.Tajo.HeaderText = "Tajo";
+            this.Tajo.MinimumWidth = 6;
+            this.Tajo.Name = "Tajo";
+            this.Tajo.ReadOnly = true;
+            this.Tajo.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            this.Tajo.Visible = false;
+            this.Tajo.Width = 50;
+            // 
+            // BANCO
+            // 
+            this.BANCO.HeaderText = "BANCO";
+            this.BANCO.MinimumWidth = 6;
+            this.BANCO.Name = "BANCO";
+            this.BANCO.ReadOnly = true;
+            this.BANCO.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            this.BANCO.Visible = false;
+            this.BANCO.Width = 125;
+            // 
+            // Fase
+            // 
+            this.Fase.HeaderText = "Fase";
+            this.Fase.MinimumWidth = 6;
+            this.Fase.Name = "Fase";
+            this.Fase.ReadOnly = true;
+            this.Fase.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            this.Fase.Visible = false;
+            this.Fase.Width = 50;
+            // 
+            // Fecha_Entrega
+            // 
+            this.Fecha_Entrega.HeaderText = "Fecha_Entrega";
+            this.Fecha_Entrega.MinimumWidth = 6;
+            this.Fecha_Entrega.Name = "Fecha_Entrega";
+            this.Fecha_Entrega.ReadOnly = true;
+            this.Fecha_Entrega.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            this.Fecha_Entrega.Visible = false;
+            this.Fecha_Entrega.Width = 125;
+            // 
+            // Hora_Entrega
+            // 
+            this.Hora_Entrega.HeaderText = "Hora_Entrega";
+            this.Hora_Entrega.MinimumWidth = 6;
+            this.Hora_Entrega.Name = "Hora_Entrega";
+            this.Hora_Entrega.ReadOnly = true;
+            this.Hora_Entrega.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            this.Hora_Entrega.Visible = false;
+            this.Hora_Entrega.Width = 50;
+            // 
+            // CuTot
+            // 
+            this.CuTot.FalseValue = "false";
+            this.CuTot.HeaderText = "CuTot";
+            this.CuTot.IndeterminateValue = "false";
+            this.CuTot.MinimumWidth = 7;
+            this.CuTot.Name = "CuTot";
+            this.CuTot.Resizable = System.Windows.Forms.DataGridViewTriState.False;
+            this.CuTot.TrueValue = "true";
+            this.CuTot.Width = 65;
+            // 
+            // CuOx
+            // 
+            this.CuOx.FalseValue = "false";
+            this.CuOx.HeaderText = "CuOx";
+            this.CuOx.IndeterminateValue = "false";
+            this.CuOx.MinimumWidth = 7;
+            this.CuOx.Name = "CuOx";
+            this.CuOx.Resizable = System.Windows.Forms.DataGridViewTriState.False;
+            this.CuOx.TrueValue = "true";
+            this.CuOx.Width = 65;
+            // 
+            // CuSol
+            // 
+            this.CuSol.FalseValue = "false";
+            this.CuSol.HeaderText = "CuSol";
+            this.CuSol.IndeterminateValue = "false";
+            this.CuSol.MinimumWidth = 7;
+            this.CuSol.Name = "CuSol";
+            this.CuSol.Resizable = System.Windows.Forms.DataGridViewTriState.False;
+            this.CuSol.TrueValue = "true";
+            this.CuSol.Width = 65;
+            // 
+            // Au
+            // 
+            this.Au.FalseValue = "false";
+            this.Au.HeaderText = "Au";
+            this.Au.IndeterminateValue = "false";
+            this.Au.MinimumWidth = 6;
+            this.Au.Name = "Au";
+            this.Au.Resizable = System.Windows.Forms.DataGridViewTriState.False;
+            this.Au.TrueValue = "true";
+            this.Au.Width = 47;
+            // 
+            // Ag
+            // 
+            this.Ag.FalseValue = "false";
+            this.Ag.HeaderText = "Ag";
+            this.Ag.IndeterminateValue = "false";
+            this.Ag.MinimumWidth = 6;
+            this.Ag.Name = "Ag";
+            this.Ag.Resizable = System.Windows.Forms.DataGridViewTriState.False;
+            this.Ag.TrueValue = "true";
+            this.Ag.Width = 47;
+            // 
+            // Mo
+            // 
+            this.Mo.FalseValue = "false";
+            this.Mo.HeaderText = "Mo";
+            this.Mo.IndeterminateValue = "false";
+            this.Mo.MinimumWidth = 6;
+            this.Mo.Name = "Mo";
+            this.Mo.Resizable = System.Windows.Forms.DataGridViewTriState.False;
+            this.Mo.TrueValue = "true";
+            this.Mo.Width = 50;
+            // 
+            // CO3
+            // 
+            this.CO3.FalseValue = "false";
+            this.CO3.HeaderText = "CO3";
+            this.CO3.IndeterminateValue = "false";
+            this.CO3.MinimumWidth = 6;
+            this.CO3.Name = "CO3";
+            this.CO3.Resizable = System.Windows.Forms.DataGridViewTriState.False;
+            this.CO3.TrueValue = "true";
+            this.CO3.Width = 57;
+            // 
+            // CSAc
+            // 
+            this.CSAc.FalseValue = "false";
+            this.CSAc.HeaderText = "CSAc";
+            this.CSAc.IndeterminateValue = "false";
+            this.CSAc.MinimumWidth = 6;
+            this.CSAc.Name = "CSAc";
+            this.CSAc.Resizable = System.Windows.Forms.DataGridViewTriState.False;
+            this.CSAc.TrueValue = "true";
+            this.CSAc.Width = 65;
+            // 
+            // CSCn
+            // 
+            this.CSCn.FalseValue = "false";
+            this.CSCn.HeaderText = "CSCn";
+            this.CSCn.IndeterminateValue = "false";
+            this.CSCn.MinimumWidth = 6;
+            this.CSCn.Name = "CSCn";
+            this.CSCn.Resizable = System.Windows.Forms.DataGridViewTriState.False;
+            this.CSCn.TrueValue = "true";
+            this.CSCn.Width = 66;
+            // 
+            // CuRes
+            // 
+            this.CuRes.FalseValue = "false";
+            this.CuRes.HeaderText = "CuRes";
+            this.CuRes.IndeterminateValue = "false";
+            this.CuRes.MinimumWidth = 6;
+            this.CuRes.Name = "CuRes";
+            this.CuRes.Resizable = System.Windows.Forms.DataGridViewTriState.False;
+            this.CuRes.TrueValue = "true";
+            this.CuRes.Width = 68;
+            // 
+            // FeTot
+            // 
+            this.FeTot.FalseValue = "false";
+            this.FeTot.HeaderText = "FeTot";
+            this.FeTot.IndeterminateValue = "false";
+            this.FeTot.MinimumWidth = 6;
+            this.FeTot.Name = "FeTot";
+            this.FeTot.Resizable = System.Windows.Forms.DataGridViewTriState.False;
+            this.FeTot.TrueValue = "true";
+            this.FeTot.Width = 65;
             // 
             // Form_Orden
             // 
@@ -1683,6 +1715,8 @@
         private System.Windows.Forms.Panel panel3;
         private System.Windows.Forms.Panel panel4;
         private System.Windows.Forms.Panel panel6;
+        private System.Windows.Forms.Label label15;
+        private System.Windows.Forms.Button btn_ir;
         private System.Windows.Forms.DataGridViewCheckBoxColumn sdk;
         private System.Windows.Forms.DataGridViewTextBoxColumn item;
         private System.Windows.Forms.DataGridViewTextBoxColumn CodAnalisis;
@@ -1711,7 +1745,5 @@
         private System.Windows.Forms.DataGridViewCheckBoxColumn CSCn;
         private System.Windows.Forms.DataGridViewCheckBoxColumn CuRes;
         private System.Windows.Forms.DataGridViewCheckBoxColumn FeTot;
-        private System.Windows.Forms.Label label15;
-        private System.Windows.Forms.Button btn_ir;
     }
 }

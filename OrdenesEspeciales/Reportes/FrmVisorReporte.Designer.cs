@@ -29,16 +29,18 @@
         private void InitializeComponent()
         {
             this.crVisorReporte = new CrystalDecisions.Windows.Forms.CrystalReportViewer();
+            this.Reporte_Análisis1 = new OrdenesEspeciales.Reportes.Reporte_Análisis();
             this.SuspendLayout();
             // 
             // crVisorReporte
             // 
-            this.crVisorReporte.ActiveViewIndex = -1;
+            this.crVisorReporte.ActiveViewIndex = 0;
             this.crVisorReporte.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.crVisorReporte.Cursor = System.Windows.Forms.Cursors.Default;
             this.crVisorReporte.Dock = System.Windows.Forms.DockStyle.Fill;
             this.crVisorReporte.Location = new System.Drawing.Point(0, 0);
             this.crVisorReporte.Name = "crVisorReporte";
+            this.crVisorReporte.ReportSource = this.Reporte_Análisis1;
             this.crVisorReporte.Size = new System.Drawing.Size(1342, 851);
             this.crVisorReporte.TabIndex = 0;
             this.crVisorReporte.ToolPanelView = CrystalDecisions.Windows.Forms.ToolPanelViewType.None;
@@ -61,5 +63,6 @@
         #endregion
 
         private CrystalDecisions.Windows.Forms.CrystalReportViewer crVisorReporte;
+        private Reporte_Análisis Reporte_Análisis1;
     }
 }

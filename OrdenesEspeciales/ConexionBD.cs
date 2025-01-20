@@ -11,12 +11,22 @@ namespace OrdenesEspeciales
     {
         public static OdbcConnection connection;
 
+
         public static void Conectar(string usuario, string clave)
         {
             string connectionString = $"DSN=CENTRAL;UID={usuario};PWD={clave};";
             connection = new OdbcConnection(connectionString);
             connection.Open();
         }
+
+
+
+
+
+
+
+
+
 
         public static void CerrarConexion()
         {

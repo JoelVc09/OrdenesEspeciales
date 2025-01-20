@@ -148,3 +148,154 @@ C:\Users\joel.vilcatoma\OneDrive - Vela Industries Group\Escritorio\OrdenenesEsp
 C:\Users\joel.vilcatoma\OneDrive - Vela Industries Group\Escritorio\OrdenenesEspeciales\OrdenesEspeciales01\OrdenesEspeciales\obj\Debug\OrdenesEspeciales.exe
 C:\Users\joel.vilcatoma\OneDrive - Vela Industries Group\Escritorio\OrdenenesEspeciales\OrdenesEspeciales01\OrdenesEspeciales\obj\Debug\OrdenesEspeciales.pdb
 C:\Users\joel.vilcatoma\OneDrive - Vela Industries Group\Escritorio\OrdenenesEspeciales\OrdenesEspeciales01\OrdenesEspeciales\obj\Debug\OrdenesEspeciales.PanelAdmin.resources
+C:\Users\joel.vilcatoma\OneDrive - Vela Industries Group\Escritorio\Ordenes\OrdenesEspeciales\obj\Debug\OrdenesEspeciales.csproj.AssemblyReference.cache
+C:\Users\joel.vilcatoma\OneDrive - Vela Industries Group\Escritorio\Ordenes\OrdenesEspeciales\obj\Debug\OrdenesEspeciales.csproj.SuggestedBindingRedirects.cache
+C:\Users\joel.vilcatoma\OneDrive - Vela Industries Group\Escritorio\Ordenes\OrdenesEspeciales\obj\Debug\OrdenesEspeciales.exe.config
+C:\Users\joel.vilcatoma\OneDrive - Vela Industries Group\Escritorio\Ordenes\OrdenesEspeciales\obj\Debug\Interop.CrystalPrintControlLib.dll
+C:\Users\joel.vilcatoma\OneDrive - Vela Industries Group\Escritorio\Ordenes\OrdenesEspeciales\obj\Debug\AxInterop.CrystalPrintControlLib.dll
+C:\Users\joel.vilcatoma\OneDrive - Vela Industries Group\Escritorio\Ordenes\OrdenesEspeciales\obj\Debug\OrdenesEspeciales.csproj.ResolveComReference.cache
+C:\Users\joel.vilcatoma\OneDrive - Vela Industries Group\Escritorio\Ordenes\OrdenesEspeciales\obj\Debug\OrdenesEspeciales.form_Compo.resources
+C:\Users\joel.vilcatoma\OneDrive - Vela Industries Group\Escritorio\Ordenes\OrdenesEspeciales\obj\Debug\OrdenesEspeciales.Form_Orden.resources
+C:\Users\joel.vilcatoma\OneDrive - Vela Industries Group\Escritorio\Ordenes\OrdenesEspeciales\obj\Debug\OrdenesEspeciales.Form2cs.resources
+C:\Users\joel.vilcatoma\OneDrive - Vela Industries Group\Escritorio\Ordenes\OrdenesEspeciales\obj\Debug\OrdenesEspeciales.Login.resources
+C:\Users\joel.vilcatoma\OneDrive - Vela Industries Group\Escritorio\Ordenes\OrdenesEspeciales\obj\Debug\OrdenesEspeciales.Menu.resources
+C:\Users\joel.vilcatoma\OneDrive - Vela Industries Group\Escritorio\Ordenes\OrdenesEspeciales\obj\Debug\OrdenesEspeciales.PanelAdmin.resources
+C:\Users\joel.vilcatoma\OneDrive - Vela Industries Group\Escritorio\Ordenes\OrdenesEspeciales\obj\Debug\OrdenesEspeciales.Properties.Resources.resources
+C:\Users\joel.vilcatoma\OneDrive - Vela Industries Group\Escritorio\Ordenes\OrdenesEspeciales\obj\Debug\OrdenesEspeciales.Reportes.FrmVisorReporte.resources
+C:\Users\joel.vilcatoma\OneDrive - Vela Industries Group\Escritorio\Ordenes\OrdenesEspeciales\obj\Debug\OrdenesEspeciales.Reportes.Frm_Cod_Barra.resources
+C:\Users\joel.vilcatoma\OneDrive - Vela Industries Group\Escritorio\Ordenes\OrdenesEspeciales\obj\Debug\OrdenesEspeciales.Reportes.Frm_Etiquetas_DosFilas.resources
+C:\Users\joel.vilcatoma\OneDrive - Vela Industries Group\Escritorio\Ordenes\OrdenesEspeciales\obj\Debug\OrdenesEspeciales.Reportes.Frm_Etiquetas_unaFila.resources
+C:\Users\joel.vilcatoma\OneDrive - Vela Industries Group\Escritorio\Ordenes\OrdenesEspeciales\obj\Debug\OrdenesEspeciales.csproj.GenerateResource.cache
+C:\Users\joel.vilcatoma\OneDrive - Vela Industries Group\Escritorio\Ordenes\OrdenesEspeciales\obj\Debug\OrdenesEspeciales.csproj.CoreCompileInputs.cache
+C:\Users\joel.vilcatoma\OneDrive - Vela Industries Group\Escritorio\Ordenes\OrdenesEspeciales\obj\Debug\OrdenesEspeciales.exe
+C:\Users\joel.vilcatoma\OneDrive - Vela Industries Group\Escritorio\Ordenes\OrdenesEspeciales\obj\Debug\OrdenesEspeciales.pdb
+C:\Proyectos\AppOrdenes\Ordenes\OrdenesEspeciales\obj\Debug\OrdenesEspeciales.csproj.AssemblyReference.cache
+C:\Proyectos\AppOrdenes\Ordenes\OrdenesEspeciales\obj\Debug\OrdenesEspeciales.csproj.SuggestedBindingRedirects.cache
+C:\Proyectos\AppOrdenes\Ordenes\OrdenesEspeciales\obj\Debug\OrdenesEspeciales.exe.config
+C:\Proyectos\AppOrdenes\Ordenes\OrdenesEspeciales\obj\Debug\Interop.CrystalPrintControlLib.dll
+C:\Proyectos\AppOrdenes\Ordenes\OrdenesEspeciales\obj\Debug\AxInterop.CrystalPrintControlLib.dll
+C:\Proyectos\AppOrdenes\Ordenes\OrdenesEspeciales\obj\Debug\OrdenesEspeciales.csproj.ResolveComReference.cache
+C:\Proyectos\AppOrdenes\Ordenes\OrdenesEspeciales\obj\Debug\OrdenesEspeciales.form_Compo.resources
+C:\Proyectos\AppOrdenes\Ordenes\OrdenesEspeciales\obj\Debug\OrdenesEspeciales.Form_Orden.resources
+C:\Proyectos\AppOrdenes\Ordenes\OrdenesEspeciales\obj\Debug\OrdenesEspeciales.Form2cs.resources
+C:\Proyectos\AppOrdenes\Ordenes\OrdenesEspeciales\obj\Debug\OrdenesEspeciales.Login.resources
+C:\Proyectos\AppOrdenes\Ordenes\OrdenesEspeciales\obj\Debug\OrdenesEspeciales.Menu.resources
+C:\Proyectos\AppOrdenes\Ordenes\OrdenesEspeciales\obj\Debug\OrdenesEspeciales.PanelAdmin.resources
+C:\Proyectos\AppOrdenes\Ordenes\OrdenesEspeciales\obj\Debug\OrdenesEspeciales.Properties.Resources.resources
+C:\Proyectos\AppOrdenes\Ordenes\OrdenesEspeciales\obj\Debug\OrdenesEspeciales.Reportes.FrmVisorReporte.resources
+C:\Proyectos\AppOrdenes\Ordenes\OrdenesEspeciales\obj\Debug\OrdenesEspeciales.Reportes.Frm_Cod_Barra.resources
+C:\Proyectos\AppOrdenes\Ordenes\OrdenesEspeciales\obj\Debug\OrdenesEspeciales.Reportes.Frm_Etiquetas_DosFilas.resources
+C:\Proyectos\AppOrdenes\Ordenes\OrdenesEspeciales\obj\Debug\OrdenesEspeciales.Reportes.Frm_Etiquetas_unaFila.resources
+C:\Proyectos\AppOrdenes\Ordenes\OrdenesEspeciales\obj\Debug\OrdenesEspeciales.csproj.GenerateResource.cache
+C:\Proyectos\AppOrdenes\Ordenes\OrdenesEspeciales\obj\Debug\OrdenesEspeciales.csproj.CoreCompileInputs.cache
+C:\Proyectos\AppOrdenes\Ordenes\OrdenesEspeciales\bin\Debug\SqlServerTypes\x64\msvcr120.dll
+C:\Proyectos\AppOrdenes\Ordenes\OrdenesEspeciales\bin\Debug\SqlServerTypes\x64\SqlServerSpatial140.dll
+C:\Proyectos\AppOrdenes\Ordenes\OrdenesEspeciales\bin\Debug\SqlServerTypes\x86\msvcr120.dll
+C:\Proyectos\AppOrdenes\Ordenes\OrdenesEspeciales\bin\Debug\SqlServerTypes\x86\SqlServerSpatial140.dll
+C:\Proyectos\AppOrdenes\Ordenes\OrdenesEspeciales\bin\Debug\libSkiaSharp.dylib
+C:\Proyectos\AppOrdenes\Ordenes\OrdenesEspeciales\bin\Debug\x86\libSkiaSharp.dll
+C:\Proyectos\AppOrdenes\Ordenes\OrdenesEspeciales\bin\Debug\x64\libSkiaSharp.dll
+C:\Proyectos\AppOrdenes\Ordenes\OrdenesEspeciales\bin\Debug\arm64\libSkiaSharp.dll
+C:\Proyectos\AppOrdenes\Ordenes\OrdenesEspeciales\bin\Debug\x64\libSkiaSharp.so
+C:\Proyectos\AppOrdenes\Ordenes\OrdenesEspeciales\bin\Debug\arm\libSkiaSharp.so
+C:\Proyectos\AppOrdenes\Ordenes\OrdenesEspeciales\bin\Debug\arm64\libSkiaSharp.so
+C:\Proyectos\AppOrdenes\Ordenes\OrdenesEspeciales\bin\Debug\musl-x64\libSkiaSharp.so
+C:\Proyectos\AppOrdenes\Ordenes\OrdenesEspeciales\bin\Debug\OrdenesEspeciales.exe.config
+C:\Proyectos\AppOrdenes\Ordenes\OrdenesEspeciales\bin\Debug\OrdenesEspeciales.exe.manifest
+C:\Proyectos\AppOrdenes\Ordenes\OrdenesEspeciales\bin\Debug\OrdenesEspeciales.application
+C:\Proyectos\AppOrdenes\Ordenes\OrdenesEspeciales\bin\Debug\OrdenesEspeciales.exe
+C:\Proyectos\AppOrdenes\Ordenes\OrdenesEspeciales\bin\Debug\OrdenesEspeciales.pdb
+C:\Proyectos\AppOrdenes\Ordenes\OrdenesEspeciales\bin\Debug\CrystalDecisions.CrystalReports.Engine.dll
+C:\Proyectos\AppOrdenes\Ordenes\OrdenesEspeciales\bin\Debug\CrystalDecisions.ReportSource.dll
+C:\Proyectos\AppOrdenes\Ordenes\OrdenesEspeciales\bin\Debug\CrystalDecisions.Shared.dll
+C:\Proyectos\AppOrdenes\Ordenes\OrdenesEspeciales\bin\Debug\CrystalDecisions.Web.dll
+C:\Proyectos\AppOrdenes\Ordenes\OrdenesEspeciales\bin\Debug\CrystalDecisions.Windows.Forms.dll
+C:\Proyectos\AppOrdenes\Ordenes\OrdenesEspeciales\bin\Debug\itext.barcodes.dll
+C:\Proyectos\AppOrdenes\Ordenes\OrdenesEspeciales\bin\Debug\itext.bouncy-castle-connector.dll
+C:\Proyectos\AppOrdenes\Ordenes\OrdenesEspeciales\bin\Debug\itext.commons.dll
+C:\Proyectos\AppOrdenes\Ordenes\OrdenesEspeciales\bin\Debug\itext.forms.dll
+C:\Proyectos\AppOrdenes\Ordenes\OrdenesEspeciales\bin\Debug\itext.io.dll
+C:\Proyectos\AppOrdenes\Ordenes\OrdenesEspeciales\bin\Debug\itext.kernel.dll
+C:\Proyectos\AppOrdenes\Ordenes\OrdenesEspeciales\bin\Debug\itext.layout.dll
+C:\Proyectos\AppOrdenes\Ordenes\OrdenesEspeciales\bin\Debug\itext.pdfa.dll
+C:\Proyectos\AppOrdenes\Ordenes\OrdenesEspeciales\bin\Debug\itext.pdfua.dll
+C:\Proyectos\AppOrdenes\Ordenes\OrdenesEspeciales\bin\Debug\itext.sign.dll
+C:\Proyectos\AppOrdenes\Ordenes\OrdenesEspeciales\bin\Debug\itext.styledxmlparser.dll
+C:\Proyectos\AppOrdenes\Ordenes\OrdenesEspeciales\bin\Debug\itext.svg.dll
+C:\Proyectos\AppOrdenes\Ordenes\OrdenesEspeciales\bin\Debug\itextsharp.dll
+C:\Proyectos\AppOrdenes\Ordenes\OrdenesEspeciales\bin\Debug\itextsharp.xmlworker.dll
+C:\Proyectos\AppOrdenes\Ordenes\OrdenesEspeciales\bin\Debug\MainSoftLib.BarCode.dll
+C:\Proyectos\AppOrdenes\Ordenes\OrdenesEspeciales\bin\Debug\MainSoftLib.Pdf.dll
+C:\Proyectos\AppOrdenes\Ordenes\OrdenesEspeciales\bin\Debug\Microsoft.Bcl.AsyncInterfaces.dll
+C:\Proyectos\AppOrdenes\Ordenes\OrdenesEspeciales\bin\Debug\Microsoft.Extensions.DependencyInjection.Abstractions.dll
+C:\Proyectos\AppOrdenes\Ordenes\OrdenesEspeciales\bin\Debug\Microsoft.Extensions.DependencyInjection.dll
+C:\Proyectos\AppOrdenes\Ordenes\OrdenesEspeciales\bin\Debug\Microsoft.Extensions.Logging.Abstractions.dll
+C:\Proyectos\AppOrdenes\Ordenes\OrdenesEspeciales\bin\Debug\Microsoft.Extensions.Logging.dll
+C:\Proyectos\AppOrdenes\Ordenes\OrdenesEspeciales\bin\Debug\Microsoft.Extensions.Options.dll
+C:\Proyectos\AppOrdenes\Ordenes\OrdenesEspeciales\bin\Debug\Microsoft.Extensions.Primitives.dll
+C:\Proyectos\AppOrdenes\Ordenes\OrdenesEspeciales\bin\Debug\Microsoft.SqlServer.Types.dll
+C:\Proyectos\AppOrdenes\Ordenes\OrdenesEspeciales\bin\Debug\Newtonsoft.Json.dll
+C:\Proyectos\AppOrdenes\Ordenes\OrdenesEspeciales\bin\Debug\SkiaSharp.dll
+C:\Proyectos\AppOrdenes\Ordenes\OrdenesEspeciales\bin\Debug\System.Buffers.dll
+C:\Proyectos\AppOrdenes\Ordenes\OrdenesEspeciales\bin\Debug\System.Diagnostics.DiagnosticSource.dll
+C:\Proyectos\AppOrdenes\Ordenes\OrdenesEspeciales\bin\Debug\System.Memory.dll
+C:\Proyectos\AppOrdenes\Ordenes\OrdenesEspeciales\bin\Debug\System.Numerics.Vectors.dll
+C:\Proyectos\AppOrdenes\Ordenes\OrdenesEspeciales\bin\Debug\System.Resources.Extensions.dll
+C:\Proyectos\AppOrdenes\Ordenes\OrdenesEspeciales\bin\Debug\System.Runtime.CompilerServices.Unsafe.dll
+C:\Proyectos\AppOrdenes\Ordenes\OrdenesEspeciales\bin\Debug\System.Text.Encodings.Web.dll
+C:\Proyectos\AppOrdenes\Ordenes\OrdenesEspeciales\bin\Debug\System.Text.Json.dll
+C:\Proyectos\AppOrdenes\Ordenes\OrdenesEspeciales\bin\Debug\System.Threading.Tasks.Extensions.dll
+C:\Proyectos\AppOrdenes\Ordenes\OrdenesEspeciales\bin\Debug\System.ValueTuple.dll
+C:\Proyectos\AppOrdenes\Ordenes\OrdenesEspeciales\bin\Debug\zxing.dll
+C:\Proyectos\AppOrdenes\Ordenes\OrdenesEspeciales\bin\Debug\zxing.presentation.dll
+C:\Proyectos\AppOrdenes\Ordenes\OrdenesEspeciales\bin\Debug\CrystalDecisions.ReportAppServer.ReportDefModel.dll
+C:\Proyectos\AppOrdenes\Ordenes\OrdenesEspeciales\bin\Debug\CrystalDecisions.ReportAppServer.CommLayer.dll
+C:\Proyectos\AppOrdenes\Ordenes\OrdenesEspeciales\bin\Debug\CrystalDecisions.ReportAppServer.DataSetConversion.dll
+C:\Proyectos\AppOrdenes\Ordenes\OrdenesEspeciales\bin\Debug\CrystalDecisions.ReportAppServer.Prompting.dll
+C:\Proyectos\AppOrdenes\Ordenes\OrdenesEspeciales\bin\Debug\CrystalDecisions.ReportAppServer.XmlSerialize.dll
+C:\Proyectos\AppOrdenes\Ordenes\OrdenesEspeciales\bin\Debug\CrystalDecisions.ReportAppServer.CubeDefModel.dll
+C:\Proyectos\AppOrdenes\Ordenes\OrdenesEspeciales\bin\Debug\CrystalDecisions.ReportAppServer.CommonObjectModel.dll
+C:\Proyectos\AppOrdenes\Ordenes\OrdenesEspeciales\bin\Debug\CrystalDecisions.ReportAppServer.ObjectFactory.dll
+C:\Proyectos\AppOrdenes\Ordenes\OrdenesEspeciales\bin\Debug\itext.barcodes.xml
+C:\Proyectos\AppOrdenes\Ordenes\OrdenesEspeciales\bin\Debug\itext.bouncy-castle-connector.xml
+C:\Proyectos\AppOrdenes\Ordenes\OrdenesEspeciales\bin\Debug\itext.commons.xml
+C:\Proyectos\AppOrdenes\Ordenes\OrdenesEspeciales\bin\Debug\itext.forms.xml
+C:\Proyectos\AppOrdenes\Ordenes\OrdenesEspeciales\bin\Debug\itext.io.xml
+C:\Proyectos\AppOrdenes\Ordenes\OrdenesEspeciales\bin\Debug\itext.kernel.xml
+C:\Proyectos\AppOrdenes\Ordenes\OrdenesEspeciales\bin\Debug\itext.layout.xml
+C:\Proyectos\AppOrdenes\Ordenes\OrdenesEspeciales\bin\Debug\itext.pdfa.xml
+C:\Proyectos\AppOrdenes\Ordenes\OrdenesEspeciales\bin\Debug\itext.pdfua.xml
+C:\Proyectos\AppOrdenes\Ordenes\OrdenesEspeciales\bin\Debug\itext.sign.xml
+C:\Proyectos\AppOrdenes\Ordenes\OrdenesEspeciales\bin\Debug\itext.styledxmlparser.xml
+C:\Proyectos\AppOrdenes\Ordenes\OrdenesEspeciales\bin\Debug\itext.svg.xml
+C:\Proyectos\AppOrdenes\Ordenes\OrdenesEspeciales\bin\Debug\itextsharp.xml
+C:\Proyectos\AppOrdenes\Ordenes\OrdenesEspeciales\bin\Debug\Microsoft.Bcl.AsyncInterfaces.xml
+C:\Proyectos\AppOrdenes\Ordenes\OrdenesEspeciales\bin\Debug\Microsoft.Extensions.DependencyInjection.xml
+C:\Proyectos\AppOrdenes\Ordenes\OrdenesEspeciales\bin\Debug\Microsoft.Extensions.DependencyInjection.Abstractions.xml
+C:\Proyectos\AppOrdenes\Ordenes\OrdenesEspeciales\bin\Debug\Microsoft.Extensions.Logging.xml
+C:\Proyectos\AppOrdenes\Ordenes\OrdenesEspeciales\bin\Debug\Microsoft.Extensions.Logging.Abstractions.xml
+C:\Proyectos\AppOrdenes\Ordenes\OrdenesEspeciales\bin\Debug\Microsoft.Extensions.Options.xml
+C:\Proyectos\AppOrdenes\Ordenes\OrdenesEspeciales\bin\Debug\Microsoft.Extensions.Primitives.xml
+C:\Proyectos\AppOrdenes\Ordenes\OrdenesEspeciales\bin\Debug\Newtonsoft.Json.xml
+C:\Proyectos\AppOrdenes\Ordenes\OrdenesEspeciales\bin\Debug\SkiaSharp.pdb
+C:\Proyectos\AppOrdenes\Ordenes\OrdenesEspeciales\bin\Debug\SkiaSharp.xml
+C:\Proyectos\AppOrdenes\Ordenes\OrdenesEspeciales\bin\Debug\System.Buffers.xml
+C:\Proyectos\AppOrdenes\Ordenes\OrdenesEspeciales\bin\Debug\System.Diagnostics.DiagnosticSource.xml
+C:\Proyectos\AppOrdenes\Ordenes\OrdenesEspeciales\bin\Debug\System.Memory.xml
+C:\Proyectos\AppOrdenes\Ordenes\OrdenesEspeciales\bin\Debug\System.Numerics.Vectors.xml
+C:\Proyectos\AppOrdenes\Ordenes\OrdenesEspeciales\bin\Debug\System.Resources.Extensions.xml
+C:\Proyectos\AppOrdenes\Ordenes\OrdenesEspeciales\bin\Debug\System.Runtime.CompilerServices.Unsafe.xml
+C:\Proyectos\AppOrdenes\Ordenes\OrdenesEspeciales\bin\Debug\System.Text.Encodings.Web.xml
+C:\Proyectos\AppOrdenes\Ordenes\OrdenesEspeciales\bin\Debug\System.Text.Json.xml
+C:\Proyectos\AppOrdenes\Ordenes\OrdenesEspeciales\bin\Debug\System.Threading.Tasks.Extensions.xml
+C:\Proyectos\AppOrdenes\Ordenes\OrdenesEspeciales\bin\Debug\System.ValueTuple.xml
+C:\Proyectos\AppOrdenes\Ordenes\OrdenesEspeciales\bin\Debug\zxing.xml
+C:\Proyectos\AppOrdenes\Ordenes\OrdenesEspeciales\bin\Debug\zxing.presentation.xml
+C:\Proyectos\AppOrdenes\Ordenes\OrdenesEspeciales\bin\Debug\Interop.CrystalPrintControlLib.dll
+C:\Proyectos\AppOrdenes\Ordenes\OrdenesEspeciales\bin\Debug\AxInterop.CrystalPrintControlLib.dll
+C:\Proyectos\AppOrdenes\Ordenes\OrdenesEspeciales\obj\Debug\OrdenesEspeciales.TrustInfo.xml
+C:\Proyectos\AppOrdenes\Ordenes\OrdenesEspeciales\obj\Debug\OrdenesEspeciales.exe.manifest
+C:\Proyectos\AppOrdenes\Ordenes\OrdenesEspeciales\obj\Debug\OrdenesEspeciales.application
+C:\Proyectos\AppOrdenes\Ordenes\OrdenesEspeciales\obj\Debug\OrdenesE.B2577B66.Up2Date
+C:\Proyectos\AppOrdenes\Ordenes\OrdenesEspeciales\obj\Debug\OrdenesEspeciales.exe
+C:\Proyectos\AppOrdenes\Ordenes\OrdenesEspeciales\obj\Debug\OrdenesEspeciales.pdb
